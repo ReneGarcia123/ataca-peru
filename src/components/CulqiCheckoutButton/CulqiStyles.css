@@ -1,0 +1,31 @@
+/* --- Variables para el Modal de Culqi --- */
+:root {
+  --culqi-font: 'Inter', sans-serif;
+  --culqi-primary: #ff5a5f;
+  --culqi-bg: #ffffff;
+  --culqi-text: #484848;
+  --culqi-radius: 8px;
+}
+
+/* --- Estilos botón --- */
+.btn-culqi-custom {
+  background-color: var(--culqi-primary);
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: var(--culqi-radius);
+  font-family: var(--culqi-font);
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  width: 100%;
+}
+
+.btn-culqi-custom:hover {
+  opacity: 0.9;
+}
+
+.btn-culqi-custom:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
