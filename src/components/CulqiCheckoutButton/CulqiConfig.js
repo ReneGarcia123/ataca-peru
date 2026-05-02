@@ -1,5 +1,5 @@
-export const CULQI_PUBLIC_KEY = "pk_test_twfidKTLo1E3pvCj";
-
+export const CULQI_PUBLIC_KEY = process.env.REACT_APP_CULQI_PUBLIC_KEY;
+console.log("Culqi Public Key:", CULQI_PUBLIC_KEY);
 export const GLOBAL_CONFIG = {
   // Configuración UI Global
   appearance: {
