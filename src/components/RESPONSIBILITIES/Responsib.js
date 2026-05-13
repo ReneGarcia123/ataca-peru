@@ -1,7 +1,7 @@
 import React from "react";
 import "./Responsib.css";
 
-const Responsib = ({titulo, items }) => {
+const Responsib = ({titulo, items, onButtonClick }) => {
   return (
     <section className="programs-section">
       {/* Título cambiado */}
@@ -18,15 +18,13 @@ const Responsib = ({titulo, items }) => {
             <div className="program-content">
               <h3>{item.title}</h3>
               <p>{item.desc}</p>
-
-              <a
-                href={item.link}
-                target="_blank"
-                rel="noopener noreferrer"
+            
+              <button
                 className="program-btn"
+                onClick={() => onButtonClick(item)}
               >
                 {item.btnText}
-              </a>
+              </button>
             </div>
           </div>
         ))}
