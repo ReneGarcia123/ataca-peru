@@ -14,6 +14,7 @@ import Mapping from '../components/MAPPING/Mapping';
 import Responsib from '../components/RESPONSIBILITIES/Responsib';
 import { useState } from "react";
 import Modal from '../components/MODAL/Modal';
+import emailjs from '@emailjs/browser';
 
 export default function Chiguata() {
   /*Estado para controlar el grupo seleccionado en el formulario de inscripción */
@@ -43,6 +44,58 @@ export default function Chiguata() {
   /* Estado para controlar el modal y el ítem seleccionado */
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
+
+  /*Función para enviar correo con los datos del formulario usando EmailJS */
+  const enviarCorreo = () => {
+    setEnviando(true);
+    const templateParams = {
+        nombre,
+        apellidos,
+        dni,
+        correo,
+        telefono,
+        genero,
+        fechaNacimiento,
+
+        grupo:
+          grupo === "otro"
+          ? otroEquipo
+          : grupo,
+
+        talla,
+
+      };
+
+      emailjs.send(
+        "service_gi2cwnf",
+        "template_01qt16e",
+        templateParams,
+        "3ElF522uPVPnXza99"
+      )
+
+      .then(() => {
+
+        alert("Tu inscripción ha sido enviada con éxito");
+
+        setModalOpen(false);
+
+        window.location.reload();
+
+      })
+
+      .catch((error) => {
+
+        setEnviando(false);
+
+        console.log(error);
+
+        alert("Error al enviar correo");
+
+      });
+  };
+
+  /*Estado de carga de envío de correo*/
+  const [enviando, setEnviando] = useState(false);
 
   /*Items de tipo de inscripción*/
   const items_inscripcion = [
@@ -170,6 +223,25 @@ export default function Chiguata() {
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
       >
+        {
+          enviando && (
+
+            <div className="loading-overlay">
+
+              <div className="loading-box">
+
+                <div className="spinner"></div>
+
+                <p>
+                  Enviando inscripción...
+                </p>
+
+              </div>
+
+            </div>
+
+          )
+        }
         <div className="modal-line"></div>
 
         <h1>
@@ -466,10 +538,15 @@ export default function Chiguata() {
           <button
             type="button"
             className="submit-btn"
+            onClick={enviarCorreo}
+            disabled={enviando}
           >
-            Enviar inscripción
+            {
+              enviando
+              ? "Enviando inscripción..."
+              : "Enviar inscripción"
+            }
           </button>
-
       </div>
       )}
 
