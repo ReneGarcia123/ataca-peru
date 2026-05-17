@@ -1,0 +1,591 @@
+/* Overlay */
+
+.custom-overlay {
+
+  position: fixed;
+
+  inset: 0;
+
+  background: rgba(0,0,0,0.55);
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: flex-start;
+
+  padding-top: 120px;
+
+  padding-left: 20px;
+  padding-right: 20px;
+
+  z-index: 9999;
+
+  overflow-y: auto;
+}
+
+/* Modal */
+
+.custom-modal {
+
+  position: relative;
+
+  width: 100%;
+  max-width: 720px;
+
+  background-color: #ffffff;
+
+  border: 1px solid #e5e5e5;
+
+  border-radius: 10px;
+
+  padding: 55px 65px;
+
+  box-shadow:
+    0 15px 45px rgba(0,0,0,0.25);
+
+  animation: modalFade .25s ease;
+}
+.inscripcion-form {
+
+  width: 100%;
+  max-width: 560px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 18px;
+
+  margin: 25px auto 0;
+}
+
+.inscripcion-form input,
+.inscripcion-form select {
+
+  width: 100%;
+
+  padding: 14px 16px;
+
+  border: 1px solid #dcdcdc;
+
+  border-radius: 10px;
+
+  font-size: 1rem;
+
+  outline: none;
+
+  transition: .2s;
+}
+
+.inscripcion-form input:focus,
+.inscripcion-form select:focus {
+
+  border-color: #2f4f74;
+
+  box-shadow:
+    0 0 0 3px rgba(47,79,116,0.15);
+}
+
+/* Radios */
+
+.radio-group {
+
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 20px;
+
+  flex-wrap: wrap;
+}
+
+.radio-group label {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  font-size: 1rem;
+
+  cursor: pointer;
+}
+
+/* Botón */
+
+.inscripcion-form button {
+
+  margin-top: 10px;
+
+  padding: 15px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: #2f4f74;
+
+  color: white;
+
+  font-size: 1rem;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: .2s;
+}
+
+.inscripcion-form button:hover {
+
+  background: #243d59;
+
+  transform: translateY(-2px);
+}
+
+/* Animación */
+
+@keyframes modalFade {
+
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+/* Botón cerrar */
+
+.modal-close {
+
+  position: absolute;
+
+  top: -18px;
+  right: -18px;
+
+  width: 52px;
+  height: 52px;
+
+  border: none;
+
+  border-radius: 14px;
+
+  background: #2f4f74;
+
+  color: white;
+
+  font-size: 1.8rem;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow:
+    0 5px 20px rgba(0,0,0,0.25);
+
+  transition: .2s;
+}
+
+.modal-close:hover {
+
+  transform: scale(1.05);
+
+  background: #243d59;
+}
+
+/* Contenido */
+
+.custom-modal-content {
+
+  width: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  text-align: center;
+
+  padding: 30px 15px;
+}
+
+/* Scroll bloqueado */
+
+.modal-open {
+  overflow: hidden;
+}
+
+.form-label {
+  width: 100%;
+
+  text-align: left;
+
+  font-weight: 600;
+
+  color: #333;
+
+  font-size: 1rem;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+.custom-overlay {
+
+    padding-top: 55px;
+
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .custom-modal {
+
+    width: 100%;
+
+    padding:
+      28px
+      18px
+      24px;
+
+    border-radius: 14px;
+  }
+
+  /* Título */
+
+  .custom-modal-content h1 {
+
+    font-size: 2rem;
+
+    margin-bottom: 20px;
+
+    padding-right: 35px;
+  }
+
+  /* Botón cerrar */
+
+  .modal-close {
+
+    width: 42px;
+    height: 42px;
+
+    top: -10px;
+    right: -10px;
+
+    font-size: 1.3rem;
+
+    border-radius: 12px;
+  }
+
+  /* Formulario */
+
+  .inscripcion-form {
+
+    gap: 14px;
+  }
+
+  .inscripcion-form input,
+  .inscripcion-form select {
+
+    padding: 13px 14px;
+
+    font-size: .95rem;
+  }
+
+  /* Radios */
+
+  .radio-group {
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    text-align: center;
+  }
+
+  .radio-title {
+
+    width: 100%;
+  }
+
+  /* Botón */
+
+  .inscripcion-form button {
+
+    padding: 14px;
+
+    font-size: 1rem;
+  }
+
+}
+
+
+.checkbox-step {
+
+  width: 100%;
+
+  max-width: 560px;
+
+  margin-top: 25px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 20px;
+}
+
+.checkbox-step h2 {
+
+  text-align: center;
+
+  margin-bottom: 10px;
+}
+
+.checkbox-item {
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 12px;
+
+  line-height: 1.6;
+}
+
+.checkbox-step button {
+
+  margin-top: 10px;
+
+  padding: 15px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: #2f4f74;
+
+  color: white;
+
+  font-size: 1rem;
+
+  cursor: pointer;
+
+  transition: .2s;
+}
+
+.checkbox-step button:hover {
+
+  background: #243d59;
+}
+.checkbox-step button:disabled {
+
+  background: #b8b8b8;
+
+  cursor: not-allowed;
+
+  transform: none;
+
+  opacity: .7;
+}
+
+.welcome-photo {
+
+  width: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+.welcome-photo input[type="file"] {
+
+  width: 100%;
+
+  padding: 12px;
+
+  border: 1px dashed #c7c7c7;
+
+  border-radius: 10px;
+
+  background: #fafafa;
+
+  cursor: pointer;
+}
+
+.resume-step {
+
+  width: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 18px;
+}
+
+.resume-item {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+
+  padding: 14px;
+
+  border-radius: 10px;
+
+  background: #f7f7f7;
+}
+
+.resume-item strong {
+
+  color: #1f2e3d;
+}
+
+.resume-photo {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 15px;
+}
+
+.resume-photo img {
+
+  width: 100%;
+
+  max-width: 300px;
+
+  border-radius: 12px;
+
+  object-fit: cover;
+
+  margin: 0 auto;
+}
+
+.submit-btn {
+
+  width: 100%;
+
+  padding: 16px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background: #2f4f74;
+
+  color: white;
+
+  font-size: 1rem;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: .25s;
+
+  margin-top: 10px;
+}
+
+.submit-btn:hover {
+
+  background: #243d59;
+
+  transform: translateY(-2px);
+}
+
+.submit-btn:disabled {
+
+  opacity: .6;
+
+  cursor: not-allowed;
+
+  transform: none;
+}
+
+/* Loading overlay */
+
+.loading-overlay {
+
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0,0,0,0.65);
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  z-index: 99999;
+}
+
+/* Caja */
+
+.loading-box {
+
+  background: white;
+
+  padding: 35px 45px;
+
+  border-radius: 14px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 18px;
+
+  box-shadow:
+    0 10px 35px rgba(0,0,0,0.25);
+}
+
+/* Spinner */
+
+.spinner {
+
+  width: 55px;
+  height: 55px;
+
+  border: 5px solid #d8d8d8;
+
+  border-top: 5px solid #2f4f74;
+
+  border-radius: 50%;
+
+  animation: spin .9s linear infinite;
+}
+
+@keyframes spin {
+
+  to {
+    transform: rotate(360deg);
+  }
+
+}

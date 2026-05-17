@@ -11,9 +11,9 @@ export default function Home() {
     <div>
       <Carrousel />
       <Countdown 
-        targetDate="2026-03-29T09:00:00" 
-        titulo="ATACA PERU - CULQUI TEST" 
-        descripcion="Chiguata Epic - 29 de marzo 2026"
+        targetDate="2026-06-28T09:00:00" 
+        titulo="TRAIL DEL PESCADOR 10K" 
+        descripcion="¡Más fuerte que el cansancio! Carrera de Trail en la playa de Los Órganos - Piura"
        />
       <Events />
       <Sponsors />

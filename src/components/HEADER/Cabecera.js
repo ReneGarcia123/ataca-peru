@@ -42,9 +42,9 @@ function Header() {
 
           <ul id="nav-links" className={`nav-links ${abierto ? "active" : ""}`}>
             <li><Link to="/">Inicio</Link></li>
-            <li><Link to="/nosotros">Nosotros</Link></li>
-            <li><Link to="/eventos">Competencias</Link></li>
-            <li><Link to="/contactos">Contactos</Link></li>
+            <li><Link to="/">Nosotros</Link></li>
+            <li><Link to="/">Competencias</Link></li>
+            <li><Link to="/">Contactos</Link></li>
           </ul>
         </div>
       </nav>

@@ -9,8 +9,9 @@ import { Autoplay, Pagination, Navigation, EffectFade } from 'swiper/modules'; /
 
 export const Carrousel = () => {
   const images = [
-    '/images/SLIDERS/1.png',
-    '/images/SLIDERS/2.png',
+    'https://atacaperu.com/wp-content/uploads/2026/05/IMG_5386.avif',
+    'https://atacaperu.com/wp-content/uploads/2026/05/El-desierto.avif',
+    'https://atacaperu.com/wp-content/uploads/2026/05/bomberos.avif',
     '/images/SLIDERS/3.png'
   ];
 

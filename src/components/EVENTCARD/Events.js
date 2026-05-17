@@ -4,38 +4,48 @@ import './Events.css';
 const eventos = [
   {
     id: 1,
-    titulo: "LSL-MTB 2026 PRIMERA SERIE: CHIGUATA EPIC",
-    fecha: "29 de marzo 2026",
-    lugar: "Chiguata, Arequipa, Perú",
-    descripcion: "Competencia pedestre organizada por AFABPERU.",
-    enlace: "/chiguata",
-    imagen: "https://atacaperu.com/wp-content/uploads/2025/12/WhatsApp-Image-2025-12-23-at-2.50.59-PM.avif" // ejemplo: corredores
+    titulo: "TRAIL DEL PESCADOR 10K 2026 - PRIMERA EDICIÓN",
+    fecha: "28 de junio 2026",
+    lugar: "Playa de Los Órganos, Piura, Perú",
+    descripcion: "¡Más fuerte que el cansancio! Carrera de Trail Running la playa de Los Órganos - Piura",
+    enlace: "/TRAIL_DEL_PESCADOR",
+    imagen: "https://atacaperu.com/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-05-at-11.34.23-AM.avif"
   },
   {
     id: 2,
-    titulo: "TRIATLÓN CROSS LOS ORGANOS 2026",
-    fecha: "04 de abril 2026",
-    lugar: "Los Órganos, Piura, Perú",
-    descripcion: "Evento oficial de atletismo con categorías juveniles y mayores.",
+    titulo: "AQP TRAIL RUNNING 2026 - SEGUNDA SERIE: EL DESIERTO DE LA JOYA ",
+    fecha: "05 de julio 2026",
+    lugar: "La Joya, Arequipa, Perú",
+    descripcion: "¡Más allá de tus límites! Carrera de Trail Running en el desierto de La Joya - Arequipa",
     enlace: "/triatlon",
-    imagen: "https://atacaperu.com/wp-content/uploads/2025/12/cuadraditro.jpeg" // ejemplo: pista atlética
+    imagen: "https://atacaperu.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-22-at-6.17.48-PM.avif"
   },
   {
     id: 3,
-    titulo: "AQP TRAIL RUNNING 2026: LA RUTA DEL SILLAR ",
-    fecha: "03 de mayo 2026",
-    lugar: "Tiabaya, Arequipa, Perú",
-    descripcion: "Encuentro deportivo para colegios de distintas regiones.",
+    titulo: "CARRERA SOLIDARIA 6K: ALDEAS INFANTILES 2026 - TERCERA EDICIÓN",
+    fecha: "12 de julio 2026",
+    lugar: "Cerro Colorado, Arequipa, Perú",
+    descripcion: "Arequipa corre por una infancia feliz. Carrera solidaria a beneficio de Aldeas Infantiles - Arequipa",
     enlace: "/aqp_trail_sillar",
-    imagen: "https://atacaperu.com/wp-content/uploads/2025/12/WhatsApp-Image-2025-12-28-at-8.34.08-PM-1.jpeg" // ejemplo: grupo corriendo
+    imagen: "https://atacaperu.com/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-15-at-1.10.27-PM.avif" 
   },
 
   {
     id: 4,
+    titulo: "CORRE CON LOS BOMBEROS 5K 2026 - CUARTA EDICIÓN",
+    fecha: "06 de septiembre 2026",
+    lugar: "Arequipa, Arequipa, Perú",
+    descripcion: "Corre con los Bomberos, en esta carrera de apoyo a nuestros héroes de la ",
+    enlace: "/utcc",
+    imagen: "https://atacaperu.com/wp-content/uploads/2026/05/bobmeros-flyer.avif"
+  },
+  
+  {
+    id: 5,
     titulo: "ULTRA COLCA CANYON 2026",
     fecha: "07 y 08 de noviembre 2026",
     lugar: "Colca, Arequipa, Perú",
-    descripcion: "Encuentro deportivo para colegios de distintas regiones.",
+    descripcion: "¡Desafía el cañón más profundo del mundo! Carrera de Ultra Trail Running en el majestuoso Cañón del Colca - Arequipa",
     enlace: "/utcc",
     imagen: "https://atacaperu.com/wp-content/uploads/2026/01/cuadrado.avif"
   }
