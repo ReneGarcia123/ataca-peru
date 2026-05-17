@@ -18,19 +18,26 @@ import CulqiButton from '../components/CulqiCheckoutButton/CulqiButton';
 
 export default function TRAIL_DEL_PESCADOR() {
   const handleFinalResult = async(result) => {
-    if (result.success) {
-      // Redirigir a pantalla de éxito pasando datos si es necesario
-      //navigate();
+  if (result.success) {
+    setEnviando(true);
+    try {
       console.log("Pago exitoso:", result);
-      await guardarInscripcionGoogle(); // Guardar datos en Google Sheets
-      enviarCorreo(); // Enviar correo con los datos del formulario
-    } else {
-      console.log("Error en el pago");
-      //setStatus({ message: result.error, type: 'error' });
-      alert("El pago no se pudo procesar" +
-      (result.error ? ": " + result.error : ""));
+      await guardarInscripcionGoogle();
+      await enviarCorreo();
+    } catch (error) {
+      console.log(error);
+      alert("Hubo un problema al finalizar la inscripción");
+    } finally {
+      setEnviando(false);
     }
-  };
+  } else {
+    console.log("Error en el pago");
+    alert(
+      "El pago no se pudo procesar" +
+      (result.error ? ": " + result.error : "")
+    );
+  }
+};
 
   /*Estado para controlar el grupo seleccionado en el formulario de inscripción */
   const [grupo, setGrupo] = useState("ALPHA");
@@ -61,49 +68,37 @@ export default function TRAIL_DEL_PESCADOR() {
   const [selectedItem, setSelectedItem] = useState(null);
 
   /*Función para enviar correo con los datos del formulario usando EmailJS */
-  const enviarCorreo = () => {
-    setEnviando(true);
-    const templateParams = {
-        nombre,
-        apellidos,
-        dni,
-        correo,
-        telefono,
-        genero,
-        fechaNacimiento,
+ const enviarCorreo = async () => {
+  const templateParams = {
+    nombre,
+    apellidos,
+    dni,
+    correo,
+    telefono,
+    genero,
+    fechaNacimiento,
+    grupo:
+      grupo === "otro"
+      ? otroEquipo
+      : grupo,
 
-        grupo:
-          grupo === "otro"
-          ? otroEquipo
-          : grupo,
-        talla,
-      };
-
-      emailjs.send(
-        "service_gi2cwnf",
-        "template_01qt16e",
-        templateParams,
-        "3ElF522uPVPnXza99"
-      )
-
-      .then(() => {
-        setEnviando(false);
-
-        alert("Pago realizado e inscripción enviada correctamente");
-
-        setModalOpen(false);
-
-        window.location.reload();
-      })
-
-      .catch((error) => {
-        setEnviando(false);
-
-        console.log(error);
-
-        alert("El pago se realizó, pero hubo un error al enviar el correo");
-      });
+    talla,
   };
+  try {
+    await emailjs.send(
+      "service_gi2cwnf",
+      "template_01qt16e",
+      templateParams,
+      "3ElF522uPVPnXza99"
+    );
+    alert("Pago realizado e inscripción enviada correctamente");
+    setModalOpen(false);
+    window.location.reload();
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+};
 
   /*Guardar inscripción en google sheet, además de subir foto*/
   const guardarInscripcionGoogle = async () => {
