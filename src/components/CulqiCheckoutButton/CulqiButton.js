@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import CulqiCheckoutButton from './CulqiCheckoutButton';
 import { CULQI_PUBLIC_KEY, GLOBAL_CONFIG } from './CulqiConfig';
+import './CulqiStyles.css';
 
 const CulqiButton = ({ amount, formData, onResult, buttonText = "Pagar" }) => {
   const [isProcessing, setIsProcessing] = useState(false);

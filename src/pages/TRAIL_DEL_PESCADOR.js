@@ -17,14 +17,18 @@ import emailjs from '@emailjs/browser';
 import CulqiButton from '../components/CulqiCheckoutButton/CulqiButton';
 
 export default function TRAIL_DEL_PESCADOR() {
-  const handleFinalResult = (result) => {
+  const handleFinalResult = async(result) => {
     if (result.success) {
       // Redirigir a pantalla de éxito pasando datos si es necesario
       //navigate();
       console.log("Pago exitoso:", result);
+      await guardarInscripcionGoogle(); // Guardar datos en Google Sheets
+      enviarCorreo(); // Enviar correo con los datos del formulario
     } else {
       console.log("Error en el pago");
       //setStatus({ message: result.error, type: 'error' });
+      alert("El pago no se pudo procesar" +
+      (result.error ? ": " + result.error : ""));
     }
   };
 
@@ -83,17 +87,95 @@ export default function TRAIL_DEL_PESCADOR() {
       )
 
       .then(() => {
-        alert("Tu inscripción ha sido enviada con éxito");
+        setEnviando(false);
+
+        alert("Pago realizado e inscripción enviada correctamente");
+
         setModalOpen(false);
+
         window.location.reload();
       })
 
       .catch((error) => {
         setEnviando(false);
+
         console.log(error);
-        alert("Error al enviar correo");
+
+        alert("El pago se realizó, pero hubo un error al enviar el correo");
       });
   };
+
+  /*Guardar inscripción en google sheet, además de subir foto*/
+  const guardarInscripcionGoogle = async () => {
+
+  try {
+
+    let fotoBase64 = "";
+    let fotoMimeType = "";
+
+    // CONVERTIR FOTO A BASE64
+    if (fotoBienvenida) {
+
+      fotoMimeType = fotoBienvenida.type;
+
+      fotoBase64 = await new Promise((resolve, reject) => {
+
+        const reader = new FileReader();
+
+        reader.readAsDataURL(fotoBienvenida);
+
+        reader.onload = () => {
+
+          const base64 =
+            reader.result.split(",")[1];
+
+          resolve(base64);
+        };
+
+        reader.onerror = error => reject(error);
+      });
+    }
+
+    const payload = {
+      nombre,
+      apellidos,
+      dni,
+      correo,
+      telefono,
+      genero,
+      fechaNacimiento,
+
+      grupo:
+        grupo === "otro"
+        ? otroEquipo
+        : grupo,
+
+      talla,
+
+      fotoBase64,
+      fotoMimeType
+    };
+
+    const response = await fetch(
+      "https://script.google.com/macros/s/AKfycbx9m94caF6b9Bhw3ttQ396HpMNcYKqQCLT3VCSKj5YVRPiSN_wZL_AF-QMQb1foCGul/exec",
+      {
+        method: "POST",
+        body: JSON.stringify(payload)
+      }
+    );
+    const text = await response.text();
+
+    console.log(text);
+
+    const result = JSON.parse(text);
+
+    console.log("Google Sheets:", result);
+
+  } catch (error) {
+
+    console.log("Error Google Sheets:", error);
+  }
+};
 
   /*Estado de carga de envío de correo*/
   const [enviando, setEnviando] = useState(false);
@@ -521,20 +603,25 @@ export default function TRAIL_DEL_PESCADOR() {
           }
 
          <CulqiButton 
-          amount={600} // Monto en centavos (S/ 6.00)
+          amount={600}
+          disabled={enviando}
           formData={{
-            "nombre":nombre,
-            "apellido":apellidos,
-            "dni":dni,
-            "email":correo,
-            "telefono":telefono,
-            "genero":genero,
-            "fecha_nacimiento":fechaNacimiento,
-            "grupo":grupo === "otro" ? otroEquipo : grupo,
-            "talla":talla,
-          }} // Pasamos el JSON del formulario
+            nombre,
+            apellido: apellidos,
+            dni,
+            email: correo,
+            telefono,
+            genero,
+            fecha_nacimiento: fechaNacimiento,
+            grupo: grupo === "otro" ? otroEquipo : grupo,
+            talla,
+          }}
           onResult={handleFinalResult}
-          buttonText="PAGAR"
+          buttonText={
+            enviando
+            ? "ENVIANDO..."
+            : "PAGAR"
+          }
         />
       </div>
       )}
