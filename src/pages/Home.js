@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./Home.css";
 import Carrousel from "../components/CARROUSEL/Carrousel";
 import Events from "../components/EVENTCARD/Events";
 import Countdown from "../components/COUNTDOWN/Countdown";
 import Sponsors from "../components/SPONSORS/Sponsors";
+import CulqiButton from '../components/CulqiCheckoutButton/CulqiButton';
 
 export default function Home() {
   return (
