@@ -45,12 +45,10 @@ const CulqiButton = ({ amount, formData, onResult, buttonText = "Pagar" }) => {
     }
   };
 
-  console.log("REACT_APP_CULQI_PUBLIC_KEY");
-    console.log(process.env.REACT_APP_CULQI_PUBLIC_KEY);
   return (
     <CulqiCheckoutButton
       publicKey={CULQI_PUBLIC_KEY}
-      settings={{ title: "Registro", currency: "PEN", amount }}
+      settings={{ title: "Ataca Perú", currency: "PEN", amount }}
       appearance={GLOBAL_CONFIG.appearance}
       onSuccess={processPaymentWithAPI}
       onError={(err) => onResult({ success: false, error: err.user_message })}

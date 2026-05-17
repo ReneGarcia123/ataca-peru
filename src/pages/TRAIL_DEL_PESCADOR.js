@@ -519,27 +519,19 @@ export default function TRAIL_DEL_PESCADOR() {
               </div>
             )
           }
-          {/*}
-          <button
-            type="button"
-            className="submit-btn"
-            onClick={enviarCorreo}
-            disabled={enviando}
-
-          >
-            {
-              enviando
-              ? "Enviando inscripción..."
-              : "Enviar inscripción"
-            }
-         </button>*/}
 
          <CulqiButton 
           amount={600} // Monto en centavos (S/ 6.00)
           formData={{
-            "nombre":"John Doe",
-            "apellido":"Doe"
-
+            "nombre":nombre,
+            "apellido":apellidos,
+            "dni":dni,
+            "email":correo,
+            "telefono":telefono,
+            "genero":genero,
+            "fecha_nacimiento":fechaNacimiento,
+            "grupo":grupo === "otro" ? otroEquipo : grupo,
+            "talla":talla,
           }} // Pasamos el JSON del formulario
           onResult={handleFinalResult}
           buttonText="PAGAR"
