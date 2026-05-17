@@ -11,7 +11,7 @@ const CulqiButton = ({ amount, formData, onResult, buttonText = "Pagar" }) => {
     // Configuración del Timeout (10 segundos)
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 10000);
-
+        
     try {
       const payload = {
         token: culqiResponse.data.id,
@@ -45,6 +45,8 @@ const CulqiButton = ({ amount, formData, onResult, buttonText = "Pagar" }) => {
     }
   };
 
+  console.log("REACT_APP_CULQI_PUBLIC_KEY");
+    console.log(process.env.REACT_APP_CULQI_PUBLIC_KEY);
   return (
     <CulqiCheckoutButton
       publicKey={CULQI_PUBLIC_KEY}

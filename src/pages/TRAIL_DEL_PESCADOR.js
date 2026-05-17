@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, setStatus, status } from 'react';
 import EventBanner from '../components/EVENTBANNER/EventBanner';
 import Countdown from "../components/COUNTDOWN/Countdown";
 import HeroVideo from "../components/HEROVIDEO/HeroVideo";
@@ -12,11 +12,22 @@ import ButtonBases from '../components/ButtonBases/ButtonBases';
 import Carrusel2 from '../components/CARROUSEL2/Carrousel2';
 import Mapping from '../components/MAPPING/Mapping';
 import Responsib from '../components/RESPONSIBILITIES/Responsib';
-import { useState } from "react";
 import Modal from '../components/MODAL/Modal';
 import emailjs from '@emailjs/browser';
+import CulqiButton from '../components/CulqiCheckoutButton/CulqiButton';
 
 export default function TRAIL_DEL_PESCADOR() {
+  const handleFinalResult = (result) => {
+    if (result.success) {
+      // Redirigir a pantalla de éxito pasando datos si es necesario
+      //navigate();
+      console.log("Pago exitoso:", result);
+    } else {
+      console.log("Error en el pago");
+      //setStatus({ message: result.error, type: 'error' });
+    }
+  };
+
   /*Estado para controlar el grupo seleccionado en el formulario de inscripción */
   const [grupo, setGrupo] = useState("ALPHA");
 
@@ -508,19 +519,31 @@ export default function TRAIL_DEL_PESCADOR() {
               </div>
             )
           }
-
+          {/*}
           <button
             type="button"
             className="submit-btn"
             onClick={enviarCorreo}
             disabled={enviando}
+
           >
             {
               enviando
               ? "Enviando inscripción..."
               : "Enviar inscripción"
             }
-          </button>
+         </button>*/}
+
+         <CulqiButton 
+          amount={600} // Monto en centavos (S/ 6.00)
+          formData={{
+            "nombre":"John Doe",
+            "apellido":"Doe"
+
+          }} // Pasamos el JSON del formulario
+          onResult={handleFinalResult}
+          buttonText="PAGAR"
+        />
       </div>
       )}
 
