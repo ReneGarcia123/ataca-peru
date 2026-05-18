@@ -21,7 +21,7 @@
 /* Contenedor del mapa */
 .route-map {
   width: 100%;
-  height: 450px;
+  height: 100%;
 
   border-radius: 10px;
   overflow: hidden;
@@ -71,7 +71,7 @@
 /* Responsive */
 @media (max-width: 768px) {
   .route-map {
-    height: 300px;
+    height: 500px;
   }
 
   .route-title {
