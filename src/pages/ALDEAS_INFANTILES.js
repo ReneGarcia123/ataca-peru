@@ -1,8 +1,10 @@
-import React, { useState, setStatus, status } from 'react';
+import React, { useState } from 'react';
 import EventBanner from '../components/EVENTBANNER/EventBanner';
 import Countdown from "../components/COUNTDOWN/Countdown";
 import HeroVideo from "../components/HEROVIDEO/HeroVideo";
 import Categories from '../components/CATEGORIES/Categories';
+import { PiCertificateBold } from "react-icons/pi";
+import { FaRoadCircleCheck } from "react-icons/fa6";
 import { FaMedal} from "react-icons/fa";
 import { RiTeamFill } from "react-icons/ri";
 import { MdTimer } from "react-icons/md";
@@ -62,34 +64,64 @@ export default function ALDEAS_INFANTILES() {
 
     talla,
   };
-  try {
-    await emailjs.send(
+   try {
+
+    const response = await emailjs.send(
       "service_2govrnu",
       "template_s1pd1bx",
       templateParams,
       "PN9-V6us45efj9uL6"
     );
-    alert("Tu inscripción fue exitosa. Se envió un correo de confirmación al correo que ingresaste");
-    setModalOpen(false);
-    window.location.reload();
+
+    console.log("EMAILJS RESPONSE:", response);
+
+    return true;
+
   } catch (error) {
-    console.log(error);
-    throw error;
+
+    console.log("ERROR EMAILJS:", error);
+
+    return false;
   }
 };
 
 const finalizarInscripcion = async () => {
 
-  setEnviando(true);
+   setEnviando(true);
 
   try {
+
     await guardarInscripcionGoogle();
-    await enviarCorreo();
+
+    const correoEnviado = await enviarCorreo();
+
+    if (correoEnviado) {
+
+      window.alert(
+        "Tu inscripción fue exitosa. Se envió un correo de confirmación al correo que ingresaste"
+      );
+
+    } else {
+
+      window.alert(
+        "La inscripción se guardó correctamente, pero hubo un problema enviando el correo."
+      );
+    }
+
+    setModalOpen(false);
+
+    window.location.reload();
 
   } catch (error) {
+
     console.log(error);
-    alert("Hubo un problema al finalizar la inscripción");
+
+    window.alert(
+      "Hubo un problema al finalizar la inscripción"
+    );
+
   } finally {
+
     setEnviando(false);
   }
 };
@@ -246,29 +278,22 @@ const guardarInscripcionGoogle = async () => {
   };
 
   const items_responsib = [
-  {
-      img: "/images/RESPONSABILITIES/deslinde.jpg",
+    {
+      img: "https://atacaperu.com/wp-content/uploads/2026/05/aldeas-4.avif",
       title: "Deslinde de Responsabilidad",
-      desc: "Aceptación de riesgos y condiciones del evento.",
-      link: "https://atacaperu.com/wp-content/uploads/2025/02/DESLINDE-DE-RESPONSABILIDAD.pdf",
+      desc: "Aceptación de riesgos y condiciones del evento",
+      link: "https://atacaperu.com/wp-content/uploads/2026/05/DESLINDE-ALDEAS-INFANTILES-2026.pdf",
       btnText: "Ver documento",
     },
 
     {
-      img: "/images/RESPONSABILITIES/sensor.jpg",
-      title: "Dispositivo Sensor",
-      desc: "Uso correcto y responsabilidad del equipo.",
-      link: "https://atacaperu.com/wp-content/uploads/2025/02/RESPONSABILIDAD-SENSOR.pdf",
+      img: "https://atacaperu.com/wp-content/uploads/2026/05/aldeas3.avif",
+      title: "Autorización de menores de edad",
+      desc: "Permiso para que menores de edad participen en el evento.",
+      link: "https://atacaperu.com/wp-content/uploads/2026/05/ALDEAS-INFANTILES-AUTORIZACION-MENORES.pdf",
       btnText: "Ver documento",
     },
 
-    {
-      img: "/images/RESPONSABILITIES/menor.jpg",
-      title: "Autorización de Menor",
-      desc: "Permiso para participación de menores.",
-      link: "https://atacaperu.com/wp-content/uploads/2025/12/Autorizacion-para-menor-delinde-responsabilidad-CHIGUATA-EPIC-2026.pdf",
-      btnText: "Ver documento",
-    },
   ];
 
   /*Carrusel 2 imagenes*/
@@ -288,55 +313,32 @@ const guardarInscripcionGoogle = async () => {
   const categorias = [
       "Varones y damas juveniles: de 15 a 17 años",
       "Varones y damas elite: de 18 a 34 años",
-      "Varones y damas juveniles: de 15 a 17 años",
-      "Damas Turismo: Open y Master"
+      "Varones y damas máster: de 35 a 49 años",
+      "Varones y damas súper máster: de 50 años a más"
   ];
 
-  const detalles = [
-    { label: "Fecha", value: "29 de marzo 2026" },
-    { label: "Lugar", value: "Playa los Órganos, Piura, Perú" },
-    { label: "Concentración", value: "07:30 AM" },
-    { label: "Partida", value: "08:00 AM" }
-  ];
-
-  
   const items = [
-    { icon: <RiTeamFill />, title: "Acumulativo", text: "Puntaje grupal acumulativo" },
-    { icon: <FaMedal />, title: "Premios", text: "Reconocimientos a los ganadores de cada categoría" },
+    { icon: <FaRoadCircleCheck/>, title: "Cierre de vías", text: "Para garantizar la seguridad de los participantes" },
+    { icon: <FaMedal />, title: "Medalla Finisher", text: "Para todos los participantes que completan la carrera" },
     { icon: <MdTimer />, title: "Cronometrado", text: "Tiempo cronometrado elctrónicamente" },
-    { icon: <GiTrophyCup />, title: "Grupos", text: "Premio en efectivo a los primeros tres equipos" },
+    { icon: <PiCertificateBold  />, title: "Premios", text: "Regalos y premios para los primeros puestos de cada categoría" },
   ];
-
-  /*Solo activar para ver por consola, prueba*/
-  console.log({
-    nombre,
-    apellidos,
-    dni,
-    correo,
-    telefono,
-    genero,
-    fechaNacimiento,
-    grupo,
-    otroEquipo,
-    talla,
-    fotoBienvenida
-  });
 
   return (
      <>
       <HeroVideo
-        descripcion="El evento de trail running más esperado del año llega a la costa norte de Perú. Prepárate para vivir una experiencia única entre el mar, la arena y la fuerza del norte. ¡Corre donde el mar y la arena desafían tus límites!"
-        video="https://atacaperu.com/wp-content/uploads/2026/05/YTDown_YouTube_Correr-por-la-playa-Costa-Runner-No-Copy_Media_bSxZn9gOTlA_001_720p.mp4"
-        imagen="/images/LSL MTB CHIGUATA.png"   
+        descripcion="“Arequipa Corre por una Infancia Feliz” es más que una carrera: es una oportunidad para unir deporte, solidaridad y esperanza en favor de los niños, niñas y adolescentes de Aldeas Infantiles SOS"
+        video="https://atacaperu.com/wp-content/uploads/2026/05/VIDEO-CORTADO-ALDEAS-2026.mp4"
+        imagen="https://atacaperu.com/wp-content/uploads/2026/05/ATACA-ALDEAS.avif"   
         detalles={detalles_hero}
       />     
 
       <br />
 
       <Countdown
-        targetDate="2026-06-28T09:00:00"
-        titulo="CUENTA REGRESIVA PARA TRAIL DEL PESCADOR 10K"
-        descripcion="Prepárate para vivir una experiencia única entre el mar, la arena y la fuerza del norte"
+        targetDate="2026-07-12T09:00:00"
+        titulo="CUENTA REGRESIVA PARA: CORRE POR UNA INFANCIA FELIZ 6K"
+        descripcion="Unir deporte y solidaridad en una experiencia que inspire a la comunidad a participar activamente por una buena causa"
       />
 
       <Responsib titulo="INSCRIPCIONES" items={items_inscripcion} onButtonClick={abrirModal}/>
@@ -468,12 +470,54 @@ const guardarInscripcionGoogle = async () => {
               <option value="ALPHA">
                 ALPHA
               </option>
-              <option value="AFABP">
-                AFABP
+              <option value="LONCCOS RUNNING TEAM">
+                LONCCOS RUNNING TEAM
+              </option>
+              <option value="TAYGETOS">
+                TAYGETOS
+              </option>
+              <option value="RUNNATICOS">
+                RUNNATICOS
+              </option>
+              <option value="ALTURA">
+                ALTURA
+              </option>
+              <option value="CRAZY RUNNING">
+                CRAZY RUNNING
+              </option>
+              <option value="OPTICAS ZAVALA">
+                OPTICAS ZAVALA
+              </option>
+              <option value="PHYSCO RUNNERS">
+                PHYSCO RUNNERS
+              </option>
+              <option value="SAMURAI AQP">
+                SAMURAI AQP
+              </option>
+              <option value="ACADEMIA IPD">
+                ACADEMIA IPD
+              </option>
+              <option value="FUERZA AEREA DEL PERU">
+                FUERZA AEREA DEL PERU
+              </option>
+              <option value="CIMA RUNNER">
+                CIMA RUNNER
+              </option><option value="IMPERIO TRAIL RUNNING">
+                IMPERIO TRAIL RUNNING
+              </option>
+              <option value="TEAM CLARO">
+                TEAM CLARO
+              </option>
+              <option value="NG ATLETIC">
+                NG ATLETIC
+              </option>
+              <option value="LA RESISTENCIA">
+                LA RESISTENCIA
               </option>
               <option value="otro">
-                Otro equipo
+                OTRO EQUIPO
               </option>
+
             </select>
             {
               grupo === "otro" && (
@@ -526,7 +570,11 @@ const guardarInscripcionGoogle = async () => {
             <div className="welcome-photo">
               <span className="form-label">
                 <strong>
-                  Las inscripciones tendrán una donación de 40.00 soles
+                  Las inscripciones tendrán un costo de 40.00 soles
+                </strong>
+                <br />
+                <strong>
+                  Debe subir la captura de pago para finalizar su inscripción
                 </strong>
                 <br />
                 <strong>
@@ -535,7 +583,9 @@ const guardarInscripcionGoogle = async () => {
               </span>
 
               <span className="form-label">
-                Subir captura de pago (obligatorio):
+                <strong>
+                  Subir captura de pago (obligatorio):
+                </strong>
               </span>
 
               <input
@@ -714,20 +764,22 @@ const guardarInscripcionGoogle = async () => {
 
 
       <Categories
-        titulo="Más fuerte que el cansancio: Trail del Pescador 10K"
-        descripcion="Una ruta exigente, paisajes únicos y la mejor experiencia del ciclismo en Arequipa 🌄🔥
-                    Vive el ciclismo donde el camino es tuyo."
-        imagen="https://atacaperu.com/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-05-at-11.34.23-AM.avif"
+        titulo="Corre por una infancia llena de sonrisas"
+        descripcion="Más que una carrera, una causa que une deporte, solidaridad y esperanza. Cada paso ayuda a construir una infancia más feliz para quienes más lo necesitan."
+        imagen="https://atacaperu.com/wp-content/uploads/2026/05/aldeas2.avif"
         categorias={categorias}
         items={items}
       />
-      <ButtonBases url={"https://atacaperu.com/wp-content/uploads/2026/05/BASES-GENERALES-TRAIL-DEL-PESCADOR.pdf"}/>
+      <ButtonBases url={"https://atacaperu.com/wp-content/uploads/2026/05/BASES-ALDEAS-INFANTILES-2026.pdf"}/>
       <br />
       <br />
-      <br />
-      <Carrusel2 images={images_carrousel2} titulo="¿Qué incluye tu participación?" />
-      <Mapping titulo="Ruta TURISMO" stravaEmbedUrl="https://www.strava.com/activities/17373365056"/>
-      <Mapping titulo="Ruta PRO" stravaEmbedUrl="https://www.strava.com/activities/17373365056"/>
+      {/* <Carrusel2 images={images_carrousel2} titulo="¿Qué incluye tu participación?" /> */}
+      <Mapping
+        titulo="Recorrido de la carrera"
+        proximamente={true}
+        wikilocUrl="https://es.wikiloc.com/wikiloc/spatialArtifacts.do?event=view&id=24485554&measures=off&title=off"
+      />
+      
       <Responsib titulo="Responsabilidad y Autorizaciones" items={items_responsib} />
     </>
 

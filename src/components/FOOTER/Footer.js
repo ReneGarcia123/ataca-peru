@@ -74,7 +74,7 @@ export const Footer = () => {
           </p>
 
           <p>
-            📞 +51 999 999 999
+            📞 +51 941 656 379
           </p>
 
           <p>
@@ -91,11 +91,11 @@ export const Footer = () => {
           </h3>
 
           <p>
-            ATACA PERU SAC
+            ATACA PERU EIRL
           </p>
 
           <p>
-            RUC: 2060XXXXXXX
+            RUC: 20611990449
           </p>
 
           <p>
@@ -111,15 +111,15 @@ export const Footer = () => {
             Legal
           </h3>
 
-          <a href="/terminos-y-condiciones">
+          <a href="/">
             Términos y Condiciones
           </a>
 
-          <a href="/politica-de-privacidad">
+          <a href="/">
             Política de Privacidad
           </a>
 
-          <a href="/libro-de-reclamaciones">
+          <a href="/">
             Libro de Reclamaciones
           </a>
 

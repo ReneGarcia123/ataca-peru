@@ -9,7 +9,8 @@ const eventos = [
     lugar: "Playa de Los Órganos, Piura, Perú",
     descripcion: "¡Más fuerte que el cansancio! Carrera de Trail Running la playa de Los Órganos - Piura",
     enlace: "/TRAIL_DEL_PESCADOR",
-    imagen: "https://atacaperu.com/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-05-at-11.34.23-AM.avif"
+    imagen: "https://atacaperu.com/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-05-at-11.34.23-AM.avif",
+    disponible:false
   },
   {
     id: 2,
@@ -18,7 +19,8 @@ const eventos = [
     lugar: "La Joya, Arequipa, Perú",
     descripcion: "¡Más allá de tus límites! Carrera de Trail Running en el desierto de La Joya - Arequipa",
     enlace: "/triatlon",
-    imagen: "https://atacaperu.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-22-at-6.17.48-PM.avif"
+    imagen: "https://atacaperu.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-22-at-6.17.48-PM.avif",
+    disponible:false
   },
   {
     id: 3,
@@ -27,7 +29,8 @@ const eventos = [
     lugar: "Cerro Colorado, Arequipa, Perú",
     descripcion: "Arequipa corre por una infancia feliz. Carrera solidaria a beneficio de Aldeas Infantiles - Arequipa",
     enlace: "/aldeas_infantiles",
-    imagen: "https://atacaperu.com/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-15-at-1.10.27-PM.avif" 
+    imagen: "https://atacaperu.com/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-15-at-1.10.27-PM.avif",
+    disponible:true 
   },
 
   {
@@ -37,7 +40,8 @@ const eventos = [
     lugar: "Arequipa, Arequipa, Perú",
     descripcion: "Corre con los Bomberos, en esta carrera de apoyo a nuestros héroes de la ",
     enlace: "/utcc",
-    imagen: "https://atacaperu.com/wp-content/uploads/2026/05/bobmeros-flyer.avif"
+    imagen: "https://atacaperu.com/wp-content/uploads/2026/05/bobmeros-flyer.avif",
+    disponible:false
   },
   
   {
@@ -47,7 +51,8 @@ const eventos = [
     lugar: "Colca, Arequipa, Perú",
     descripcion: "¡Desafía el cañón más profundo del mundo! Carrera de Ultra Trail Running en el majestuoso Cañón del Colca - Arequipa",
     enlace: "/utcc",
-    imagen: "https://atacaperu.com/wp-content/uploads/2026/01/cuadrado.avif"
+    imagen: "https://atacaperu.com/wp-content/uploads/2026/01/cuadrado.avif",
+    disponible:false
   }
 ];
 
@@ -63,9 +68,25 @@ const Events = () => {
             <p><strong>Fecha:</strong> {evento.fecha}</p>
             <p><strong>Lugar:</strong> {evento.lugar}</p>
             <p>{evento.descripcion}</p>
-            <a href={evento.enlace} target="_blank" rel="noopener noreferrer">
-              Ver detalles e inscribirse
-            </a>
+            {
+              evento.disponible ? (
+
+                <a
+                  href={evento.enlace}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Ver detalles e inscribirse
+                </a>
+
+              ) : (
+
+                <button className="btn-proximamente">
+                  Próximamente
+                </button>
+
+              )
+            }
           </div>
         ))}
       </div>

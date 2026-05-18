@@ -21,7 +21,13 @@ const Responsib = ({titulo, items, onButtonClick }) => {
             
               <button
                 className="program-btn"
-                onClick={() => onButtonClick(item)}
+                onClick={() => {
+                  if (onButtonClick) {
+                    onButtonClick(item);
+                  } else if (item.link) {
+                    window.open(item.link, "_blank");
+                  }
+                }}
               >
                 {item.btnText}
               </button>
