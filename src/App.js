@@ -9,6 +9,7 @@ import AQP_TRAIL_SILLAR from './pages/AQP_TRAIL_SILLAR';
 import UTCC from './pages/UTCC';
 import RegistrationPage from './pages/RegistrationPage';
 import SuccessPage from './pages/SuccessPage';
+import ALDEAS_INFANTILES from './pages/ALDEAS_INFANTILES';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="triatlon" element={<Triatlon />} />
           <Route path="aqp_trail_sillar" element={<AQP_TRAIL_SILLAR />} />
           <Route path="utcc" element={<UTCC />} />
+          <Route path="aldeas_infantiles" element={<ALDEAS_INFANTILES />} />
           {/* Rutas de prueba (Eliminables)*/}
           <Route path="registration" element={<RegistrationPage />} />
           <Route path="success" element={<SuccessPage />} />

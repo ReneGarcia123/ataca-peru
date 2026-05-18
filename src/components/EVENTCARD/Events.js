@@ -26,7 +26,7 @@ const eventos = [
     fecha: "12 de julio 2026",
     lugar: "Cerro Colorado, Arequipa, Perú",
     descripcion: "Arequipa corre por una infancia feliz. Carrera solidaria a beneficio de Aldeas Infantiles - Arequipa",
-    enlace: "/aqp_trail_sillar",
+    enlace: "/aldeas_infantiles",
     imagen: "https://atacaperu.com/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-15-at-1.10.27-PM.avif" 
   },
 
