@@ -43,6 +43,37 @@ export default function ALDEAS_INFANTILES() {
   const [responsabilidad_sensor, setResponsabilidadSensor] = useState(false);
   const[datos_correctos, setDatosCorrectos] = useState(false);
 
+  /*Al cerrar poner todo en su estado inicial */
+  const resetFormulario = () => {
+  // PASOS
+  setStep(1);
+
+  // DATOS
+  setNombre("");
+  setApellidos("");
+  setDni("");
+  setCorreo("");
+  setTelefono("");
+  setGenero("");
+  setFechaNacimiento("");
+  setGrupo("ALPHA");
+  setTalla("M");
+  setOtroEquipo("");
+
+  // ARCHIVOS
+  setFotoBienvenida(null);
+  setCapturaPago(null);
+
+  // CHECKBOX
+  setBasesGenerales(false);
+  setDeslindeResponsabilidad(false);
+  setResponsabilidadSensor(false);
+  setDatosCorrectos(false);
+
+  // OTROS
+  setSelectedItem(null);
+};
+
   /* Estado para controlar el modal y el ítem seleccionado */
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
@@ -345,7 +376,12 @@ const guardarInscripcionGoogle = async () => {
 
       <Modal
         isOpen={modalOpen}
-        onClose={() => setModalOpen(false)}
+        onClose={() => {
+          setModalOpen(false);
+          resetFormulario();
+        }
+
+        }
       >
         {
           enviando && (
@@ -488,8 +524,8 @@ const guardarInscripcionGoogle = async () => {
               <option value="OPTICAS ZAVALA">
                 OPTICAS ZAVALA
               </option>
-              <option value="PHYSCO RUNNERS">
-                PHYSCO RUNNERS
+              <option value="PSYCHO RUNNERS">
+                PSYCHO RUNNERS
               </option>
               <option value="SAMURAI AQP">
                 SAMURAI AQP
@@ -500,9 +536,10 @@ const guardarInscripcionGoogle = async () => {
               <option value="FUERZA AEREA DEL PERU">
                 FUERZA AEREA DEL PERU
               </option>
-              <option value="CIMA RUNNER">
-                CIMA RUNNER
-              </option><option value="IMPERIO TRAIL RUNNING">
+              <option value="CIMA RUNNERS">
+                CIMA RUNNERS
+              </option>
+              <option value="IMPERIO TRAIL RUNNING">
                 IMPERIO TRAIL RUNNING
               </option>
               <option value="TEAM CLARO">
@@ -513,6 +550,9 @@ const guardarInscripcionGoogle = async () => {
               </option>
               <option value="LA RESISTENCIA">
                 LA RESISTENCIA
+              </option>
+              <option value="AFABP">
+                AFABP
               </option>
               <option value="otro">
                 OTRO EQUIPO
@@ -570,7 +610,7 @@ const guardarInscripcionGoogle = async () => {
             <div className="welcome-photo">
               <span className="form-label">
                 <strong>
-                  Las inscripciones tendrán un costo de 40.00 soles
+                  Las inscripción será por YAPE y tendrá un costo de 40.00 soles
                 </strong>
                 <br />
                 <strong>
@@ -776,8 +816,8 @@ const guardarInscripcionGoogle = async () => {
       {/* <Carrusel2 images={images_carrousel2} titulo="¿Qué incluye tu participación?" /> */}
       <Mapping
         titulo="Recorrido de la carrera"
-        proximamente={true}
-        wikilocUrl="https://es.wikiloc.com/wikiloc/spatialArtifacts.do?event=view&id=24485554&measures=off&title=off"
+        proximamente={false}
+        wikilocUrl="https://es.wikiloc.com/wikiloc/embedv2.do?id=226823733&elevation=on&images=off&maptype=H"
       />
       
       <Responsib titulo="Responsabilidad y Autorizaciones" items={items_responsib} />
