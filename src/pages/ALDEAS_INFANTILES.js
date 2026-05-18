@@ -46,7 +46,7 @@ export default function ALDEAS_INFANTILES() {
   const [selectedItem, setSelectedItem] = useState(null);
 
   /*Función para enviar correo con los datos del formulario usando EmailJS */
- const enviarCorreo = async () => {
+  const enviarCorreo = async () => {
   const templateParams = {
     nombre,
     apellidos,
@@ -83,19 +83,13 @@ const finalizarInscripcion = async () => {
   setEnviando(true);
 
   try {
-
     await guardarInscripcionGoogle();
-
     await enviarCorreo();
 
   } catch (error) {
-
     console.log(error);
-
     alert("Hubo un problema al finalizar la inscripción");
-
   } finally {
-
     setEnviando(false);
   }
 };
@@ -237,10 +231,10 @@ const guardarInscripcionGoogle = async () => {
   /*Items de tipo de inscripción*/
   const items_inscripcion = [
     {
-        img: "https://atacaperu.com/wp-content/uploads/2026/05/667365336_122121142869170678_2140071024310354874_n.avif",
+        img: "https://atacaperu.com/wp-content/uploads/2026/05/aldeas1.avif",
         title: "¡Inscríbite ahora!",
-        desc: "¡Corre donde el mar y la arena desafían tus límites! Prepárate para vivir una experiencia única entre el mar, la arena y la fuerza del norte ",
-        btnText: "Inscribirme",
+        desc: "Corre por una gran causa en súmate junto a tu familia y amigos y apoya a los niños, niñas y adolescentes de Aldeas Infantiles SOS. ¡Inscríbete y sé parte del cambio!",
+        btnText: "Deseo apoyar con mi inscripción",
     }
   ]
 
@@ -286,15 +280,15 @@ const guardarInscripcionGoogle = async () => {
 
   /*Detalles del hero section*/
   const detalles_hero = [
-      { icon: <FaMapMarkerAlt />, label: "Lugar", value: "Playa los Órganos, Piura, Perú" },
-      { icon: <FaClock />, label: "Hora", value: "08:00 AM" },
+      { icon: <FaMapMarkerAlt />, label: "Lugar", value: "Cerro Colorado, Arequipa, Perú" },
+      { icon: <FaClock />, label: "Hora", value: "07:00 AM" },
       { icon: <FaMedal />, label: "Premios", value: "Reconocimientos a ganadores" },
   ];
 
   const categorias = [
-      "Varones Pro: Juveniles, Elite, Master A,B y C",
-      "Damas Pro: Elite, Master",
-      "Varones Turismo: Open, Master y Súper Máster",
+      "Varones y damas juveniles: de 15 a 17 años",
+      "Varones y damas elite: de 18 a 34 años",
+      "Varones y damas juveniles: de 15 a 17 años",
       "Damas Turismo: Open y Master"
   ];
 
@@ -530,6 +524,16 @@ const guardarInscripcionGoogle = async () => {
             </div>
 
             <div className="welcome-photo">
+              <span className="form-label">
+                <strong>
+                  Las inscripciones tendrán una donación de 40.00 soles
+                </strong>
+                <br />
+                <strong>
+                  Número: 959373874 - a nombre de Aldeas Infantiles
+                </strong>
+              </span>
+
               <span className="form-label">
                 Subir captura de pago (obligatorio):
               </span>
