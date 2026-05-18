@@ -129,7 +129,7 @@ const finalizarInscripcion = async () => {
     if (correoEnviado) {
 
       window.alert(
-        "Tu inscripción fue exitosa. Se envió un correo de confirmación al correo que ingresaste"
+        nombre+" ,tu inscripción se ha completado exitosamente. ¡Gracias por apoyar esta gran causa!\nSe enviará un correo de confirmación a "+correo+" con los detalles de tu inscripción.\nEn el mismo correo está el link para que te puedas unir al grupo de WhatsApp de la carrera. ¡Nos vemos en la carrera!"
       );
 
     } else {
@@ -681,7 +681,7 @@ const guardarInscripcionGoogle = async () => {
               className="submit-btn"
               onClick={() => setStep(3)}
             >
-              Finalizar inscripción
+              Verifica tus datos
             </button>
 
           </div>
