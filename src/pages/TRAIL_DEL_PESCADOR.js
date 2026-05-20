@@ -17,6 +17,7 @@ import emailjs from '@emailjs/browser';
 import CulqiButton from '../components/CulqiCheckoutButton/CulqiButton';
 
 export default function TRAIL_DEL_PESCADOR() {
+
   /*PRIMERA PREVENTA, SEGUNDA PREVENTA, VENTA FINAL*/
   const tipoPreventa="PESCADOR PRIMERA PRE VENTA";
 
@@ -29,12 +30,29 @@ export default function TRAIL_DEL_PESCADOR() {
     }
     setEnviando(true);
     try {
+
       console.log("Pago exitoso:", result);
+
+      console.log("ANTES GOOGLE");
+
       await guardarInscripcionGoogle();
+
+      console.log("DESPUES GOOGLE");
+
+      console.log("ANTES EMAIL");
+
       await enviarCorreo();
+
+      console.log("DESPUES EMAIL");
+
     } catch (error) {
-      console.log(error);
-      alert("Hubo un problema al finalizar la inscripción. Si el pago fue procesado, comunícate con la organización");
+
+      console.log("ERROR REAL:", error);
+
+      alert(
+        "ERROR REAL: " +
+        error.message
+      );
     } finally {
       setEnviando(false);
     }
@@ -143,7 +161,6 @@ const resetFormulario = () => {
     let fotoBase64 = "";
     let fotoMimeType = "";
 
-    // CONVERTIR FOTO A BASE64
     if (fotoBienvenida) {
 
       fotoMimeType = fotoBienvenida.type;
@@ -156,8 +173,7 @@ const resetFormulario = () => {
 
         reader.onload = () => {
 
-          const base64 =
-            reader.result.split(",")[1];
+          const base64 = reader.result.split(",")[1];
 
           resolve(base64);
         };
@@ -177,8 +193,8 @@ const resetFormulario = () => {
 
       grupo:
         grupo === "otro"
-        ? otroEquipo
-        : grupo,
+          ? otroEquipo
+          : grupo,
 
       talla,
       tipoPreventa,
@@ -193,19 +209,24 @@ const resetFormulario = () => {
         body: JSON.stringify(payload)
       }
     );
+
+    // 👇 AQUÍ VA
     const text = await response.text();
 
-    console.log(text);
+    console.log("RESPUESTA CRUDA:", text);
 
     const result = JSON.parse(text);
 
     console.log("Google Sheets:", result);
-    if  (!result.success) {
+
+    if (!result.success) {
       throw new Error(result.error || "Error al guardar en Google Sheets");
     }
 
   } catch (error) {
+
     console.log("Error Google Sheets:", error);
+
     throw error;
   }
 };
