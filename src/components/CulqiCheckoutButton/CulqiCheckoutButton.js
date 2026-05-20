@@ -67,7 +67,7 @@ const CulqiCheckoutButton = ({
       // ==========================================
 
        const paymentMethods = {
-        tarjeta: false,
+        tarjeta: true,
         yape: true,
         billetera: false,
         bancaMovil: false,
