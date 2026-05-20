@@ -11,7 +11,7 @@ const CulqiButton = ({ amount, formData, onResult, buttonText = "Pagar" }) => {
     
     // Configuración del Timeout (10 segundos)
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 10000);
+    const timeoutId = setTimeout(() => controller.abort(), 60000);
         
     try {
       const payload = {

@@ -1,4 +1,4 @@
-import React, { useState, setStatus, status } from 'react';
+import React, { useState } from 'react';
 import EventBanner from '../components/EVENTBANNER/EventBanner';
 import Countdown from "../components/COUNTDOWN/Countdown";
 import HeroVideo from "../components/HEROVIDEO/HeroVideo";
@@ -17,8 +17,16 @@ import emailjs from '@emailjs/browser';
 import CulqiButton from '../components/CulqiCheckoutButton/CulqiButton';
 
 export default function TRAIL_DEL_PESCADOR() {
+  /*PRIMERA PREVENTA, SEGUNDA PREVENTA, VENTA FINAL*/
+  const tipoPreventa="PESCADOR PRIMERA PRE VENTA";
+
   const handleFinalResult = async(result) => {
   if (result.success) {
+    /*EVITAR QUE PAGUE SIN INTERNET*/
+    if (!navigator.onLine) {
+      alert("No tienes conexión a internet. Por favor, inténtalo de nuevo cuando tengas conexión");
+      return;
+    }
     setEnviando(true);
     try {
       console.log("Pago exitoso:", result);
@@ -26,7 +34,7 @@ export default function TRAIL_DEL_PESCADOR() {
       await enviarCorreo();
     } catch (error) {
       console.log(error);
-      alert("Hubo un problema al finalizar la inscripción");
+      alert("Hubo un problema al finalizar la inscripción. Si el pago fue procesado, comunícate con la organización");
     } finally {
       setEnviando(false);
     }
@@ -37,6 +45,33 @@ export default function TRAIL_DEL_PESCADOR() {
       (result.error ? ": " + result.error : "")
     );
   }
+};
+
+/*Evitar doble clic*/
+const [loadingStep, setLoadingStep] = useState(false);
+
+/*RESETEAR FORMULARIO*/
+const resetFormulario = () => {
+  setGrupo("ALPHA");
+  setStep(1);
+
+  setNombre("");
+  setApellidos("");
+  setDni("");
+  setCorreo("");
+  setTelefono("");
+  setGenero("");
+  setFechaNacimiento("");
+  setTalla("M");
+  setOtroEquipo("");
+  setFotoBienvenida(null);
+
+  setBasesGenerales(false);
+  setDeslindeResponsabilidad(false);
+  setResponsabilidadSensor(false);
+  setDatosCorrectos(false);
+
+  setSelectedItem(null);
 };
 
   /*Estado para controlar el grupo seleccionado en el formulario de inscripción */
@@ -91,9 +126,9 @@ export default function TRAIL_DEL_PESCADOR() {
       templateParams,
       "3ElF522uPVPnXza99"
     );
-    alert("Pago realizado e inscripción enviada correctamente");
+    alert(nombre+" ,tu inscripción se ha completado exitosamente. ¡Gracias por apoyar esta gran causa!\nSe enviará un correo de confirmación a "+correo+" con los detalles de tu inscripción.\nEn el mismo correo está el link para que te puedas unir al grupo de WhatsApp de la carrera. ¡Nos vemos en la carrera!");
     setModalOpen(false);
-    window.location.reload();
+    resetFormulario();
   } catch (error) {
     console.log(error);
     throw error;
@@ -146,7 +181,7 @@ export default function TRAIL_DEL_PESCADOR() {
         : grupo,
 
       talla,
-
+      tipoPreventa,
       fotoBase64,
       fotoMimeType
     };
@@ -165,10 +200,13 @@ export default function TRAIL_DEL_PESCADOR() {
     const result = JSON.parse(text);
 
     console.log("Google Sheets:", result);
+    if  (result.status !== "success") {
+      throw new Error(result.error || "Error al guardar en Google Sheets");
+    }
 
   } catch (error) {
-
     console.log("Error Google Sheets:", error);
+    throw error;
   }
 };
 
@@ -290,7 +328,11 @@ export default function TRAIL_DEL_PESCADOR() {
 
       <Modal
         isOpen={modalOpen}
-        onClose={() => setModalOpen(false)}
+        onClose={() => {
+          setModalOpen(false);
+          resetFormulario();
+
+        }}
       >
         {
           enviando && (
@@ -321,7 +363,23 @@ export default function TRAIL_DEL_PESCADOR() {
           <form className="inscripcion-form"
             onSubmit={(e) => {
             e.preventDefault();
+
+            /*Evitar doble clic*/  
+            if(loadingStep)return;
+            setLoadingStep(true);
+            
+            /*Verifica que si pone grupo "OTRO", realmente ponga el grupo */
+            if (grupo === "otro" && !otroEquipo.trim()) {
+              alert("Por favor, escribe el nombre del equipo al que perteneces");              
+              setLoadingStep(false);
+              return;
+            }
+
             setStep(2);
+
+            setTimeout(() => {
+              setLoadingStep(false);
+            }, 500);
           }}>
 
             <input
@@ -415,6 +473,51 @@ export default function TRAIL_DEL_PESCADOR() {
               <option value="ALPHA">
                 ALPHA
               </option>
+              <option value="LONCCOS RUNNING TEAM">
+                LONCCOS RUNNING TEAM
+              </option>
+              <option value="TAYGETOS">
+                TAYGETOS
+              </option>
+              <option value="RUNNATICOS">
+                RUNNATICOS
+              </option>
+              <option value="ALTURA">
+                ALTURA
+              </option>
+              <option value="CRAZY RUNNING">
+                CRAZY RUNNING
+              </option>
+              <option value="OPTICAS ZAVALA">
+                OPTICAS ZAVALA
+              </option>
+              <option value="PSYCHO RUNNERS">
+                PSYCHO RUNNERS
+              </option>
+              <option value="SAMURAI AQP">
+                SAMURAI AQP
+              </option>
+              <option value="ACADEMIA IPD">
+                ACADEMIA IPD
+              </option>
+              <option value="FUERZA AEREA DEL PERU">
+                FUERZA AEREA DEL PERU
+              </option>
+              <option value="CIMA RUNNERS">
+                CIMA RUNNERS
+              </option>
+              <option value="IMPERIO TRAIL RUNNING">
+                IMPERIO TRAIL RUNNING
+              </option>
+              <option value="TEAM CLARO">
+                TEAM CLARO
+              </option>
+              <option value="NG ATLETIC">
+                NG ATLETIC
+              </option>
+              <option value="LA RESISTENCIA">
+                LA RESISTENCIA
+              </option>
               <option value="AFABP">
                 AFABP
               </option>
@@ -447,8 +550,16 @@ export default function TRAIL_DEL_PESCADOR() {
               <option value="L">L</option>
               <option value="XL">XL</option>
             </select>
-            <button type="submit" className="submit-btn">
-              Continuar
+            <button
+              type="submit"
+              className="submit-btn"
+              disabled={loadingStep}
+            >
+              {
+                loadingStep
+                  ? "CARGANDO..."
+                  : "Continuar"
+              }
             </button>
           </form>
         )}
@@ -485,7 +596,7 @@ export default function TRAIL_DEL_PESCADOR() {
                 checked={deslinde_responsabilidad}
                 onChange={(e) => setDeslindeResponsabilidad(e.target.checked)}
               />
-              He leído y acepto las el Deslinde de Responsabilidad.
+              He leído y acepto el Deslinde de Responsabilidad.
             </label>
 
             <label className="checkbox-item">
@@ -597,9 +708,15 @@ export default function TRAIL_DEL_PESCADOR() {
             )
           }
 
-         <CulqiButton 
-          amount={600}
-          disabled={enviando}
+          {/**/}
+         <CulqiButton
+         disabled={/*desactivar mientras está procesando*/
+            enviando ||
+            !bases_generales ||
+            !deslinde_responsabilidad ||
+            !responsabilidad_sensor ||
+            !datos_correctos} 
+          amount={600}//monto a cobrar
           formData={{
             nombre,
             apellido: apellidos,
@@ -609,7 +726,7 @@ export default function TRAIL_DEL_PESCADOR() {
             genero,
             fecha_nacimiento: fechaNacimiento,
             grupo: grupo === "otro" ? otroEquipo : grupo,
-            talla,
+            talla,         
           }}
           onResult={handleFinalResult}
           buttonText={
@@ -637,8 +754,11 @@ export default function TRAIL_DEL_PESCADOR() {
       <br />
       <br />
       <Carrusel2 images={images_carrousel2} titulo="¿Qué incluye tu participación?" />
-      <Mapping titulo="Ruta TURISMO" stravaEmbedUrl="https://www.strava.com/activities/17373365056"/>
-      <Mapping titulo="Ruta PRO" stravaEmbedUrl="https://www.strava.com/activities/17373365056"/>
+      <Mapping 
+        titulo="Recorrido de la carrera" 
+        proximamente={true}
+        wikilocUrl="https://es.wikiloc.com/wikiloc/embedv2.do?id=226823733&elevation=off&images=off&maptype=H"
+      />
       <Responsib titulo="Responsabilidad y Autorizaciones" items={items_responsib} />
     </>
 

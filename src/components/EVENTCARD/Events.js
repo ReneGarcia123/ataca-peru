@@ -10,7 +10,7 @@ const eventos = [
     descripcion: "¡Más fuerte que el cansancio! Carrera de Trail Running la playa de Los Órganos - Piura",
     enlace: "/TRAIL_DEL_PESCADOR",
     imagen: "https://atacaperu.com/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-05-at-11.34.23-AM.avif",
-    disponible:false
+    disponible:true
   },
   {
     id: 2,
