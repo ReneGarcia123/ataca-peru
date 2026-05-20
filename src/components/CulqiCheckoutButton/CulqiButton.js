@@ -3,7 +3,7 @@ import CulqiCheckoutButton from './CulqiCheckoutButton';
 import { CULQI_PUBLIC_KEY, GLOBAL_CONFIG } from './CulqiConfig';
 import './CulqiStyles.css';
 
-const CulqiButton = ({ amount, formData, onResult, buttonText = "Pagar" }) => {
+const CulqiButton = ({ amount, formData, onResult, buttonText = "Pagar" , title="Ataca Perú"}) => {
   const [isProcessing, setIsProcessing] = useState(false);
 
   const processPaymentWithAPI = async (culqiResponse) => {
@@ -51,7 +51,7 @@ const CulqiButton = ({ amount, formData, onResult, buttonText = "Pagar" }) => {
   return (
     <CulqiCheckoutButton
       publicKey={CULQI_PUBLIC_KEY}
-      settings={{ title: "Ataca Perú", currency: "PEN", amount }}
+      settings={{ title, currency: "PEN", amount }}
       appearance={GLOBAL_CONFIG.appearance}
       onSuccess={processPaymentWithAPI}
       onError={(err) => onResult({ success: false, error: err.user_message })}

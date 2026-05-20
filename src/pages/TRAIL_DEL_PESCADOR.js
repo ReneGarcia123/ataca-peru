@@ -736,7 +736,8 @@ const resetFormulario = () => {
             !bases_generales ||
             !deslinde_responsabilidad ||
             !responsabilidad_sensor ||
-            !datos_correctos} 
+            !datos_correctos}
+          title={"TRAIL DEL PESCADOR 10K - PRIMERA PRE VENTA"} 
           amount={600}//monto a cobrar
           formData={{
             nombre,

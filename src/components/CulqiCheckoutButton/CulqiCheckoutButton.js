@@ -66,15 +66,16 @@ const CulqiCheckoutButton = ({
       // CONFIGURACIÓN DE CULQI CHECKOUT CUSTOM
       // ==========================================
 
+      /*
        const paymentMethods = {
         tarjeta: true,
         yape: true,
-        billetera: false,
+        billetera: true,
         bancaMovil: false,
         agente: false,
         cuotealo: false
-      };
-
+      };*/
+      /*
       const options = {
         lang: "es",
         installments: true,
@@ -82,9 +83,34 @@ const CulqiCheckoutButton = ({
         container: "#culqi-container", // Opcional - Div donde quieres cargar el checkout
         paymentMethods: paymentMethods,
         paymentMethodsSort: Object.keys(paymentMethods) // las opciones se ordenan según se configuren en paymentMethods
+      };*/
+      const checkoutOptions = {
+        lang: "es",
+        installments: false,
+        modal: true,
+
+        paymentMethods: {
+          tarjeta: true,
+          yape: true,
+          billetera: true,
+          bancaMovil: false,
+          agente: false,
+          cuotealo: false
+        },
+
+        paymentMethodsSort: [
+          "tarjeta",
+          "yape",
+          "billetera"
+        ]
       };
 
-      const config = { settings, client, options, appearance };
+      const config = { 
+        settings,
+        client,
+        options: checkoutOptions,
+        appearance
+       };
       const culqi = new window.CulqiCheckout(publicKey, config);
 
       culqi.culqi = () => {
