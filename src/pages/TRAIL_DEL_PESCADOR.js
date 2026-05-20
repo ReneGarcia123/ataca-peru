@@ -200,7 +200,7 @@ const resetFormulario = () => {
     const result = JSON.parse(text);
 
     console.log("Google Sheets:", result);
-    if  (result.status !== "success") {
+    if  (!result.success) {
       throw new Error(result.error || "Error al guardar en Google Sheets");
     }
 
