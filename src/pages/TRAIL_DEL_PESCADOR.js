@@ -747,7 +747,7 @@ const resetFormulario = () => {
             genero,
             fecha_nacimiento: fechaNacimiento,
             grupo: grupo === "otro" ? otroEquipo : grupo,
-            talla,         
+            talla         
           }}
           onResult={handleFinalResult}
           buttonText={

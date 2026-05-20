@@ -30,6 +30,8 @@ const CulqiButton = ({ amount, formData, onResult, buttonText = "Pagar" }) => {
       clearTimeout(timeoutId); // Limpiamos el timer si responde a tiempo
       const result = await response.json();
 
+      
+
       if (response.ok) {
         onResult({ success: true, apiData: result });
       } else {
