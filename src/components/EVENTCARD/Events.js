@@ -18,9 +18,9 @@ const eventos = [
     fecha: "05 de julio 2026",
     lugar: "La Joya, Arequipa, Perú",
     descripcion: "¡Más allá de tus límites! Carrera de Trail Running en el desierto de La Joya - Arequipa",
-    enlace: "/triatlon",
+    enlace: "/aqp_trs_joya",
     imagen: "https://atacaperu.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-22-at-6.17.48-PM.avif",
-    disponible:false
+    disponible:true
   },
   {
     id: 3,

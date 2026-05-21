@@ -16,7 +16,7 @@ import Modal from '../components/MODAL/Modal';
 import emailjs from '@emailjs/browser';
 import CulqiButton from '../components/CulqiCheckoutButton/CulqiButton';
 
-export default function TRAIL_DEL_PESCADOR() {
+export default function AQP_TRS_JOYA() {
 
   /*PRIMERA PREVENTA, SEGUNDA PREVENTA, VENTA FINAL*/
   const tipoPreventa="PESCADOR PRIMERA PRE VENTA";
@@ -236,12 +236,29 @@ const resetFormulario = () => {
 
   /*Items de tipo de inscripción*/
   const items_inscripcion = [
+    /*
     {
-        img: "https://atacaperu.com/wp-content/uploads/2026/05/667365336_122121142869170678_2140071024310354874_n.avif",
-        title: "¡Inscríbite ahora!",
-        desc: "¡Corre donde el mar y la arena desafían tus límites! Prepárate para vivir una experiencia única entre el mar, la arena y la fuerza del norte. \nPrecio primera pre venta: S/.90.00 (hastael domingo 31 de mayo)",
+        img: "https://atacaperu.com/wp-content/uploads/2026/05/1-1.avif",
+        title: "INSCRIPCIÓN 5K",
+        desc: "5K: Corre entre dunas y descubre la magia del desierto en cada kilómetro",
         btnText: "Inscribirme",
-    }
+    },
+
+    {
+        img: "https://atacaperu.com/wp-content/uploads/2026/05/22.avif",
+        title: "INSCRIPCIÓN 10K",
+        desc: "10K: Desafía tu resistencia con 10K de arena, sol y pura adrenalina",
+        btnText: "Inscribirme",
+    },
+
+    {
+        img: "https://atacaperu.com/wp-content/uploads/2026/05/2-1.avif",
+        title: "INSCRIPCIÓN 21K",
+        desc: "21K: Conquista el desierto en 21K y demuestra que tu espíritu no tiene límites",
+        btnText: "Inscribirme",
+    },
+    */
+
   ]
 
   /*Función para abrir el modal con el ítem seleccionado */
@@ -253,15 +270,15 @@ const resetFormulario = () => {
 
   const items_responsib = [
   {
-      img: "https://atacaperu.com/wp-content/uploads/2026/05/2.avif",
+      img: "https://atacaperu.com/wp-content/uploads/2026/05/9.avif",
       title: "Deslinde de Responsabilidad",
       desc: "Aceptación de riesgos y condiciones del evento.",
-      link: "https://atacaperu.com/wp-content/uploads/2026/05/DESLINDE-TRAIL-DEL-PESCADOR.pdf",
+      link: "https://atacaperu.com/wp-content/uploads/2026/05/DESLINDE-LA-JOYA.pdf",
       btnText: "Ver documento",
     },
 
     {
-      img: "https://atacaperu.com/wp-content/uploads/2026/05/3.avif",
+      img: "https://atacaperu.com/wp-content/uploads/2026/05/7.avif",
       title: "Dispositivo Sensor",
       desc: "Uso correcto y responsabilidad del equipo.",
       link: "https://atacaperu.com/wp-content/uploads/2025/02/RESPONSABILIDAD-SENSOR.pdf",
@@ -269,33 +286,38 @@ const resetFormulario = () => {
     },
 
     {
-      img: "https://atacaperu.com/wp-content/uploads/2026/05/1.avif",
+      img: "https://atacaperu.com/wp-content/uploads/2026/05/8.avif",
       title: "Autorización de Menor",
       desc: "Permiso para participación de menores.",
-      link: "https://atacaperu.com/wp-content/uploads/2026/05/AUTORIZACION-TRAIL-DEL-PESCADOR-MENORES.pdf",
+      link: "https://atacaperu.com/wp-content/uploads/2026/05/AUTORIZACION-JOYA.pdf",
       btnText: "Ver documento",
     },
   ];
 
   /*Carrusel 2 imagenes*/
   const images_carrousel2=[
-      "https://atacaperu.com/wp-content/uploads/2026/05/701313432_1828615631879010_3829468554739370638_n.avif",
-      "https://atacaperu.com/wp-content/uploads/2026/05/700208264_1827702155303691_1205507908146195870_n.avif",
-      "https://atacaperu.com/wp-content/uploads/2026/05/697177072_1826755695398337_2843395840613015311_n.avif",
+      "https://atacaperu.com/wp-content/uploads/2026/05/4.avif",
+      "https://atacaperu.com/wp-content/uploads/2026/05/5.avif",
+      "https://atacaperu.com/wp-content/uploads/2026/05/6.avif",
   ]
 
   /*Detalles del hero section*/
   const detalles_hero = [
-      { icon: <FaMapMarkerAlt />, label: "Lugar", value: "Playa los Órganos, Piura, Perú" },
+      { icon: <FaMapMarkerAlt />, label: "Lugar", value: "La Joya, Arequipa, Perú" },
       { icon: <FaClock />, label: "Hora", value: "08:00 AM" },
       { icon: <FaMedal />, label: "Premios", value: "Reconocimientos a ganadores" },
   ];
 
   const categorias = [
-      "Damas y Varones Juveniles: de 15 a 17 años",
-      "Damas y Varones Elite: de 18 a 34 años",
-      "Damas y Varones Máster: de 35 a 49 años",
-      "Damas y Varones Súper Máster: de 50 años a más"
+      "21K Damas: Open de 18 años a más",
+      "21K Varones: Open de 18 años a 34 años",
+      "21K Varones Máster: de 35 años a más",
+      "10K Damas y Varones: Elite de 18 años 34 años",
+      "10K Damas Súper Máster: de 50 años a más",
+      "10K Varones Súper Máster: de 50 a 59 años",
+      "10K Varones Ultra Máster: de 60 años a más",
+      "5K Damas y Varones: Open de 15 años a 34 años",
+      "5K Damas y Varones Súper Máster: de 35 años a más",
   ];
 
   const detalles = [
@@ -307,7 +329,6 @@ const resetFormulario = () => {
 
   
   const items = [
-    { icon: <FaRegMoneyBillAlt />, title: "Premio en efectivo", text: "Para los primeros puestos en la llegada general (damas y varones)" },
     { icon: <FaMedal />, title: "Medalla Finisher", text: "Para todos los que culminen el recorrido (solo inscritos)" },
     { icon: <MdTimer />, title: "Cronometrado", text: "Tiempo cronometrado elctrónicamente" },
     { icon: <GiTrophyCup />, title: "Premios", text: "Para los primeros puestos de cada categoría (damas y varones)" },
@@ -331,8 +352,12 @@ const resetFormulario = () => {
   return (
      <>
       <HeroVideo
-        descripcion="El evento de trail running más esperado del año llega a la costa norte de Perú. Prepárate para vivir una experiencia única entre el mar, la arena y la fuerza del norte. ¡Corre donde el mar y la arena desafían tus límites!"
-        video="https://atacaperu.com/wp-content/uploads/2026/05/Trail-del-pescador-Piura.mp4"
+        descripcion="Prepárate para desafiar el calor, la arena y tus propios límites
+                     en “El Desierto de La Joya”, cada kilómetro pondrá a prueba tu resistencia 
+                     y determinación. Vive la adrenalina de una
+                     experiencia única rumbo a la gloria de la AQP TRAIL 
+                     RUNNING SERIES INTERNATIONAL 2026."
+        video="https://atacaperu.com/wp-content/uploads/2026/05/El-desierto-de-la-Joya-trail.mp4"
         imagen="https://atacaperu.com/wp-content/uploads/2023/04/logo-blanco.png"   
         detalles={detalles_hero}
       />     
@@ -340,12 +365,12 @@ const resetFormulario = () => {
       <br />
 
       <Countdown
-        targetDate="2026-06-28T09:00:00"
-        titulo="CUENTA REGRESIVA PARA TRAIL DEL PESCADOR 10K"
-        descripcion="Prepárate para vivir una experiencia única entre el mar, la arena y la fuerza del norte"
+        targetDate="2026-07-05T09:00:00"
+        titulo="CUENTA REGRESIVA PARA AQP TRAIL RUNNING SERIES: EL DESIERTO DE LA JOYA"
+        descripcion="Prepárate para la aventura en el Desierto de La Joya. La cuenta regresiva ya empezó y el reto te espera: arena, sol y pura resistencia."
       />
 
-      <Responsib titulo="INSCRIPCIONES" items={items_inscripcion} onButtonClick={abrirModal}/>
+      <Responsib titulo="INSCRIPCIONES PRÓXIMAMENTE" items={items_inscripcion} onButtonClick={abrirModal}/>
 
       <Modal
         isOpen={modalOpen}
@@ -762,23 +787,32 @@ const resetFormulario = () => {
       </Modal>
 
       <Categories
-        titulo="Más fuerte que el cansancio: Trail del Pescador 10K"
-        descripcion="Este 28 de junio vive la aventura del Trail del Pescador en Playa Los Órganos 🌊🏃‍♂️.
-                     Un recorrido que combina deporte, turismo y energía en un entorno natural único.
-                    ¡Únete a la experiencia que te conectará con la costa de Piura y tu espíritu deportivo!"
-        imagen="https://atacaperu.com/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-05-at-11.34.23-AM.avif"
+        titulo="Más allá de tus límites: El desierto de La Joya"
+        descripcion="¡Vive la segunda serie de la AQP TRAIL RUNNING SERIES 
+                     INTERNATIONAL 2026 y supera tus propios límites!🌵🏃‍♂️🔥"
+        imagen="https://atacaperu.com/wp-content/uploads/2026/05/3-1.avif"
         categorias={categorias}
         items={items}
       />
-      <ButtonBases url={"https://atacaperu.com/wp-content/uploads/2026/05/BASES-GENERALES-TRAIL-DEL-PESCADOR.pdf"}/>
+      <ButtonBases url={"https://atacaperu.com/wp-content/uploads/2025/12/BASES-AQP-TRAIL-2026.pdf"}/>
       <br />
       <br />
       <br />
       <Carrusel2 images={images_carrousel2} titulo="¿Qué incluye tu participación?" />
       <Mapping 
-        titulo="Recorrido de la carrera" 
+        titulo="Recorrido 5K" 
+        proximamente={false}        
+        wikilocUrl="https://es.wikiloc.com/wikiloc/embedv2.do?id=173036655&elevation=off&images=on&maptype=H"
+      />
+      <Mapping 
+        titulo="Recorrido 10K" 
         proximamente={false}
-        wikilocUrl="https://es.wikiloc.com/wikiloc/embedv2.do?id=265283033&elevation=off&images=on&maptype=H"
+        wikilocUrl="https://es.wikiloc.com/wikiloc/embedv2.do?id=173036465&elevation=off&images=on&maptype=H"
+      />
+      <Mapping 
+        titulo="Recorrido 21K" 
+        proximamente={false}
+        wikilocUrl="https://es.wikiloc.com/wikiloc/embedv2.do?id=173036590&elevation=off&images=on&maptype=H"
       />
       <Responsib titulo="Responsabilidad y Autorizaciones" items={items_responsib} />
     </>
