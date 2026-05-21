@@ -3,7 +3,7 @@ import EventBanner from '../components/EVENTBANNER/EventBanner';
 import Countdown from "../components/COUNTDOWN/Countdown";
 import HeroVideo from "../components/HEROVIDEO/HeroVideo";
 import Categories from '../components/CATEGORIES/Categories';
-import { FaMedal} from "react-icons/fa";
+import { FaMedal, FaRegMoneyBillAlt} from "react-icons/fa";
 import { RiTeamFill } from "react-icons/ri";
 import { MdTimer } from "react-icons/md";
 import { GiTrophyCup } from "react-icons/gi";
@@ -239,7 +239,7 @@ const resetFormulario = () => {
     {
         img: "https://atacaperu.com/wp-content/uploads/2026/05/667365336_122121142869170678_2140071024310354874_n.avif",
         title: "¡Inscríbite ahora!",
-        desc: "¡Corre donde el mar y la arena desafían tus límites! Prepárate para vivir una experiencia única entre el mar, la arena y la fuerza del norte ",
+        desc: "¡Corre donde el mar y la arena desafían tus límites! Prepárate para vivir una experiencia única entre el mar, la arena y la fuerza del norte. \nPrecio primera pre venta: S/.90.00 (hastael domingo 31 de mayo)",
         btnText: "Inscribirme",
     }
   ]
@@ -253,15 +253,15 @@ const resetFormulario = () => {
 
   const items_responsib = [
   {
-      img: "/images/RESPONSABILITIES/deslinde.jpg",
+      img: "https://atacaperu.com/wp-content/uploads/2026/05/2.avif",
       title: "Deslinde de Responsabilidad",
       desc: "Aceptación de riesgos y condiciones del evento.",
-      link: "https://atacaperu.com/wp-content/uploads/2025/02/DESLINDE-DE-RESPONSABILIDAD.pdf",
+      link: "https://atacaperu.com/wp-content/uploads/2026/05/DESLINDE-TRAIL-DEL-PESCADOR.pdf",
       btnText: "Ver documento",
     },
 
     {
-      img: "/images/RESPONSABILITIES/sensor.jpg",
+      img: "https://atacaperu.com/wp-content/uploads/2026/05/3.avif",
       title: "Dispositivo Sensor",
       desc: "Uso correcto y responsabilidad del equipo.",
       link: "https://atacaperu.com/wp-content/uploads/2025/02/RESPONSABILIDAD-SENSOR.pdf",
@@ -269,10 +269,10 @@ const resetFormulario = () => {
     },
 
     {
-      img: "/images/RESPONSABILITIES/menor.jpg",
+      img: "https://atacaperu.com/wp-content/uploads/2026/05/1.avif",
       title: "Autorización de Menor",
       desc: "Permiso para participación de menores.",
-      link: "https://atacaperu.com/wp-content/uploads/2025/12/Autorizacion-para-menor-delinde-responsabilidad-CHIGUATA-EPIC-2026.pdf",
+      link: "https://atacaperu.com/wp-content/uploads/2026/05/AUTORIZACION-TRAIL-DEL-PESCADOR-MENORES.pdf",
       btnText: "Ver documento",
     },
   ];
@@ -292,10 +292,10 @@ const resetFormulario = () => {
   ];
 
   const categorias = [
-      "Varones Pro: Juveniles, Elite, Master A,B y C",
-      "Damas Pro: Elite, Master",
-      "Varones Turismo: Open, Master y Súper Máster",
-      "Damas Turismo: Open y Master"
+      "Damas y Varones Juveniles: de 15 a 17 años",
+      "Damas y Varones Elite: de 18 a 34 años",
+      "Damas y Varones Máster: de 35 a 49 años",
+      "Damas y Varones Súper Máster: de 50 años a más"
   ];
 
   const detalles = [
@@ -307,10 +307,10 @@ const resetFormulario = () => {
 
   
   const items = [
-    { icon: <RiTeamFill />, title: "Acumulativo", text: "Puntaje grupal acumulativo" },
-    { icon: <FaMedal />, title: "Premios", text: "Reconocimientos a los ganadores de cada categoría" },
+    { icon: <FaRegMoneyBillAlt />, title: "Premio en efectivo", text: "Para los primeros puestos en la llegada general (damas y varones)" },
+    { icon: <FaMedal />, title: "Medalla Finisher", text: "Para todos los que culminen el recorrido (solo inscritos)" },
     { icon: <MdTimer />, title: "Cronometrado", text: "Tiempo cronometrado elctrónicamente" },
-    { icon: <GiTrophyCup />, title: "Grupos", text: "Premio en efectivo a los primeros tres equipos" },
+    { icon: <GiTrophyCup />, title: "Premios", text: "Para los primeros puestos de cada categoría (damas y varones)" },
   ];
 
   /*Solo activar para ver por consola, prueba*/
@@ -333,7 +333,7 @@ const resetFormulario = () => {
       <HeroVideo
         descripcion="El evento de trail running más esperado del año llega a la costa norte de Perú. Prepárate para vivir una experiencia única entre el mar, la arena y la fuerza del norte. ¡Corre donde el mar y la arena desafían tus límites!"
         video="https://atacaperu.com/wp-content/uploads/2026/05/YTDown_YouTube_Correr-por-la-playa-Costa-Runner-No-Copy_Media_bSxZn9gOTlA_001_720p.mp4"
-        imagen="/images/LSL MTB CHIGUATA.png"   
+        imagen="https://atacaperu.com/wp-content/uploads/2023/04/logo-blanco.png"   
         detalles={detalles_hero}
       />     
 
@@ -738,7 +738,7 @@ const resetFormulario = () => {
             !responsabilidad_sensor ||
             !datos_correctos}
           title={"TRAIL DEL PESCADOR 10K - PRIMERA PRE VENTA"} 
-          amount={600}//monto a cobrar
+          amount={9000}//monto a cobrar
           formData={{
             nombre,
             apellido: apellidos,
@@ -759,14 +759,13 @@ const resetFormulario = () => {
         />
       </div>
       )}
-
       </Modal>
-
 
       <Categories
         titulo="Más fuerte que el cansancio: Trail del Pescador 10K"
-        descripcion="Una ruta exigente, paisajes únicos y la mejor experiencia del ciclismo en Arequipa 🌄🔥
-                    Vive el ciclismo donde el camino es tuyo."
+        descripcion="Este 28 de junio vive la aventura del Trail del Pescador en Playa Los Órganos 🌊🏃‍♂️.
+                     Un recorrido que combina deporte, turismo y energía en un entorno natural único.
+                    ¡Únete a la experiencia que te conectará con la costa de Piura y tu espíritu deportivo!"
         imagen="https://atacaperu.com/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-05-at-11.34.23-AM.avif"
         categorias={categorias}
         items={items}
@@ -778,8 +777,8 @@ const resetFormulario = () => {
       <Carrusel2 images={images_carrousel2} titulo="¿Qué incluye tu participación?" />
       <Mapping 
         titulo="Recorrido de la carrera" 
-        proximamente={true}
-        wikilocUrl="https://es.wikiloc.com/wikiloc/embedv2.do?id=226823733&elevation=off&images=off&maptype=H"
+        proximamente={false}
+        wikilocUrl="https://es.wikiloc.com/wikiloc/embedv2.do?id=265283033&elevation=off&images=on&maptype=H"
       />
       <Responsib titulo="Responsabilidad y Autorizaciones" items={items_responsib} />
     </>
