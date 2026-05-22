@@ -120,6 +120,28 @@ const resetFormulario = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
 
+  /*Modalidad de inscripción*/
+  const [modalidad, setModalidad] = useState("");
+
+  /*Configuración de precios por modalidad*/
+  const configuracionPago={
+    "5K PRIMERA PRE VENTA":{
+      title:"EL DESIERTO DE LA JOYA 5K - PRIMERA PRE VENTA",
+      amount:8000
+    },
+    "10K PRIMERA PRE VENTA":{
+      title:"EL DESIERTO DE LA JOYA 10K - PRIMERA PRE VENTA",
+      amount:10000
+    },
+    "21K PRIMERA PRE VENTA":{
+      title:"EL DESIERTO DE LA JOYA 21K - PRIMERA PRE VENTA",
+      amount:12000
+    }
+  };
+
+  /*Obtener pago actual*/
+    const pagoActual = configuracionPago[modalidad];
+
   /*Función para enviar correo con los datos del formulario usando EmailJS */
  const enviarCorreo = async () => {
   const templateParams = {
@@ -130,6 +152,7 @@ const resetFormulario = () => {
     telefono,
     genero,
     fechaNacimiento,
+    modalidad,
     grupo:
       grupo === "otro"
       ? otroEquipo
@@ -139,12 +162,12 @@ const resetFormulario = () => {
   };
   try {
     await emailjs.send(
-      "service_gi2cwnf",
-      "template_01qt16e",
+      "service_2govrnu",
+      "template_lurswng",
       templateParams,
-      "3ElF522uPVPnXza99"
+      "PN9-V6us45efj9uL6"
     );
-    alert(nombre+" ,tu inscripción se ha completado exitosamente. ¡Gracias por apoyar esta gran causa!\nSe enviará un correo de confirmación a "+correo+" con los detalles de tu inscripción.\nEn el mismo correo está el link para que te puedas unir al grupo de WhatsApp de la carrera. ¡Nos vemos en la carrera!");
+    alert(nombre+" ,tu inscripción se ha completado exitosamente. ¡El desierto de la Joya te espera!\nSe enviará un correo de confirmación a "+correo+" con los detalles de tu inscripción.\nEn el mismo correo está el link para que te puedas unir al grupo de WhatsApp de la carrera. ¡Nos vemos en la carrera!");
     setModalOpen(false);
     resetFormulario();
   } catch (error) {
@@ -190,20 +213,19 @@ const resetFormulario = () => {
       telefono,
       genero,
       fechaNacimiento,
-
       grupo:
         grupo === "otro"
           ? otroEquipo
           : grupo,
 
       talla,
-      tipoPreventa,
+      modalidad,
       fotoBase64,
       fotoMimeType
     };
 
     const response = await fetch(
-      "https://script.google.com/macros/s/AKfycbx9m94caF6b9Bhw3ttQ396HpMNcYKqQCLT3VCSKj5YVRPiSN_wZL_AF-QMQb1foCGul/exec",
+      "https://script.google.com/macros/s/AKfycbzRA6f1gyKU42SQb1r7s7r_SARdhjuMwM8BINJmFGqzxQTYCY9u0r1mxF7ZCcLiQPq5/exec",
       {
         method: "POST",
         body: JSON.stringify(payload)
@@ -236,12 +258,13 @@ const resetFormulario = () => {
 
   /*Items de tipo de inscripción*/
   const items_inscripcion = [
-    /*
+    
     {
         img: "https://atacaperu.com/wp-content/uploads/2026/05/1-1.avif",
         title: "INSCRIPCIÓN 5K",
         desc: "5K: Corre entre dunas y descubre la magia del desierto en cada kilómetro",
         btnText: "Inscribirme",
+        modalidad: "5K PRIMERA PRE VENTA",
     },
 
     {
@@ -249,6 +272,7 @@ const resetFormulario = () => {
         title: "INSCRIPCIÓN 10K",
         desc: "10K: Desafía tu resistencia con 10K de arena, sol y pura adrenalina",
         btnText: "Inscribirme",
+        modalidad: "10K PRIMERA PRE VENTA",
     },
 
     {
@@ -256,14 +280,17 @@ const resetFormulario = () => {
         title: "INSCRIPCIÓN 21K",
         desc: "21K: Conquista el desierto en 21K y demuestra que tu espíritu no tiene límites",
         btnText: "Inscribirme",
+        modalidad: "21K PRIMERA PRE VENTA",
     },
-    */
+    
+    
 
   ]
 
   /*Función para abrir el modal con el ítem seleccionado */
   const abrirModal = (item) => {
       setSelectedItem(item);
+      setModalidad(item.modalidad);//agregar modalidad distancia
       setStep(1); // Reiniciar al paso 1 cada vez que se abre el modal
       setModalOpen(true);
   };
@@ -346,6 +373,7 @@ const resetFormulario = () => {
     grupo,
     otroEquipo,
     talla,
+    modalidad,
     fotoBienvenida
   });
 
@@ -370,7 +398,7 @@ const resetFormulario = () => {
         descripcion="Prepárate para la aventura en el Desierto de La Joya. La cuenta regresiva ya empezó y el reto te espera: arena, sol y pura resistencia."
       />
 
-      <Responsib titulo="INSCRIPCIONES PRÓXIMAMENTE" items={items_inscripcion} onButtonClick={abrirModal}/>
+      <Responsib titulo="INSCRIPCIONES" items={items_inscripcion} onButtonClick={abrirModal}/>
 
       <Modal
         isOpen={modalOpen}
@@ -732,6 +760,11 @@ const resetFormulario = () => {
           </div>
 
           <div className="resume-item">
+            <strong>Distancia:</strong>
+            <span>{modalidad}</span>
+          </div>
+
+          <div className="resume-item">
             <strong>Categoría:</strong>
             <span>La categoría será asignada según las bases generales</span>
           </div>
@@ -754,16 +787,53 @@ const resetFormulario = () => {
             )
           }
 
-          {/**/}
-         <CulqiButton
-         disabled={/*desactivar mientras está procesando*/
+          {/*modulo de pago sin Culqi: solo usar en EMERGENCIA*/}
+          {/*BOTON PRUEBA SIN CULQUI*
+          <button
+            className="submit-btn"
+            disabled={enviando}
+            onClick={async () => {
+
+              setEnviando(true);
+
+              try {
+
+                await guardarInscripcionGoogle();
+
+                await enviarCorreo();
+
+              } catch (error) {
+
+                console.log(error);
+
+                alert(
+                  "Error: " + error.message
+                );
+
+              } finally {
+
+                setEnviando(false);
+
+              }
+            }}
+          >
+            {
+              enviando
+                ? "ENVIANDO..."
+                : "FINALIZAR INSCRIPCIÓN"
+            }
+          </button>
+        */}
+        
+        <CulqiButton
+         disabled={
             enviando ||
             !bases_generales ||
             !deslinde_responsabilidad ||
             !responsabilidad_sensor ||
             !datos_correctos}
-          title={"TRAIL DEL PESCADOR 10K - PRIMERA PRE VENTA"} 
-          amount={9000}//monto a cobrar
+          title={pagoActual?.title} 
+          amount={pagoActual?.amount}//monto a cobrar
           formData={{
             nombre,
             apellido: apellidos,
