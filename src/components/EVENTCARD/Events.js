@@ -43,9 +43,39 @@ const eventos = [
     imagen: "https://atacaperu.com/wp-content/uploads/2026/05/bobmeros-flyer.avif",
     disponible:false
   },
-  
+
   {
     id: 5,
+    titulo: "AQP TRAIL RUNNING 2026 - TERCERA SERIE: LOS ANDENES DE CHIGUATA ",
+    fecha: "13 de septiembre 2026",
+    lugar: "Chiguata, Arequipa, Perú",
+    descripcion: "¡Más allá de tus límites! Carrera de Trail Running en los andenes de Chiguata - Arequipa",
+    enlace: "/utcc",
+    imagen: "https://atacaperu.com/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-28-at-11.12.28-AM.avif",
+    disponible:false
+  },
+  {
+    id: 6,
+    titulo: "LSL MTB INTERNATIONAL 2026 - SEGUNDA SERIE: EL SEÑOR DE LA JOYA",
+    fecha: "27 de septiembre 2026",
+    lugar: "La Joya, Arequipa, Perú",
+    descripcion: "¡Pedalea al máximo! MTB en el Señor de La Joya – Arequipa, donde la resistencia y la velocidad se ponen a prueba.",
+    enlace: "/lsl_mtb_joya",
+    imagen: "https://atacaperu.com/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-28-at-7.59.53-AM.avif",
+    disponible:true
+  },
+  {
+    id: 7,
+    titulo: "AQP TRAIL RUNNING 2026 - CUARTA SERIE: EL VALLE DE CHILINA",
+    fecha: "27 de septiembre 2026",
+    lugar: "La Joya, Arequipa, Perú",
+    descripcion: "¡Más allá de tus límites! Carrera de Trail Running en el Valle de Chilina - Arequipa",
+    enlace: "/utcc",
+    imagen: "https://atacaperu.com/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-28-at-11.12.28-AM-1.avif",
+    disponible:false
+  },  
+  {
+    id: 8,
     titulo: "ULTRA COLCA CANYON 2026",
     fecha: "07 y 08 de noviembre 2026",
     lugar: "Colca, Arequipa, Perú",
@@ -53,7 +83,7 @@ const eventos = [
     enlace: "/utcc",
     imagen: "https://atacaperu.com/wp-content/uploads/2026/01/cuadrado.avif",
     disponible:false
-  }
+  },
 ];
 
 const Events = () => {
