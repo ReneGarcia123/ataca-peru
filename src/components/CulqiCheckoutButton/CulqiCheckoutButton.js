@@ -92,16 +92,14 @@ const CulqiCheckoutButton = ({
         paymentMethods: {
           tarjeta: false,
           yape: true,
-          billetera: true,
+          billetera: false,
           bancaMovil: false,
           agente: false,
           cuotealo: false
         },
 
         paymentMethodsSort: [
-          "tarjeta",
-          "yape",
-          "billetera"
+          "yape"
         ]
       };
 
