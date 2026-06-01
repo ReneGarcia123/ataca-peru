@@ -18,9 +18,6 @@ import CulqiButton from '../components/CulqiCheckoutButton/CulqiButton';
 
 export default function AQP_TRS_JOYA() {
 
-  /*PRIMERA PREVENTA, SEGUNDA PREVENTA, VENTA FINAL*/
-  const tipoPreventa="PESCADOR PRIMERA PRE VENTA";
-
   const handleFinalResult = async(result) => {
   if (result.success) {
     /*EVITAR QUE PAGUE SIN INTERNET*/
@@ -125,17 +122,17 @@ const resetFormulario = () => {
 
   /*Configuración de precios por modalidad*/
   const configuracionPago={
-    "5K PRIMERA PRE VENTA":{
-      title:"EL DESIERTO DE LA JOYA 5K - PRIMERA PRE VENTA",
-      amount:8000
+    "5K SEGUNDA PRE VENTA":{
+      title:"EL DESIERTO DE LA JOYA 5K - SEGUNDA PRE VENTA",
+      amount:9000
     },
-    "10K PRIMERA PRE VENTA":{
-      title:"EL DESIERTO DE LA JOYA 10K - PRIMERA PRE VENTA",
-      amount:10000
+    "10K SEGUNDA PRE VENTA":{
+      title:"EL DESIERTO DE LA JOYA 10K - SEGUNDA PRE VENTA",
+      amount:11000
     },
-    "21K PRIMERA PRE VENTA":{
-      title:"EL DESIERTO DE LA JOYA 21K - PRIMERA PRE VENTA",
-      amount:12000
+    "21K SEGUNDA PRE VENTA":{
+      title:"EL DESIERTO DE LA JOYA 21K - SEGUNDA PRE VENTA",
+      amount:13000
     }
   };
 
@@ -264,7 +261,7 @@ const resetFormulario = () => {
         title: "INSCRIPCIÓN 5K",
         desc: "5K: Corre entre dunas y descubre la magia del desierto en cada kilómetro",
         btnText: "Inscribirme",
-        modalidad: "5K PRIMERA PRE VENTA",
+        modalidad: "5K SEGUNDA PRE VENTA",
     },
 
     {
@@ -272,7 +269,7 @@ const resetFormulario = () => {
         title: "INSCRIPCIÓN 10K",
         desc: "10K: Desafía tu resistencia con 10K de arena, sol y pura adrenalina",
         btnText: "Inscribirme",
-        modalidad: "10K PRIMERA PRE VENTA",
+        modalidad: "10K SEGUNDA PRE VENTA",
     },
 
     {
@@ -280,7 +277,7 @@ const resetFormulario = () => {
         title: "INSCRIPCIÓN 21K",
         desc: "21K: Conquista el desierto en 21K y demuestra que tu espíritu no tiene límites",
         btnText: "Inscribirme",
-        modalidad: "21K PRIMERA PRE VENTA",
+        modalidad: "21K SEGUNDA PRE VENTA",
     },
     
     
@@ -345,13 +342,6 @@ const resetFormulario = () => {
       "10K Varones Ultra Máster: de 60 años a más",
       "5K Damas y Varones: Open de 15 años a 34 años",
       "5K Damas y Varones Súper Máster: de 35 años a más",
-  ];
-
-  const detalles = [
-    { label: "Fecha", value: "29 de marzo 2026" },
-    { label: "Lugar", value: "Playa los Órganos, Piura, Perú" },
-    { label: "Concentración", value: "07:30 AM" },
-    { label: "Partida", value: "08:00 AM" }
   ];
 
   

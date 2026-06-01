@@ -19,7 +19,7 @@ import CulqiButton from '../components/CulqiCheckoutButton/CulqiButton';
 export default function TRAIL_DEL_PESCADOR() {
 
   /*PRIMERA PREVENTA, SEGUNDA PREVENTA, VENTA FINAL*/
-  const tipoPreventa="PESCADOR PRIMERA PRE VENTA";
+  const tipoPreventa="PESCADOR SEGUNDA PRE VENTA";
 
   const handleFinalResult = async(result) => {
   if (result.success) {
@@ -144,7 +144,7 @@ const resetFormulario = () => {
       templateParams,
       "3ElF522uPVPnXza99"
     );
-    alert(nombre+" ,tu inscripción se ha completado exitosamente. ¡Gracias por apoyar esta gran causa!\nSe enviará un correo de confirmación a "+correo+" con los detalles de tu inscripción.\nEn el mismo correo está el link para que te puedas unir al grupo de WhatsApp de la carrera. ¡Nos vemos en la carrera!");
+    alert(nombre+" ,tu inscripción se ha completado exitosamente. ¡Gracias por ser parte de esta gran aventura!\nSe enviará un correo de confirmación a "+correo+" con los detalles de tu inscripción.\nEn el mismo correo está el link para que te puedas unir al grupo de WhatsApp de la carrera. ¡Nos vemos en la carrera!");
     setModalOpen(false);
     resetFormulario();
   } catch (error) {
@@ -239,7 +239,7 @@ const resetFormulario = () => {
     {
         img: "https://atacaperu.com/wp-content/uploads/2026/05/667365336_122121142869170678_2140071024310354874_n.avif",
         title: "¡Inscríbite ahora!",
-        desc: "¡Corre donde el mar y la arena desafían tus límites! Prepárate para vivir una experiencia única entre el mar, la arena y la fuerza del norte. \nPrecio primera pre venta: S/.90.00 (hastael domingo 31 de mayo)",
+        desc: "¡Corre donde el mar y la arena desafían tus límites! Prepárate para vivir una experiencia única entre el mar, la arena y la fuerza del norte. \nPrecio segunda pre venta: S/.120.00 (hasta el domingo 14 de junio)",
         btnText: "Inscribirme",
     }
   ]
@@ -737,8 +737,8 @@ const resetFormulario = () => {
             !deslinde_responsabilidad ||
             !responsabilidad_sensor ||
             !datos_correctos}
-          title={"TRAIL DEL PESCADOR 10K - PRIMERA PRE VENTA"} 
-          amount={9000}//monto a cobrar
+          title={"TRAIL DEL PESCADOR 10K - SEGUNDA PRE VENTA"} 
+          amount={12000}//monto a cobrar
           formData={{
             nombre,
             apellido: apellidos,
