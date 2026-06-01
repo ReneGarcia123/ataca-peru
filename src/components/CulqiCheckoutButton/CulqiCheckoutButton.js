@@ -90,7 +90,7 @@ const CulqiCheckoutButton = ({
         modal: true,
 
         paymentMethods: {
-          tarjeta: true,
+          tarjeta: false,
           yape: true,
           billetera: true,
           bancaMovil: false,
