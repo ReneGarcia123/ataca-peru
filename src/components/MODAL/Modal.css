@@ -147,6 +147,46 @@
   transform: translateY(-2px);
 }
 
+/* Código de descuento */
+
+.resume-item input[type="text"] {
+
+  width: 100%;
+
+  padding: 14px 16px;
+
+  border: 1px solid #dcdcdc;
+
+  border-radius: 10px;
+
+  font-size: 1rem;
+
+  outline: none;
+
+  background: #ffffff;
+
+  transition: .2s;
+
+  box-sizing: border-box;
+}
+
+.resume-item input[type="text"]:focus {
+
+  border-color: #2f4f74;
+
+  box-shadow:
+    0 0 0 3px rgba(47,79,116,0.15);
+}
+
+.resume-item input[type="text"]:disabled {
+
+  background: #f1f1f1;
+
+  color: #666;
+
+  cursor: not-allowed;
+}
+
 /* Animación */
 
 @keyframes modalFade {

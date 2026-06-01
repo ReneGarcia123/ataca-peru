@@ -87,6 +87,10 @@ const resetFormulario = () => {
   setDatosCorrectos(false);
 
   setSelectedItem(null);
+
+  setCodigoDescuento("");
+setDescuento(0);
+setCodigoAplicado(false);
 };
 
   /*Estado para controlar el grupo seleccionado en el formulario de inscripción */
@@ -120,6 +124,41 @@ const resetFormulario = () => {
   /*Modalidad de inscripción*/
   const [modalidad, setModalidad] = useState("");
 
+  /*DESCUENTOS*/
+  const [codigoDescuento, setCodigoDescuento] = useState("");
+  const [descuento, setDescuento] = useState(0);
+  const [codigoAplicado, setCodigoAplicado] = useState(false);
+
+  /*CODIGOS VÁLIDOS*/
+  const codigosValidos = {
+    DESCJOYA2026: 10,
+    DESCUENTO2: 20,
+    CORI2026: 30
+  };
+
+  /*Funcion descontar*/
+  const aplicarCodigo = () => {
+
+    const codigo = codigoDescuento.trim().toUpperCase();
+
+    if (codigosValidos[codigo]) {
+
+      setDescuento(codigosValidos[codigo]);
+
+      setCodigoAplicado(true);
+
+      alert("Código aplicado correctamente");
+
+    } else {
+
+      setDescuento(0);
+
+      setCodigoAplicado(false);
+
+      alert("Código inválido");
+    }
+  };
+
   /*Configuración de precios por modalidad*/
   const configuracionPago={
     "5K SEGUNDA PRE VENTA":{
@@ -138,6 +177,13 @@ const resetFormulario = () => {
 
   /*Obtener pago actual*/
     const pagoActual = configuracionPago[modalidad];
+
+  /*Calcular monto final*/
+  const montoFinal =
+    Math.max(
+      (pagoActual?.amount || 0) - descuento * 100,
+      0
+    );
 
   /*Función para enviar correo con los datos del formulario usando EmailJS */
  const enviarCorreo = async () => {
@@ -814,6 +860,60 @@ const resetFormulario = () => {
             }
           </button>
         */}
+        <div className="resume-item">
+          <strong>Precio:</strong>
+
+          <span>
+            S/ {(pagoActual?.amount || 0) / 100}
+          </span>
+        </div>
+
+        {
+          descuento > 0 && (
+            <>
+              <div className="resume-item">
+                <strong>Descuento:</strong>
+
+                <span>
+                  - S/ {descuento}
+                </span>
+              </div>
+
+              <div className="resume-item">
+                <strong>Total a pagar:</strong>
+
+                <span>
+                  S/ {montoFinal / 100}
+                </span>
+              </div>
+            </>
+          )
+        }
+
+
+        <div className="resume-item">
+          <strong>Código de descuento:</strong>
+
+          <input
+            type="text"
+            placeholder="Ingresa tu código"
+            value={codigoDescuento}
+            onChange={(e) =>
+              setCodigoDescuento(e.target.value)
+            }
+            disabled={codigoAplicado}
+          />
+
+          <button
+            type="button"
+            className="submit-btn"
+            onClick={aplicarCodigo}
+            disabled={codigoAplicado}
+            style={{ marginTop: "10px" }}
+          >
+            {codigoAplicado ? "CÓDIGO APLICADO" : "APLICAR CÓDIGO"}
+          </button>
+        </div>
         
         <CulqiButton
          disabled={
@@ -823,7 +923,7 @@ const resetFormulario = () => {
             !responsabilidad_sensor ||
             !datos_correctos}
           title={pagoActual?.title} 
-          amount={pagoActual?.amount}//monto a cobrar
+          amount={montoFinal}//monto a cobrar
           formData={{
             nombre,
             apellido: apellidos,
