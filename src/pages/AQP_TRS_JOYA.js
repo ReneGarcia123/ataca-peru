@@ -89,8 +89,8 @@ const resetFormulario = () => {
   setSelectedItem(null);
 
   setCodigoDescuento("");
-setDescuento(0);
-setCodigoAplicado(false);
+  setDescuento(0);
+  setCodigoAplicado(false);
 };
 
   /*Estado para controlar el grupo seleccionado en el formulario de inscripción */
@@ -132,7 +132,7 @@ setCodigoAplicado(false);
   /*CODIGOS VÁLIDOS*/
   const codigosValidos = {
     DESCJOYA2026: 10,
-    DESCUENTO2: 20,
+    A1S72026: 10,
     CORI2026: 30
   };
 
