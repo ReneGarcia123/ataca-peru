@@ -133,7 +133,7 @@ const resetFormulario = () => {
   const codigosValidos = {
     DESCJOYA2026: 10,
     A1S72026: 10,
-    CORI2026: 30
+    DP950AML: 10
   };
 
   /*Funcion descontar*/
