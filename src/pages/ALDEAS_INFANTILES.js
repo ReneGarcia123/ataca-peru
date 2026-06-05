@@ -578,11 +578,9 @@ const guardarInscripcionGoogle = async () => {
               value={talla}
               onChange={(e) => setTalla(e.target.value)}
               required>
-              <option value="XS">XS</option>
               <option value="S">S</option>
               <option value="M">M</option>
               <option value="L">L</option>
-              <option value="XL">XL</option>
             </select>
             <button type="submit" className="submit-btn">
               Continuar
