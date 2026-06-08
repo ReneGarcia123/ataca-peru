@@ -65,7 +65,28 @@ export default function AQP_TRS_JOYA() {
 /*Evitar doble clic*/
 const [loadingStep, setLoadingStep] = useState(false);
 
-/*RESETEAR FORMULARIO*/
+
+
+  /*Estado para controlar el grupo seleccionado en el formulario de inscripción */
+  const [grupo, setGrupo] = useState("ALPHA");
+
+  /*Estado pasos del formulario de inscripción */
+  const [step, setStep] = useState(1);
+
+  /*Datos del formulario de inscripción */
+  const [nombre, setNombre] = useState("");
+  const [apellidos, setApellidos] = useState("");
+  const [dni, setDni] = useState("");
+  const [correo, setCorreo] = useState("");
+  const [telefono, setTelefono] = useState("");
+  const [genero, setGenero] = useState("");
+  const [fechaNacimiento, setFechaNacimiento] = useState("");
+  const [talla, setTalla] = useState("M");
+  const [otroEquipo, setOtroEquipo] = useState("");
+  const [fotoBienvenida, setFotoBienvenida] = useState(null);
+  const [capturaPago, setCapturaPago] = useState(null);
+
+  /*RESETEAR FORMULARIO*/
 const resetFormulario = () => {
   setGrupo("ALPHA");
   setStep(1);
@@ -91,25 +112,10 @@ const resetFormulario = () => {
   setCodigoDescuento("");
   setDescuento(0);
   setCodigoAplicado(false);
+  setCapturaPago(null);
 };
 
-  /*Estado para controlar el grupo seleccionado en el formulario de inscripción */
-  const [grupo, setGrupo] = useState("ALPHA");
 
-  /*Estado pasos del formulario de inscripción */
-  const [step, setStep] = useState(1);
-
-  /*Datos del formulario de inscripción */
-  const [nombre, setNombre] = useState("");
-  const [apellidos, setApellidos] = useState("");
-  const [dni, setDni] = useState("");
-  const [correo, setCorreo] = useState("");
-  const [telefono, setTelefono] = useState("");
-  const [genero, setGenero] = useState("");
-  const [fechaNacimiento, setFechaNacimiento] = useState("");
-  const [talla, setTalla] = useState("M");
-  const [otroEquipo, setOtroEquipo] = useState("");
-  const [fotoBienvenida, setFotoBienvenida] = useState(null);
 
   /*Estados para controlar los checkbox de términos y condiciones */
   const [bases_generales, setBasesGenerales] = useState(false);
@@ -129,12 +135,52 @@ const resetFormulario = () => {
   const [descuento, setDescuento] = useState(0);
   const [codigoAplicado, setCodigoAplicado] = useState(false);
 
+
   /*CODIGOS VÁLIDOS*/
   const codigosValidos = {
-    DESCJOYA2026: 10,
-    A1S72026: 10,
-    DP950AML: 10
+    "RENE549501":{
+      descuento: 10,
+      links:{
+        "5K SEGUNDA PRE VENTA":
+          "https://express.culqi.com/pago/LINK5K",
+        "10K SEGUNDA PRE VENTA":
+          "https://express.culqi.com/pago/LINK10K",
+        "21K SEGUNDA PRE VENTA":
+          "https://express.culqi.com/pago/FBC06A0062"
+      }
+    },
   };
+
+  /*ENVIAR CAPTURA DE PAGO*/
+  const datosPago = {
+  "5K SEGUNDA PRE VENTA": {
+    precio: 90,
+    link: "https://express.culqi.com/pago/FBC06A0062"
+  },
+  "10K SEGUNDA PRE VENTA": {
+    precio: 110,
+    link: "https://express.culqi.com/pago/EEDF5461CE"
+  },
+  "21K SEGUNDA PRE VENTA": {
+    precio: 130,
+    link: "https://express.culqi.com/pago/7253903F02"
+  }
+};
+
+const pagoInfo = datosPago[modalidad];
+
+
+
+const codigoActual =
+  codigosValidos[
+    codigoDescuento.trim().toUpperCase()
+  ];
+
+const linkFinal =
+  codigoAplicado &&
+  codigoActual?.links?.[modalidad]
+    ? codigoActual.links[modalidad]
+    : pagoInfo?.link;
 
   /*Funcion descontar*/
   const aplicarCodigo = () => {
@@ -143,7 +189,9 @@ const resetFormulario = () => {
 
     if (codigosValidos[codigo]) {
 
-      setDescuento(codigosValidos[codigo]);
+      setDescuento(
+        codigosValidos[codigo].descuento
+      );
 
       setCodigoAplicado(true);
 
@@ -158,6 +206,8 @@ const resetFormulario = () => {
       alert("Código inválido");
     }
   };
+
+
 
   /*Configuración de precios por modalidad*/
   const configuracionPago={
@@ -223,29 +273,45 @@ const resetFormulario = () => {
   const guardarInscripcionGoogle = async () => {
 
   try {
-
+    //Convertir foto a base64
     let fotoBase64 = "";
     let fotoMimeType = "";
-
     if (fotoBienvenida) {
-
       fotoMimeType = fotoBienvenida.type;
-
       fotoBase64 = await new Promise((resolve, reject) => {
-
         const reader = new FileReader();
-
         reader.readAsDataURL(fotoBienvenida);
-
         reader.onload = () => {
-
           const base64 = reader.result.split(",")[1];
-
           resolve(base64);
         };
-
         reader.onerror = error => reject(error);
       });
+    }
+      //Convertir captura de pago a base64
+    let capturaPagoBase64 = "";
+    let capturaPagoMimeType = "";
+
+    if (capturaPago) {
+
+      capturaPagoMimeType = capturaPago.type;
+
+      capturaPagoBase64 = await new Promise(
+        (resolve, reject) => {
+
+          const reader = new FileReader();
+
+          reader.readAsDataURL(capturaPago);
+
+          reader.onload = () => {
+            resolve(
+              reader.result.split(",")[1]
+            );
+          };
+
+          reader.onerror = reject;
+        }
+      );
     }
 
     const payload = {
@@ -263,12 +329,24 @@ const resetFormulario = () => {
 
       talla,
       modalidad,
+       // PRECIOS
+      precioBase: (pagoActual?.amount || 0) / 100,
+      descuentoAplicado: codigoAplicado,
+      codigoDescuento: codigoAplicado
+        ? codigoDescuento.trim().toUpperCase()
+        : "",
+      montoDescuento: descuento,
+      montoFinal: montoFinal / 100,
+
       fotoBase64,
-      fotoMimeType
+      fotoMimeType,
+
+      capturaPagoBase64,
+      capturaPagoMimeType
     };
 
     const response = await fetch(
-      "https://script.google.com/macros/s/AKfycbzRA6f1gyKU42SQb1r7s7r_SARdhjuMwM8BINJmFGqzxQTYCY9u0r1mxF7ZCcLiQPq5/exec",
+      "https://script.google.com/macros/s/AKfycbwc2658hwAmuDBjDXzDqDxsgWMpGulxZBNOsQONLlalEgov0J74SSZ7H0IYS2Ze86j0/exec",
       {
         method: "POST",
         body: JSON.stringify(payload)
@@ -461,12 +539,13 @@ const resetFormulario = () => {
         <div className="modal-line"></div>
         <h1>
           {
-            step===1
-            ? "FORMULARIO DE INSCRIPCIÓN"
-
-            :step===2
-            ? "TÉRMINOS Y CONDICIONES"
-            :"RESUMEN DE INSCRIPCIÓN"
+            step === 1
+              ? "FORMULARIO DE INSCRIPCIÓN"
+              : step === 2
+              ? "TÉRMINOS Y CONDICIONES"
+              : step === 3
+              ? "INFORMACIÓN DE PAGO"
+              : "RESUMEN DE INSCRIPCIÓN"
           }
         </h1>
         { step === 1 && (
@@ -740,7 +819,114 @@ const resetFormulario = () => {
           </div>
         )}
 
-        {(step === 3) && (
+        {step === 3 && (
+          <>
+              <div className="resume-item">
+                
+                <h3>
+                  Precio
+                </h3>
+                <span>
+                  S/ {(pagoActual?.amount || 0) / 100}
+                </span>
+              </div>
+
+              {descuento > 0 && (
+                <>
+                  <div className="resume-item">
+                    <strong>Descuento:</strong>
+                    <span>- S/ {descuento}</span>
+                  </div>
+
+                  <div className="resume-item">
+                    <strong>Total a pagar:</strong>
+                    <span>S/ {montoFinal / 100}</span>
+                  </div>
+                </>
+              )}
+
+              <div className="resume-item">
+                <strong>Código de descuento:</strong>
+
+                <input
+                  type="text"
+                  placeholder="Ingresa tu código"
+                  value={codigoDescuento}
+                  onChange={(e) => setCodigoDescuento(e.target.value)}
+                  disabled={codigoAplicado}
+                />
+
+                <button
+                  type="button"
+                  className="submit-btn"
+                  onClick={aplicarCodigo}
+                  disabled={codigoAplicado}
+                  style={{ marginTop: "10px" }}
+                >
+                  {codigoAplicado
+                    ? "CÓDIGO APLICADO"
+                    : "APLICAR CÓDIGO"}
+                </button>
+              </div>
+
+              <div className="payment-section">
+                <h3>Pago por Yape</h3>
+                    
+                <p>
+                  Realiza el pago por el monto correspondiente
+                  al número:
+                  <br/>
+                  <strong>987654321 - María Málaga </strong>
+                  <br/>
+                  y adjunta tu captura.
+                </p>
+                <br/>
+                <h3>
+                  Captura de pago:
+                </h3>
+                <br/>
+                <input
+                  type="file"
+                  accept=".jpg,.jpeg,.png,.pdf"
+                  onChange={(e) =>
+                    setCapturaPago(e.target.files[0])
+                  }
+                />
+
+                <br />
+                <br/>
+                <br/>
+                <h3>O paga mediante link</h3>
+
+                <a
+                  href={linkFinal}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="submit-btn"
+                  style={{
+                    display: "inline-block",
+                    textDecoration: "none",
+                    textAlign: "center"
+                  }}
+                >
+                  PAGAR CON TARJETA
+                </a>
+
+       
+
+                <button
+                  className="submit-btn"
+                  disabled={!capturaPago}
+                  onClick={() => setStep(4)}
+                >
+                  CONTINUAR
+                </button>
+
+              </div>
+            </>
+        )}
+
+        {(step === 4) && (
           <div className="resume-step">
 
           <div className="resume-item">
@@ -805,6 +991,18 @@ const resetFormulario = () => {
             <span>La categoría será asignada según las bases generales</span>
           </div>
 
+          <div className="resume-item">
+            <strong>Monto de inscripción:</strong>
+            <span>S/ {montoFinal / 100}</span>
+          </div>
+
+          {descuento > 0 && (
+            <div className="resume-item">
+              <strong>Descuento aplicado:</strong>
+              <span>- S/ {descuento}</span>
+            </div>
+          )}
+
           {
             fotoBienvenida && (
 
@@ -824,7 +1022,7 @@ const resetFormulario = () => {
           }
 
           {/*modulo de pago sin Culqi: solo usar en EMERGENCIA*/}
-          {/*BOTON PRUEBA SIN CULQUI*
+          
           <button
             className="submit-btn"
             disabled={enviando}
@@ -859,62 +1057,10 @@ const resetFormulario = () => {
                 : "FINALIZAR INSCRIPCIÓN"
             }
           </button>
-        */}
-        <div className="resume-item">
-          <strong>Precio:</strong>
-
-          <span>
-            S/ {(pagoActual?.amount || 0) / 100}
-          </span>
-        </div>
-
-        {
-          descuento > 0 && (
-            <>
-              <div className="resume-item">
-                <strong>Descuento:</strong>
-
-                <span>
-                  - S/ {descuento}
-                </span>
-              </div>
-
-              <div className="resume-item">
-                <strong>Total a pagar:</strong>
-
-                <span>
-                  S/ {montoFinal / 100}
-                </span>
-              </div>
-            </>
-          )
-        }
-
-
-        <div className="resume-item">
-          <strong>Código de descuento:</strong>
-
-          <input
-            type="text"
-            placeholder="Ingresa tu código"
-            value={codigoDescuento}
-            onChange={(e) =>
-              setCodigoDescuento(e.target.value)
-            }
-            disabled={codigoAplicado}
-          />
-
-          <button
-            type="button"
-            className="submit-btn"
-            onClick={aplicarCodigo}
-            disabled={codigoAplicado}
-            style={{ marginTop: "10px" }}
-          >
-            {codigoAplicado ? "CÓDIGO APLICADO" : "APLICAR CÓDIGO"}
-          </button>
-        </div>
         
+        
+
+        {/*B
         <CulqiButton
          disabled={
             enviando ||
@@ -941,7 +1087,8 @@ const resetFormulario = () => {
             ? "ENVIANDO..."
             : "PAGAR"
           }
-        />
+        /> 
+        */}
       </div>
       )}
       </Modal>
