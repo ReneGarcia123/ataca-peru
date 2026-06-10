@@ -876,7 +876,7 @@ const linkFinal =
                   Realiza el pago por el monto correspondiente
                   al número:
                   <br/>
-                  <strong>987654321 - María Málaga </strong>
+                  <strong>956280178 - María Málaga </strong>
                   <br/>
                   y adjunta tu captura.
                 </p>
