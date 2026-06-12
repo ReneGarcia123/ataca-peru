@@ -329,9 +329,7 @@ const guardarInscripcionGoogle = async () => {
 
   /*Carrusel 2 imagenes*/
   const images_carrousel2=[
-      "https://atacaperu.com/wp-content/uploads/2026/05/701313432_1828615631879010_3829468554739370638_n.avif",
-      "https://atacaperu.com/wp-content/uploads/2026/05/700208264_1827702155303691_1205507908146195870_n.avif",
-      "https://atacaperu.com/wp-content/uploads/2026/05/697177072_1826755695398337_2843395840613015311_n.avif",
+      "https://atacaperu.com/wp-content/uploads/2026/06/WhatsApp-Image-2026-06-12-at-1.33.15-PM.avif",
   ]
 
   /*Detalles del hero section*/
@@ -811,7 +809,7 @@ const guardarInscripcionGoogle = async () => {
       <ButtonBases url={"https://atacaperu.com/wp-content/uploads/2026/05/BASES-ALDEAS-INFANTILES-2026.pdf"}/>
       <br />
       <br />
-      {/* <Carrusel2 images={images_carrousel2} titulo="¿Qué incluye tu participación?" /> */}
+      <Carrusel2 images={images_carrousel2} titulo="¿Qué incluye tu participación?" />
       <Mapping
         titulo="Recorrido de la carrera"
         proximamente={false}
