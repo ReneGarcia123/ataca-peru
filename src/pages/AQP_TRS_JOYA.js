@@ -909,6 +909,8 @@ const linkFinal =
                 <br/>
                 <br/>
                 <h3>O paga mediante link</h3>
+                <br/>
+                <h3>IMPORTANTE: SI PAGA CON TARJETA DEBE SUBIR LA CAPTURA DE PAGO Y AÑADIRLA A LA INSCRIPCIÓN</h3>
 
                 <a
                   href={linkFinal}
