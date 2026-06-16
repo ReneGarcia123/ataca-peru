@@ -141,11 +141,11 @@ const resetFormulario = () => {
     "RENE549501":{
       descuento: 10,
       links:{
-        "5K SEGUNDA PRE VENTA":
+        "5K VENTA FINAL":
           "https://express.culqi.com/pago/LINK5K",
-        "10K SEGUNDA PRE VENTA":
+        "10K VENTA FINAL":
           "https://express.culqi.com/pago/LINK10K",
-        "21K SEGUNDA PRE VENTA":
+        "21K VENTA FINAL":
           "https://express.culqi.com/pago/FBC06A0062"
       }
     },
@@ -153,17 +153,17 @@ const resetFormulario = () => {
 
   /*ENVIAR CAPTURA DE PAGO*/
   const datosPago = {
-  "5K SEGUNDA PRE VENTA": {
-    precio: 90,
-    link: "https://express.culqi.com/pago/FBC06A0062"
+  "5K VENTA FINAL": {
+    precio: 100,
+    link: "https://express.culqi.com/pago/E800201641"
   },
-  "10K SEGUNDA PRE VENTA": {
-    precio: 110,
-    link: "https://express.culqi.com/pago/EEDF5461CE"
+  "10K VENTA FINAL": {
+    precio: 120,
+    link: "https://express.culqi.com/pago/0EC8E6F569"
   },
-  "21K SEGUNDA PRE VENTA": {
-    precio: 130,
-    link: "https://express.culqi.com/pago/7253903F02"
+  "21K VENTA FINAL": {
+    precio: 140,
+    link: "https://express.culqi.com/pago/5CBA394641"
   }
 };
 
@@ -211,17 +211,17 @@ const linkFinal =
 
   /*Configuración de precios por modalidad*/
   const configuracionPago={
-    "5K SEGUNDA PRE VENTA":{
-      title:"EL DESIERTO DE LA JOYA 5K - SEGUNDA PRE VENTA",
-      amount:9000
+    "5K VENTA FINAL":{
+      title:"EL DESIERTO DE LA JOYA 5K - VENTA FINAL",
+      amount:10000
     },
-    "10K SEGUNDA PRE VENTA":{
-      title:"EL DESIERTO DE LA JOYA 10K - SEGUNDA PRE VENTA",
-      amount:11000
+    "10K VENTA FINAL":{
+      title:"EL DESIERTO DE LA JOYA 10K - VENTA FINAL",
+      amount:12000
     },
-    "21K SEGUNDA PRE VENTA":{
-      title:"EL DESIERTO DE LA JOYA 21K - SEGUNDA PRE VENTA",
-      amount:13000
+    "21K VENTA FINAL":{
+      title:"EL DESIERTO DE LA JOYA 21K - VENTA FINAL",
+      amount:14000
     }
   };
 
@@ -385,7 +385,7 @@ const linkFinal =
         title: "INSCRIPCIÓN 5K",
         desc: "5K: Corre entre dunas y descubre la magia del desierto en cada kilómetro",
         btnText: "Inscribirme",
-        modalidad: "5K SEGUNDA PRE VENTA",
+        modalidad: "5K VENTA FINAL",
     },
 
     {
@@ -393,7 +393,7 @@ const linkFinal =
         title: "INSCRIPCIÓN 10K",
         desc: "10K: Desafía tu resistencia con 10K de arena, sol y pura adrenalina",
         btnText: "Inscribirme",
-        modalidad: "10K SEGUNDA PRE VENTA",
+        modalidad: "10K VENTA FINAL",
     },
 
     {
@@ -401,7 +401,7 @@ const linkFinal =
         title: "INSCRIPCIÓN 21K",
         desc: "21K: Conquista el desierto en 21K y demuestra que tu espíritu no tiene límites",
         btnText: "Inscribirme",
-        modalidad: "21K SEGUNDA PRE VENTA",
+        modalidad: "21K VENTA FINAL",
     },
     
     
