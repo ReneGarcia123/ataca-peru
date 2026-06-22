@@ -11,6 +11,7 @@ import SuccessPage from './pages/SuccessPage';
 import ALDEAS_INFANTILES from './pages/ALDEAS_INFANTILES';
 import AQP_TRS_JOYA from './pages/AQP_TRS_JOYA';
 import LSL_MTB_JOYA from './pages/LSL_MTB_JOYA';
+import AQP_TRS_CHIGUATA from './pages/AQP_TRS_CHIGUATA';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="utcc" element={<UTCC />} />
           <Route path="aldeas_infantiles" element={<ALDEAS_INFANTILES />} />
           <Route path="lsl_mtb_joya" element={<LSL_MTB_JOYA/>}/>
+          <Route path="aqp_trs_chiguata" element={<AQP_TRS_CHIGUATA/>}/>
           {/* Rutas de prueba (Eliminables)*/}
           <Route path="registration" element={<RegistrationPage />} />
           <Route path="success" element={<SuccessPage />} />

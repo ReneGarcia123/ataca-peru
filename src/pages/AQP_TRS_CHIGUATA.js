@@ -16,10 +16,7 @@ import Modal from '../components/MODAL/Modal';
 import emailjs from '@emailjs/browser';
 import CulqiButton from '../components/CulqiCheckoutButton/CulqiButton';
 
-export default function TRAIL_DEL_PESCADOR() {
-
-  /*PRIMERA PREVENTA, SEGUNDA PREVENTA, VENTA FINAL*/
-  const tipoPreventa="PESCADOR VENTA FINAL";
+export default function AQP_TRS_CHIGUATA() {
 
   const handleFinalResult = async(result) => {
   if (result.success) {
@@ -68,7 +65,28 @@ export default function TRAIL_DEL_PESCADOR() {
 /*Evitar doble clic*/
 const [loadingStep, setLoadingStep] = useState(false);
 
-/*RESETEAR FORMULARIO*/
+
+
+  /*Estado para controlar el grupo seleccionado en el formulario de inscripción */
+  const [grupo, setGrupo] = useState("ALPHA");
+
+  /*Estado pasos del formulario de inscripción */
+  const [step, setStep] = useState(1);
+
+  /*Datos del formulario de inscripción */
+  const [nombre, setNombre] = useState("");
+  const [apellidos, setApellidos] = useState("");
+  const [dni, setDni] = useState("");
+  const [correo, setCorreo] = useState("");
+  const [telefono, setTelefono] = useState("");
+  const [genero, setGenero] = useState("");
+  const [fechaNacimiento, setFechaNacimiento] = useState("");
+  const [talla, setTalla] = useState("M");
+  const [otroEquipo, setOtroEquipo] = useState("");
+  const [fotoBienvenida, setFotoBienvenida] = useState(null);
+  const [capturaPago, setCapturaPago] = useState(null);
+
+  /*RESETEAR FORMULARIO*/
 const resetFormulario = () => {
   setGrupo("ALPHA");
   setStep(1);
@@ -90,25 +108,14 @@ const resetFormulario = () => {
   setDatosCorrectos(false);
 
   setSelectedItem(null);
+
+  setCodigoDescuento("");
+  setDescuento(0);
+  setCodigoAplicado(false);
+  setCapturaPago(null);
 };
 
-  /*Estado para controlar el grupo seleccionado en el formulario de inscripción */
-  const [grupo, setGrupo] = useState("ALPHA");
 
-  /*Estado pasos del formulario de inscripción */
-  const [step, setStep] = useState(1);
-
-  /*Datos del formulario de inscripción */
-  const [nombre, setNombre] = useState("");
-  const [apellidos, setApellidos] = useState("");
-  const [dni, setDni] = useState("");
-  const [correo, setCorreo] = useState("");
-  const [telefono, setTelefono] = useState("");
-  const [genero, setGenero] = useState("");
-  const [fechaNacimiento, setFechaNacimiento] = useState("");
-  const [talla, setTalla] = useState("M");
-  const [otroEquipo, setOtroEquipo] = useState("");
-  const [fotoBienvenida, setFotoBienvenida] = useState(null);
 
   /*Estados para controlar los checkbox de términos y condiciones */
   const [bases_generales, setBasesGenerales] = useState(false);
@@ -120,6 +127,115 @@ const resetFormulario = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
 
+  /*Modalidad de inscripción*/
+  const [modalidad, setModalidad] = useState("");
+
+  /*DESCUENTOS*/
+  const [codigoDescuento, setCodigoDescuento] = useState("");
+  const [descuento, setDescuento] = useState(0);
+  const [codigoAplicado, setCodigoAplicado] = useState(false);
+
+
+  /*CODIGOS VÁLIDOS*/
+  const codigosValidos = {
+    "RENE549501":{
+      descuento: 10,
+      links:{
+        "5K VENTA FINAL":
+          "https://express.culqi.com/pago/LINK5K",
+        "10K VENTA FINAL":
+          "https://express.culqi.com/pago/LINK10K",
+        "21K VENTA FINAL":
+          "https://express.culqi.com/pago/FBC06A0062"
+      }
+    },
+
+  };
+
+  /*ENVIAR CAPTURA DE PAGO*/
+  const datosPago = {
+  "5K PRIMERA PRE VENTA": {
+    precio: 80,
+    link: "https://express.culqi.com/pago/354837F496"
+  },
+  "10K PRIMERA PRE VENTA": {
+    precio: 100,
+    link: "https://express.culqi.com/pago/39B44D794C"
+  },
+  "21K PRIMERA PRE VENTA": {
+    precio: 120,
+    link: "https://express.culqi.com/pago/8F839BC191"
+  }
+};
+
+const pagoInfo = datosPago[modalidad];
+
+
+
+const codigoActual =
+  codigosValidos[
+    codigoDescuento.trim().toUpperCase()
+  ];
+
+const linkFinal =
+  codigoAplicado &&
+  codigoActual?.links?.[modalidad]
+    ? codigoActual.links[modalidad]
+    : pagoInfo?.link;
+
+  /*Funcion descontar*/
+  const aplicarCodigo = () => {
+
+    const codigo = codigoDescuento.trim().toUpperCase();
+
+    if (codigosValidos[codigo]) {
+
+      setDescuento(
+        codigosValidos[codigo].descuento
+      );
+
+      setCodigoAplicado(true);
+
+      alert("Código aplicado correctamente");
+
+    } else {
+
+      setDescuento(0);
+
+      setCodigoAplicado(false);
+
+      alert("Código inválido");
+    }
+  };
+
+
+
+  /*Configuración de precios por modalidad*/
+  const configuracionPago={
+    "5K VENTA FINAL":{
+      title:"EL DESIERTO DE LA JOYA 5K - VENTA FINAL",
+      amount:10000
+    },
+    "10K VENTA FINAL":{
+      title:"EL DESIERTO DE LA JOYA 10K - VENTA FINAL",
+      amount:12000
+    },
+    "21K VENTA FINAL":{
+      title:"EL DESIERTO DE LA JOYA 21K - VENTA FINAL",
+      amount:14000
+    }
+  };
+
+  /*Obtener pago actual*/
+    const pagoActual = configuracionPago[modalidad];
+
+  /*Calcular monto final*/
+  const montoFinal =
+    Math.max(
+      (pagoActual?.amount || 0) - descuento * 100,
+      0
+    );
+
   /*Función para enviar correo con los datos del formulario usando EmailJS */
  const enviarCorreo = async () => {
   const templateParams = {
@@ -130,6 +246,7 @@ const resetFormulario = () => {
     telefono,
     genero,
     fechaNacimiento,
+    modalidad,
     grupo:
       grupo === "otro"
       ? otroEquipo
@@ -139,12 +256,12 @@ const resetFormulario = () => {
   };
   try {
     await emailjs.send(
-      "service_gi2cwnf",
-      "template_01qt16e",
+      "service_2govrnu",
+      "template_lurswng",
       templateParams,
-      "3ElF522uPVPnXza99"
+      "PN9-V6us45efj9uL6"
     );
-    alert(nombre+" ,tu inscripción se ha completado exitosamente. ¡Gracias por ser parte de esta gran aventura!\nSe enviará un correo de confirmación a "+correo+" con los detalles de tu inscripción.\nEn el mismo correo está el link para que te puedas unir al grupo de WhatsApp de la carrera. ¡Nos vemos en la carrera!");
+    alert(nombre+" ,tu inscripción se ha completado exitosamente. ¡El desierto de la Joya te espera!\nSe enviará un correo de confirmación a "+correo+" con los detalles de tu inscripción.\nEn el mismo correo está el link para que te puedas unir al grupo de WhatsApp de la carrera. ¡Nos vemos en la carrera!");
     setModalOpen(false);
     resetFormulario();
   } catch (error) {
@@ -157,29 +274,45 @@ const resetFormulario = () => {
   const guardarInscripcionGoogle = async () => {
 
   try {
-
+    //Convertir foto a base64
     let fotoBase64 = "";
     let fotoMimeType = "";
-
     if (fotoBienvenida) {
-
       fotoMimeType = fotoBienvenida.type;
-
       fotoBase64 = await new Promise((resolve, reject) => {
-
         const reader = new FileReader();
-
         reader.readAsDataURL(fotoBienvenida);
-
         reader.onload = () => {
-
           const base64 = reader.result.split(",")[1];
-
           resolve(base64);
         };
-
         reader.onerror = error => reject(error);
       });
+    }
+      //Convertir captura de pago a base64
+    let capturaPagoBase64 = "";
+    let capturaPagoMimeType = "";
+
+    if (capturaPago) {
+
+      capturaPagoMimeType = capturaPago.type;
+
+      capturaPagoBase64 = await new Promise(
+        (resolve, reject) => {
+
+          const reader = new FileReader();
+
+          reader.readAsDataURL(capturaPago);
+
+          reader.onload = () => {
+            resolve(
+              reader.result.split(",")[1]
+            );
+          };
+
+          reader.onerror = reject;
+        }
+      );
     }
 
     const payload = {
@@ -190,20 +323,31 @@ const resetFormulario = () => {
       telefono,
       genero,
       fechaNacimiento,
-
       grupo:
         grupo === "otro"
           ? otroEquipo
           : grupo,
 
       talla,
-      tipoPreventa,
+      modalidad,
+       // PRECIOS
+      precioBase: (pagoActual?.amount || 0) / 100,
+      descuentoAplicado: codigoAplicado,
+      codigoDescuento: codigoAplicado
+        ? codigoDescuento.trim().toUpperCase()
+        : "",
+      montoDescuento: descuento,
+      montoFinal: montoFinal / 100,
+
       fotoBase64,
-      fotoMimeType
+      fotoMimeType,
+
+      capturaPagoBase64,
+      capturaPagoMimeType
     };
 
     const response = await fetch(
-      "https://script.google.com/macros/s/AKfycbx9m94caF6b9Bhw3ttQ396HpMNcYKqQCLT3VCSKj5YVRPiSN_wZL_AF-QMQb1foCGul/exec",
+      "https://script.google.com/macros/s/AKfycbwc2658hwAmuDBjDXzDqDxsgWMpGulxZBNOsQONLlalEgov0J74SSZ7H0IYS2Ze86j0/exec",
       {
         method: "POST",
         body: JSON.stringify(payload)
@@ -236,32 +380,54 @@ const resetFormulario = () => {
 
   /*Items de tipo de inscripción*/
   const items_inscripcion = [
+    
     {
-        img: "https://atacaperu.com/wp-content/uploads/2026/05/667365336_122121142869170678_2140071024310354874_n.avif",
-        title: "¡Inscríbite ahora!",
-        desc: "¡Corre donde el mar y la arena desafían tus límites! Prepárate para vivir una experiencia única entre el mar, la arena y la fuerza del norte. \nPrecio venta final: S/.120.00 (hasta el domingo 21 de junio)",
+        img: "https://atacaperu.com/wp-content/uploads/2026/06/C10.avif",
+        title: "INSCRIPCIÓN 5K",
+        desc: "5K: Corre entre dunas y descubre la magia del desierto en cada kilómetro",
         btnText: "Inscribirme",
-    }
+        modalidad: "5K PRIMERA PRE VENTA",
+    },
+
+    {
+        img: "https://atacaperu.com/wp-content/uploads/2026/06/C5.avif",
+        title: "INSCRIPCIÓN 10K",
+        desc: "10K: Desafía tu resistencia con 10K de arena, sol y pura adrenalina",
+        btnText: "Inscribirme",
+        modalidad: "10K PRIMERA PRE VENTA",
+    },
+
+    {
+        img: "https://atacaperu.com/wp-content/uploads/2026/06/C21.avif",
+        title: "INSCRIPCIÓN 21K",
+        desc: "21K: Conquista el desierto en 21K y demuestra que tu espíritu no tiene límites",
+        btnText: "Inscribirme",
+        modalidad: "21K PRIMERA PRE VENTA",
+    },
+    
+    
+
   ]
 
   /*Función para abrir el modal con el ítem seleccionado */
   const abrirModal = (item) => {
       setSelectedItem(item);
+      setModalidad(item.modalidad);//agregar modalidad distancia
       setStep(1); // Reiniciar al paso 1 cada vez que se abre el modal
       setModalOpen(true);
   };
 
   const items_responsib = [
   {
-      img: "https://atacaperu.com/wp-content/uploads/2026/05/2.avif",
+      img: "https://atacaperu.com/wp-content/uploads/2026/06/cb.avif",
       title: "Deslinde de Responsabilidad",
       desc: "Aceptación de riesgos y condiciones del evento.",
-      link: "https://atacaperu.com/wp-content/uploads/2026/05/DESLINDE-TRAIL-DEL-PESCADOR.pdf",
+      link: "https://atacaperu.com/wp-content/uploads/2026/05/DESLINDE-LA-JOYA.pdf",
       btnText: "Ver documento",
     },
 
     {
-      img: "https://atacaperu.com/wp-content/uploads/2026/05/3.avif",
+      img: "https://atacaperu.com/wp-content/uploads/2026/06/csens.avif",
       title: "Dispositivo Sensor",
       desc: "Uso correcto y responsabilidad del equipo.",
       link: "https://atacaperu.com/wp-content/uploads/2025/02/RESPONSABILIDAD-SENSOR.pdf",
@@ -269,45 +435,40 @@ const resetFormulario = () => {
     },
 
     {
-      img: "https://atacaperu.com/wp-content/uploads/2026/05/1.avif",
+      img: "https://atacaperu.com/wp-content/uploads/2026/06/cm.avif",
       title: "Autorización de Menor",
       desc: "Permiso para participación de menores.",
-      link: "https://atacaperu.com/wp-content/uploads/2026/05/AUTORIZACION-TRAIL-DEL-PESCADOR-MENORES.pdf",
+      link: "https://atacaperu.com/wp-content/uploads/2026/05/AUTORIZACION-JOYA.pdf",
       btnText: "Ver documento",
     },
   ];
 
   /*Carrusel 2 imagenes*/
   const images_carrousel2=[
-      "https://atacaperu.com/wp-content/uploads/2026/05/701313432_1828615631879010_3829468554739370638_n.avif",
-      "https://atacaperu.com/wp-content/uploads/2026/05/700208264_1827702155303691_1205507908146195870_n.avif",
-      "https://atacaperu.com/wp-content/uploads/2026/05/697177072_1826755695398337_2843395840613015311_n.avif",
+      "https://atacaperu.com/wp-content/uploads/2026/06/c1aa0d79-fb20-4adc-a1fa-c908f0892fb5.avif",
   ]
 
   /*Detalles del hero section*/
   const detalles_hero = [
-      { icon: <FaMapMarkerAlt />, label: "Lugar", value: "Playa los Órganos, Piura, Perú" },
+      { icon: <FaMapMarkerAlt />, label: "Lugar", value: "Chiguata, Arequipa, Perú" },
       { icon: <FaClock />, label: "Hora", value: "08:00 AM" },
       { icon: <FaMedal />, label: "Premios", value: "Reconocimientos a ganadores" },
   ];
 
   const categorias = [
-      "Damas y Varones Juveniles: de 15 a 17 años",
-      "Damas y Varones Elite: de 18 a 34 años",
-      "Damas y Varones Máster: de 35 a 49 años",
-      "Damas y Varones Súper Máster: de 50 años a más"
-  ];
-
-  const detalles = [
-    { label: "Fecha", value: "29 de marzo 2026" },
-    { label: "Lugar", value: "Playa los Órganos, Piura, Perú" },
-    { label: "Concentración", value: "07:30 AM" },
-    { label: "Partida", value: "08:00 AM" }
+      "21K Damas: Open de 18 años a más",
+      "21K Varones: Open de 18 años a 34 años",
+      "21K Varones Máster: de 35 años a más",
+      "10K Damas y Varones: Elite de 18 años 34 años",
+      "10K Damas Súper Máster: de 50 años a más",
+      "10K Varones Súper Máster: de 50 a 59 años",
+      "10K Varones Ultra Máster: de 60 años a más",
+      "5K Damas y Varones: Open de 15 años a 34 años",
+      "5K Damas y Varones Súper Máster: de 35 años a más",
   ];
 
   
   const items = [
-    { icon: <FaRegMoneyBillAlt />, title: "Premio en efectivo", text: "Para los primeros puestos en la llegada general (damas y varones)" },
     { icon: <FaMedal />, title: "Medalla Finisher", text: "Para todos los que culminen el recorrido (solo inscritos)" },
     { icon: <MdTimer />, title: "Cronometrado", text: "Tiempo cronometrado elctrónicamente" },
     { icon: <GiTrophyCup />, title: "Premios", text: "Para los primeros puestos de cada categoría (damas y varones)" },
@@ -325,14 +486,15 @@ const resetFormulario = () => {
     grupo,
     otroEquipo,
     talla,
+    modalidad,
     fotoBienvenida
   });
 
   return (
      <>
       <HeroVideo
-        descripcion="El evento de trail running más esperado del año llega a la costa norte de Perú. Prepárate para vivir una experiencia única entre el mar, la arena y la fuerza del norte. ¡Corre donde el mar y la arena desafían tus límites!"
-        video="https://atacaperu.com/wp-content/uploads/2026/05/Trail-del-pescador-Piura.mp4"
+        descripcion="Prepárate para desafiar la altura, los senderos ancestrales y tus propios límites en “Los Andenes de Chiguata”. Cada kilómetro pondrá a prueba tu resistencia y determinación. Vive la adrenalina de una experiencia única rumbo a la gloria de la AQP TRAIL RUNNING SERIES INTERNATIONAL 2026."
+        video="https://atacaperu.com/wp-content/uploads/2026/06/Los-andenes-de-Chiguata-trail.mp4"
         imagen="https://atacaperu.com/wp-content/uploads/2023/04/logo-blanco.png"   
         detalles={detalles_hero}
       />     
@@ -340,12 +502,12 @@ const resetFormulario = () => {
       <br />
 
       <Countdown
-        targetDate="2026-06-28T09:00:00"
-        titulo="CUENTA REGRESIVA PARA TRAIL DEL PESCADOR 10K"
-        descripcion="Prepárate para vivir una experiencia única entre el mar, la arena y la fuerza del norte"
+        targetDate="2026-09-13T09:00:00"
+        titulo="CUENTA REGRESIVA PARA AQP TRAIL RUNNING SERIES: LOS ANDENES DE CHIGUATA"
+        descripcion="Prepárate para la aventura en los majestuosos andenes de Chiguata. La cuenta regresiva ya empezó y el reto te espera: altura, tradición y pura resistencia."
       />
 
-      {/*<Responsib titulo="INSCRIPCIONES" items={items_inscripcion} onButtonClick={abrirModal}/>*/}
+      <Responsib titulo="INSCRIPCIONES" items={items_inscripcion} onButtonClick={abrirModal}/>
 
       <Modal
         isOpen={modalOpen}
@@ -372,12 +534,13 @@ const resetFormulario = () => {
         <div className="modal-line"></div>
         <h1>
           {
-            step===1
-            ? "FORMULARIO DE INSCRIPCIÓN"
-
-            :step===2
-            ? "TÉRMINOS Y CONDICIONES"
-            :"RESUMEN DE INSCRIPCIÓN"
+            step === 1
+              ? "FORMULARIO DE INSCRIPCIÓN"
+              : step === 2
+              ? "TÉRMINOS Y CONDICIONES"
+              : step === 3
+              ? "INFORMACIÓN DE PAGO"
+              : "RESUMEN DE INSCRIPCIÓN"
           }
         </h1>
         { step === 1 && (
@@ -651,7 +814,116 @@ const resetFormulario = () => {
           </div>
         )}
 
-        {(step === 3) && (
+        {step === 3 && (
+          <>
+              <div className="resume-item">
+                
+                <h3>
+                  Precio
+                </h3>
+                <span>
+                  S/ {(pagoActual?.amount || 0) / 100}
+                </span>
+              </div>
+
+              {descuento > 0 && (
+                <>
+                  <div className="resume-item">
+                    <strong>Descuento:</strong>
+                    <span>- S/ {descuento}</span>
+                  </div>
+
+                  <div className="resume-item">
+                    <strong>Total a pagar:</strong>
+                    <span>S/ {montoFinal / 100}</span>
+                  </div>
+                </>
+              )}
+
+              <div className="resume-item">
+                <strong>Código de descuento:</strong>
+
+                <input
+                  type="text"
+                  placeholder="Ingresa tu código"
+                  value={codigoDescuento}
+                  onChange={(e) => setCodigoDescuento(e.target.value)}
+                  disabled={codigoAplicado}
+                />
+
+                <button
+                  type="button"
+                  className="submit-btn"
+                  onClick={aplicarCodigo}
+                  disabled={codigoAplicado}
+                  style={{ marginTop: "10px" }}
+                >
+                  {codigoAplicado
+                    ? "CÓDIGO APLICADO"
+                    : "APLICAR CÓDIGO"}
+                </button>
+              </div>
+
+              <div className="payment-section">
+                <h3>Pago por Yape</h3>
+                    
+                <p>
+                  Realiza el pago por el monto correspondiente
+                  al número:
+                  <br/>
+                  <strong>956280178 - María Málaga </strong>
+                  <br/>
+                  y adjunta tu captura.
+                </p>
+                <br/>
+                <h3>
+                  Captura de pago:
+                </h3>
+                <br/>
+                <input
+                  type="file"
+                  accept=".jpg,.jpeg,.png,.pdf"
+                  onChange={(e) =>
+                    setCapturaPago(e.target.files[0])
+                  }
+                />
+
+                <br />
+                <br/>
+                <br/>
+                <h3>O paga mediante link</h3>
+                <br/>
+                <h3>IMPORTANTE: SI PAGA CON TARJETA DEBE SUBIR LA CAPTURA DE PAGO Y AÑADIRLA A LA INSCRIPCIÓN</h3>
+
+                <a
+                  href={linkFinal}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="submit-btn"
+                  style={{
+                    display: "inline-block",
+                    textDecoration: "none",
+                    textAlign: "center"
+                  }}
+                >
+                  PAGAR CON TARJETA
+                </a>
+
+       
+
+                <button
+                  className="submit-btn"
+                  disabled={!capturaPago}
+                  onClick={() => setStep(4)}
+                >
+                  CONTINUAR
+                </button>
+
+              </div>
+            </>
+        )}
+
+        {(step === 4) && (
           <div className="resume-step">
 
           <div className="resume-item">
@@ -707,9 +979,26 @@ const resetFormulario = () => {
           </div>
 
           <div className="resume-item">
+            <strong>Distancia:</strong>
+            <span>{modalidad}</span>
+          </div>
+
+          <div className="resume-item">
             <strong>Categoría:</strong>
             <span>La categoría será asignada según las bases generales</span>
           </div>
+
+          <div className="resume-item">
+            <strong>Monto de inscripción:</strong>
+            <span>S/ {montoFinal / 100}</span>
+          </div>
+
+          {descuento > 0 && (
+            <div className="resume-item">
+              <strong>Descuento aplicado:</strong>
+              <span>- S/ {descuento}</span>
+            </div>
+          )}
 
           {
             fotoBienvenida && (
@@ -729,16 +1018,55 @@ const resetFormulario = () => {
             )
           }
 
-          {/**/}
-         <CulqiButton
-         disabled={/*desactivar mientras está procesando*/
+          {/*modulo de pago sin Culqi: solo usar en EMERGENCIA*/}
+          
+          <button
+            className="submit-btn"
+            disabled={enviando}
+            onClick={async () => {
+
+              setEnviando(true);
+
+              try {
+
+                await guardarInscripcionGoogle();
+
+                await enviarCorreo();
+
+              } catch (error) {
+
+                console.log(error);
+
+                alert(
+                  "Error: " + error.message
+                );
+
+              } finally {
+
+                setEnviando(false);
+
+              }
+            }}
+          >
+            {
+              enviando
+                ? "ENVIANDO..."
+                : "FINALIZAR INSCRIPCIÓN"
+            }
+          </button>
+        
+        
+
+        {/*B
+        <CulqiButton
+         disabled={
             enviando ||
             !bases_generales ||
             !deslinde_responsabilidad ||
             !responsabilidad_sensor ||
             !datos_correctos}
-          title={"TRAIL DEL PESCADOR 10K - VENTA FINAL"} 
-          amount={12000}//monto a cobrar
+          title={pagoActual?.title} 
+          amount={montoFinal}//monto a cobrar
           formData={{
             nombre,
             apellido: apellidos,
@@ -756,29 +1084,38 @@ const resetFormulario = () => {
             ? "ENVIANDO..."
             : "PAGAR"
           }
-        />
+        /> 
+        */}
       </div>
       )}
       </Modal>
 
       <Categories
-        titulo="Más fuerte que el cansancio: Trail del Pescador 10K"
-        descripcion="Este 28 de junio vive la aventura del Trail del Pescador en Playa Los Órganos 🌊🏃‍♂️.
-                     Un recorrido que combina deporte, turismo y energía en un entorno natural único.
-                    ¡Únete a la experiencia que te conectará con la costa de Piura y tu espíritu deportivo!"
-        imagen="https://atacaperu.com/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-05-at-11.34.23-AM.avif"
+        titulo="Más allá de tus límites: Los Andenes de Chiguata"
+        descripcion="¡Vive la segunda serie de la AQP TRAIL RUNNING SERIES INTERNATIONAL 2026 y supera tus propios límites!🌄🏃‍♂️🔥"
+        imagen="https://atacaperu.com/wp-content/uploads/2026/06/C1.avif"
         categorias={categorias}
         items={items}
       />
-      <ButtonBases url={"https://atacaperu.com/wp-content/uploads/2026/05/BASES-GENERALES-TRAIL-DEL-PESCADOR.pdf"}/>
+      <ButtonBases url={"https://atacaperu.com/wp-content/uploads/2025/12/BASES-AQP-TRAIL-2026.pdf"}/>
       <br />
       <br />
       <br />
       <Carrusel2 images={images_carrousel2} titulo="¿Qué incluye tu participación?" />
       <Mapping 
-        titulo="Recorrido de la carrera" 
+        titulo="Recorrido 5K" 
+        proximamente={false}        
+        wikilocUrl="https://es.wikiloc.com/wikiloc/embedv2.do?id=173036655&elevation=off&images=on&maptype=H"
+      />
+      <Mapping 
+        titulo="Recorrido 10K" 
         proximamente={false}
-        wikilocUrl="https://es.wikiloc.com/wikiloc/embedv2.do?id=265283033&elevation=off&images=on&maptype=H"
+        wikilocUrl="https://es.wikiloc.com/wikiloc/embedv2.do?id=173036465&elevation=off&images=on&maptype=H"
+      />
+      <Mapping 
+        titulo="Recorrido 21K" 
+        proximamente={false}
+        wikilocUrl="https://es.wikiloc.com/wikiloc/embedv2.do?id=173036590&elevation=off&images=on&maptype=H"
       />
       <Responsib titulo="Responsabilidad y Autorizaciones" items={items_responsib} />
     </>

@@ -50,9 +50,9 @@ const eventos = [
     fecha: "13 de septiembre 2026",
     lugar: "Chiguata, Arequipa, Perú",
     descripcion: "¡Más allá de tus límites! Carrera de Trail Running en los andenes de Chiguata - Arequipa",
-    enlace: "/utcc",
+    enlace: "/aqp_trs_chiguata",
     imagen: "https://atacaperu.com/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-28-at-11.12.28-AM.avif",
-    disponible:false
+    disponible:true
   },
   {
     id: 6,
