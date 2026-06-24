@@ -141,11 +141,11 @@ const resetFormulario = () => {
     "RENE549501":{
       descuento: 10,
       links:{
-        "5K VENTA FINAL":
+        "5K PRIMERA PRE VENTA":
           "https://express.culqi.com/pago/LINK5K",
-        "10K VENTA FINAL":
+        "10K PRIMERA PRE VENTA":
           "https://express.culqi.com/pago/LINK10K",
-        "21K VENTA FINAL":
+        "21K PRIMERA PRE VENTA":
           "https://express.culqi.com/pago/FBC06A0062"
       }
     },
@@ -212,17 +212,17 @@ const linkFinal =
 
   /*Configuración de precios por modalidad*/
   const configuracionPago={
-    "5K VENTA FINAL":{
-      title:"EL DESIERTO DE LA JOYA 5K - VENTA FINAL",
+    "5K PRIMERA PRE VENTA":{
+      title:"EL DESIERTO DE LA JOYA 5K - PRIMERA PRE VENTA",
+      amount:8000
+    },
+    "10K PRIMERA PRE VENTA":{
+      title:"EL DESIERTO DE LA JOYA 10K - PRIMERA PRE VENTA",
       amount:10000
     },
-    "10K VENTA FINAL":{
-      title:"EL DESIERTO DE LA JOYA 10K - VENTA FINAL",
+    "21K PRIMERA PRE VENTA":{
+      title:"EL DESIERTO DE LA JOYA 21K - PRIMERA PRE VENTA",
       amount:12000
-    },
-    "21K VENTA FINAL":{
-      title:"EL DESIERTO DE LA JOYA 21K - VENTA FINAL",
-      amount:14000
     }
   };
 
@@ -347,7 +347,7 @@ const linkFinal =
     };
 
     const response = await fetch(
-      "https://script.google.com/macros/s/AKfycbwc2658hwAmuDBjDXzDqDxsgWMpGulxZBNOsQONLlalEgov0J74SSZ7H0IYS2Ze86j0/exec",
+      "https://script.google.com/macros/s/AKfycbxLVVOiM611SGxCDBHiLC5HoFUvUNpd8VVigzrPLU7itOq8pnlhc7sS6TZD9DrvwKPvyA/exec",
       {
         method: "POST",
         body: JSON.stringify(payload)
@@ -839,10 +839,10 @@ const linkFinal =
                   </div>
                 </>
               )}
-
+              {/*
               <div className="resume-item">
                 <strong>Código de descuento:</strong>
-
+              
                 <input
                   type="text"
                   placeholder="Ingresa tu código"
@@ -863,7 +863,7 @@ const linkFinal =
                     : "APLICAR CÓDIGO"}
                 </button>
               </div>
-
+                */}
               <div className="payment-section">
                 <h3>Pago por Yape</h3>
                     
