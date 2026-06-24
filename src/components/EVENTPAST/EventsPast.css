@@ -1,0 +1,125 @@
+
+.events-section {
+  text-align: center;
+  padding: 3rem 1rem;
+  position: relative;
+  overflow: hidden;
+  color: #333;
+   background: 
+    linear-gradient(rgba(49,81,119,0.6), rgba(49,81,119,0.6)),
+    url('https://atacaperu.com/wp-content/uploads/2026/06/atras.avif') center/cover no-repeat;
+  box-shadow: 
+    0 -10px 20px rgba(0,0,0,0.2),  /* sombra superior */
+    0 10px 20px rgba(0,0,0,0.2); 
+  border-radius: 16px;
+}
+
+
+/* Contenido encima */
+h2, .eventos-grid {
+  position: relative;
+  z-index: 2;
+}
+
+h2 {
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  color: #fff; /* título en blanco sobre el fondo */
+}
+
+
+/* Layout desktop */
+.eventos-grid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.evento-card {
+  flex: 0 1 300px;
+  background: rgba(255, 255, 255, 0.95); /* tarjetas claras sobre fondo */
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  text-align: left;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.evento-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+}
+
+.evento-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #222;
+}
+
+.evento-card p {
+  margin: 0.3rem 0;
+  color: #555;
+}
+
+.evento-card a {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1rem;
+  background: #0077cc;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.2s ease;
+}
+
+.evento-card a:hover {
+  background: #005fa3;
+}
+
+.evento-img {
+  display: block;        /* elimina espacios extra */
+  width: 100%;           /* ocupa todo el ancho disponible */
+  height: auto;          /* mantiene proporción original */
+  max-height: 240px;     /* límite en desktop */
+  object-fit: cover;     /* recorta si es necesario */
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.btn-proximamente{
+  width: 100%;
+  padding: 12px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #999;
+  color: white;
+
+  font-weight: 600;
+  cursor: not-allowed;
+
+  margin-top: 10px;
+}
+
+
+/* 📱 Responsivo */
+@media (max-width: 768px) {
+  .eventos-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .evento-card {
+    width: 90%;
+    max-width: 400px;
+  }
+
+  .evento-img {
+    max-height: none;    /* deja que la imagen crezca libremente en móvil */
+    height: auto;        /* asegura proporción */
+  }
+
+}

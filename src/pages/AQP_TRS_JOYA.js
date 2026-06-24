@@ -149,18 +149,6 @@ const resetFormulario = () => {
           "https://express.culqi.com/pago/FBC06A0062"
       }
     },
-
-    "LONCCOS1901":{
-      descuento: 20,
-      links:{
-        "5K VENTA FINAL":
-          "https://express.culqi.com/pago/1134ABD13E",
-        "10K VENTA FINAL":
-          "https://express.culqi.com/pago/A971578675",
-        "21K VENTA FINAL":
-          "https://express.culqi.com/pago/B4F10DEE27"
-      }
-    },
   };
 
   /*ENVIAR CAPTURA DE PAGO*/

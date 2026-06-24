@@ -1,0 +1,28 @@
+.iframe-section{
+  width: 100%;
+  max-width: 1400px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.iframe-title{
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 25px;
+  color: #666;
+}
+
+.iframe-wrapper{
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,.1);
+}
+
+.iframe-wrapper iframe{
+  width: 100%;
+  height: 700px;
+  border: none;
+  display: block;
+  margin-top: 10px;
+}

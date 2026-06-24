@@ -1,0 +1,29 @@
+.resultados-container{
+  max-width:1200px;
+  margin:auto;
+}
+
+.resultado-item{
+  margin-bottom:10px;
+}
+
+.resultado-header{
+  width:100%;
+  text-align:left;
+  padding:15px;
+  font-size:18px;
+  border:none;
+  background:#111;
+  color:white;
+  cursor:pointer;
+  border-radius:8px;
+}
+
+.resultado-body{
+  margin-top:10px;
+}
+
+.resultado-body iframe{
+  border:none;
+  border-radius:8px;
+}
