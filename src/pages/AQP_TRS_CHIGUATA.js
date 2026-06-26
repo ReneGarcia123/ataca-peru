@@ -1105,17 +1105,17 @@ const linkFinal =
       <Mapping 
         titulo="Recorrido 5K" 
         proximamente={false}        
-        wikilocUrl="https://es.wikiloc.com/wikiloc/embedv2.do?id=173036655&elevation=off&images=on&maptype=H"
+        wikilocUrl="https://es.wikiloc.com/wikiloc/embedv2.do?id=271247528&elevation=off&images=on&maptype=H"
       />
       <Mapping 
         titulo="Recorrido 10K" 
         proximamente={false}
-        wikilocUrl="https://es.wikiloc.com/wikiloc/embedv2.do?id=173036465&elevation=off&images=on&maptype=H"
+        wikilocUrl="https://es.wikiloc.com/wikiloc/embedv2.do?id=271247372&elevation=off&images=on&maptype=H"
       />
       <Mapping 
         titulo="Recorrido 21K" 
         proximamente={false}
-        wikilocUrl="https://es.wikiloc.com/wikiloc/embedv2.do?id=173036590&elevation=off&images=on&maptype=H"
+        wikilocUrl="https://es.wikiloc.com/wikiloc/embedv2.do?id=271248513&elevation=off&images=on&maptype=H"
       />
       <Responsib titulo="Responsabilidad y Autorizaciones" items={items_responsib} />
     </>
