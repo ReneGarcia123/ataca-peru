@@ -828,8 +828,8 @@ const guardarInscripcionGoogle = async () => {
       */}
       <Mapping
         titulo="Recorrido de la carrera"
-        proximamente={true}
-        wikilocUrl="https://es.wikiloc.com/wikiloc/embedv2.do?id=226823733&elevation=off&images=off&maptype=H"
+        proximamente={false}
+        wikilocUrl="https://es.wikiloc.com/wikiloc/embedv2.do?id=272209649&elevation=off&images=on&maptype=H"
       />
       
       <Responsib titulo="Responsabilidad y Autorizaciones" items={items_responsib} />
