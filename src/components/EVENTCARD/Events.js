@@ -39,9 +39,9 @@ const eventos = [
     fecha: "06 de septiembre 2026",
     lugar: "Arequipa, Arequipa, Perú",
     descripcion: "Corre con los Bomberos, en esta carrera de apoyo a nuestros héroes de la ",
-    enlace: "/utcc",
+    enlace: "/bomberos_2026",
     imagen: "https://atacaperu.com/wp-content/uploads/2026/06/WhatsApp-Image-2026-06-12-at-10.07.37-AM.avif",
-    disponible:false
+    disponible:true
   },
 
   {

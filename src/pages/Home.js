@@ -12,9 +12,9 @@ export default function Home() {
     <div>
       <Carrousel />
       <Countdown 
-        targetDate="2026-06-28T09:00:00" 
-        titulo="TRAIL DEL PESCADOR 10K" 
-        descripcion="¡Más fuerte que el cansancio! Carrera de Trail en la playa de Los Órganos - Piura"
+        targetDate="2026-07-05T09:00:00" 
+        titulo="AQP TRAIL RUNNING 2026 - SEGUNDA SERIE: EL DESIERTO DE LA JOYA" 
+        descripcion="¡NADA ES IMPOSIBLE! Carrera de Trail en el desierto de La Joya - Arequipa"
        />
       <Events />
       <br/>

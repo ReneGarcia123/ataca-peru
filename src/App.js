@@ -13,6 +13,7 @@ import AQP_TRS_JOYA from './pages/AQP_TRS_JOYA';
 import LSL_MTB_JOYA from './pages/LSL_MTB_JOYA';
 import AQP_TRS_CHIGUATA from './pages/AQP_TRS_CHIGUATA';
 import CENTAURO_TACNA from './pages/CENTAURO_TACNA';
+import BOMBEROS_2026 from './pages/BOMBEROS_2026';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="aqp_trail_sillar" element={<AQP_TRAIL_SILLAR />} />
           <Route path="utcc" element={<UTCC />} />
           <Route path="aldeas_infantiles" element={<ALDEAS_INFANTILES />} />
+          <Route path="bomberos_2026" element={<BOMBEROS_2026 />} />
           <Route path="lsl_mtb_joya" element={<LSL_MTB_JOYA/>}/>
           <Route path="aqp_trs_chiguata" element={<AQP_TRS_CHIGUATA/>}/>
           <Route path="centauro_2026" element={<CENTAURO_TACNA/>}/>
