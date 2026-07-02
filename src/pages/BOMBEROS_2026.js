@@ -296,7 +296,7 @@ const guardarInscripcionGoogle = async () => {
     {
         img: "https://atacaperu.com/wp-content/uploads/2026/07/bomb6.avif",
         title: "¡Inscríbite ahora!",
-        desc: "Corre por una gran causa en súmate junto a tu familia y amigos y apoya a los niños, niñas y adolescentes de Aldeas Infantiles SOS. ¡Inscríbete y sé parte del cambio!",
+        desc: "Corre por una gran causa en súmate junto a tu familia y amigos y apoya a los bomberos de la Benemérita Compañía de Bomberos Arequipa 19. ¡Inscríbete y sé parte del cambio!",
         btnText: "Deseo apoyar con mi inscripción",
     }
   ]
