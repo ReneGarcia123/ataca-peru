@@ -43,6 +43,9 @@ export default function BOMBEROS_2026() {
   const [responsabilidad_sensor, setResponsabilidadSensor] = useState(false);
   const[datos_correctos, setDatosCorrectos] = useState(false);
 
+  /*Guardar estado modalidad de inscripción*/
+  const [tipoInscripcion, setTipoInscripcion] = useState("NORMAL");
+
   /*Al cerrar poner todo en su estado inicial */
   const resetFormulario = () => {
   // PASOS
@@ -71,6 +74,7 @@ export default function BOMBEROS_2026() {
   setDatosCorrectos(false);
 
   // OTROS
+  setTipoInscripcion("NORMAL");       
   setSelectedItem(null);
 };
 
@@ -257,9 +261,12 @@ const guardarInscripcionGoogle = async () => {
     // =========================
     // ENVIAR
     // =========================
-
+    const urlAppsScript =
+      tipoInscripcion === "BOMBERO"
+      ? "https://script.google.com/macros/s/AKfycbxJXm3fAr9sbfzE2lVElnMHloMlkHRrcpRz8OKOpl3JWqyBvE-v3AwCGzR3n6i1UebY7A/exec" 
+      : "https://script.google.com/macros/s/AKfycbzwNFTttwg2yYwNnOkMDHCaFe0yreLRyU1lIh2n_6WHfSIQ4RIJgwvMexdyX5VbJi9SFw/exec"; 
     const response = await fetch(
-      "https://script.google.com/macros/s/AKfycbzwNFTttwg2yYwNnOkMDHCaFe0yreLRyU1lIh2n_6WHfSIQ4RIJgwvMexdyX5VbJi9SFw/exec",
+      urlAppsScript,
       {
         method: "POST",
         body: JSON.stringify(payload)
@@ -295,14 +302,35 @@ const guardarInscripcionGoogle = async () => {
   const items_inscripcion = [
     {
         img: "https://atacaperu.com/wp-content/uploads/2026/07/bomb6.avif",
-        title: "¡Inscríbite ahora!",
-        desc: "Corre por una gran causa en súmate junto a tu familia y amigos y apoya a los bomberos de la Benemérita Compañía de Bomberos Arequipa 19. ¡Inscríbete y sé parte del cambio!",
+        title: "Inscripción no bombero",
+        desc: "Corre por una gran causa y súmate junto a tu familia, amigos y apoya a los bomberos de la Benemérita Compañía de Bomberos Arequipa 19. ¡Inscríbete y sé parte del cambio!",
         btnText: "Deseo apoyar con mi inscripción",
-    }
+    },
+
+        {
+        img: "https://atacaperu.com/wp-content/uploads/2026/07/bomb3.avif",
+        title: "Inscripción para Bomberos",
+        desc: "Modalidad exclusiva para bomberos certificados. ¡Inscríbete y demuestra tu compromiso con la comunidad!.",
+        btnText: "Inscribirme como bombero",
+    },
   ]
 
   /*Función para abrir el modal con el ítem seleccionado */
   const abrirModal = (item) => {
+
+      setTipoInscripcion(
+          item.title === "Inscripción para Bomberos"
+              ? "BOMBERO"
+              : "NORMAL"
+      );      
+      if(item.title === "Inscripción para Bomberos") {
+          setTipoInscripcion("BOMBERO");
+          setGrupo(""); // Establecer el grupo por defecto para bomberos
+      }
+      else{
+          setTipoInscripcion("NORMAL"); 
+          setGrupo("ALPHA"); // Establecer el grupo por defecto para no bomberos
+      }
       setSelectedItem(item);
       setStep(1); // Reiniciar al paso 1 cada vez que se abre el modal
       setModalOpen(true);
@@ -371,7 +399,7 @@ const guardarInscripcionGoogle = async () => {
         descripcion="Unir deporte y solidaridad en una experiencia que inspire a la comunidad a participar activamente por una buena causa"
       />
 
-      <Responsib titulo="INSCRIPCIONES" items={items_inscripcion} onButtonClick={abrirModal}/>
+      <Responsib titulo="MODALIDADES DE INSCRIPCIONES" items={items_inscripcion} onButtonClick={abrirModal}/>
 
       <Modal
         isOpen={modalOpen}
@@ -489,85 +517,68 @@ const guardarInscripcionGoogle = async () => {
               onChange={(e) => setFechaNacimiento(e.target.value)}
               required
             />
-
-            {/* Grupo */}
-            <span className="form-label">
-                Equipo al que pertenece:
-            </span>
-            <select
-              value={grupo}
-              onChange={(e) => setGrupo(e.target.value)}
-              required
-            >
-              <option value="ADES">
-                ADES
-              </option>
-              <option value="ALPHA">
-                ALPHA
-              </option>
-              <option value="LONCCOS RUNNING TEAM">
-                LONCCOS RUNNING TEAM
-              </option>
-              <option value="TAYGETOS">
-                TAYGETOS
-              </option>
-              <option value="RUNNATICOS">
-                RUNNATICOS
-              </option>
-              <option value="ALTURA">
-                ALTURA
-              </option>
-              <option value="CRAZY RUNNING">
-                CRAZY RUNNING
-              </option>
-              <option value="OPTICAS ZAVALA">
-                OPTICAS ZAVALA
-              </option>
-              <option value="PSYCHO RUNNERS">
-                PSYCHO RUNNERS
-              </option>
-              <option value="SAMURAI AQP">
-                SAMURAI AQP
-              </option>
-              <option value="ACADEMIA IPD">
-                ACADEMIA IPD
-              </option>
-              <option value="FUERZA AEREA DEL PERU">
-                FUERZA AEREA DEL PERU
-              </option>
-              <option value="CIMA RUNNERS">
-                CIMA RUNNERS
-              </option>
-              <option value="IMPERIO TRAIL RUNNING">
-                IMPERIO TRAIL RUNNING
-              </option>
-              <option value="TEAM CLARO">
-                TEAM CLARO
-              </option>
-              <option value="NG ATLETIC">
-                NG ATLETIC
-              </option>
-              <option value="LA RESISTENCIA">
-                LA RESISTENCIA
-              </option>
-              <option value="AFABP">
-                AFABP
-              </option>
-              <option value="otro">
-                OTRO EQUIPO
-              </option>
-
-            </select>
+            
             {
-              grupo === "otro" && (
+            tipoInscripcion === "BOMBERO"
+            ? (
+              <>
+                <span className="form-label">
+                  Compañía de Bomberos a la que pertenece:
+                </span>
+
                 <input
                   type="text"
-                  placeholder="Escribe tu equipo"
-                  value={otroEquipo}
-                  onChange={(e) => setOtroEquipo(e.target.value)}
+                  placeholder="Compañía de Bomberos"
+                  value={grupo}
+                  onChange={(e) => setGrupo(e.target.value)}
+                  required
                 />
-              )
-            }
+              </>
+            )
+            : (
+              <>
+                {/* Grupo */}
+                <span className="form-label">
+                  Equipo al que pertenece:
+                </span>
+
+                <select
+                  value={grupo}
+                  onChange={(e) => setGrupo(e.target.value)}
+                  required
+                >
+                  <option value="ADES">ADES</option>
+                  <option value="ALPHA">ALPHA</option>
+                  <option value="LONCCOS RUNNING TEAM">LONCCOS RUNNING TEAM</option>
+                  <option value="TAYGETOS">TAYGETOS</option>
+                  <option value="RUNNATICOS">RUNNATICOS</option>
+                  <option value="ALTURA">ALTURA</option>
+                  <option value="CRAZY RUNNING">CRAZY RUNNING</option>
+                  <option value="OPTICAS ZAVALA">OPTICAS ZAVALA</option>
+                  <option value="PSYCHO RUNNERS">PSYCHO RUNNERS</option>
+                  <option value="SAMURAI AQP">SAMURAI AQP</option>
+                  <option value="ACADEMIA IPD">ACADEMIA IPD</option>
+                  <option value="FUERZA AEREA DEL PERU">FUERZA AEREA DEL PERU</option>
+                  <option value="CIMA RUNNERS">CIMA RUNNERS</option>
+                  <option value="IMPERIO TRAIL RUNNING">IMPERIO TRAIL RUNNING</option>
+                  <option value="TEAM CLARO">TEAM CLARO</option>
+                  <option value="NG ATLETIC">NG ATLETIC</option>
+                  <option value="LA RESISTENCIA">LA RESISTENCIA</option>
+                  <option value="AFABP">AFABP</option>
+                  <option value="otro">OTRO EQUIPO</option>
+                </select>
+
+                {grupo === "otro" && (
+                  <input
+                    type="text"
+                    placeholder="Escribe tu equipo"
+                    value={otroEquipo}
+                    onChange={(e) => setOtroEquipo(e.target.value)}
+                  />
+                )}
+              </>
+            )
+          }
 
             {/* Talla */}
             <span className="form-label">
