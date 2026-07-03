@@ -628,7 +628,8 @@ const guardarInscripcionGoogle = async () => {
                 </strong>
                 <br />
                 <strong>
-                  Número: 959390694 - a nombre de Lucía Campos
+                  Número: 914158423 - a nombre de Josefina Ccoto Chatata 
+
                 </strong>
               </span>
 
