@@ -370,7 +370,7 @@ const guardarInscripcionGoogle = async () => {
         descripcion="Unir deporte y solidaridad en una experiencia que inspire a la comunidad a participar activamente por una buena causa"
       />
 
-      <Responsib titulo="INSCRIPCIONES" items={items_inscripcion} onButtonClick={abrirModal}/>
+      {/*<Responsib titulo="INSCRIPCIONES" items={items_inscripcion} onButtonClick={abrirModal}/>*/}
 
       <Modal
         isOpen={modalOpen}
