@@ -628,7 +628,7 @@ const guardarInscripcionGoogle = async () => {
                 </strong>
                 <br />
                 <strong>
-                  Número: 914158423 - a nombre de Sonia Josefina Ccoto Chatata 
+                  Número: 914158423 - a nombre de Sonia Josefina Ccoto Chatata  / José del Cid Jove
 
                 </strong>
               </span>
