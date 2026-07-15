@@ -15,406 +15,10 @@ import Responsib from '../components/RESPONSIBILITIES/Responsib';
 import Modal from '../components/MODAL/Modal';
 import emailjs from '@emailjs/browser';
 import CulqiButton from '../components/CulqiCheckoutButton/CulqiButton';
+import Iframe from '../components/IFRAME/Iframe';
+import ResultadosAcordeon from '../components/RESULTS/Results';
 
 export default function AQP_TRS_JOYA() {
-
-  const handleFinalResult = async(result) => {
-  if (result.success) {
-    /*EVITAR QUE PAGUE SIN INTERNET*/
-    if (!navigator.onLine) {
-      alert("No tienes conexión a internet. Por favor, inténtalo de nuevo cuando tengas conexión");
-      return;
-    }
-    setEnviando(true);
-    try {
-
-      console.log("Pago exitoso:", result);
-
-      console.log("ANTES GOOGLE");
-
-      await guardarInscripcionGoogle();
-
-      console.log("DESPUES GOOGLE");
-
-      console.log("ANTES EMAIL");
-
-      await enviarCorreo();
-
-      console.log("DESPUES EMAIL");
-
-    } catch (error) {
-
-      console.log("ERROR REAL:", error);
-
-      alert(
-        "ERROR REAL: " +
-        error.message
-      );
-    } finally {
-      setEnviando(false);
-    }
-  } else {
-    console.log("Error en el pago");
-    alert(
-      "El pago no se pudo procesar" +
-      (result.error ? ": " + result.error : "")
-    );
-  }
-};
-
-/*Evitar doble clic*/
-const [loadingStep, setLoadingStep] = useState(false);
-
-
-
-  /*Estado para controlar el grupo seleccionado en el formulario de inscripción */
-  const [grupo, setGrupo] = useState("ALPHA");
-
-  /*Estado pasos del formulario de inscripción */
-  const [step, setStep] = useState(1);
-
-  /*Datos del formulario de inscripción */
-  const [nombre, setNombre] = useState("");
-  const [apellidos, setApellidos] = useState("");
-  const [dni, setDni] = useState("");
-  const [correo, setCorreo] = useState("");
-  const [telefono, setTelefono] = useState("");
-  const [genero, setGenero] = useState("");
-  const [fechaNacimiento, setFechaNacimiento] = useState("");
-  const [talla, setTalla] = useState("M");
-  const [otroEquipo, setOtroEquipo] = useState("");
-  const [fotoBienvenida, setFotoBienvenida] = useState(null);
-  const [capturaPago, setCapturaPago] = useState(null);
-
-  /*RESETEAR FORMULARIO*/
-const resetFormulario = () => {
-  setGrupo("ALPHA");
-  setStep(1);
-
-  setNombre("");
-  setApellidos("");
-  setDni("");
-  setCorreo("");
-  setTelefono("");
-  setGenero("");
-  setFechaNacimiento("");
-  setTalla("M");
-  setOtroEquipo("");
-  setFotoBienvenida(null);
-
-  setBasesGenerales(false);
-  setDeslindeResponsabilidad(false);
-  setResponsabilidadSensor(false);
-  setDatosCorrectos(false);
-
-  setSelectedItem(null);
-
-  setCodigoDescuento("");
-  setDescuento(0);
-  setCodigoAplicado(false);
-  setCapturaPago(null);
-};
-
-
-
-  /*Estados para controlar los checkbox de términos y condiciones */
-  const [bases_generales, setBasesGenerales] = useState(false);
-  const [deslinde_responsabilidad, setDeslindeResponsabilidad] = useState(false);
-  const [responsabilidad_sensor, setResponsabilidadSensor] = useState(false);
-  const[datos_correctos, setDatosCorrectos] = useState(false);
-
-  /* Estado para controlar el modal y el ítem seleccionado */
-  const [modalOpen, setModalOpen] = useState(false);
-  const [selectedItem, setSelectedItem] = useState(null);
-
-  /*Modalidad de inscripción*/
-  const [modalidad, setModalidad] = useState("");
-
-  /*DESCUENTOS*/
-  const [codigoDescuento, setCodigoDescuento] = useState("");
-  const [descuento, setDescuento] = useState(0);
-  const [codigoAplicado, setCodigoAplicado] = useState(false);
-
-
-  /*CODIGOS VÁLIDOS*/
-  const codigosValidos = {
-    "RENE549501":{
-      descuento: 10,
-      links:{
-        "5K VENTA FINAL":
-          "https://express.culqi.com/pago/LINK5K",
-        "10K VENTA FINAL":
-          "https://express.culqi.com/pago/LINK10K",
-        "21K VENTA FINAL":
-          "https://express.culqi.com/pago/FBC06A0062"
-      }
-    },
-  };
-
-  /*ENVIAR CAPTURA DE PAGO*/
-  const datosPago = {
-  "5K VENTA FINAL": {
-    precio: 100,
-    link: "https://express.culqi.com/pago/E800201641"
-  },
-  "10K VENTA FINAL": {
-    precio: 120,
-    link: "https://express.culqi.com/pago/0EC8E6F569"
-  },
-  "21K VENTA FINAL": {
-    precio: 140,
-    link: "https://express.culqi.com/pago/5CBA394641"
-  }
-};
-
-const pagoInfo = datosPago[modalidad];
-
-
-
-const codigoActual =
-  codigosValidos[
-    codigoDescuento.trim().toUpperCase()
-  ];
-
-const linkFinal =
-  codigoAplicado &&
-  codigoActual?.links?.[modalidad]
-    ? codigoActual.links[modalidad]
-    : pagoInfo?.link;
-
-  /*Funcion descontar*/
-  const aplicarCodigo = () => {
-
-    const codigo = codigoDescuento.trim().toUpperCase();
-
-    if (codigosValidos[codigo]) {
-
-      setDescuento(
-        codigosValidos[codigo].descuento
-      );
-
-      setCodigoAplicado(true);
-
-      alert("Código aplicado correctamente");
-
-    } else {
-
-      setDescuento(0);
-
-      setCodigoAplicado(false);
-
-      alert("Código inválido");
-    }
-  };
-
-
-
-  /*Configuración de precios por modalidad*/
-  const configuracionPago={
-    "5K VENTA FINAL":{
-      title:"EL DESIERTO DE LA JOYA 5K - VENTA FINAL",
-      amount:10000
-    },
-    "10K VENTA FINAL":{
-      title:"EL DESIERTO DE LA JOYA 10K - VENTA FINAL",
-      amount:12000
-    },
-    "21K VENTA FINAL":{
-      title:"EL DESIERTO DE LA JOYA 21K - VENTA FINAL",
-      amount:14000
-    }
-  };
-
-  /*Obtener pago actual*/
-    const pagoActual = configuracionPago[modalidad];
-
-  /*Calcular monto final*/
-  const montoFinal =
-    Math.max(
-      (pagoActual?.amount || 0) - descuento * 100,
-      0
-    );
-
-  /*Función para enviar correo con los datos del formulario usando EmailJS */
- const enviarCorreo = async () => {
-  const templateParams = {
-    nombre,
-    apellidos,
-    dni,
-    correo,
-    telefono,
-    genero,
-    fechaNacimiento,
-    modalidad,
-    grupo:
-      grupo === "otro"
-      ? otroEquipo
-      : grupo,
-
-    talla,
-  };
-  try {
-    await emailjs.send(
-      "service_2govrnu",
-      "template_lurswng",
-      templateParams,
-      "PN9-V6us45efj9uL6"
-    );
-    alert(nombre+" ,tu inscripción se ha completado exitosamente. ¡El desierto de la Joya te espera!\nSe enviará un correo de confirmación a "+correo+" con los detalles de tu inscripción.\nEn el mismo correo está el link para que te puedas unir al grupo de WhatsApp de la carrera. ¡Nos vemos en la carrera!");
-    setModalOpen(false);
-    resetFormulario();
-  } catch (error) {
-    console.log(error);
-    throw error;
-  }
-};
-
-  /*Guardar inscripción en google sheet, además de subir foto*/
-  const guardarInscripcionGoogle = async () => {
-
-  try {
-    //Convertir foto a base64
-    let fotoBase64 = "";
-    let fotoMimeType = "";
-    if (fotoBienvenida) {
-      fotoMimeType = fotoBienvenida.type;
-      fotoBase64 = await new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.readAsDataURL(fotoBienvenida);
-        reader.onload = () => {
-          const base64 = reader.result.split(",")[1];
-          resolve(base64);
-        };
-        reader.onerror = error => reject(error);
-      });
-    }
-      //Convertir captura de pago a base64
-    let capturaPagoBase64 = "";
-    let capturaPagoMimeType = "";
-
-    if (capturaPago) {
-
-      capturaPagoMimeType = capturaPago.type;
-
-      capturaPagoBase64 = await new Promise(
-        (resolve, reject) => {
-
-          const reader = new FileReader();
-
-          reader.readAsDataURL(capturaPago);
-
-          reader.onload = () => {
-            resolve(
-              reader.result.split(",")[1]
-            );
-          };
-
-          reader.onerror = reject;
-        }
-      );
-    }
-
-    const payload = {
-      nombre,
-      apellidos,
-      dni,
-      correo,
-      telefono,
-      genero,
-      fechaNacimiento,
-      grupo:
-        grupo === "otro"
-          ? otroEquipo
-          : grupo,
-
-      talla,
-      modalidad,
-       // PRECIOS
-      precioBase: (pagoActual?.amount || 0) / 100,
-      descuentoAplicado: codigoAplicado,
-      codigoDescuento: codigoAplicado
-        ? codigoDescuento.trim().toUpperCase()
-        : "",
-      montoDescuento: descuento,
-      montoFinal: montoFinal / 100,
-
-      fotoBase64,
-      fotoMimeType,
-
-      capturaPagoBase64,
-      capturaPagoMimeType
-    };
-
-    const response = await fetch(
-      "https://script.google.com/macros/s/AKfycbwc2658hwAmuDBjDXzDqDxsgWMpGulxZBNOsQONLlalEgov0J74SSZ7H0IYS2Ze86j0/exec",
-      {
-        method: "POST",
-        body: JSON.stringify(payload)
-      }
-    );
-
-    // 👇 AQUÍ VA
-    const text = await response.text();
-
-    console.log("RESPUESTA CRUDA:", text);
-
-    const result = JSON.parse(text);
-
-    console.log("Google Sheets:", result);
-
-    if (!result.success) {
-      throw new Error(result.error || "Error al guardar en Google Sheets");
-    }
-
-  } catch (error) {
-
-    console.log("Error Google Sheets:", error);
-
-    throw error;
-  }
-};
-
-  /*Estado de carga de envío de correo*/
-  const [enviando, setEnviando] = useState(false);
-
-  /*Items de tipo de inscripción*/
-  const items_inscripcion = [
-    
-    {
-        img: "https://atacaperu.com/wp-content/uploads/2026/05/1-1.avif",
-        title: "INSCRIPCIÓN 5K",
-        desc: "5K: Corre entre dunas y descubre la magia del desierto en cada kilómetro",
-        btnText: "Inscribirme",
-        modalidad: "5K VENTA FINAL",
-    },
-
-    {
-        img: "https://atacaperu.com/wp-content/uploads/2026/05/22.avif",
-        title: "INSCRIPCIÓN 10K",
-        desc: "10K: Desafía tu resistencia con 10K de arena, sol y pura adrenalina",
-        btnText: "Inscribirme",
-        modalidad: "10K VENTA FINAL",
-    },
-
-    {
-        img: "https://atacaperu.com/wp-content/uploads/2026/05/2-1.avif",
-        title: "INSCRIPCIÓN 21K",
-        desc: "21K: Conquista el desierto en 21K y demuestra que tu espíritu no tiene límites",
-        btnText: "Inscribirme",
-        modalidad: "21K VENTA FINAL",
-    },
-    
-    
-
-  ]
-
-  /*Función para abrir el modal con el ítem seleccionado */
-  const abrirModal = (item) => {
-      setSelectedItem(item);
-      setModalidad(item.modalidad);//agregar modalidad distancia
-      setStep(1); // Reiniciar al paso 1 cada vez que se abre el modal
-      setModalOpen(true);
-  };
 
   const items_responsib = [
   {
@@ -475,21 +79,80 @@ const linkFinal =
     { icon: <GiTrophyCup />, title: "Premios", text: "Para los primeros puestos de cada categoría (damas y varones)" },
   ];
 
-  /*Solo activar para ver por consola, prueba*/
-  console.log({
-    nombre,
-    apellidos,
-    dni,
-    correo,
-    telefono,
-    genero,
-    fechaNacimiento,
-    grupo,
-    otroEquipo,
-    talla,
-    modalidad,
-    fotoBienvenida
-  });
+    /*Resultados*/
+  const resultados = [
+
+    {
+      titulo:"10K DAMAS ELITE",
+      url:"https://docs.google.com/spreadsheets/d/e/2PACX-1vSis3MtC00Aa_p7fP9AOfrF-rlf2afa-o6msBKwRD_-FcmoPZS2epmeELuttMzDSS51B6_U8KwLmM0k/pubhtml?gid=1331866571&amp;single=true&amp;widget=true&amp;headers=false"
+    },
+
+    {
+      titulo:"10K DAMAS MASTER",
+      url:"https://docs.google.com/spreadsheets/d/e/2PACX-1vSis3MtC00Aa_p7fP9AOfrF-rlf2afa-o6msBKwRD_-FcmoPZS2epmeELuttMzDSS51B6_U8KwLmM0k/pubhtml?gid=773982130&amp;single=true&amp;widget=true&amp;headers=false"
+    },
+
+    {
+      titulo:"10K DAMAS SÚPER MASTER",
+      url:"https://docs.google.com/spreadsheets/d/e/2PACX-1vSis3MtC00Aa_p7fP9AOfrF-rlf2afa-o6msBKwRD_-FcmoPZS2epmeELuttMzDSS51B6_U8KwLmM0k/pubhtml?gid=1022118316&amp;single=true&amp;widget=true&amp;headers=false"
+    },
+
+    {
+      titulo:"10K VARONES ELITE",
+      url:"https://docs.google.com/spreadsheets/d/e/2PACX-1vSis3MtC00Aa_p7fP9AOfrF-rlf2afa-o6msBKwRD_-FcmoPZS2epmeELuttMzDSS51B6_U8KwLmM0k/pubhtml?gid=2081694530&amp;single=true&amp;widget=true&amp;headers=false"
+    },
+
+  {
+      titulo:"10K VARONES MASTER",
+      url:"https://docs.google.com/spreadsheets/d/e/2PACX-1vSis3MtC00Aa_p7fP9AOfrF-rlf2afa-o6msBKwRD_-FcmoPZS2epmeELuttMzDSS51B6_U8KwLmM0k/pubhtml?gid=1415800942&amp;single=true&amp;widget=true&amp;headers=false"
+    },
+
+    {
+      titulo:"10K VARONES SÚPER MASTER",
+      url:"https://docs.google.com/spreadsheets/d/e/2PACX-1vSis3MtC00Aa_p7fP9AOfrF-rlf2afa-o6msBKwRD_-FcmoPZS2epmeELuttMzDSS51B6_U8KwLmM0k/pubhtml?gid=1232615161&amp;single=true&amp;widget=true&amp;headers=false"
+    },
+
+    {
+      titulo:"10K VARONES ULTRA MASTER",
+      url:"https://docs.google.com/spreadsheets/d/e/2PACX-1vSis3MtC00Aa_p7fP9AOfrF-rlf2afa-o6msBKwRD_-FcmoPZS2epmeELuttMzDSS51B6_U8KwLmM0k/pubhtml?gid=1070987932&amp;single=true&amp;widget=true&amp;headers=false"
+    },
+
+    {
+      titulo:"21K DAMAS OPEN",
+      url:"https://docs.google.com/spreadsheets/d/e/2PACX-1vSis3MtC00Aa_p7fP9AOfrF-rlf2afa-o6msBKwRD_-FcmoPZS2epmeELuttMzDSS51B6_U8KwLmM0k/pubhtml?gid=435226080&amp;single=true&amp;widget=true&amp;headers=false"
+    },
+
+    {
+      titulo:"21K VARONES ELITE",
+      url:"https://docs.google.com/spreadsheets/d/e/2PACX-1vSis3MtC00Aa_p7fP9AOfrF-rlf2afa-o6msBKwRD_-FcmoPZS2epmeELuttMzDSS51B6_U8KwLmM0k/pubhtml?gid=753537237&amp;single=true&amp;widget=true&amp;headers=false"
+    },
+
+    {
+      titulo:"21K VARONES MASTER",
+      url:"https://docs.google.com/spreadsheets/d/e/2PACX-1vSis3MtC00Aa_p7fP9AOfrF-rlf2afa-o6msBKwRD_-FcmoPZS2epmeELuttMzDSS51B6_U8KwLmM0k/pubhtml?gid=357450906&amp;single=true&amp;widget=true&amp;headers=false"
+    },
+
+    {
+      titulo:"5K DAMAS MASTER",
+      url:"https://docs.google.com/spreadsheets/d/e/2PACX-1vSis3MtC00Aa_p7fP9AOfrF-rlf2afa-o6msBKwRD_-FcmoPZS2epmeELuttMzDSS51B6_U8KwLmM0k/pubhtml?gid=1470980989&amp;single=true&amp;widget=true&amp;headers=false"
+    },
+
+    {
+      titulo:"5K DAMAS OPEN",
+      url:"https://docs.google.com/spreadsheets/d/e/2PACX-1vSis3MtC00Aa_p7fP9AOfrF-rlf2afa-o6msBKwRD_-FcmoPZS2epmeELuttMzDSS51B6_U8KwLmM0k/pubhtml?gid=620110768&amp;single=true&amp;widget=true&amp;headers=false"
+    },
+
+    
+    {
+      titulo:"5K VARONES MASTER",
+      url:"https://docs.google.com/spreadsheets/d/e/2PACX-1vSis3MtC00Aa_p7fP9AOfrF-rlf2afa-o6msBKwRD_-FcmoPZS2epmeELuttMzDSS51B6_U8KwLmM0k/pubhtml?gid=841073144&amp;single=true&amp;widget=true&amp;headers=false"
+    },
+
+    {
+      titulo:"5K VARONES OPEN",
+      url:"https://docs.google.com/spreadsheets/d/e/2PACX-1vSis3MtC00Aa_p7fP9AOfrF-rlf2afa-o6msBKwRD_-FcmoPZS2epmeELuttMzDSS51B6_U8KwLmM0k/pubhtml?gid=1848087840&amp;single=true&amp;widget=true&amp;headers=false"
+    },
+  ]
 
   return (
      <>
@@ -511,6 +174,21 @@ const linkFinal =
         titulo="CUENTA REGRESIVA PARA AQP TRAIL RUNNING SERIES: EL DESIERTO DE LA JOYA"
         descripcion="Prepárate para la aventura en el Desierto de La Joya. La cuenta regresiva ya empezó y el reto te espera: arena, sol y pura resistencia."
       />
+      <br/>
+      <Iframe
+              titulo="Resultados Acumulativos"
+              url="https://atacaperu.com/wp-content/uploads/2026/07/ACUMULATIVO-GENERAL.pdf"/>
+      <br/>
+      <Iframe
+              titulo="Puntajes por Categoría"
+              url="https://atacaperu.com/wp-content/uploads/2026/07/ACUMULATIVO-POR-CATEGORIA.pdf"/>
+
+      <br/>
+      <Iframe
+              titulo="Resultados Grupales"
+              url="https://atacaperu.com/wp-content/uploads/2026/07/PUNTAJES-GRUPALES.pdf"/>
+      <br/>
+      <ResultadosAcordeon titulo="Resultados por Categoría" resultados={resultados} />
 
       {/*}
       <Responsib titulo="INSCRIPCIONES" items={items_inscripcion} onButtonClick={abrirModal}/>

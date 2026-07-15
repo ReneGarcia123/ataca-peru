@@ -4,17 +4,6 @@ import './Events.css';
 const eventos = [
   {
     id: 1,
-    titulo: "AQP TRAIL RUNNING 2026 - SEGUNDA SERIE: EL DESIERTO DE LA JOYA ",
-    fecha: "05 de julio 2026",
-    lugar: "La Joya, Arequipa, Perú",
-    descripcion: "¡Más allá de tus límites! Carrera de Trail Running en el desierto de La Joya - Arequipa",
-    enlace: "/aqp_trs_joya",
-    imagen: "https://atacaperu.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-22-at-6.17.48-PM.avif",
-    disponible:true
-  },
-
-  {
-    id: 2,
     titulo: "CORRE CON LOS BOMBEROS 5K 2026 - CUARTA EDICIÓN",
     fecha: "06 de septiembre 2026",
     lugar: "Arequipa, Arequipa, Perú",
@@ -25,7 +14,7 @@ const eventos = [
   },
 
   {
-    id: 3,
+    id: 2,
     titulo: "AQP TRAIL RUNNING 2026 - TERCERA SERIE: LOS ANDENES DE CHIGUATA ",
     fecha: "13 de septiembre 2026",
     lugar: "Chiguata, Arequipa, Perú",
@@ -35,7 +24,7 @@ const eventos = [
     disponible:true
   },
   {
-    id: 4,
+    id: 3,
     titulo: "LSL MTB INTERNATIONAL 2026 - SEGUNDA SERIE: EL SEÑOR DE LA JOYA",
     fecha: "27 de septiembre 2026",
     lugar: "La Joya, Arequipa, Perú",
@@ -45,7 +34,7 @@ const eventos = [
     disponible:true
   },
   {
-    id: 5,
+    id: 4,
     titulo: "AQP TRAIL RUNNING 2026 - CUARTA SERIE: EL VALLE DE CHILINA",
     fecha: "27 de septiembre 2026",
     lugar: "La Joya, Arequipa, Perú",
@@ -55,7 +44,7 @@ const eventos = [
     disponible:false
   },  
   {
-    id: 6,
+    id: 5,
     titulo: "ULTRA COLCA CANYON 2026",
     fecha: "07 y 08 de noviembre 2026",
     lugar: "Colca, Arequipa, Perú",

@@ -23,6 +23,17 @@ const eventos = [
     imagen: "https://atacaperu.com/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-15-at-1.10.27-PM.avif",
     disponible:true
   },
+
+  {
+    id: 3,
+    titulo: "AQP TRAIL RUNNING 2026 - SEGUNDA SERIE: EL DESIERTO DE LA JOYA",
+    fecha: "05 de julio 2026",
+    lugar: "La Joya, Arequipa, Perú",
+    descripcion: "¡Más allá de tus límites! Carrera de Trail Running en el desierto de La Joya - Arequipa",
+    enlace: "/aqp_trs_joya",
+    imagen: "https://atacaperu.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-22-at-6.17.48-PM.avif",
+    disponible:true
+  },
 ];
 
 const Events = () => {
