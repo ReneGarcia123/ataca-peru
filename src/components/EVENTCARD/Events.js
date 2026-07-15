@@ -4,16 +4,6 @@ import './Events.css';
 const eventos = [
   {
     id: 1,
-    titulo: "TRAIL DEL PESCADOR 10K 2026 - PRIMERA EDICIÓN",
-    fecha: "28 de junio 2026",
-    lugar: "Playa de Los Órganos, Piura, Perú",
-    descripcion: "¡Más fuerte que el cansancio! Carrera de Trail Running la playa de Los Órganos - Piura",
-    enlace: "/TRAIL_DEL_PESCADOR",
-    imagen: "https://atacaperu.com/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-05-at-11.34.23-AM.avif",
-    disponible:true
-  },
-  {
-    id: 2,
     titulo: "AQP TRAIL RUNNING 2026 - SEGUNDA SERIE: EL DESIERTO DE LA JOYA ",
     fecha: "05 de julio 2026",
     lugar: "La Joya, Arequipa, Perú",
@@ -22,19 +12,9 @@ const eventos = [
     imagen: "https://atacaperu.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-22-at-6.17.48-PM.avif",
     disponible:true
   },
-  {
-    id: 3,
-    titulo: "CARRERA SOLIDARIA 6K: ALDEAS INFANTILES 2026 - TERCERA EDICIÓN",
-    fecha: "12 de julio 2026",
-    lugar: "Cerro Colorado, Arequipa, Perú",
-    descripcion: "Arequipa corre por una infancia feliz. Carrera solidaria a beneficio de Aldeas Infantiles - Arequipa",
-    enlace: "/aldeas_infantiles",
-    imagen: "https://atacaperu.com/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-15-at-1.10.27-PM.avif",
-    disponible:true 
-  },
 
   {
-    id: 4,
+    id: 2,
     titulo: "CORRE CON LOS BOMBEROS 5K 2026 - CUARTA EDICIÓN",
     fecha: "06 de septiembre 2026",
     lugar: "Arequipa, Arequipa, Perú",
@@ -45,7 +25,7 @@ const eventos = [
   },
 
   {
-    id: 5,
+    id: 3,
     titulo: "AQP TRAIL RUNNING 2026 - TERCERA SERIE: LOS ANDENES DE CHIGUATA ",
     fecha: "13 de septiembre 2026",
     lugar: "Chiguata, Arequipa, Perú",
@@ -55,7 +35,7 @@ const eventos = [
     disponible:true
   },
   {
-    id: 6,
+    id: 4,
     titulo: "LSL MTB INTERNATIONAL 2026 - SEGUNDA SERIE: EL SEÑOR DE LA JOYA",
     fecha: "27 de septiembre 2026",
     lugar: "La Joya, Arequipa, Perú",
@@ -65,7 +45,7 @@ const eventos = [
     disponible:true
   },
   {
-    id: 7,
+    id: 5,
     titulo: "AQP TRAIL RUNNING 2026 - CUARTA SERIE: EL VALLE DE CHILINA",
     fecha: "27 de septiembre 2026",
     lugar: "La Joya, Arequipa, Perú",
@@ -75,7 +55,7 @@ const eventos = [
     disponible:false
   },  
   {
-    id: 8,
+    id: 6,
     titulo: "ULTRA COLCA CANYON 2026",
     fecha: "07 y 08 de noviembre 2026",
     lugar: "Colca, Arequipa, Perú",

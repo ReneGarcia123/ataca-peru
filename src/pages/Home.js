@@ -12,9 +12,9 @@ export default function Home() {
     <div>
       <Carrousel />
       <Countdown 
-        targetDate="2026-07-05T09:00:00" 
-        titulo="AQP TRAIL RUNNING 2026 - SEGUNDA SERIE: EL DESIERTO DE LA JOYA" 
-        descripcion="¡NADA ES IMPOSIBLE! Carrera de Trail en el desierto de La Joya - Arequipa"
+        targetDate="2026-09-06T09:00:00" 
+        titulo="CORRE CON LOS BOMBEROS 5K 2026 - CUARTA EDICIÓN" 
+        descripcion="Carrera de Fuego 5K 2026 - Cuarta Edición: Corre con los Bomberos, en esta carrera de apoyo a nuestros héroes de la vida real. ¡Únete a nosotros y corre por una causa noble!"
        />
       <Events />
       <br/>
