@@ -21,6 +21,32 @@ export default function LSL_MTB_JOYA() {
   /*PRIMERA PREVENTA, SEGUNDA PREVENTA, VENTA FINAL*/
   const tipoPreventa="PESCADOR PRIMERA PRE VENTA";
 
+  const handleCapturaPago = (e) => {
+
+    const file = e.target.files[0];
+
+    if (!file) return;
+
+    setCapturaPago(file);
+
+    const reader = new FileReader();
+
+    reader.onload = () => {
+
+      const base64 = reader.result.split(",")[1];
+
+      setCapturaPagoData({
+        base64,
+        mimeType: file.type,
+        fileName: file.name
+      });
+
+    };
+
+    reader.readAsDataURL(file);
+
+  };
+
   const handleFinalResult = async(result) => {
   if (result.success) {
     /*EVITAR QUE PAGUE SIN INTERNET*/
@@ -83,6 +109,7 @@ const resetFormulario = () => {
   setTalla("M");
   setOtroEquipo("");
   setFotoBienvenida(null);
+  setCapturaPago(null);
 
   setBasesGenerales(false);
   setDeslindeResponsabilidad(false);
@@ -109,6 +136,8 @@ const resetFormulario = () => {
   const [talla, setTalla] = useState("M");
   const [otroEquipo, setOtroEquipo] = useState("");
   const [fotoBienvenida, setFotoBienvenida] = useState(null);
+  const [capturaPago, setCapturaPago] = useState(null);
+  const [capturaPagoData, setCapturaPagoData] = useState(null);
 
   /*Estados para controlar los checkbox de términos y condiciones */
   const [bases_generales, setBasesGenerales] = useState(false);
@@ -163,11 +192,11 @@ const resetFormulario = () => {
   try {
     await emailjs.send(
       "service_2govrnu",
-      "template_lurswng",
+      "template_s1pd1bx",
       templateParams,
       "PN9-V6us45efj9uL6"
     );
-    alert(nombre+" ,tu inscripción se ha completado exitosamente. ¡El desierto de la Joya te espera!\nSe enviará un correo de confirmación a "+correo+" con los detalles de tu inscripción.\nEn el mismo correo está el link para que te puedas unir al grupo de WhatsApp de la carrera. ¡Nos vemos en la carrera!");
+    alert(nombre+" ,tu inscripción se ha completado exitosamente. ¡El Señor de la Joya te espera!\nSe enviará un correo de confirmación a "+correo+" con los detalles de tu inscripción.\nEn el mismo correo está el link para que te puedas unir al grupo de WhatsApp de la carrera. ¡Nos vemos en la carrera!");
     setModalOpen(false);
     resetFormulario();
   } catch (error) {
@@ -178,80 +207,103 @@ const resetFormulario = () => {
 
   /*Guardar inscripción en google sheet, además de subir foto*/
   const guardarInscripcionGoogle = async () => {
+    try {
 
-  try {
+      let fotoBase64 = "";
+      let fotoMimeType = "";
 
-    let fotoBase64 = "";
-    let fotoMimeType = "";
+      let capturaPagoBase64 = "";
+      let capturaPagoMimeType = "";
 
-    if (fotoBienvenida) {
+      // FOTO DE BIENVENIDA
+      if (fotoBienvenida) {
 
-      fotoMimeType = fotoBienvenida.type;
+        fotoMimeType = fotoBienvenida.type;
 
-      fotoBase64 = await new Promise((resolve, reject) => {
+        fotoBase64 = await new Promise((resolve, reject) => {
 
-        const reader = new FileReader();
+          const reader = new FileReader();
 
-        reader.readAsDataURL(fotoBienvenida);
+          reader.readAsDataURL(fotoBienvenida);
 
-        reader.onload = () => {
+          reader.onload = () => {
+            resolve(reader.result.split(",")[1]);
+          };
 
-          const base64 = reader.result.split(",")[1];
+          reader.onerror = reject;
 
-          resolve(base64);
-        };
+        });
 
-        reader.onerror = error => reject(error);
-      });
-    }
-
-    const payload = {
-      nombre,
-      apellidos,
-      dni,
-      correo,
-      telefono,
-      genero,
-      fechaNacimiento,
-      grupo:
-        grupo === "otro"
-          ? otroEquipo
-          : grupo,
-
-      talla,
-      modalidad,
-      fotoBase64,
-      fotoMimeType
-    };
-
-    const response = await fetch(
-      "https://script.google.com/macros/s/AKfycbzRA6f1gyKU42SQb1r7s7r_SARdhjuMwM8BINJmFGqzxQTYCY9u0r1mxF7ZCcLiQPq5/exec",
-      {
-        method: "POST",
-        body: JSON.stringify(payload)
       }
-    );
 
-    // 👇 AQUÍ VA
-    const text = await response.text();
+      // CAPTURA DE PAGO
+      if (capturaPago) {
 
-    console.log("RESPUESTA CRUDA:", text);
+        capturaPagoMimeType = capturaPago.type;
 
-    const result = JSON.parse(text);
+        capturaPagoBase64 = await new Promise((resolve, reject) => {
 
-    console.log("Google Sheets:", result);
+          const reader = new FileReader();
 
-    if (!result.success) {
-      throw new Error(result.error || "Error al guardar en Google Sheets");
+          reader.readAsDataURL(capturaPago);
+
+          reader.onload = () => {
+            resolve(reader.result.split(",")[1]);
+          };
+
+          reader.onerror = reject;
+
+        });
+
+      }
+
+      const payload = {
+        nombre,
+        apellidos,
+        dni,
+        correo,
+        telefono,
+        genero,
+        fechaNacimiento,
+
+        grupo:
+          grupo === "otro"
+            ? otroEquipo
+            : grupo,
+
+        modalidad,
+
+        fotoBase64,
+        fotoMimeType,
+
+        capturaPagoBase64,
+        capturaPagoMimeType
+      };
+
+      const response = await fetch(
+        "https://script.google.com/macros/s/AKfycbxCsGdI1zBQQrPDD3aVPFLbeGfH9qLLUkkP96oTxLczPgZb9RZ23K9L6H8l_DIgR7Nd/exec",
+        {
+          method: "POST",
+          body: JSON.stringify(payload)
+        }
+      );
+
+      const text = await response.text();
+
+      const result = JSON.parse(text);
+
+      if (!result.success) {
+        throw new Error(result.error || "Error al guardar en Google Sheets");
+      }
+
+    } catch (error) {
+
+      console.log(error);
+      throw error;
+
     }
 
-  } catch (error) {
-
-    console.log("Error Google Sheets:", error);
-
-    throw error;
-  }
-};
+  };
 
   /*Estado de carga de envío de correo*/
   const [enviando, setEnviando] = useState(false);
@@ -263,30 +315,20 @@ const resetFormulario = () => {
   const items_inscripcion = [
     
     {
-        img: "https://atacaperu.com/wp-content/uploads/2026/05/1-1.avif",
-        title: "INSCRIPCIÓN 5K",
-        desc: "5K: Corre entre dunas y descubre la magia del desierto en cada kilómetro",
+        img: "https://atacaperu.com/wp-content/uploads/2026/07/2.avif",
+        title: "CICLISMO PRO",
+        desc: "El Señor de la Joya te desafía. Domina el terreno Pro y corona tu esfuerzo",
         btnText: "Inscribirme",
-        modalidad: "5K PRIMERA PRE VENTA",
+        modalidad: "PRO PRIMERA PRE VENTA",
     },
 
     {
-        img: "https://atacaperu.com/wp-content/uploads/2026/05/22.avif",
-        title: "INSCRIPCIÓN 10K",
-        desc: "10K: Desafía tu resistencia con 10K de arena, sol y pura adrenalina",
+        img: "https://atacaperu.com/wp-content/uploads/2026/07/3.avif",
+        title: "CICLISMO TURISMO",
+        desc: "El Señor de la Joya te espera. ¡Inscríbete en Turismo y vive la aventura!",
         btnText: "Inscribirme",
-        modalidad: "10K PRIMERA PRE VENTA",
-    },
-
-    {
-        img: "https://atacaperu.com/wp-content/uploads/2026/05/2-1.avif",
-        title: "INSCRIPCIÓN 21K",
-        desc: "21K: Conquista el desierto en 21K y demuestra que tu espíritu no tiene límites",
-        btnText: "Inscribirme",
-        modalidad: "21K PRIMERA PRE VENTA",
-    },
-    
-    
+        modalidad: "TURISMO PRIMERA PRE VENTA",
+    },   
 
   ]
 
@@ -403,10 +445,10 @@ const resetFormulario = () => {
       />
 
       {/*HABILITAR CUANDO NO SE TENGA LAS INSCRIPCIONES LISTAS, ES UN PROXIMAMENTE*/}
-      <Responsib titulo="INSCRIPCIONES PRÓXIMAMENTE" items={proximamente}/>
+      {/*<Responsib titulo="INSCRIPCIONES PRÓXIMAMENTE" items={proximamente}/>*/}
 
       {/*HABILITAR CUANDO SE COMPLETE EL SISTEMA DE INSCRIPCION*/}
-      {/*/<Responsib titulo="INSCRIPCIONES PRÓXIMAMENTE" items={items_inscripcion} onButtonClick={abrirModal}/>*/}
+      /<Responsib titulo="MODALIDADES DE INSCRIPCIÓN" items={items_inscripcion} onButtonClick={abrirModal}/>
 
       <Modal
         isOpen={modalOpen}
@@ -438,6 +480,9 @@ const resetFormulario = () => {
 
             :step===2
             ? "TÉRMINOS Y CONDICIONES"
+
+            :step===3
+            ? "PAGO DE INSCRIPCIÓN"
             :"RESUMEN DE INSCRIPCIÓN"
           }
         </h1>
@@ -549,59 +594,77 @@ const resetFormulario = () => {
               onChange={(e) => setGrupo(e.target.value)}
               required
             >
-              <option value="ADES">
-                ADES
+              <option value="ORIGINAL BIKES">
+                ORIGINAL BIKES
               </option>
-              <option value="ALPHA">
-                ALPHA
+              <option value="MORE RACING TEAM">
+                MORE RACING TEAM
               </option>
-              <option value="LONCCOS RUNNING TEAM">
-                LONCCOS RUNNING TEAM
+              <option value="Bikers Team">
+                Bikers Team
               </option>
-              <option value="TAYGETOS">
-                TAYGETOS
+              <option value="ATR54">
+                ATR54
               </option>
-              <option value="RUNNATICOS">
-                RUNNATICOS
+              <option value="CLUB NOVA BIKERS AQP">
+                CLUB NOVA BIKERS AQP
               </option>
-              <option value="ALTURA">
-                ALTURA
+              <option value="Team Colca Bike">
+                Team Colca Bike
               </option>
-              <option value="CRAZY RUNNING">
-                CRAZY RUNNING
+              <option value="PIP & LINES">
+                PIP & LINES
               </option>
-              <option value="OPTICAS ZAVALA">
-                OPTICAS ZAVALA
+              <option value="Alpha">
+                Alpha
               </option>
-              <option value="PSYCHO RUNNERS">
-                PSYCHO RUNNERS
+              <option value="CLARO">
+                CLARO
               </option>
-              <option value="SAMURAI AQP">
-                SAMURAI AQP
+              <option value="ONLY BIKES SPECIALIZED AREQUIPA">
+                ONLY BIKES SPECIALIZED AREQUIPA
               </option>
-              <option value="ACADEMIA IPD">
-                ACADEMIA IPD
+              <option value="Garage Bike">
+                Garage Bike
               </option>
-              <option value="FUERZA AEREA DEL PERU">
-                FUERZA AEREA DEL PERU
+              <option value="Alliance AQP">
+                Alliance AQP
               </option>
               <option value="CIMA RUNNERS">
                 CIMA RUNNERS
               </option>
-              <option value="IMPERIO TRAIL RUNNING">
-                IMPERIO TRAIL RUNNING
+              <option value="INDIOS MALDITOS">
+                INDIOS MALDITOS
               </option>
-              <option value="TEAM CLARO">
-                TEAM CLARO
+              <option value="QZ Racing Team">
+                QZ Racing Team
               </option>
-              <option value="NG ATLETIC">
-                NG ATLETIC
+              <option value="Joya">
+                Joya
               </option>
-              <option value="LA RESISTENCIA">
-                LA RESISTENCIA
+              <option value="Team Gluck">
+                Team Gluck
               </option>
-              <option value="AFABP">
-                AFABP
+              <option value="MTB NUEVO NIVEL">
+                MTB NUEVO NIVEL
+              </option>
+              <option value="Xtremos">
+                Xtremos
+              </option>
+              <option value="TEAM UNSA BIKERS">
+                TEAM UNSA BIKERS
+              </option>
+              <option value="CMA BIKERS">
+                CMA BIKERS
+              </option>
+              <option value="WOLFGANG">
+                WOLFGANG
+              </option>
+              <option value="SURVIVOR AQP">
+                SURVIVOR AQP
+              </option>
+              <option value="Conejos Ninjas">
+                Conejos Ninjas
               </option>
               <option value="otro">
                 Otro equipo
@@ -617,21 +680,6 @@ const resetFormulario = () => {
                 />
               )
             }
-
-            {/* Talla */}
-            <span className="form-label">
-                Talla de polo:
-            </span>
-            <select 
-              value={talla}
-              onChange={(e) => setTalla(e.target.value)}
-              required>
-              <option value="XS">XS</option>
-              <option value="S">S</option>
-              <option value="M">M</option>
-              <option value="L">L</option>
-              <option value="XL">XL</option>
-            </select>
             <button
               type="submit"
               className="submit-btn"
@@ -706,13 +754,87 @@ const resetFormulario = () => {
               className="submit-btn"
               onClick={() => setStep(3)}
             >
-              Finalizar inscripción
+              Pasar al pago
             </button>
 
           </div>
         )}
 
-        {(step === 3) && (
+        {step === 3 && (
+          <div className="step-container">
+
+            <h2 className="step-title">
+              Pago de inscripción
+            </h2>
+
+            <div className="payment-box">
+
+              <strong>COSTO DE INSCRIPCIÓN (PRIMREA PRE VENTA):</strong>
+
+              <p>S/ 70.00</p>
+
+              <br />
+
+              <strong>
+                Pago mediante Yape al número:
+              </strong>
+
+              <p>956280178</p>
+
+              <strong>MARIA A. MÁLAGA</strong>
+
+            </div>
+
+           <div className="form-group">
+
+              <span className="form-label">
+                  Adjunta tu comprobante de pago:
+              </span>
+
+              <div className="file-upload">
+
+                  <input
+                      type="file"
+                      accept=".jpg,.jpeg,.png"
+                      onChange={handleCapturaPago}
+                  />
+
+                  {
+                      capturaPago &&
+                      <div className="file-selected">
+                          ✓ {capturaPago.name}
+                      </div>
+                  }
+
+              </div>
+
+            </div>
+
+            <div className="step-buttons">
+
+              <button
+                type="button"
+                className="submit-btn"
+                onClick={() => setStep(2)}
+              >
+                Atrás
+              </button>
+
+              <button
+                type="button"
+                className="submit-btn"
+                disabled={!capturaPago}
+                onClick={() => setStep(4)}
+              >
+                Continuar
+              </button>
+
+            </div>
+
+          </div>
+        )}
+
+        {(step === 4) && (
           <div className="resume-step">
 
           <div className="resume-item">
@@ -763,11 +885,6 @@ const resetFormulario = () => {
           </div>
 
           <div className="resume-item">
-            <strong>Talla:</strong>
-            <span>{talla}</span>
-          </div>
-
-          <div className="resume-item">
             <strong>Distancia:</strong>
             <span>{modalidad}</span>
           </div>
@@ -794,9 +911,26 @@ const resetFormulario = () => {
               </div>
             )
           }
+          {
+            capturaPago && (
+
+              <div className="resume-photo">
+
+                <strong>
+                  Comprobante de pago:
+                </strong>
+
+                <img
+                  src={URL.createObjectURL(capturaPago)}
+                  alt="Comprobante de pago"
+                />
+
+              </div>
+            )
+          }
 
           {/*modulo de pago sin Culqi: solo usar en EMERGENCIA*/}
-          {/*BOTON PRUEBA SIN CULQUI*
+          
           <button
             className="submit-btn"
             disabled={enviando}
@@ -831,8 +965,8 @@ const resetFormulario = () => {
                 : "FINALIZAR INSCRIPCIÓN"
             }
           </button>
-        */}
         
+        {/*
         <CulqiButton
          disabled={
             enviando ||
@@ -859,7 +993,7 @@ const resetFormulario = () => {
             ? "ENVIANDO..."
             : "PAGAR"
           }
-        />
+        />*/}
       </div>
       )}
       </Modal>

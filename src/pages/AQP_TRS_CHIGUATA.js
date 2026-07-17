@@ -261,7 +261,7 @@ const linkFinal =
       templateParams,
       "PN9-V6us45efj9uL6"
     );
-    alert(nombre+" ,tu inscripción se ha completado exitosamente. ¡El desierto de la Joya te espera!\nSe enviará un correo de confirmación a "+correo+" con los detalles de tu inscripción.\nEn el mismo correo está el link para que te puedas unir al grupo de WhatsApp de la carrera. ¡Nos vemos en la carrera!");
+    alert(nombre+" ,tu inscripción se ha completado exitosamente. ¡Los Andenes de Chiguata te esperan!\nSe enviará un correo de confirmación a "+correo+" con los detalles de tu inscripción.\nEn el mismo correo está el link para que te puedas unir al grupo de WhatsApp de la carrera. ¡Nos vemos en la carrera!");
     setModalOpen(false);
     resetFormulario();
   } catch (error) {
@@ -446,6 +446,7 @@ const linkFinal =
   /*Carrusel 2 imagenes*/
   const images_carrousel2=[
       "https://atacaperu.com/wp-content/uploads/2026/06/c1aa0d79-fb20-4adc-a1fa-c908f0892fb5.avif",
+      "https://atacaperu.com/wp-content/uploads/2026/07/760ef8ef-ddc3-4114-b260-e2d2b5b8e4fa.avif",
   ]
 
   /*Detalles del hero section*/
