@@ -14,6 +14,7 @@ import LSL_MTB_JOYA from './pages/LSL_MTB_JOYA';
 import AQP_TRS_CHIGUATA from './pages/AQP_TRS_CHIGUATA';
 import CENTAURO_TACNA from './pages/CENTAURO_TACNA';
 import BOMBEROS_2026 from './pages/BOMBEROS_2026';
+import PEDALEANDO_YURA from './pages/PEDALEANDO_YURA';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="lsl_mtb_joya" element={<LSL_MTB_JOYA/>}/>
           <Route path="aqp_trs_chiguata" element={<AQP_TRS_CHIGUATA/>}/>
           <Route path="centauro_2026" element={<CENTAURO_TACNA/>}/>
+          <Route path="pedaleando_yura" element={<PEDALEANDO_YURA/>}/>
           {/* Rutas de prueba (Eliminables)*/}
           <Route path="registration" element={<RegistrationPage />} />
           <Route path="success" element={<SuccessPage />} />

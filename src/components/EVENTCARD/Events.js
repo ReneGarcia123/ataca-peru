@@ -2,8 +2,19 @@ import React from 'react'
 import './Events.css';
 
 const eventos = [
-  {
+    {
     id: 1,
+    titulo: "PEDALEANDO EN YURA MTB 2026",
+    fecha: "26 de junio 2026",
+    lugar: "Yura, Arequipa, Perú",
+    descripcion: "Pedalea en Yura, inscripción gratuita",
+    enlace: "/pedaleando_yura",
+    imagen: "https://atacaperu.com/wp-content/uploads/2026/07/images-1.avif",
+    disponible:true
+  },
+
+  {
+    id: 2,
     titulo: "CORRE CON LOS BOMBEROS 5K 2026 - CUARTA EDICIÓN",
     fecha: "06 de septiembre 2026",
     lugar: "Arequipa, Arequipa, Perú",
@@ -14,7 +25,7 @@ const eventos = [
   },
 
   {
-    id: 2,
+    id: 3,
     titulo: "AQP TRAIL RUNNING 2026 - TERCERA SERIE: LOS ANDENES DE CHIGUATA ",
     fecha: "13 de septiembre 2026",
     lugar: "Chiguata, Arequipa, Perú",
@@ -24,7 +35,7 @@ const eventos = [
     disponible:true
   },
   {
-    id: 3,
+    id: 4,
     titulo: "LSL MTB INTERNATIONAL 2026 - SEGUNDA SERIE: EL SEÑOR DE LA JOYA",
     fecha: "27 de septiembre 2026",
     lugar: "La Joya, Arequipa, Perú",
@@ -34,7 +45,7 @@ const eventos = [
     disponible:true
   },
   {
-    id: 4,
+    id: 5,
     titulo: "AQP TRAIL RUNNING 2026 - CUARTA SERIE: EL VALLE DE CHILINA",
     fecha: "27 de septiembre 2026",
     lugar: "La Joya, Arequipa, Perú",
@@ -44,7 +55,7 @@ const eventos = [
     disponible:false
   },  
   {
-    id: 5,
+    id: 6,
     titulo: "ULTRA COLCA CANYON 2026",
     fecha: "07 y 08 de noviembre 2026",
     lugar: "Colca, Arequipa, Perú",
