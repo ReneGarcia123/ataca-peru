@@ -196,7 +196,7 @@ export default function PEDALEANDO_YURA() {
         descripcion="Prepárate para desafiar la montaña, la arena y tus propios límites 
                      en YURA. Cada sendero pondrá a prueba tu fuerza, cada
                      curva tu técnica y cada kilómetro tu pasión por el ciclismo. Vive la
-                     adrenalina del ciclismo competitivo, una experiencia única que
+                     adrenalina del ciclismo, una experiencia única que
                      te llevará a la gloria sobre dos ruedas."
         video="https://atacaperu.com/wp-content/uploads/2026/05/Senor-de-la-joya-CICLISMO.mp4"
         imagen="https://atacaperu.com/wp-content/uploads/2023/04/logo-blanco.png"   
