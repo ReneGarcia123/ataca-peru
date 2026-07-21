@@ -10,6 +10,8 @@ import Mapping from '../components/MAPPING/Mapping';
 import Responsib from '../components/RESPONSIBILITIES/Responsib';
 import Modal from '../components/MODAL/Modal';
 import emailjs from '@emailjs/browser';
+import { MdDirectionsBike } from "react-icons/md";
+
 
 
 export default function PEDALEANDO_YURA() {
@@ -17,6 +19,7 @@ export default function PEDALEANDO_YURA() {
   const [nombre, setNombre] = useState("");
   const [apellidos, setApellidos] = useState("");
   const [dni, setDni] = useState("");
+  const [correo, setCorreo] = useState("");
 
   const [modalidad, setModalidad] = useState("");
 
@@ -31,6 +34,7 @@ export default function PEDALEANDO_YURA() {
     setNombre("");
     setApellidos("");
     setDni("");
+    setCorreo("");
     setModalidad("");
   };
 
@@ -39,10 +43,11 @@ export default function PEDALEANDO_YURA() {
       nombre,
       apellidos,
       dni,
+      correo,
       modalidad
     };
     const response = await fetch(
-      "https://script.google.com/macros/s/AKfycbx0VrdBOc4zGtJFCpdxfvEGbkzJXjJHLe7PrBRci2PW2zHHC3DoKGbvg9xo0QNSDa8wtQ/exec",
+      "https://script.google.com/macros/s/AKfycbx7UuuT7XE-zefBPCWoo-57sLfikfYH1owP30tQ869H58JZBA1J7SVrl0-hjLe8JgpTSg/exec",
       {
         method: "POST",
         body: JSON.stringify(payload)
@@ -62,13 +67,14 @@ export default function PEDALEANDO_YURA() {
       nombre,
       apellidos,
       dni,
+      correo,
       modalidad
     };
     await emailjs.send(
-      "service_2govrnu",
-      "template_s1pd1bx",
+      "service_gi2cwnf",
+      "template_mpj2jnh",
       templateParams,
-      "PN9-V6us45efj9uL6"
+      "3ElF522uPVPnXza99"
     );
   };
 
@@ -81,7 +87,7 @@ export default function PEDALEANDO_YURA() {
 
       await guardarInscripcionGoogle();
 
-      //await enviarCorreo();
+      await enviarCorreo();
 
       alert(
         `${nombre}, tu inscripción fue realizada correctamente.`
@@ -108,8 +114,8 @@ export default function PEDALEANDO_YURA() {
   const items_inscripcion = [
     {
         img: "https://atacaperu.com/wp-content/uploads/2026/07/images.avif",
-        title: "CICLISMO PRO",
-        desc: "Yura te desafía. Domina el terreno Pro y corona tu esfuerzo",
+        title: "INSCRIBITE AHORA",
+        desc: "Yura te desafía. Domina el terreno y corona tu esfuerzo",
         btnText: "Inscribirme",
         modalidad: "CICLISMO GRATIS YURA",
     },
@@ -152,7 +158,7 @@ export default function PEDALEANDO_YURA() {
   const detalles_hero = [
       { icon: <FaMapMarkerAlt />, label: "Lugar", value: "Yura, Arequipa, Perú" },
       { icon: <FaClock />, label: "Hora", value: "08:00 AM" },
-      { icon: <FaMedal />, label: "Premios", value: "Reconocimientos a ganadores" },
+      { icon: <MdDirectionsBike />, label: "Ciclo Turismo", value: "Turismo Recreativo" },
   ];
 
   const categorias = [
@@ -255,6 +261,14 @@ export default function PEDALEANDO_YURA() {
             placeholder="DNI"
             value={dni}
             onChange={(e)=>setDni(e.target.value)}
+            required
+          />
+
+          <input
+            type="text"
+            placeholder="Correo"
+            value={correo}
+            onChange={(e)=>setCorreo(e.target.value)}
             required
           />
 
