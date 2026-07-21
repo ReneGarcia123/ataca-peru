@@ -20,7 +20,7 @@ export default function PEDALEANDO_YURA() {
   const [apellidos, setApellidos] = useState("");
   const [dni, setDni] = useState("");
   const [correo, setCorreo] = useState("");
-
+  const [talla, setTalla] = useState("");
   const [modalidad, setModalidad] = useState("");
 
   const [enviando, setEnviando] = useState(false);
@@ -36,6 +36,7 @@ export default function PEDALEANDO_YURA() {
     setDni("");
     setCorreo("");
     setModalidad("");
+    setTalla("");
   };
 
   const guardarInscripcionGoogle = async () => {
@@ -44,10 +45,11 @@ export default function PEDALEANDO_YURA() {
       apellidos,
       dni,
       correo,
+      talla,
       modalidad
     };
     const response = await fetch(
-      "https://script.google.com/macros/s/AKfycbx7UuuT7XE-zefBPCWoo-57sLfikfYH1owP30tQ869H58JZBA1J7SVrl0-hjLe8JgpTSg/exec",
+      "https://script.google.com/macros/s/AKfycbxb7qnvkNHeR5FJrxQAV8nWtL6SOn-CH2_Rw71iqvYBnbNC5sjU-73TnnCc0D1Y9BPnfw/exec",
       {
         method: "POST",
         body: JSON.stringify(payload)
@@ -68,6 +70,7 @@ export default function PEDALEANDO_YURA() {
       apellidos,
       dni,
       correo,
+      talla,
       modalidad
     };
     await emailjs.send(
@@ -271,6 +274,15 @@ export default function PEDALEANDO_YURA() {
             onChange={(e)=>setCorreo(e.target.value)}
             required
           />
+          <select
+            value={talla}
+            onChange={(e) => setTalla(e.target.value)}
+            required
+          >
+            <option value="">Seleccione talla de polo</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+          </select>
 
           <button
             type="submit"
