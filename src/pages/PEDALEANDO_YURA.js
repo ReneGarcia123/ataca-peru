@@ -90,7 +90,7 @@ export default function PEDALEANDO_YURA() {
       await enviarCorreo();
 
       alert(
-        `${nombre}, tu inscripción fue realizada correctamente.`
+        `${nombre}, tu inscripción fue realizada correctamente. Se enviará una confirmación al correo: ${correo}, donde te podrás unir al grupo de WhatsApp del evento.`
       );
 
       setModalOpen(false);
