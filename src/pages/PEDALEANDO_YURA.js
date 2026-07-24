@@ -20,6 +20,7 @@ export default function PEDALEANDO_YURA() {
   const [apellidos, setApellidos] = useState("");
   const [dni, setDni] = useState("");
   const [correo, setCorreo] = useState("");
+  const [telefono, setTelefono]=useState("");
   const [talla, setTalla] = useState("");
   const [modalidad, setModalidad] = useState("");
 
@@ -35,6 +36,7 @@ export default function PEDALEANDO_YURA() {
     setApellidos("");
     setDni("");
     setCorreo("");
+    setTelefono("");
     setModalidad("");
     setTalla("");
   };
@@ -45,11 +47,12 @@ export default function PEDALEANDO_YURA() {
       apellidos,
       dni,
       correo,
+      telefono,
       talla,
       modalidad
     };
     const response = await fetch(
-      "https://script.google.com/macros/s/AKfycbxb7qnvkNHeR5FJrxQAV8nWtL6SOn-CH2_Rw71iqvYBnbNC5sjU-73TnnCc0D1Y9BPnfw/exec",
+      "https://script.google.com/macros/s/AKfycbzfCr3s71ZTUEHfMmbHjQkIjiMoiwQcrdl9vaVXCJvpyv_UsNFdoHouWT6xxQ3abDDHYg/exec",
       {
         method: "POST",
         body: JSON.stringify(payload)
@@ -70,6 +73,7 @@ export default function PEDALEANDO_YURA() {
       apellidos,
       dni,
       correo,
+      telefono,
       talla,
       modalidad
     };
@@ -274,6 +278,15 @@ export default function PEDALEANDO_YURA() {
             onChange={(e)=>setCorreo(e.target.value)}
             required
           />
+
+         <input
+            type="text"
+            placeholder="Telefono"
+            value={telefono}
+            onChange={(e)=>setTelefono(e.target.value)}
+            required
+          />
+
           <select
             value={talla}
             onChange={(e) => setTalla(e.target.value)}
@@ -300,35 +313,7 @@ export default function PEDALEANDO_YURA() {
 
       </Modal>
 
-      {/*
-      <Categories
-        titulo="¡El Señor de La Joya! La batalla definitiva de la LSL - MTB INTERNATIONAL"
-        descripcion="¡Vive la emoción de la LSL MTB – EL SEÑOR DE LA JOYA 🚵‍♂️🌵🔥
-                      Desafía la arena, las dunas y tu propia resistencia en el 
-                      desierto de La Joya. Cada pedalada un paso hacia la gloria!🌵🏃‍♂️🔥"
-        imagen="https://atacaperu.com/wp-content/uploads/2026/05/100000.avif"
-        categorias={categorias}
-        items={items}
-      />
-      <ButtonBases url={"https://atacaperu.com/wp-content/uploads/2026/03/LSL-MTB-2026-BASES.pdf"}/>
-      <br />
-      <br />
-      <br />
-      <Carrusel2 images={images_carrousel2} titulo="¿Qué incluye tu participación?" />
-      
-      
-      <Mapping 
-        titulo="Recorrido Turismo" 
-        proximamente={false}
-        wikilocUrl="https://es.wikiloc.com/wikiloc/embedv2.do?id=266624613&elevation=off&images=on&maptype=H"
-      />
-      <Mapping 
-        titulo="Recorrido Pro (2 vueltas)" 
-        proximamente={false}
-        wikilocUrl="https://es.wikiloc.com/wikiloc/embedv2.do?id=266625142&elevation=off&images=on&maptype=H"
-      />
-      <Responsib titulo="Responsabilidad y Autorizaciones" items={items_responsib} />
-      */}
+     
     </>
     
   );
