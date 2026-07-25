@@ -5,7 +5,7 @@ const eventos = [
     {
     id: 1,
     titulo: "PEDALEANDO EN YURA MTB 2026",
-    fecha: "26 de junio 2026",
+    fecha: "09 de agosto 2026",
     lugar: "Yura, Arequipa, Perú",
     descripcion: "Pedalea en Yura, inscripción gratuita",
     enlace: "/pedaleando_yura",

@@ -213,7 +213,7 @@ export default function PEDALEANDO_YURA() {
       <br />
 
       <Countdown
-        targetDate="2026-07-26T09:00:00"
+        targetDate="2026-08-09T09:00:00"
         titulo="CUENTA REGRESIVA PARA PEDALEANDO EN YURA"
         descripcion="Domina la arena, conquista la montaña… ¡Sé parte de YURA!"
       />
