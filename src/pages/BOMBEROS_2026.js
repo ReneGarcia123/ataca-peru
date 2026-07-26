@@ -301,14 +301,14 @@ const guardarInscripcionGoogle = async () => {
   /*Items de tipo de inscripción*/
   const items_inscripcion = [
     {
-        img: "https://atacaperu.com/wp-content/uploads/2026/07/bomb6.avif",
+        img: "https://res.cloudinary.com/bqzm6pvp/image/upload/v1785025718/bomb6_itmzwv.jpg",
         title: "Inscripción no bombero",
         desc: "Corre por una gran causa y súmate junto a tu familia, amigos y apoya a los bomberos de la Benemérita Compañía de Bomberos Arequipa 19. ¡Inscríbete y sé parte del cambio!",
         btnText: "Deseo apoyar con mi inscripción",
     },
 
         {
-        img: "https://atacaperu.com/wp-content/uploads/2026/07/bomb3.avif",
+        img: "https://res.cloudinary.com/bqzm6pvp/image/upload/v1785025721/bomb3_opvv1y.jpg",
         title: "Inscripción para Bomberos",
         desc: "Modalidad exclusiva para bomberos certificados. ¡Inscríbete y demuestra tu compromiso con la comunidad!.",
         btnText: "Inscribirme como bombero",
@@ -338,18 +338,18 @@ const guardarInscripcionGoogle = async () => {
 
   const items_responsib = [
     {
-      img: "https://atacaperu.com/wp-content/uploads/2026/07/bomb8.avif",
+      img: "https://res.cloudinary.com/bqzm6pvp/image/upload/v1785025721/BOMB2_uwn4ne.jpg",
       title: "Deslinde de Responsabilidad",
       desc: "Aceptación de riesgos y condiciones del evento",
-      link: "https://atacaperu.com/wp-content/uploads/2026/07/DESLINDE-DE-RESPONSABILIDAD-BOMBEROS.pdf",
+      link: "https://drive.google.com/file/d/123iykbx5GryX8Zz_9IdwBC6GJ30jMnDl/view?usp=sharing",
       btnText: "Ver documento",
     },
 
     {
-      img: "https://atacaperu.com/wp-content/uploads/2026/07/bomb4.avif",
+      img: "https://res.cloudinary.com/bqzm6pvp/image/upload/v1785025714/bomb4_tfo2rg.jpg",
       title: "Autorización de menores de edad",
       desc: "Permiso para que menores de edad participen en el evento.",
-      link: "https://atacaperu.com/wp-content/uploads/2026/07/AUTORIZACION-MENOR-BOMBEROS.pdf",
+      link: "https://drive.google.com/file/d/1q6cJdmjXlTBrffyACoP9sNt30invQHMm/view?usp=sharing",
       btnText: "Ver documento",
     },
 
@@ -386,8 +386,8 @@ const guardarInscripcionGoogle = async () => {
      <>
       <HeroVideo
         descripcion="¡Corre con los Bomberos! En esta carrera de apoyo a nuestros héroes de la Benemérita Compañía de Bomberos Arequipa - 19. ¡Únete a esta noble causa y demuestra tu solidaridad!"
-        video="https://atacaperu.com/wp-content/uploads/2026/07/No-video-title-fdown.net-1.mp4"
-        imagen="https://atacaperu.com/wp-content/uploads/2026/07/ATACA-BOMBEROS.avif"   
+        video="https://res.cloudinary.com/bqzm6pvp/video/upload/v1785026050/No-video-title-fdown.net_1_ghpfk6.mp4"
+        imagen="https://res.cloudinary.com/bqzm6pvp/image/upload/v1785025694/ATACA_BOMBEROS_irryu3.png"   
         detalles={detalles_hero}
       />     
 
@@ -815,11 +815,11 @@ const guardarInscripcionGoogle = async () => {
       <Categories
         titulo="Corre con los Bomberos 5K IV Edición"
         descripcion="Corre, apoya y vive una experiencia solidaria junto a la Cía. de Bomberos Arequipa 19 🧑‍🚒🔥"
-        imagen="https://atacaperu.com/wp-content/uploads/2026/07/BOMB1.avif"
+        imagen="https://res.cloudinary.com/bqzm6pvp/image/upload/v1785025716/bomb8_wonv6i.jpg"
         categorias={categorias}
         items={items}
       />
-      <ButtonBases url={"https://atacaperu.com/wp-content/uploads/2026/07/CORRE-CON-LOS-BOMBEROS-2026-BASES.pdf"}/>
+      <ButtonBases url={"https://drive.google.com/file/d/1g3zQSZDo3GgDtlTZVekH5p1uA7RZvvtm/view?usp=sharing"}/>
       <br />
       <br />
       {/*

@@ -120,7 +120,7 @@ export default function PEDALEANDO_YURA() {
   /*Items de tipo de inscripción*/
   const items_inscripcion = [
     {
-        img: "https://atacaperu.com/wp-content/uploads/2026/07/images.avif",
+        img: "https://res.cloudinary.com/bqzm6pvp/image/upload/v1785026787/images_vxbuvt.jpg",
         title: "INSCRIBITE AHORA",
         desc: "Yura te desafía. Domina el terreno y corona tu esfuerzo",
         btnText: "Inscribirme",
@@ -205,8 +205,8 @@ export default function PEDALEANDO_YURA() {
                      curva tu técnica y cada kilómetro tu pasión por el ciclismo. Vive la
                      adrenalina del ciclismo, una experiencia única que
                      te llevará a la gloria sobre dos ruedas."
-        video="https://atacaperu.com/wp-content/uploads/2026/05/Senor-de-la-joya-CICLISMO.mp4"
-        imagen="https://atacaperu.com/wp-content/uploads/2023/04/logo-blanco.png"   
+        video="https://res.cloudinary.com/bqzm6pvp/video/upload/v1785027202/Se%C3%B1or_de_la_joya_CICLISMO_lxx98b.mp4"
+        imagen="https://res.cloudinary.com/bqzm6pvp/image/upload/v1785027258/logo-blanco_jhj47y.png"   
         detalles={detalles_hero}
       />     
 

@@ -9,7 +9,7 @@ const eventos = [
     lugar: "Yura, Arequipa, Perú",
     descripcion: "Pedalea en Yura, inscripción gratuita",
     enlace: "/pedaleando_yura",
-    imagen: "https://atacaperu.com/wp-content/uploads/2026/07/images-1.avif",
+    imagen: "https://res.cloudinary.com/bqzm6pvp/image/upload/v1785026786/images_1_rw9feg.jpg",
     disponible:true
   },
 
@@ -20,7 +20,7 @@ const eventos = [
     lugar: "Arequipa, Arequipa, Perú",
     descripcion: "Corre con los Bomberos, en esta carrera de apoyo a nuestros héroes de la ",
     enlace: "/bomberos_2026",
-    imagen: "https://atacaperu.com/wp-content/uploads/2026/06/WhatsApp-Image-2026-06-12-at-10.07.37-AM.avif",
+    imagen: "https://res.cloudinary.com/bqzm6pvp/image/upload/v1785027552/flayer1_d58m3x.jpg",
     disponible:true
   },
 
@@ -31,7 +31,7 @@ const eventos = [
     lugar: "Chiguata, Arequipa, Perú",
     descripcion: "¡Más allá de tus límites! Carrera de Trail Running en los andenes de Chiguata - Arequipa",
     enlace: "/aqp_trs_chiguata",
-    imagen: "https://atacaperu.com/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-28-at-11.12.28-AM.avif",
+    imagen: "https://res.cloudinary.com/bqzm6pvp/image/upload/v1785027733/CHIGUATA_ocrszu.webp",
     disponible:true
   },
   {
@@ -41,7 +41,7 @@ const eventos = [
     lugar: "La Joya, Arequipa, Perú",
     descripcion: "¡Pedalea al máximo! MTB en el Señor de La Joya – Arequipa, donde la resistencia y la velocidad se ponen a prueba.",
     enlace: "/lsl_mtb_joya",
-    imagen: "https://atacaperu.com/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-28-at-7.59.53-AM.avif",
+    imagen: "https://res.cloudinary.com/bqzm6pvp/image/upload/v1785027844/SENOR_JOYA_hdr1ql.jpg",
     disponible:true
   },
   {

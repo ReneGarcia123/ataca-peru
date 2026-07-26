@@ -25,7 +25,7 @@ function Header() {
         <div className="nav-container">
           <Link to="/" className="logo">
             <img
-              src="https://atacaperu.com/wp-content/uploads/2018/05/logo-largo-blanco.png"
+              src="https://res.cloudinary.com/bqzm6pvp/image/upload/v1785027209/logo-largo-blanco_eiv0zu.png"
               alt="Ataca Perú Logo"
               className="logo-img"
             />
