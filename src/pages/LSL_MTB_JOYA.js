@@ -315,7 +315,7 @@ const resetFormulario = () => {
   const items_inscripcion = [
     
     {
-        img: "https://atacaperu.com/wp-content/uploads/2026/07/2.avif",
+        img: "https://res.cloudinary.com/bqzm6pvp/image/upload/v1785171046/2_isnads.jpg",
         title: "CICLISMO PRO",
         desc: "El Señor de la Joya te desafía. Domina el terreno Pro y corona tu esfuerzo",
         btnText: "Inscribirme",
@@ -323,7 +323,7 @@ const resetFormulario = () => {
     },
 
     {
-        img: "https://atacaperu.com/wp-content/uploads/2026/07/3.avif",
+        img: "https://res.cloudinary.com/bqzm6pvp/image/upload/v1785171046/3_tlphlc.jpg",
         title: "CICLISMO TURISMO",
         desc: "El Señor de la Joya te espera. ¡Inscríbete en Turismo y vive la aventura!",
         btnText: "Inscribirme",
@@ -342,35 +342,35 @@ const resetFormulario = () => {
 
   const items_responsib = [
   {
-      img: "https://atacaperu.com/wp-content/uploads/2026/05/545454.avif",
+      img: "https://res.cloudinary.com/bqzm6pvp/image/upload/v1785171385/11_l75l9f.jpg",
       title: "Deslinde de Responsabilidad",
       desc: "Aceptación de riesgos y condiciones del evento.",
-      link: "https://atacaperu.com/wp-content/uploads/2026/05/DESLINDE-SENOR-JOYA.pdf",
+      link: "https://drive.google.com/file/d/1g9gYByNB1TJAdIg4Yqpk9s0DohzUCSOf/view?usp=drive_link",
       btnText: "Ver documento",
     },
 
     {
-      img: "https://atacaperu.com/wp-content/uploads/2026/05/553001770_774836215512043_1994255925318920294_n.avif",
+      img: "https://res.cloudinary.com/bqzm6pvp/image/upload/v1785171385/22_zq0tfg.jpg",
       title: "Dispositivo Sensor",
       desc: "Uso correcto y responsabilidad del equipo.",
-      link: "https://atacaperu.com/wp-content/uploads/2025/02/RESPONSABILIDAD-SENSOR.pdf",
+      link: "https://drive.google.com/file/d/1kZoeR5b5JmLt1QXQ_x0Ifph7Yss4Z1xQ/view?usp=drive_link",
       btnText: "Ver documento",
     },
 
     {
-      img: "https://atacaperu.com/wp-content/uploads/2026/05/88888.avif",
+      img: "https://res.cloudinary.com/bqzm6pvp/image/upload/v1785171385/333_e1rxo6.jpg",
       title: "Autorización de Menor",
       desc: "Permiso para participación de menores.",
-      link: "https://atacaperu.com/wp-content/uploads/2026/05/AUTORIZACION-SENOR-JOYA.pdf",
+      link: "https://drive.google.com/file/d/1kZoeR5b5JmLt1QXQ_x0Ifph7Yss4Z1xQ/view?usp=drive_link",
       btnText: "Ver documento",
     },
   ];
 
   /*Carrusel 2 imagenes*/
   const images_carrousel2=[
-      "https://atacaperu.com/wp-content/uploads/2026/05/646379961_907306912264972_4631821691080540866_n.avif",
-      "https://atacaperu.com/wp-content/uploads/2026/05/645392577_905971779065152_4121537732378578225_n.avif",
-      "https://atacaperu.com/wp-content/uploads/2026/05/646365881_905078655821131_5670434078030326945_n.avif",
+      "https://res.cloudinary.com/bqzm6pvp/image/upload/v1785171261/medalla_xnw33r.jpg",
+      "https://res.cloudinary.com/bqzm6pvp/image/upload/v1785171287/a_jfrroj.jpg",
+      "https://res.cloudinary.com/bqzm6pvp/image/upload/v1785171382/646365881_905078655821131_5670434078030326945_n_k3wbw9.jpg",
   ]
 
   /*Detalles del hero section*/
@@ -431,8 +431,8 @@ const resetFormulario = () => {
                      curva tu técnica y cada kilómetro tu pasión por el ciclismo. Vive la
                      adrenalina de la SUPER LIGA MOUNTAIN BIKE, una experiencia única que
                      te llevará a la gloria sobre dos ruedas."
-        video="https://atacaperu.com/wp-content/uploads/2026/05/Senor-de-la-joya-CICLISMO.mp4"
-        imagen="https://atacaperu.com/wp-content/uploads/2023/04/logo-blanco.png"   
+        video="https://res.cloudinary.com/bqzm6pvp/video/upload/v1785027202/Se%C3%B1or_de_la_joya_CICLISMO_lxx98b.mp4"
+        imagen="https://res.cloudinary.com/bqzm6pvp/image/upload/v1785027258/logo-blanco_jhj47y.png"   
         detalles={detalles_hero}
       />     
 
@@ -1003,11 +1003,11 @@ const resetFormulario = () => {
         descripcion="¡Vive la emoción de la LSL MTB – EL SEÑOR DE LA JOYA 🚵‍♂️🌵🔥
                       Desafía la arena, las dunas y tu propia resistencia en el 
                       desierto de La Joya. Cada pedalada un paso hacia la gloria!🌵🏃‍♂️🔥"
-        imagen="https://atacaperu.com/wp-content/uploads/2026/05/100000.avif"
+        imagen="https://res.cloudinary.com/bqzm6pvp/image/upload/v1785171046/1_lwd7bq.jpg"
         categorias={categorias}
         items={items}
       />
-      <ButtonBases url={"https://atacaperu.com/wp-content/uploads/2026/03/LSL-MTB-2026-BASES.pdf"}/>
+      <ButtonBases url={"https://drive.google.com/file/d/1-Iac00czDNWGKF_xAMOOm1Y-OEKvh3eY/view?usp=drive_link"}/>
       <br />
       <br />
       <br />
