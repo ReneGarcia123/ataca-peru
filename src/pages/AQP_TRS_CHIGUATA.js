@@ -382,7 +382,7 @@ const linkFinal =
   const items_inscripcion = [
     
     {
-        img: "https://atacaperu.com/wp-content/uploads/2026/06/C10.avif",
+        img: "https://res.cloudinary.com/bqzm6pvp/image/upload/v1785173049/5k_s0spoq.jpg",
         title: "INSCRIPCIÓN 5K",
         desc: "5K: Corre entre dunas y descubre la magia del desierto en cada kilómetro",
         btnText: "Inscribirme",
@@ -390,7 +390,7 @@ const linkFinal =
     },
 
     {
-        img: "https://atacaperu.com/wp-content/uploads/2026/06/C5.avif",
+        img: "https://res.cloudinary.com/bqzm6pvp/image/upload/v1785173282/10kkk_nh1zny.jpg",
         title: "INSCRIPCIÓN 10K",
         desc: "10K: Desafía tu resistencia con 10K de arena, sol y pura adrenalina",
         btnText: "Inscribirme",
@@ -398,7 +398,7 @@ const linkFinal =
     },
 
     {
-        img: "https://atacaperu.com/wp-content/uploads/2026/06/C21.avif",
+        img: "https://res.cloudinary.com/bqzm6pvp/image/upload/v1785173050/21k_q4cv8m.jpg",
         title: "INSCRIPCIÓN 21K",
         desc: "21K: Conquista el desierto en 21K y demuestra que tu espíritu no tiene límites",
         btnText: "Inscribirme",
@@ -419,7 +419,7 @@ const linkFinal =
 
   const items_responsib = [
   {
-      img: "https://atacaperu.com/wp-content/uploads/2026/06/cb.avif",
+      img: "https://res.cloudinary.com/bqzm6pvp/image/upload/v1785173418/res1_ptikhc.jpg",
       title: "Deslinde de Responsabilidad",
       desc: "Aceptación de riesgos y condiciones del evento.",
       link: "https://atacaperu.com/wp-content/uploads/2026/05/DESLINDE-LA-JOYA.pdf",
@@ -427,7 +427,7 @@ const linkFinal =
     },
 
     {
-      img: "https://atacaperu.com/wp-content/uploads/2026/06/csens.avif",
+      img: "https://res.cloudinary.com/bqzm6pvp/image/upload/v1785173421/res2_uzuk8b.jpg",
       title: "Dispositivo Sensor",
       desc: "Uso correcto y responsabilidad del equipo.",
       link: "https://atacaperu.com/wp-content/uploads/2025/02/RESPONSABILIDAD-SENSOR.pdf",
@@ -435,7 +435,7 @@ const linkFinal =
     },
 
     {
-      img: "https://atacaperu.com/wp-content/uploads/2026/06/cm.avif",
+      img: "https://res.cloudinary.com/bqzm6pvp/image/upload/v1785173423/res3_q1nidj.jpg",
       title: "Autorización de Menor",
       desc: "Permiso para participación de menores.",
       link: "https://atacaperu.com/wp-content/uploads/2026/05/AUTORIZACION-JOYA.pdf",
@@ -445,8 +445,8 @@ const linkFinal =
 
   /*Carrusel 2 imagenes*/
   const images_carrousel2=[
-      "https://atacaperu.com/wp-content/uploads/2026/06/c1aa0d79-fb20-4adc-a1fa-c908f0892fb5.avif",
-      "https://atacaperu.com/wp-content/uploads/2026/07/760ef8ef-ddc3-4114-b260-e2d2b5b8e4fa.avif",
+      "https://res.cloudinary.com/bqzm6pvp/image/upload/v1785172322/760ef8ef-ddc3-4114-b260-e2d2b5b8e4fa_dowgmk.jpg",
+      "https://res.cloudinary.com/bqzm6pvp/image/upload/v1785172618/medalla_djgtap.jpg",
   ]
 
   /*Detalles del hero section*/
@@ -495,8 +495,8 @@ const linkFinal =
      <>
       <HeroVideo
         descripcion="Prepárate para desafiar la altura, los senderos ancestrales y tus propios límites en “Los Andenes de Chiguata”. Cada kilómetro pondrá a prueba tu resistencia y determinación. Vive la adrenalina de una experiencia única rumbo a la gloria de la AQP TRAIL RUNNING SERIES INTERNATIONAL 2026."
-        video="https://atacaperu.com/wp-content/uploads/2026/06/Los-andenes-de-Chiguata-trail.mp4"
-        imagen="https://atacaperu.com/wp-content/uploads/2023/04/logo-blanco.png"   
+        video="https://res.cloudinary.com/bqzm6pvp/video/upload/v1785172318/Los_andenes_de_Chiguata_trail_qdzvl0.mp4"
+        imagen="https://res.cloudinary.com/bqzm6pvp/image/upload/v1785027258/logo-blanco_jhj47y.png"   
         detalles={detalles_hero}
       />     
 
@@ -1094,7 +1094,7 @@ const linkFinal =
       <Categories
         titulo="Más allá de tus límites: Los Andenes de Chiguata"
         descripcion="¡Vive la segunda serie de la AQP TRAIL RUNNING SERIES INTERNATIONAL 2026 y supera tus propios límites!🌄🏃‍♂️🔥"
-        imagen="https://atacaperu.com/wp-content/uploads/2026/06/C1.avif"
+        imagen="https://res.cloudinary.com/bqzm6pvp/image/upload/v1785173051/10k_i6qt2r.jpg"
         categorias={categorias}
         items={items}
       />
