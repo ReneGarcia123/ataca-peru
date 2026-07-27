@@ -154,8 +154,8 @@ const resetFormulario = () => {
 
   /*ENVIAR CAPTURA DE PAGO*/
   const datosPago = {
-  "5K SEGUNDA PRE VENTA": {
-    precio: 90,
+  "5K PRIMERA PRE VENTA": {
+    precio: 80,
     link: "https://express.culqi.com/pago/354837F496"
   },
   "10K PRIMERA PRE VENTA": {
@@ -163,7 +163,7 @@ const resetFormulario = () => {
     link: "https://express.culqi.com/pago/39B44D794C"
   },
   "21K PRIMERA PRE VENTA": {
-    precio: 110,
+    precio: 120,
     link: "https://express.culqi.com/pago/8F839BC191"
   }
 };
@@ -212,17 +212,17 @@ const linkFinal =
 
   /*Configuración de precios por modalidad*/
   const configuracionPago={
-    "5K SEGUNDA PRE VENTA":{
-      title:"LOS ANDENES DE CHIGUATA 5K - SEGUNDA PRE VENTA",
-      amount:9000
+    "5K PRIMERA PRE VENTA":{
+      title:"LOS ANDENES DE CHIGUATA 5K - PRIMERA PRE VENTA",
+      amount:8000
     },
-    "10K SEGUNDA PRE VENTA":{
-      title:"LOS ANDENES DE CHIGUATA 10K - SEGUNDA PRE VENTA",
+    "10K PRIMERA PRE VENTA":{
+      title:"LOS ANDENES DE CHIGUATA 10K - PRIMERA PRE VENTA",
       amount:10000
     },
-    "21K SEGUNDA PRE VENTA":{
-      title:"LOS ANDENES DE CHIGUATA 21K - SEGUNDA PRE VENTA",
-      amount:11000
+    "21K PRIMERA PRE VENTA":{
+      title:"LOS ANDENES DE CHIGUATA 21K - PRIMERA PRE VENTA",
+      amount:12000
     }
   };
 
@@ -386,7 +386,7 @@ const linkFinal =
         title: "INSCRIPCIÓN 5K",
         desc: "5K: Corre entre dunas y descubre la magia del desierto en cada kilómetro",
         btnText: "Inscribirme",
-        modalidad: "5K SEGUNDA PRE VENTA",
+        modalidad: "5K PRIMERA PRE VENTA",
     },
 
     {
@@ -394,7 +394,7 @@ const linkFinal =
         title: "INSCRIPCIÓN 10K",
         desc: "10K: Desafía tu resistencia con 10K de arena, sol y pura adrenalina",
         btnText: "Inscribirme",
-        modalidad: "10K SEGUNDA PRE VENTA",
+        modalidad: "10K PRIMERA PRE VENTA",
     },
 
     {
@@ -402,7 +402,7 @@ const linkFinal =
         title: "INSCRIPCIÓN 21K",
         desc: "21K: Conquista el desierto en 21K y demuestra que tu espíritu no tiene límites",
         btnText: "Inscribirme",
-        modalidad: "21K SEGUNDA PRE VENTA",
+        modalidad: "21K PRIMERA PRE VENTA",
     },
     
     
@@ -1098,7 +1098,7 @@ const linkFinal =
         categorias={categorias}
         items={items}
       />
-      <ButtonBases url={"https://drive.google.com/file/d/1kzqiSgpENJ_5V6-HFj2TJgJ2GH6gHURL/view?usp=sharing"}/>
+      <ButtonBases url={"https://drive.google.com/file/d/1RpGuz0Xckrxl2FnK7FAJacrAVcjNHO3G/view?usp=sharing"}/>
       <br />
       <br />
       <br />
