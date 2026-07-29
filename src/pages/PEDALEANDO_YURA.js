@@ -222,7 +222,9 @@ export default function PEDALEANDO_YURA() {
       {/*<Responsib titulo="INSCRIPCIONES PRÓXIMAMENTE" items={proximamente}/>*/}
 
       {/*HABILITAR CUANDO SE COMPLETE EL SISTEMA DE INSCRIPCION*/}
+      {/*
       <Responsib titulo="MODALIDADES DE INSCRIPCIÓN" items={items_inscripcion} onButtonClick={abrirModal}/>
+      */}
 
       <Modal
         isOpen={modalOpen}
