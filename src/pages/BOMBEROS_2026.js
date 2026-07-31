@@ -819,7 +819,7 @@ const guardarInscripcionGoogle = async () => {
         categorias={categorias}
         items={items}
       />
-      <ButtonBases url={"https://drive.google.com/file/d/1g3zQSZDo3GgDtlTZVekH5p1uA7RZvvtm/view?usp=sharing"}/>
+      <ButtonBases url={"https://drive.google.com/file/d/1LBoDrGh7xA_kHyw6cp5vI9MgFvdEjjm6/view?usp=sharing"}/>
       <br />
       <br />
       {/*
