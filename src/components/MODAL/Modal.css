@@ -761,6 +761,52 @@
     margin:0;
 }
 
+.payment-method{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    margin-top:18px;
+}
+
+.payment-method h3{
+    margin:0;
+    font-size:20px;
+    color:#2f4f74;
+}
+
+.payment-or{
+    margin:25px 0;
+    color:#999;
+    font-weight:600;
+    font-size:14px;
+}
+
+.payment-card-btn{
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    gap:8px;
+
+    width:100%;
+    padding:14px;
+
+    background:#2f4f74;
+    color:#fff;
+
+    text-decoration:none;
+
+    border-radius:10px;
+
+    font-size:17px;
+    font-weight:700;
+
+    transition:.25s;
+}
+
+.payment-card-btn:hover{
+    background:#243d59;
+    transform:translateY(-2px);
+}
 
 @keyframes spin {
 

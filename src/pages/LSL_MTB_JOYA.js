@@ -767,29 +767,54 @@ const resetFormulario = () => {
               Pago de inscripción
             </h2>
 
-            <div className="payment-box">
 
-              <strong>COSTO DE INSCRIPCIÓN (PRIMREA PRE VENTA):</strong>
-
-              <p>S/ 70.00</p>
-
-              <br />
-
-              <strong>
-                Pago mediante Yape al número:
-              </strong>
-
-              <p>956280178</p>
-
-              <strong>MARIA A. MÁLAGA</strong>
-
-            </div>
 
            <div className="form-group">
 
               <span className="form-label">
                   Adjunta tu comprobante de pago:
               </span>
+
+              <div className="payment-box">
+
+              <strong>COSTO DE INSCRIPCIÓN (PRIMERA PRE VENTA):</strong>
+
+              <p className="price">S/ 70.00</p>
+
+              <div className="payment-method">
+                  <h3>Pago por Yape</h3>
+
+                  <p className="phone">956280178</p>
+
+                  <span className="owner">
+                      María A. Málaga
+                  </span>
+              </div>
+
+              <div className="payment-or">
+                  ─────── o ───────
+              </div>
+
+              <div className="payment-method">
+
+                  <h3>Pago con tarjeta</h3>
+
+                  <p className="owner">
+                      Visa • Mastercard • American Express
+                  </p>
+
+                  <a
+                      href="https://express.culqi.com/pago/01AD6942C7"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="payment-card-btn"
+                  >
+                      💳 PAGAR CON TARJETA
+                  </a>
+
+              </div>
+
+          </div>
 
               <div className="file-upload">
 
