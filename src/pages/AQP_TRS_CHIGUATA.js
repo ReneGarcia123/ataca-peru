@@ -141,11 +141,11 @@ const resetFormulario = () => {
     "RENE549501":{
       descuento: 10,
       links:{
-        "5K PRIMERA PRE VENTA":
+        "5K SEGUNDA PRE VENTA":
           "https://express.culqi.com/pago/LINK5K",
-        "10K PRIMERA PRE VENTA":
+        "10K SEGUNDA PRE VENTA":
           "https://express.culqi.com/pago/LINK10K",
-        "21K PRIMERA PRE VENTA":
+        "21K SEGUNDA PRE VENTA":
           "https://express.culqi.com/pago/FBC06A0062"
       }
     },
@@ -154,17 +154,17 @@ const resetFormulario = () => {
 
   /*ENVIAR CAPTURA DE PAGO*/
   const datosPago = {
-  "5K PRIMERA PRE VENTA": {
-    precio: 80,
-    link: "https://express.culqi.com/pago/354837F496"
+  "5K SEGUNDA PRE VENTA": {
+    precio: 90,
+    link: "https://express.culqi.com/pago/5CA3456F6D"
   },
-  "10K PRIMERA PRE VENTA": {
-    precio: 100,
-    link: "https://express.culqi.com/pago/39B44D794C"
+  "10K SEGUNDA PRE VENTA": {
+    precio: 110,
+    link: "https://express.culqi.com/pago/8F82A39F42"
   },
-  "21K PRIMERA PRE VENTA": {
-    precio: 120,
-    link: "https://express.culqi.com/pago/8F839BC191"
+  "21K SEGUNDA PRE VENTA": {
+    precio: 130,
+    link: "https://express.culqi.com/pago/BC04923971"
   }
 };
 
@@ -212,17 +212,17 @@ const linkFinal =
 
   /*Configuración de precios por modalidad*/
   const configuracionPago={
-    "5K PRIMERA PRE VENTA":{
-      title:"LOS ANDENES DE CHIGUATA 5K - PRIMERA PRE VENTA",
-      amount:8000
+    "5K SEGUNDA PRE VENTA":{
+      title:"LOS ANDENES DE CHIGUATA 5K - SEGUNDA PRE VENTA",
+      amount:9000
     },
-    "10K PRIMERA PRE VENTA":{
-      title:"LOS ANDENES DE CHIGUATA 10K - PRIMERA PRE VENTA",
-      amount:10000
+    "10K SEGUNDA PRE VENTA":{
+      title:"LOS ANDENES DE CHIGUATA 10K - SEGUNDA PRE VENTA",
+      amount:11000
     },
-    "21K PRIMERA PRE VENTA":{
-      title:"LOS ANDENES DE CHIGUATA 21K - PRIMERA PRE VENTA",
-      amount:12000
+    "21K SEGUNDA PRE VENTA":{
+      title:"LOS ANDENES DE CHIGUATA 21K - SEGUNDA PRE VENTA",
+      amount:13000
     }
   };
 
@@ -386,7 +386,7 @@ const linkFinal =
         title: "INSCRIPCIÓN 5K",
         desc: "5K: Corre entre dunas y descubre la magia del desierto en cada kilómetro",
         btnText: "Inscribirme",
-        modalidad: "5K PRIMERA PRE VENTA",
+        modalidad: "5K SEGUNDA PRE VENTA",
     },
 
     {
@@ -394,7 +394,7 @@ const linkFinal =
         title: "INSCRIPCIÓN 10K",
         desc: "10K: Desafía tu resistencia con 10K de arena, sol y pura adrenalina",
         btnText: "Inscribirme",
-        modalidad: "10K PRIMERA PRE VENTA",
+        modalidad: "10K SEGUNDA PRE VENTA",
     },
 
     {
@@ -402,7 +402,7 @@ const linkFinal =
         title: "INSCRIPCIÓN 21K",
         desc: "21K: Conquista el desierto en 21K y demuestra que tu espíritu no tiene límites",
         btnText: "Inscribirme",
-        modalidad: "21K PRIMERA PRE VENTA",
+        modalidad: "21K SEGUNDA PRE VENTA",
     },
     
     
