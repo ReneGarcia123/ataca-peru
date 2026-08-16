@@ -357,7 +357,8 @@ const guardarInscripcionGoogle = async () => {
 
   /*Carrusel 2 imagenes*/
   const images_carrousel2=[
-      "https://atacaperu.com/wp-content/uploads/2026/06/WhatsApp-Image-2026-06-12-at-1.33.15-PM.avif",
+      "https://res.cloudinary.com/r0ldqpr5/image/upload/v1786923239/medalla_bombero.jpg",
+      "https://res.cloudinary.com/r0ldqpr5/image/upload/v1786923238/polo_bombero.jpg",
   ]
 
   /*Detalles del hero section*/
@@ -822,9 +823,9 @@ const guardarInscripcionGoogle = async () => {
       <ButtonBases url={"https://drive.google.com/file/d/1LBoDrGh7xA_kHyw6cp5vI9MgFvdEjjm6/view?usp=sharing "}/>
       <br />
       <br />
-      {/*
+      
       <Carrusel2 images={images_carrousel2} titulo="¿Qué incluye tu participación?" />
-      */}
+      
       <Mapping
         titulo="Recorrido de la carrera"
         proximamente={false}
