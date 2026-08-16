@@ -2,66 +2,55 @@ import React from 'react'
 import './Events.css';
 
 const eventos = [
-    {
-    id: 1,
-    titulo: "PEDALEANDO EN YURA MTB 2026",
-    fecha: "09 de agosto 2026",
-    lugar: "Yura, Arequipa, Perú",
-    descripcion: "Pedalea en Yura, inscripción gratuita",
-    enlace: "/pedaleando_yura",
-    imagen: "https://res.cloudinary.com/bqzm6pvp/image/upload/v1785026786/images_1_rw9feg.jpg",
-    disponible:true
-  },
-
   {
-    id: 2,
+    id: 1,
     titulo: "CORRE CON LOS BOMBEROS 5K 2026 - CUARTA EDICIÓN",
     fecha: "06 de septiembre 2026",
     lugar: "Arequipa, Arequipa, Perú",
     descripcion: "Corre con los Bomberos, en esta carrera de apoyo a nuestros héroes de la ",
     enlace: "/bomberos_2026",
-    imagen: "https://res.cloudinary.com/bqzm6pvp/image/upload/v1785027552/flayer1_d58m3x.jpg",
+    imagen: "https://res.cloudinary.com/r0ldqpr5/image/upload/v1786920250/flayer1.jpg",
     disponible:true
   },
 
   {
-    id: 3,
+    id: 2,
     titulo: "AQP TRAIL RUNNING 2026 - TERCERA SERIE: LOS ANDENES DE CHIGUATA ",
     fecha: "13 de septiembre 2026",
     lugar: "Chiguata, Arequipa, Perú",
     descripcion: "¡Más allá de tus límites! Carrera de Trail Running en los andenes de Chiguata - Arequipa",
     enlace: "/aqp_trs_chiguata",
-    imagen: "https://res.cloudinary.com/bqzm6pvp/image/upload/v1785027733/CHIGUATA_ocrszu.webp",
+    imagen: "https://res.cloudinary.com/r0ldqpr5/image/upload/v1786920266/CHIGUATA.webp",
     disponible:true
   },
   {
-    id: 4,
+    id: 3,
     titulo: "LSL MTB INTERNATIONAL 2026 - SEGUNDA SERIE: EL SEÑOR DE LA JOYA",
     fecha: "27 de septiembre 2026",
     lugar: "La Joya, Arequipa, Perú",
     descripcion: "¡Pedalea al máximo! MTB en el Señor de La Joya – Arequipa, donde la resistencia y la velocidad se ponen a prueba.",
     enlace: "/lsl_mtb_joya",
-    imagen: "https://res.cloudinary.com/bqzm6pvp/image/upload/v1785027844/SENOR_JOYA_hdr1ql.jpg",
+    imagen: "https://res.cloudinary.com/r0ldqpr5/image/upload/v1786920339/SENOR_JOYA.jpg",
     disponible:true
   },
   {
-    id: 5,
+    id: 4,
     titulo: "AQP TRAIL RUNNING 2026 - CUARTA SERIE: EL VALLE DE CHILINA",
     fecha: "27 de septiembre 2026",
     lugar: "La Joya, Arequipa, Perú",
     descripcion: "¡Más allá de tus límites! Carrera de Trail Running en el Valle de Chilina - Arequipa",
     enlace: "/utcc",
-    imagen: "https://atacaperu.com/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-28-at-11.12.28-AM-1.avif",
+    imagen: "https://res.cloudinary.com/r0ldqpr5/image/upload/v1786921063/4series.jpg",
     disponible:false
   },  
   {
-    id: 6,
+    id: 5,
     titulo: "ULTRA COLCA CANYON 2026",
     fecha: "07 y 08 de noviembre 2026",
     lugar: "Colca, Arequipa, Perú",
     descripcion: "¡Desafía el cañón más profundo del mundo! Carrera de Ultra Trail Running en el majestuoso Cañón del Colca - Arequipa",
     enlace: "/utcc",
-    imagen: "https://atacaperu.com/wp-content/uploads/2026/01/cuadrado.avif",
+    imagen: "https://res.cloudinary.com/r0ldqpr5/image/upload/v1786921057/UTCC2026.jpg",
     disponible:false
   },
 ];

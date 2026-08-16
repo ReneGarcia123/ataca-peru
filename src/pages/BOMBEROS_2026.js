@@ -301,14 +301,14 @@ const guardarInscripcionGoogle = async () => {
   /*Items de tipo de inscripción*/
   const items_inscripcion = [
     {
-        img: "https://res.cloudinary.com/bqzm6pvp/image/upload/v1785025718/bomb6_itmzwv.jpg",
+        img: "https://res.cloudinary.com/r0ldqpr5/image/upload/v1786921423/bomb6.jpg",
         title: "Inscripción no bombero",
         desc: "Corre por una gran causa y súmate junto a tu familia, amigos y apoya a los bomberos de la Benemérita Compañía de Bomberos Arequipa 19. ¡Inscríbete y sé parte del cambio!",
         btnText: "Deseo apoyar con mi inscripción",
     },
 
         {
-        img: "https://res.cloudinary.com/bqzm6pvp/image/upload/v1785025721/bomb3_opvv1y.jpg",
+        img: "https://res.cloudinary.com/r0ldqpr5/image/upload/v1786921419/bomb3.jpg",
         title: "Inscripción para Bomberos",
         desc: "Modalidad exclusiva para bomberos certificados. ¡Inscríbete y demuestra tu compromiso con la comunidad!.",
         btnText: "Inscribirme como bombero",
@@ -338,7 +338,7 @@ const guardarInscripcionGoogle = async () => {
 
   const items_responsib = [
     {
-      img: "https://res.cloudinary.com/bqzm6pvp/image/upload/v1785025721/BOMB2_uwn4ne.jpg",
+      img: "https://res.cloudinary.com/r0ldqpr5/image/upload/v1786921418/BOMB1.jpg",
       title: "Deslinde de Responsabilidad",
       desc: "Aceptación de riesgos y condiciones del evento",
       link: "https://drive.google.com/file/d/123iykbx5GryX8Zz_9IdwBC6GJ30jMnDl/view?usp=sharing",
@@ -346,7 +346,7 @@ const guardarInscripcionGoogle = async () => {
     },
 
     {
-      img: "https://res.cloudinary.com/bqzm6pvp/image/upload/v1785025714/bomb4_tfo2rg.jpg",
+      img: "https://res.cloudinary.com/r0ldqpr5/image/upload/v1786921422/bomb4.jpg",
       title: "Autorización de menores de edad",
       desc: "Permiso para que menores de edad participen en el evento.",
       link: "https://drive.google.com/file/d/1q6cJdmjXlTBrffyACoP9sNt30invQHMm/view?usp=sharing",
@@ -386,8 +386,8 @@ const guardarInscripcionGoogle = async () => {
      <>
       <HeroVideo
         descripcion="¡Corre con los Bomberos! En esta carrera de apoyo a nuestros héroes de la Benemérita Compañía de Bomberos Arequipa - 19. ¡Únete a esta noble causa y demuestra tu solidaridad!"
-        video="https://res.cloudinary.com/bqzm6pvp/video/upload/v1785026050/No-video-title-fdown.net_1_ghpfk6.mp4"
-        imagen="https://res.cloudinary.com/bqzm6pvp/image/upload/v1785025694/ATACA_BOMBEROS_irryu3.png"   
+        video="https://res.cloudinary.com/r0ldqpr5/video/upload/v1786922016/No-video-title-fdown.net_1.mp4"
+        imagen="https://res.cloudinary.com/r0ldqpr5/image/upload/v1786921400/ATACA_BOMBEROS.png"   
         detalles={detalles_hero}
       />     
 
@@ -815,7 +815,7 @@ const guardarInscripcionGoogle = async () => {
       <Categories
         titulo="Corre con los Bomberos 5K IV Edición"
         descripcion="Corre, apoya y vive una experiencia solidaria junto a la Cía. de Bomberos Arequipa 19 🧑‍🚒🔥"
-        imagen="https://res.cloudinary.com/bqzm6pvp/image/upload/v1785025716/bomb8_wonv6i.jpg"
+        imagen="https://res.cloudinary.com/r0ldqpr5/image/upload/v1786921423/bomb8.jpg"
         categorias={categorias}
         items={items}
       />

@@ -1,5 +1,6 @@
-import React from 'react'
-import './Footer.css'
+import React from 'react';
+import './Footer.css';
+import { FaFacebook, FaInstagram, FaTiktok } from "react-icons/fa";
 
 export const Footer = () => {
   return (
@@ -10,7 +11,7 @@ export const Footer = () => {
 
         <div className="footer-logo">
           <img
-            src="https://atacaperu.com/wp-content/uploads/2023/04/logo-blanco.png"
+            src="https://res.cloudinary.com/r0ldqpr5/image/upload/v1786922204/logo-blanco.png"
             alt="ATACA PERU"
             className="logo-img"
           />
@@ -24,34 +25,25 @@ export const Footer = () => {
             href="https://facebook.com/atacaperu"
             target="_blank"
             rel="noreferrer"
+            aria-label="Facebook"
           >
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/250px-Facebook_Logo_%282019%29.png"
-              alt="Facebook"
-              className="social-icon"
-            />
+            <FaFacebook className="social-icon" />
           </a>
           <a
             href="https://instagram.com/atacaperu"
             target="_blank"
             rel="noreferrer"
+            aria-label="Instagram"
           >
-            <img
-              src="https://atacaperu.com/wp-content/uploads/2026/05/isntagram.avif"
-              alt="Instagram"
-              className="social-icon"
-            />
+            <FaInstagram className="social-icon" />
           </a>
           <a
             href="https://www.tiktok.com/@atacaperu?_r=1&_t=ZS-96Q8tYYjqnX"
             target="_blank"
             rel="noreferrer"
+            aria-label="TikTok"
           >
-            <img
-              src="https://atacaperu.com/wp-content/uploads/2026/05/tiktok.avif"
-              alt="Tiktok"
-              className="social-icon"
-            />
+            <FaTiktok className="social-icon" />
           </a>
         </div>
       </div>
@@ -64,78 +56,37 @@ export const Footer = () => {
 
         {/* CONTACTO */}
         <div className="footer-column">
-
-          <h3>
-            Contacto
-          </h3>
-
-          <p>
-            📧 contacto@atacaperu.com
-          </p>
-
-          <p>
-            📞 +51 941 656 379
-          </p>
-
-          <p>
-            📍 Arequipa, Perú
-          </p>
-
+          <h3>Contacto</h3>
+          <p>📧 contacto@atacaperu.com</p>
+          <p>📞 +51 941 656 379</p>
+          <p>📍 Arequipa, Perú</p>
         </div>
 
         {/* EMPRESA */}
         <div className="footer-column">
-
-          <h3>
-            Empresa
-          </h3>
-
-          <p>
-            ATACA PERU EIRL
-          </p>
-
-          <p>
-            RUC: 20611990449
-          </p>
-
-          <p>
-            Organización de eventos deportivos
-          </p>
-
+          <h3>Empresa</h3>
+          <p>ATACA PERU EIRL</p>
+          <p>RUC: 20611990449</p>
+          <p>Organización de eventos deportivos</p>
         </div>
 
         {/* LEGAL */}
         <div className="footer-column">
-
-          <h3>
-            Legal
-          </h3>
-
-          <a href="/">
-            Términos y Condiciones
-          </a>
-
-          <a href="/">
-            Política de Privacidad
-          </a>
-
-          <a href="/">
-            Libro de Reclamaciones
-          </a>
-
+          <h3>Legal</h3>
+          <a href="/">Términos y Condiciones</a>
+          <a href="/">Política de Privacidad</a>
+          <a href="/">Libro de Reclamaciones</a>
         </div>
 
       </div>
 
       {/* COPYRIGHT */}
       <div className="footer-copy">
-
         © {new Date().getFullYear()} ATACA PERU EIRL - Todos los derechos reservados
-
       </div>
 
     </footer>
-  )
-}
+  );
+};
 
 export default Footer;
