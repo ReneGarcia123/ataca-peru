@@ -40,7 +40,7 @@ const eventos = [
     lugar: "La Joya, Arequipa, Perú",
     descripcion: "¡Más allá de tus límites! Carrera de Trail Running en el Valle de Chilina - Arequipa",
     enlace: "/utcc",
-    imagen: "https://res.cloudinary.com/r0ldqpr5/image/upload/v1786921063/4series.jpg",
+    imagen: "https://res.cloudinary.com/r0ldqpr5/image/upload/v1786980824/IMG_6805.png",
     disponible:false
   },  
   {

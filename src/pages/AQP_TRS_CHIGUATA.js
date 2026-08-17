@@ -445,7 +445,7 @@ const linkFinal =
 
   /*Carrusel 2 imagenes*/
   const images_carrousel2=[
-      "https://res.cloudinary.com/r0ldqpr5/image/upload/v1786923720/medalla.jpg",
+      "https://res.cloudinary.com/r0ldqpr5/image/upload/v1786980913/medalla_chiguata.jpg",
       "https://res.cloudinary.com/r0ldqpr5/image/upload/v1786923717/760ef8ef-ddc3-4114-b260-e2d2b5b8e4fa.jpg",
   ]
 
