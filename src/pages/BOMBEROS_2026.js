@@ -551,6 +551,7 @@ const guardarInscripcionGoogle = async () => {
                   <option value="ADES">ADES</option>
                   <option value="ALPHA">ALPHA</option>
                   <option value="BEER RUN">BEER RUN</option>
+                  <option value="MAGICFIT">MAGICFIT</option>
                   <option value="LONCCOS RUNNING TEAM">LONCCOS RUNNING TEAM</option>
                   <option value="TAYGETOS">TAYGETOS</option>
                   <option value="RUNNATICOS">RUNNATICOS</option>
