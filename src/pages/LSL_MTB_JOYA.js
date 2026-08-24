@@ -776,9 +776,9 @@ const resetFormulario = () => {
 
               <div className="payment-box">
 
-              <strong>COSTO DE INSCRIPCIÓN (PRIMERA PRE VENTA):</strong>
+              <strong>COSTO DE INSCRIPCIÓN (SEGUNDA PRE VENTA):</strong>
 
-              <p className="price">S/ 70.00</p>
+              <p className="price">S/ 80.00</p>
 
               <div className="payment-method">
                   <h3>Pago por Yape</h3>
