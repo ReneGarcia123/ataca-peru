@@ -706,6 +706,9 @@ const linkFinal =
               <option value="AFABP">
                 AFABP
               </option>
+              <option value="LIBRE">
+                LIBRE
+              </option>
               <option value="otro">
                 Otro equipo
               </option>

@@ -102,10 +102,10 @@ export default function BOMBEROS_2026() {
    try {
 
     const response = await emailjs.send(
-      "service_kxer0vj",
-      "template_5q3jxwi",
+      "service_strx8pc",
+      "template_yynfh9j",
       templateParams,
-      "209xQab0qw2-r1V7V"
+      "ysWk28xeYG5eRMbiz"
     );
 
     console.log("EMAILJS RESPONSE:", response);
@@ -568,6 +568,7 @@ const guardarInscripcionGoogle = async () => {
                   <option value="NG ATLETIC">NG ATLETIC</option>
                   <option value="LA RESISTENCIA">LA RESISTENCIA</option>
                   <option value="AFABP">AFABP</option>
+                  <option value="LIBRE">LIBRE</option>
                   <option value="otro">OTRO EQUIPO</option>
                 </select>
 
