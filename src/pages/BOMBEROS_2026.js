@@ -102,10 +102,10 @@ export default function BOMBEROS_2026() {
    try {
 
     const response = await emailjs.send(
-      "service_strx8pc",
-      "template_yynfh9j",
+      "service_xnmg9wl",
+      "template_yc2wo8n",
       templateParams,
-      "ysWk28xeYG5eRMbiz"
+      "GDdbX_f3H6bGkF8B8"
     );
 
     console.log("EMAILJS RESPONSE:", response);
