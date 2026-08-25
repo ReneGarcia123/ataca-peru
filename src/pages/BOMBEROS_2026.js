@@ -459,7 +459,7 @@ const guardarInscripcionGoogle = async () => {
             />
             <input
               type="text"
-              placeholder="DNI"
+              placeholder="DNI/CE"
               value={dni}
               onChange={(e) => setDni(e.target.value)}
               required

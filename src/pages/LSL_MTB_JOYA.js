@@ -803,7 +803,7 @@ const resetFormulario = () => {
                   </p>
 
                   <a
-                      href="https://express.culqi.com/pago/01AD6942C7"
+                      href="https://express.culqi.com/pago/7E9F64A0A0"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="payment-card-btn"
