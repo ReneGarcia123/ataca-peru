@@ -360,6 +360,10 @@ const guardarInscripcionGoogle = async () => {
       "https://res.cloudinary.com/r0ldqpr5/image/upload/v1786923239/medalla_bombero.jpg",
       "https://res.cloudinary.com/r0ldqpr5/image/upload/v1786923238/polo_bombero.jpg",
   ]
+    /*Carrusel 3 imagenes*/
+  const images_carrousel3=[
+      "https://res.cloudinary.com/pbpxn2ls/image/upload/v1787674515/WhatsApp_Image_2026-08-25_at_11.11.32_AM.jpg"
+  ]
 
   /*Detalles del hero section*/
   const detalles_hero = [
@@ -815,7 +819,7 @@ const guardarInscripcionGoogle = async () => {
 
       </Modal>
 
-
+      <Carrusel2 images={images_carrousel3} titulo="INSCRIPCIONES CERRADAS" />  
       <Categories
         titulo="Corre con los Bomberos 5K IV Edición"
         descripcion="Corre, apoya y vive una experiencia solidaria junto a la Cía. de Bomberos Arequipa 19 🧑‍🚒🔥"
@@ -827,7 +831,7 @@ const guardarInscripcionGoogle = async () => {
       <br />
       <br />
       
-      <Carrusel2 images={images_carrousel2} titulo="¿Qué incluye tu participación?" />
+      
       
       <Mapping
         titulo="Recorrido de la carrera"

@@ -449,6 +449,7 @@ const linkFinal =
       "https://res.cloudinary.com/r0ldqpr5/image/upload/v1786923717/760ef8ef-ddc3-4114-b260-e2d2b5b8e4fa.jpg",
   ]
 
+
   /*Detalles del hero section*/
   const detalles_hero = [
       { icon: <FaMapMarkerAlt />, label: "Lugar", value: "Chiguata, Arequipa, Perú" },
@@ -1093,6 +1094,9 @@ const linkFinal =
       </div>
       )}
       </Modal>
+
+      
+
 
       <Categories
         titulo="Más allá de tus límites: Los Andenes de Chiguata"
