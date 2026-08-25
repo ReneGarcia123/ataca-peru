@@ -17,7 +17,7 @@ import Responsib from '../components/RESPONSIBILITIES/Responsib';
 import Modal from '../components/MODAL/Modal';
 import emailjs from '@emailjs/browser';
 
-export default function BOMBEROS_2026() {
+export default function BOMBEROS_2026_CERRADO() {
   /*Estado para controlar el grupo seleccionado en el formulario de inscripción */
   const [grupo, setGrupo] = useState("ALPHA");
 

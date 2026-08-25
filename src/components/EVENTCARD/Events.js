@@ -9,8 +9,8 @@ const eventos = [
     lugar: "Arequipa, Arequipa, Perú",
     descripcion: "Corre con los Bomberos, en esta carrera de apoyo a nuestros héroes de la ",
     enlace: "/bomberos_2026",
-    imagen: "https://res.cloudinary.com/r0ldqpr5/image/upload/v1786920250/flayer1.jpg",
-    disponible:true
+    imagen: "https://res.cloudinary.com/pbpxn2ls/image/upload/v1787674515/WhatsApp_Image_2026-08-25_at_11.11.32_AM.jpg",
+    disponible:false
   },
 
   {
