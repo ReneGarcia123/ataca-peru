@@ -714,7 +714,7 @@ const guardarInscripcionGoogle = async () => {
           </div>
 
           <div className="resume-item">
-            <strong>DNI:</strong>
+            <strong>DNI/CE:</strong>
             <span>{dni}</span>
           </div>
 
