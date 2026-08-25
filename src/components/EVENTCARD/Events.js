@@ -39,7 +39,7 @@ const eventos = [
     fecha: "27 de septiembre 2026",
     lugar: "La Joya, Arequipa, Perú",
     descripcion: "¡Más allá de tus límites! Carrera de Trail Running en el Valle de Chilina - Arequipa",
-    enlace: "/utcc",
+    enlace: "/aqp_trs_chilina",
     imagen: "https://res.cloudinary.com/r0ldqpr5/image/upload/v1786980824/IMG_6805.png",
     disponible:false
   },  
