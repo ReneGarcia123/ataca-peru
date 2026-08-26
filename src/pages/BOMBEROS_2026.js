@@ -17,7 +17,7 @@ import Responsib from '../components/RESPONSIBILITIES/Responsib';
 import Modal from '../components/MODAL/Modal';
 import emailjs from '@emailjs/browser';
 
-export default function BOMBEROS_2026_CERRADO() {
+export default function BOMBEROS_2026() {
   /*Estado para controlar el grupo seleccionado en el formulario de inscripción */
   const [grupo, setGrupo] = useState("ALPHA");
 
@@ -404,7 +404,7 @@ const guardarInscripcionGoogle = async () => {
         descripcion="Unir deporte y solidaridad en una experiencia que inspire a la comunidad a participar activamente por una buena causa"
       />
 
-      {/*<Responsib titulo="MODALIDADES DE INSCRIPCIONES" items={items_inscripcion} onButtonClick={abrirModal}/>*/}
+      <Responsib titulo="MODALIDADES DE INSCRIPCIONES" items={items_inscripcion} onButtonClick={abrirModal}/>
 
       <Modal
         isOpen={modalOpen}
@@ -819,7 +819,7 @@ const guardarInscripcionGoogle = async () => {
 
       </Modal>
 
-      <Carrusel2 images={images_carrousel3} titulo="INSCRIPCIONES CERRADAS" />  
+      {/*<Carrusel2 images={images_carrousel3} titulo="INSCRIPCIONES CERRADAS" />  */}
       <Categories
         titulo="Corre con los Bomberos 5K IV Edición"
         descripcion="Corre, apoya y vive una experiencia solidaria junto a la Cía. de Bomberos Arequipa 19 🧑‍🚒🔥"
