@@ -154,16 +154,16 @@ const resetFormulario = () => {
 
   /*ENVIAR CAPTURA DE PAGO*/
   const datosPago = {
-  "5K VENTA FINAL": {
-    precio: 100,
+  "5K PRIMERA PRE VENTA": {
+    precio: 80,
     link: "https://express.culqi.com/pago/A366841BE0"
   },
-  "10K VENTA FINAL": {
-    precio: 120,
+  "10K PRIMERA PRE VENTA": {
+    precio: 100,
     link: "https://express.culqi.com/pago/86349B7619"
   },
-  "21K VENTA FINAL": {
-    precio: 140,
+  "21K PRIMERA PRE VENTA": {
+    precio: 120,
     link: "https://express.culqi.com/pago/C54F099DE4"
   }
 };
@@ -212,17 +212,17 @@ const linkFinal =
 
   /*Configuración de precios por modalidad*/
   const configuracionPago={
-    "5K VENTA FINAL":{
-      title:"LOS ANDENES DE CHIGUATA 5K - VENTA FINAL",
+    "5K PRIMERA PRE VENTA":{
+      title:"LOS ANDENES DE CHIGUATA 5K - PRIMERA PRE VENTA",
+      amount:8000
+    },
+    "10K PRIMERA PRE VENTA":{
+      title:"LOS ANDENES DE CHIGUATA 10K - PRIMERA PRE VENTA",
       amount:10000
     },
-    "10K VENTA FINAL":{
-      title:"LOS ANDENES DE CHIGUATA 10K - VENTA FINAL",
+    "21K PRIMERA PRE VENTA":{
+      title:"LOS ANDENES DE CHIGUATA 21K - PRIMERA PRE VENTA",
       amount:12000
-    },
-    "21K VENTA FINAL":{
-      title:"LOS ANDENES DE CHIGUATA 21K - VENTA FINAL",
-      amount:14000
     }
   };
 
@@ -256,10 +256,10 @@ const linkFinal =
   };
   try {
     await emailjs.send(
-      "service_2govrnu",
-      "template_lurswng",
+      "service_xnmg9wl",
+      "template_1dt3qkp",
       templateParams,
-      "PN9-V6us45efj9uL6"
+      "GDdbX_f3H6bGkF8B8"
     );
     alert(nombre+" ,tu inscripción se ha completado exitosamente. ¡Los Andenes de Chiguata te esperan!\nSe enviará un correo de confirmación a "+correo+" con los detalles de tu inscripción.\nEn el mismo correo está el link para que te puedas unir al grupo de WhatsApp de la carrera. ¡Nos vemos en la carrera!");
     setModalOpen(false);
@@ -347,7 +347,7 @@ const linkFinal =
     };
 
     const response = await fetch(
-      "https://script.google.com/macros/s/AKfycbxLVVOiM611SGxCDBHiLC5HoFUvUNpd8VVigzrPLU7itOq8pnlhc7sS6TZD9DrvwKPvyA/exec",
+      "https://script.google.com/macros/s/AKfycby8vElqKSxFHTkzj8SVMxcNblGyQJy6iqkcMm7p_uBJFWY4BvW9JPUKd6lAIJCBAhiA/exec",
       {
         method: "POST",
         body: JSON.stringify(payload)
@@ -382,27 +382,27 @@ const linkFinal =
   const items_inscripcion = [
     
     {
-        img: "https://res.cloudinary.com/r0ldqpr5/image/upload/v1786923728/5k.jpg",
+        img: "https://res.cloudinary.com/r0ldqpr5/image/upload/v1787793712/CHIL5K.jpg",
         title: "INSCRIPCIÓN 5K",
-        desc: "5K: Corre entre dunas y descubre la magia del desierto en cada kilómetro",
+        desc: "5K: Corre en el valle y descubre la magia de Chilina en cada kilómetro",
         btnText: "Inscribirme",
-        modalidad: "5K VENTA FINAL",
+        modalidad: "5K PRIMERA PRE VENTA",
     },
 
     {
-        img: "https://res.cloudinary.com/r0ldqpr5/image/upload/v1786923730/10k.jpg",
+        img: "https://res.cloudinary.com/r0ldqpr5/image/upload/v1787793713/CHIL10K.jpg",
         title: "INSCRIPCIÓN 10K",
-        desc: "10K: Desafía tu resistencia con 10K de arena, sol y pura adrenalina",
+        desc: "10K: Desafía tu resistencia con 10K de valle, sol y pura adrenalina",
         btnText: "Inscribirme",
-        modalidad: "10K VENTA FINAL",
+        modalidad: "10K PRIMERA PRE VENTA",
     },
 
     {
-        img: "https://res.cloudinary.com/r0ldqpr5/image/upload/v1786923733/21k.jpg",
+        img: "https://res.cloudinary.com/r0ldqpr5/image/upload/v1787793712/CHIL21K.jpg",
         title: "INSCRIPCIÓN 21K",
-        desc: "21K: Conquista el desierto en 21K y demuestra que tu espíritu no tiene límites",
+        desc: "21K: Conquista el valle en 21K y demuestra que tu espíritu no tiene límites",
         btnText: "Inscribirme",
-        modalidad: "21K VENTA FINAL",
+        modalidad: "21K PRIMERA PRE VENTA",
     },
     
     
@@ -419,7 +419,7 @@ const linkFinal =
 
   const items_responsib = [
   {
-      img: "https://res.cloudinary.com/r0ldqpr5/image/upload/v1786923723/res1.jpg",
+      img: "https://res.cloudinary.com/r0ldqpr5/image/upload/v1787794288/responsib.jpg",
       title: "Deslinde de Responsabilidad",
       desc: "Aceptación de riesgos y condiciones del evento.",
       link: "https://atacaperu.com/wp-content/uploads/2026/05/DESLINDE-LA-JOYA.pdf",
@@ -427,7 +427,7 @@ const linkFinal =
     },
 
     {
-      img: "https://res.cloudinary.com/r0ldqpr5/image/upload/v1786923718/hero.jpg",
+      img: "https://res.cloudinary.com/r0ldqpr5/image/upload/v1787794288/responsib2.jpg",
       title: "Dispositivo Sensor",
       desc: "Uso correcto y responsabilidad del equipo.",
       link: "https://atacaperu.com/wp-content/uploads/2025/02/RESPONSABILIDAD-SENSOR.pdf",
@@ -435,7 +435,7 @@ const linkFinal =
     },
 
     {
-      img: "https://res.cloudinary.com/r0ldqpr5/image/upload/v1786923726/res3.jpg",
+      img: "https://res.cloudinary.com/r0ldqpr5/image/upload/v1787794366/responsib4.jpg",
       title: "Autorización de Menor",
       desc: "Permiso para participación de menores.",
       link: "https://atacaperu.com/wp-content/uploads/2026/05/AUTORIZACION-JOYA.pdf",
@@ -452,7 +452,7 @@ const linkFinal =
 
   /*Detalles del hero section*/
   const detalles_hero = [
-      { icon: <FaMapMarkerAlt />, label: "Lugar", value: "Chiguata, Arequipa, Perú" },
+      { icon: <FaMapMarkerAlt />, label: "Lugar", value: "Chilina, Arequipa, Perú" },
       { icon: <FaClock />, label: "Hora", value: "08:00 AM" },
       { icon: <FaMedal />, label: "Premios", value: "Reconocimientos a ganadores" },
   ];
@@ -495,7 +495,7 @@ const linkFinal =
   return (
      <>
       <HeroVideo
-        descripcion="Prepárate para desafiar la altura, los senderos ancestrales y tus propios límites en “Los Andenes de Chiguata”. Cada kilómetro pondrá a prueba tu resistencia y determinación. Vive la adrenalina de una experiencia única rumbo a la gloria de la AQP TRAIL RUNNING SERIES INTERNATIONAL 2026."
+        descripcion="Prepárate para desafiar la altura, los senderos ancestrales y tus propios límites en “El Valle de Chilina”. Cada kilómetro pondrá a prueba tu resistencia y determinación. Vive la adrenalina de una experiencia única rumbo a la gloria de la AQP TRAIL RUNNING SERIES INTERNATIONAL 2026."
         video="https://res.cloudinary.com/r0ldqpr5/video/upload/v1787671812/El_Valle_de_Chilina_Trail.mp4"
         imagen="https://res.cloudinary.com/r0ldqpr5/image/upload/v1786922204/logo-blanco.png"   
         detalles={detalles_hero}
@@ -504,9 +504,9 @@ const linkFinal =
       <br />
 
       <Countdown
-        targetDate="2026-09-13T09:00:00"
-        titulo="CUENTA REGRESIVA PARA AQP TRAIL RUNNING SERIES: LOS ANDENES DE CHIGUATA"
-        descripcion="Prepárate para la aventura en los majestuosos andenes de Chiguata. La cuenta regresiva ya empezó y el reto te espera: altura, tradición y pura resistencia."
+        targetDate="2026-10-25T09:00:00"
+        titulo="CUENTA REGRESIVA PARA AQP TRAIL RUNNING SERIES: EL VALLE DE CHILINA"
+        descripcion="Prepárate para la aventura en el majestuoso Valle de Chilina. La cuenta regresiva ya empezó y el reto te espera: altura, tradición y pura resistencia."
       />
 
       <Responsib titulo="INSCRIPCIONES" items={items_inscripcion} onButtonClick={abrirModal}/>
@@ -1099,9 +1099,9 @@ const linkFinal =
 
 
       <Categories
-        titulo="Más allá de tus límites: Los Andenes de Chiguata"
-        descripcion="¡Vive la segunda serie de la AQP TRAIL RUNNING SERIES INTERNATIONAL 2026 y supera tus propios límites!🌄🏃‍♂️🔥"
-        imagen="https://res.cloudinary.com/r0ldqpr5/image/upload/v1786923725/res2.jpg"
+        titulo="Más allá de tus límites: El Valle de Chilina"
+        descripcion="¡Vive la cuarta serie: FINAL AQP TRAIL RUNNING SERIES INTERNATIONAL 2026 y supera tus propios límites!🌄🏃‍♂️🔥"
+        imagen="https://res.cloudinary.com/r0ldqpr5/image/upload/v1787794288/chilcat.jpg"
         categorias={categorias}
         items={items}
       />
@@ -1109,21 +1109,21 @@ const linkFinal =
       <br />
       <br />
       <br />
-      <Carrusel2 images={images_carrousel2} titulo="¿Qué incluye tu participación?" />
+      {/*<Carrusel2 images={images_carrousel2} titulo="¿Qué incluye tu participación?" />*/}
       <Mapping 
         titulo="Recorrido 5K" 
         proximamente={false}        
-        wikilocUrl="https://es.wikiloc.com/wikiloc/embedv2.do?id=271247528&elevation=off&images=on&maptype=H"
+        wikilocUrl="https://es.wikiloc.com/wikiloc/embedv2.do?id=282312179&elevation=off&images=on&maptype=H"
       />
       <Mapping 
         titulo="Recorrido 10K" 
         proximamente={false}
-        wikilocUrl="https://es.wikiloc.com/wikiloc/embedv2.do?id=271247372&elevation=off&images=on&maptype=H"
+        wikilocUrl="https://es.wikiloc.com/wikiloc/embedv2.do?id=282312182&elevation=off&images=on&maptype=H"
       />
       <Mapping 
         titulo="Recorrido 21K" 
         proximamente={false}
-        wikilocUrl="https://es.wikiloc.com/wikiloc/embedv2.do?id=271248513&elevation=off&images=on&maptype=H"
+        wikilocUrl="https://es.wikiloc.com/wikiloc/embedv2.do?id=282312128&elevation=off&images=on&maptype=H"
       />
       <Responsib titulo="Responsabilidad y Autorizaciones" items={items_responsib} />
     </>

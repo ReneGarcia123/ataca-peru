@@ -9,7 +9,7 @@ const eventos = [
     lugar: "Arequipa, Arequipa, Perú",
     descripcion: "Corre con los Bomberos, en esta carrera de apoyo a nuestros héroes de la ",
     enlace: "/bomberos_2026",
-    imagen: "https://res.cloudinary.com/r0ldqpr5/image/upload/v1786920250/flayer1.jpg",
+    imagen: "https://res.cloudinary.com/r0ldqpr5/image/upload/v1787792125/WhatsApp_Image_2026-08-25_at_11.11.32_AM.jpg",
     disponible:false
   },
 
@@ -41,7 +41,7 @@ const eventos = [
     descripcion: "¡Más allá de tus límites! Carrera de Trail Running en el Valle de Chilina - Arequipa",
     enlace: "/aqp_trs_chilina",
     imagen: "https://res.cloudinary.com/r0ldqpr5/image/upload/v1786980824/IMG_6805.png",
-    disponible:false
+    disponible:true
   },  
   {
     id: 5,
