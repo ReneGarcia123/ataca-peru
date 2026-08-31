@@ -10,7 +10,7 @@ const eventos = [
     descripcion: "Corre con los Bomberos, en esta carrera de apoyo a nuestros héroes de la ",
     enlace: "/bomberos_2026",
     imagen: "https://res.cloudinary.com/r0ldqpr5/image/upload/v1787792125/WhatsApp_Image_2026-08-25_at_11.11.32_AM.jpg",
-    disponible:false
+    disponible:true
   },
 
   {
