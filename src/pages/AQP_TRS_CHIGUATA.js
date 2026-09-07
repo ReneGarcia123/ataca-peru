@@ -508,7 +508,7 @@ const linkFinal =
         descripcion="Prepárate para la aventura en los majestuosos andenes de Chiguata. La cuenta regresiva ya empezó y el reto te espera: altura, tradición y pura resistencia."
       />
 
-      {/*<Responsib titulo="INSCRIPCIONES" items={items_inscripcion} onButtonClick={abrirModal}/>*/}
+      <Responsib titulo="INSCRIPCIONES" items={items_inscripcion} onButtonClick={abrirModal}/>
 
       <Modal
         isOpen={modalOpen}
