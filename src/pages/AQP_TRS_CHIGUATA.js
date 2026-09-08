@@ -503,12 +503,12 @@ const linkFinal =
       <br />
 
       <Countdown
-        targetDate="2026-09-13T09:00:00"
+        targetDate="2026-09-13T09:00:00"setCodigoAplicado
         titulo="CUENTA REGRESIVA PARA AQP TRAIL RUNNING SERIES: LOS ANDENES DE CHIGUATA"
         descripcion="Prepárate para la aventura en los majestuosos andenes de Chiguata. La cuenta regresiva ya empezó y el reto te espera: altura, tradición y pura resistencia."
       />
 
-      <Responsib titulo="INSCRIPCIONES" items={items_inscripcion} onButtonClick={abrirModal}/>
+      {/*<Responsib titulo="INSCRIPCIONES" items={items_inscripcion} onButtonClick={abrirModal}/>*/}
 
       <Modal
         isOpen={modalOpen}
