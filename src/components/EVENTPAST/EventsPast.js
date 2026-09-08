@@ -21,7 +21,7 @@ const eventos = [
     lugar: "La Joya, Arequipa, Perú",
     descripcion: "¡Más allá de tus límites! Carrera de Trail Running en el desierto de La Joya - Arequipa",
     enlace: "/aqp_trs_joya",
-    imagen: "https://atacaperu.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-22-at-6.17.48-PM.avif",
+    imagen: "https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/joua.jpg",
     disponible:true
   },
 
@@ -33,7 +33,7 @@ const eventos = [
     lugar: "Cerro Colorado, Arequipa, Perú",
     descripcion: "Arequipa corre por una infancia feliz. Carrera solidaria a beneficio de Aldeas Infantiles - Arequipa",
     enlace: "/aldeas_infantiles",
-    imagen: "https://atacaperu.com/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-15-at-1.10.27-PM.avif",
+    imagen: "https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/cuadrado%20aldeas.jpg",
     disponible:true
   },
   {
@@ -43,7 +43,7 @@ const eventos = [
     lugar: "Valle 2000, Tacna, Perú",
     descripcion: "¡Más fuerte que el cansancio! IV COMPETENCIA INTERNACIONAL DE MTB EN EL DESIERTO DE TACNA",
     enlace: "/centauro_2026",
-    imagen: "https://atacaperu.com/wp-content/uploads/2026/06/centauro.avif",
+    imagen: "https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/centauro.jpg",
     disponible:true
   },
 
