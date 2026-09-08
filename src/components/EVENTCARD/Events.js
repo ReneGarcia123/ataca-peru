@@ -2,16 +2,6 @@ import React from 'react'
 import './Events.css';
 
 const eventos = [
-  {
-    id: 1,
-    titulo: "CORRE CON LOS BOMBEROS 5K 2026 - CUARTA EDICIÓN",
-    fecha: "06 de septiembre 2026",
-    lugar: "Arequipa, Arequipa, Perú",
-    descripcion: "Corre con los Bomberos, en esta carrera de apoyo a nuestros héroes de la ",
-    enlace: "/bomberos_2026",
-    imagen: "https://res.cloudinary.com/r0ldqpr5/image/upload/v1787792125/WhatsApp_Image_2026-08-25_at_11.11.32_AM.jpg",
-    disponible:true
-  },
 
   {
     id: 2,

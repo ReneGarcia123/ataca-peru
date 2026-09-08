@@ -2,8 +2,42 @@ import React from 'react'
 import './EventsPast.css';
 
 const eventos = [
+
   {
     id: 1,
+    titulo: "CARRERA DE FUEGO 5K: CORRE CON LOS BOMBEROS 2026 - IV EDICIÓN",
+    fecha: "06 de septiembre 2026",
+    lugar: "Arequipa, Arequipa, Perú",
+    descripcion: "Corre con los Bomberos, en esta carrera de apoyo a nuestros héroes de la Benemérita Compañía de Bomberos Arequipa - 19",
+    enlace: "/bomberos_2026",
+    imagen: "https://res.cloudinary.com/r0ldqpr5/image/upload/v1787792125/WhatsApp_Image_2026-08-25_at_11.11.32_AM.jpg",
+    disponible:true
+  },
+
+  {
+    id: 2,
+    titulo: "AQP TRAIL RUNNING 2026 - SEGUNDA SERIE: EL DESIERTO DE LA JOYA",
+    fecha: "05 de julio 2026",
+    lugar: "La Joya, Arequipa, Perú",
+    descripcion: "¡Más allá de tus límites! Carrera de Trail Running en el desierto de La Joya - Arequipa",
+    enlace: "/aqp_trs_joya",
+    imagen: "https://atacaperu.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-22-at-6.17.48-PM.avif",
+    disponible:true
+  },
+
+  
+  {
+    id: 3,
+    titulo: "CARRERA SOLIDARIA 6K: ALDEAS INFANTILES 2026 - TERCERA EDICIÓN",
+    fecha: "12 de julio 2026",
+    lugar: "Cerro Colorado, Arequipa, Perú",
+    descripcion: "Arequipa corre por una infancia feliz. Carrera solidaria a beneficio de Aldeas Infantiles - Arequipa",
+    enlace: "/aldeas_infantiles",
+    imagen: "https://atacaperu.com/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-15-at-1.10.27-PM.avif",
+    disponible:true
+  },
+  {
+    id: 4,
     titulo: "CENTAURO DEL DESIERTO MTB 45K - 2026",
     fecha: "20 de junio 2026",
     lugar: "Valle 2000, Tacna, Perú",
@@ -13,27 +47,7 @@ const eventos = [
     disponible:true
   },
 
-  {
-    id: 2,
-    titulo: "CARRERA SOLIDARIA 6K: ALDEAS INFANTILES 2026 - TERCERA EDICIÓN",
-    fecha: "12 de julio 2026",
-    lugar: "Cerro Colorado, Arequipa, Perú",
-    descripcion: "Arequipa corre por una infancia feliz. Carrera solidaria a beneficio de Aldeas Infantiles - Arequipa",
-    enlace: "/aldeas_infantiles",
-    imagen: "https://atacaperu.com/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-15-at-1.10.27-PM.avif",
-    disponible:true
-  },
 
-  {
-    id: 3,
-    titulo: "AQP TRAIL RUNNING 2026 - SEGUNDA SERIE: EL DESIERTO DE LA JOYA",
-    fecha: "05 de julio 2026",
-    lugar: "La Joya, Arequipa, Perú",
-    descripcion: "¡Más allá de tus límites! Carrera de Trail Running en el desierto de La Joya - Arequipa",
-    enlace: "/aqp_trs_joya",
-    imagen: "https://atacaperu.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-22-at-6.17.48-PM.avif",
-    disponible:true
-  },
 ];
 
 const Events = () => {
