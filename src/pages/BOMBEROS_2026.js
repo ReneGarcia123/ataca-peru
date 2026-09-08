@@ -6,18 +6,15 @@ import Categories from '../components/CATEGORIES/Categories';
 import { PiCertificateBold } from "react-icons/pi";
 import { FaRoadCircleCheck } from "react-icons/fa6";
 import { FaMedal} from "react-icons/fa";
-import { RiTeamFill } from "react-icons/ri";
 import { MdTimer } from "react-icons/md";
-import { GiTrophyCup } from "react-icons/gi";
 import { FaMapMarkerAlt, FaClock } from "react-icons/fa";
 import ButtonBases from '../components/ButtonBases/ButtonBases';
-import Carrusel2 from '../components/CARROUSEL2/Carrousel2';
 import Mapping from '../components/MAPPING/Mapping';
 import Responsib from '../components/RESPONSIBILITIES/Responsib';
-import Modal from '../components/MODAL/Modal';
-import emailjs from '@emailjs/browser';
 import ResultadoModal from "../components/RESULTADO_MODAL/ResultadoModal.jsx";
 import resultados from "../components/RESULTADO_MODAL/resultados.js";
+import Documentos from "../components/DOCUMENTOS/Documentos.jsx";
+import documentos from "../components/DOCUMENTOS/documentos.js";
 
 export default function BOMBEROS_2026() {
   const items_responsib = [
@@ -89,6 +86,7 @@ export default function BOMBEROS_2026() {
         titulo="CUENTA REGRESIVA PARA: CORRE CON LOS BOMBEROS 5K"
         descripcion="Unir deporte y solidaridad en una experiencia que inspire a la comunidad a participar activamente por una buena causa"
       />*/}
+      <Documentos data={documentos.bomberos} />
 
 
       <Categories

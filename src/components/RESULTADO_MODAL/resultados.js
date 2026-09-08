@@ -1,7 +1,7 @@
 const resultados = {
 
-
     bomberos: {
+        titulo_seccion:"Diplomas y Resultados",
         tabla: "BOMBEROS_2026_RESULTADOS",
         titulo: "Corre con los Bomberos 2026",
         descripcion: "Consultar resultados y ver mi diploma",

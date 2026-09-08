@@ -4,40 +4,31 @@ import "./ResultadoModal.css";
 const SUPABASE_URL =
     "https://niixoqhntxqvqjubeuaj.supabase.co";
 
-const SUPABASE_PUBLISHABLE_KEY=
+const SUPABASE_PUBLISHABLE_KEY =
     "sb_publishable_GsuSd44LRq1bwW7c1cqeyQ_KN4SFcaX";
-
 
 export default function ResultadoModal({ data }) {
 
     const [isOpen, setIsOpen] = useState(false);
-
     const [dni, setDni] = useState("");
-
     const [resultado, setResultado] = useState(null);
-
     const [loading, setLoading] = useState(false);
-
     const [mensaje, setMensaje] = useState("");
 
 
     /* =====================================================
        BUSCAR RESULTADO
-       ===================================================== */
+    ===================================================== */
 
     const buscarResultado = async (dniBuscado) => {
 
         if (dniBuscado.length !== 8) return;
 
-
         try {
 
             setLoading(true);
-
             setMensaje("");
-
             setResultado(null);
-
 
             const columnas = [
                 "Puesto",
@@ -50,41 +41,25 @@ export default function ResultadoModal({ data }) {
                 "URL_DIPLOMA"
             ];
 
-
             const select = columnas.join(",");
-
 
             const url =
                 `${SUPABASE_URL}/rest/v1/${data.tabla}` +
                 `?DNI=eq.${dniBuscado}` +
                 `&select=${encodeURIComponent(select)}`;
 
-
             const response = await fetch(url, {
-
                 method: "GET",
-
                 headers: {
-                    apikey: SUPABASE_PUBLISHABLE_KEY,
-
-                    Authorization:
-                        `Bearer ${SUPABASE_PUBLISHABLE_KEY}`,
+                    apikey: SUPABASE_PUBLISHABLE_KEY
                 }
-
             });
 
-
             if (!response.ok) {
-
-                throw new Error(
-                    "Error al consultar Supabase"
-                );
-
+                throw new Error("Error al consultar Supabase");
             }
 
-
             const resultados = await response.json();
-
 
             if (resultados.length === 0) {
 
@@ -97,7 +72,6 @@ export default function ResultadoModal({ data }) {
                 setResultado(resultados[0]);
 
             }
-
 
         } catch (error) {
 
@@ -118,16 +92,13 @@ export default function ResultadoModal({ data }) {
 
     /* =====================================================
        CAMBIO DEL DNI
-       ===================================================== */
+    ===================================================== */
 
     const handleChange = (e) => {
 
-        const value =
-            e.target.value.replace(/\D/g, "");
-
+        const value = e.target.value.replace(/\D/g, "");
 
         setDni(value);
-
 
         if (value.length === 8) {
 
@@ -136,7 +107,6 @@ export default function ResultadoModal({ data }) {
         } else {
 
             setResultado(null);
-
             setMensaje("");
 
         }
@@ -145,19 +115,15 @@ export default function ResultadoModal({ data }) {
 
 
     /* =====================================================
-       CERRAR
-       ===================================================== */
+       CERRAR MODAL
+    ===================================================== */
 
     const cerrar = () => {
 
         setIsOpen(false);
-
         setDni("");
-
         setResultado(null);
-
         setMensaje("");
-
         setLoading(false);
 
     };
@@ -165,32 +131,24 @@ export default function ResultadoModal({ data }) {
 
     /* =====================================================
        PREVIEW GOOGLE DRIVE
-       ===================================================== */
+    ===================================================== */
 
     const obtenerPreview = (url) => {
 
         if (!url) return "";
 
-
         /*
-         * Formato:
-         *
+         * Formato esperado:
          * https://drive.google.com/file/d/ID/view
          */
 
-        const match =
-            url.match(/\/d\/([^/]+)/);
-
+        const match = url.match(/\/d\/([^/]+)/);
 
         if (!match) {
-
             return "";
-
         }
 
-
         const id = match[1];
-
 
         return `https://drive.google.com/file/d/${id}/preview`;
 
@@ -203,35 +161,49 @@ export default function ResultadoModal({ data }) {
 
             {/* =================================================
                 TARJETA
-               ================================================= */}
+            ================================================= */}
 
-            <div className="resultado-card">
+            <div className="resultado-wrapper">
 
-                <img
-                    src={data.imagen}
-                    alt={data.titulo}
-                    className="resultado-card-imagen"
-                />
+                {/* TÍTULO DE LA SECCIÓN */}
 
+                <div className="resultado-seccion">
 
-                <div className="resultado-card-contenido">
+                    <h2>
+                        {data.titulo_seccion}
+                    </h2>
 
-                    <h3>
-                        {data.titulo}
-                    </h3>
+                </div>
 
 
-                    <p>
-                        {data.descripcion}
-                    </p>
+                {/* TARJETA DEL EVENTO */}
 
+                <div className="resultado-card">
 
-                    <button
-                        className="resultado-card-btn"
-                        onClick={() => setIsOpen(true)}
-                    >
-                        Consultar resultados
-                    </button>
+                    <img
+                        src={data.imagen}
+                        alt={data.titulo}
+                        className="resultado-card-imagen"
+                    />
+
+                    <div className="resultado-card-contenido">
+
+                        <h3>
+                            {data.titulo}
+                        </h3>
+
+                        <p>
+                            {data.descripcion}
+                        </p>
+
+                        <button
+                            className="resultado-card-btn"
+                            onClick={() => setIsOpen(true)}
+                        >
+                            Consultar resultados
+                        </button>
+
+                    </div>
 
                 </div>
 
@@ -240,7 +212,7 @@ export default function ResultadoModal({ data }) {
 
             {/* =================================================
                 MODAL
-               ================================================= */}
+            ================================================= */}
 
             {isOpen && (
 
@@ -249,7 +221,9 @@ export default function ResultadoModal({ data }) {
                     <div className="resultado-modal">
 
 
-                        {/* CERRAR */}
+                        {/* =================================================
+                            CERRAR
+                        ================================================= */}
 
                         <button
                             className="resultado-close"
@@ -261,7 +235,7 @@ export default function ResultadoModal({ data }) {
 
                         {/* =================================================
                             HEADER
-                           ================================================= */}
+                        ================================================= */}
 
                         <div className="resultado-header">
 
@@ -278,14 +252,13 @@ export default function ResultadoModal({ data }) {
 
                         {/* =================================================
                             DNI
-                           ================================================= */}
+                        ================================================= */}
 
                         <div className="resultado-buscador">
 
                             <label>
                                 Ingrese su DNI
                             </label>
-
 
                             <input
                                 type="text"
@@ -301,7 +274,7 @@ export default function ResultadoModal({ data }) {
 
                         {/* =================================================
                             LOADING
-                           ================================================= */}
+                        ================================================= */}
 
                         {loading && (
 
@@ -320,7 +293,7 @@ export default function ResultadoModal({ data }) {
 
                         {/* =================================================
                             MENSAJE
-                           ================================================= */}
+                        ================================================= */}
 
                         {mensaje && !loading && (
 
@@ -335,12 +308,16 @@ export default function ResultadoModal({ data }) {
 
                         {/* =================================================
                             RESULTADO
-                           ================================================= */}
+                        ================================================= */}
 
                         {resultado && !loading && (
 
                             <div className="resultado-contenido">
 
+
+                                {/* =================================================
+                                    DATOS
+                                ================================================= */}
 
                                 <div className="resultado-datos">
 
@@ -417,7 +394,7 @@ export default function ResultadoModal({ data }) {
                                     </div>
 
 
-                                    {/* CATEGORIA */}
+                                    {/* CATEGORÍA */}
 
                                     <div className="resultado-campo">
 
@@ -458,12 +435,11 @@ export default function ResultadoModal({ data }) {
 
                                 {/* =================================================
                                     DIPLOMA
-                                   ================================================= */}
+                                ================================================= */}
 
                                 {resultado.URL_DIPLOMA && (
 
                                     <div className="resultado-diploma">
-
 
                                         <h3>
                                             Diploma
@@ -472,36 +448,25 @@ export default function ResultadoModal({ data }) {
 
                                         <iframe
                                             className="resultado-pdf"
-
-                                            src={
-                                                obtenerPreview(
-                                                    resultado.URL_DIPLOMA
-                                                )
-                                            }
-
+                                            src={obtenerPreview(
+                                                resultado.URL_DIPLOMA
+                                            )}
                                             title="Diploma del participante"
                                         />
 
 
                                         <a
-                                            href={
-                                                resultado.URL_DIPLOMA
-                                            }
-
+                                            href={resultado.URL_DIPLOMA}
                                             target="_blank"
-
                                             rel="noopener noreferrer"
-
                                             className="resultado-btn"
                                         >
                                             VER / DESCARGAR DIPLOMA
                                         </a>
 
-
                                     </div>
 
                                 )}
-
 
                             </div>
 
