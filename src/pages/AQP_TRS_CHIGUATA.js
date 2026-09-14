@@ -10,7 +10,8 @@ import Carrusel2 from '../components/CARROUSEL2/Carrousel2';
 import Mapping from '../components/MAPPING/Mapping';
 import Resultados from '../components/RESULTADO_MODAL/ResultadoModal.jsx';
 import resultados from '../components/RESULTADO_MODAL/resultados.js';
-import Responsib from '../components/RESPONSIBILITIES/Responsib';
+import Documentos from "../components/DOCUMENTOS/Documentos.jsx";
+import documentos from "../components/DOCUMENTOS/documentos.js";
 
 export default function AQP_TRS_CHIGUATA() {
 
@@ -84,7 +85,7 @@ export default function AQP_TRS_CHIGUATA() {
 
       <br />
       <Resultados data={resultados.chiguata_trail} />
-
+      <Documentos data={documentos.chiguata_trail} />
  
 
       <Categories
