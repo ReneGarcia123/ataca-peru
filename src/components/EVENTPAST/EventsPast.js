@@ -2,9 +2,18 @@ import React from 'react'
 import './EventsPast.css';
 
 const eventos = [
-
   {
     id: 1,
+    titulo: "AQP TRAIL RUNNING 2026 - TERCERA SERIE: LOS ANDENES DE CHIGUATA ",
+    fecha: "13 de septiembre 2026",
+    lugar: "Chiguata, Arequipa, Perú",
+    descripcion: "¡Más allá de tus límites! Carrera de Trail Running en los andenes de Chiguata - Arequipa",
+    enlace: "/aqp_trs_chiguata",
+    imagen: "https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/CHIGUATA.webp",
+    disponible:true
+  },
+  {
+    id: 2,
     titulo: "CARRERA DE FUEGO 5K: CORRE CON LOS BOMBEROS 2026 - IV EDICIÓN",
     fecha: "06 de septiembre 2026",
     lugar: "Arequipa, Arequipa, Perú",
@@ -15,7 +24,7 @@ const eventos = [
   },
 
   {
-    id: 2,
+    id: 3,
     titulo: "AQP TRAIL RUNNING 2026 - SEGUNDA SERIE: EL DESIERTO DE LA JOYA",
     fecha: "05 de julio 2026",
     lugar: "La Joya, Arequipa, Perú",
@@ -27,7 +36,7 @@ const eventos = [
 
   
   {
-    id: 3,
+    id: 4,
     titulo: "CARRERA SOLIDARIA 6K: ALDEAS INFANTILES 2026 - TERCERA EDICIÓN",
     fecha: "12 de julio 2026",
     lugar: "Cerro Colorado, Arequipa, Perú",
@@ -37,7 +46,7 @@ const eventos = [
     disponible:true
   },
   {
-    id: 4,
+    id: 5,
     titulo: "CENTAURO DEL DESIERTO MTB 45K - 2026",
     fecha: "20 de junio 2026",
     lugar: "Valle 2000, Tacna, Perú",

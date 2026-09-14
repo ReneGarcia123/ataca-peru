@@ -25,7 +25,7 @@ function Header() {
         <div className="nav-container">
           <Link to="/" className="logo">
             <img
-              src="https://res.cloudinary.com/r0ldqpr5/image/upload/v1786921176/logo-largo-blanco.png"
+              src="https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/logo-largo-blanco.png"
               alt="Ataca Perú Logo"
               className="logo-img"
             />

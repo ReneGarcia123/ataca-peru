@@ -22,13 +22,46 @@ export default function ResultadoModal({ data }) {
 
     const buscarResultado = async (dniBuscado) => {
 
-        if (dniBuscado.length !== 8) return;
+        const documento = dniBuscado.trim().toUpperCase();
+
+        /*
+         * FORMATOS ACEPTADOS:
+         *
+         * DNI:
+         * 12345678
+         *
+         * DNI CON CERO:
+         * 01234567
+         *
+         * DOCUMENTO CON GUION:
+         * 15740927-1
+         *
+         * CARNET DE EXTRANJERÍA:
+         * E12345678
+         *
+         * OTROS DOCUMENTOS CON LETRA:
+         * X12345678
+         */
+
+        const formatosValidos =
+            /^\d{8}$/.test(documento) ||
+            /^\d{8}-\d$/.test(documento) ||
+            /^[A-Z]\d+$/.test(documento);
+
+
+        if (!formatosValidos) return;
+
 
         try {
 
             setLoading(true);
             setMensaje("");
             setResultado(null);
+
+
+            /* =================================================
+               COLUMNAS DE SUPABASE
+            ================================================= */
 
             const columnas = [
                 "Puesto",
@@ -41,30 +74,55 @@ export default function ResultadoModal({ data }) {
                 "URL_DIPLOMA"
             ];
 
+
             const select = columnas.join(",");
+
+
+            /* =================================================
+               URL DE CONSULTA
+            ================================================= */
 
             const url =
                 `${SUPABASE_URL}/rest/v1/${data.tabla}` +
-                `?DNI=eq.${dniBuscado}` +
+                `?DNI=eq.${encodeURIComponent(documento)}` +
                 `&select=${encodeURIComponent(select)}`;
 
+
+            /* =================================================
+               CONSULTA
+            ================================================= */
+
             const response = await fetch(url, {
+
                 method: "GET",
+
                 headers: {
                     apikey: SUPABASE_PUBLISHABLE_KEY
                 }
+
             });
 
+
             if (!response.ok) {
-                throw new Error("Error al consultar Supabase");
+
+                throw new Error(
+                    "Error al consultar Supabase"
+                );
+
             }
 
+
             const resultados = await response.json();
+
+
+            /* =================================================
+               RESULTADO
+            ================================================= */
 
             if (resultados.length === 0) {
 
                 setMensaje(
-                    "No se encontró ningún resultado para ese DNI."
+                    "No se encontró ningún resultado para ese documento."
                 );
 
             } else {
@@ -73,6 +131,7 @@ export default function ResultadoModal({ data }) {
 
             }
 
+
         } catch (error) {
 
             console.error(error);
@@ -80,6 +139,7 @@ export default function ResultadoModal({ data }) {
             setMensaje(
                 "Ocurrió un error al consultar los resultados."
             );
+
 
         } finally {
 
@@ -91,23 +151,62 @@ export default function ResultadoModal({ data }) {
 
 
     /* =====================================================
-       CAMBIO DEL DNI
+       CAMBIO DEL DOCUMENTO
     ===================================================== */
 
     const handleChange = (e) => {
 
-        const value = e.target.value.replace(/\D/g, "");
+        /*
+         * Permitimos:
+         * - números
+         * - letras
+         * - guion
+         */
+
+        let value = e.target.value
+            .toUpperCase()
+            .replace(/[^A-Z0-9-]/g, "");
+
 
         setDni(value);
 
-        if (value.length === 8) {
+
+        /*
+         * Mientras escribe, limpiamos
+         * el resultado anterior.
+         */
+
+        setResultado(null);
+        setMensaje("");
+
+
+        /* =================================================
+           FORMATOS VÁLIDOS
+        ================================================= */
+
+        const esDNI =
+            /^\d{8}$/.test(value);
+
+
+        const esDocumentoConGuion =
+            /^\d{8}-\d$/.test(value);
+
+
+        const esCarnetExtranjeria =
+            /^[A-Z]\d+$/.test(value);
+
+
+        /* =================================================
+           BUSCAR AUTOMÁTICAMENTE
+        ================================================= */
+
+        if (
+            esDNI ||
+            esDocumentoConGuion ||
+            esCarnetExtranjeria
+        ) {
 
             buscarResultado(value);
-
-        } else {
-
-            setResultado(null);
-            setMensaje("");
 
         }
 
@@ -121,9 +220,13 @@ export default function ResultadoModal({ data }) {
     const cerrar = () => {
 
         setIsOpen(false);
+
         setDni("");
+
         setResultado(null);
+
         setMensaje("");
+
         setLoading(false);
 
     };
@@ -137,18 +240,27 @@ export default function ResultadoModal({ data }) {
 
         if (!url) return "";
 
+
         /*
          * Formato esperado:
+         *
          * https://drive.google.com/file/d/ID/view
          */
 
-        const match = url.match(/\/d\/([^/]+)/);
+
+        const match =
+            url.match(/\/d\/([^/]+)/);
+
 
         if (!match) {
+
             return "";
+
         }
 
+
         const id = match[1];
+
 
         return `https://drive.google.com/file/d/${id}/preview`;
 
@@ -159,13 +271,17 @@ export default function ResultadoModal({ data }) {
 
         <>
 
+
             {/* =================================================
                 TARJETA
             ================================================= */}
 
             <div className="resultado-wrapper">
 
-                {/* TÍTULO DE LA SECCIÓN */}
+
+                {/* =================================================
+                    TÍTULO DE LA SECCIÓN
+                ================================================= */}
 
                 <div className="resultado-seccion">
 
@@ -176,7 +292,9 @@ export default function ResultadoModal({ data }) {
                 </div>
 
 
-                {/* TARJETA DEL EVENTO */}
+                {/* =================================================
+                    TARJETA DEL EVENTO
+                ================================================= */}
 
                 <div className="resultado-card">
 
@@ -186,15 +304,18 @@ export default function ResultadoModal({ data }) {
                         className="resultado-card-imagen"
                     />
 
+
                     <div className="resultado-card-contenido">
 
                         <h3>
                             {data.titulo}
                         </h3>
 
+
                         <p>
                             {data.descripcion}
                         </p>
+
 
                         <button
                             className="resultado-card-btn"
@@ -243,6 +364,7 @@ export default function ResultadoModal({ data }) {
                                 Consulta de Resultados
                             </h2>
 
+
                             <p>
                                 {data.titulo}
                             </p>
@@ -251,19 +373,20 @@ export default function ResultadoModal({ data }) {
 
 
                         {/* =================================================
-                            DNI
+                            DOCUMENTO
                         ================================================= */}
 
                         <div className="resultado-buscador">
 
                             <label>
-                                Ingrese su DNI
+                                Ingrese su DNI, CE o documento
                             </label>
+
 
                             <input
                                 type="text"
-                                inputMode="numeric"
-                                maxLength={8}
+                                inputMode="text"
+                                maxLength={14}
                                 placeholder="Ejemplo: 12345678"
                                 value={dni}
                                 onChange={handleChange}
@@ -280,7 +403,9 @@ export default function ResultadoModal({ data }) {
 
                             <div className="resultado-loading">
 
-                                <div className="resultado-spinner"></div>
+                                <div className="resultado-spinner">
+                                </div>
+
 
                                 <p>
                                     Buscando información...
@@ -330,6 +455,7 @@ export default function ResultadoModal({ data }) {
                                             Nombres Completos
                                         </label>
 
+
                                         <input
                                             value={
                                                 resultado["Nombres Completos"] || ""
@@ -347,6 +473,7 @@ export default function ResultadoModal({ data }) {
                                         <label>
                                             Puesto
                                         </label>
+
 
                                         <input
                                             value={
@@ -366,6 +493,7 @@ export default function ResultadoModal({ data }) {
                                             Equipo
                                         </label>
 
+
                                         <input
                                             value={
                                                 resultado.Equipo || ""
@@ -383,6 +511,7 @@ export default function ResultadoModal({ data }) {
                                         <label>
                                             Dorsal
                                         </label>
+
 
                                         <input
                                             value={
@@ -402,6 +531,7 @@ export default function ResultadoModal({ data }) {
                                             Categoría
                                         </label>
 
+
                                         <input
                                             value={
                                                 resultado.Categoria || ""
@@ -419,6 +549,7 @@ export default function ResultadoModal({ data }) {
                                         <label>
                                             Tiempo
                                         </label>
+
 
                                         <input
                                             value={
@@ -441,6 +572,7 @@ export default function ResultadoModal({ data }) {
 
                                     <div className="resultado-diploma">
 
+
                                         <h3>
                                             Diploma
                                         </h3>
@@ -448,21 +580,26 @@ export default function ResultadoModal({ data }) {
 
                                         <iframe
                                             className="resultado-pdf"
-                                            src={obtenerPreview(
-                                                resultado.URL_DIPLOMA
-                                            )}
+                                            src={
+                                                obtenerPreview(
+                                                    resultado.URL_DIPLOMA
+                                                )
+                                            }
                                             title="Diploma del participante"
                                         />
 
 
                                         <a
-                                            href={resultado.URL_DIPLOMA}
+                                            href={
+                                                resultado.URL_DIPLOMA
+                                            }
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="resultado-btn"
                                         >
                                             VER / DESCARGAR DIPLOMA
                                         </a>
+
 
                                     </div>
 

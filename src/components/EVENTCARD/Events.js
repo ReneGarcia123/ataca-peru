@@ -4,17 +4,7 @@ import './Events.css';
 const eventos = [
 
   {
-    id: 2,
-    titulo: "AQP TRAIL RUNNING 2026 - TERCERA SERIE: LOS ANDENES DE CHIGUATA ",
-    fecha: "13 de septiembre 2026",
-    lugar: "Chiguata, Arequipa, Perú",
-    descripcion: "¡Más allá de tus límites! Carrera de Trail Running en los andenes de Chiguata - Arequipa",
-    enlace: "/aqp_trs_chiguata",
-    imagen: "https://res.cloudinary.com/r0ldqpr5/image/upload/v1786920266/CHIGUATA.webp",
-    disponible:true
-  },
-  {
-    id: 3,
+    id: 1,
     titulo: "LSL MTB INTERNATIONAL 2026 - SEGUNDA SERIE: EL SEÑOR DE LA JOYA",
     fecha: "27 de septiembre 2026",
     lugar: "La Joya, Arequipa, Perú",
@@ -24,7 +14,7 @@ const eventos = [
     disponible:true
   },
   {
-    id: 4,
+    id: 2,
     titulo: "AQP TRAIL RUNNING 2026 - CUARTA SERIE: EL VALLE DE CHILINA",
     fecha: "27 de septiembre 2026",
     lugar: "La Joya, Arequipa, Perú",
@@ -34,7 +24,7 @@ const eventos = [
     disponible:true
   },  
   {
-    id: 5,
+    id: 3,
     titulo: "ULTRA COLCA CANYON 2026",
     fecha: "07 y 08 de noviembre 2026",
     lugar: "Colca, Arequipa, Perú",

@@ -11,7 +11,7 @@ export const Footer = () => {
 
         <div className="footer-logo">
           <img
-            src="https://res.cloudinary.com/r0ldqpr5/image/upload/v1786922204/logo-blanco.png"
+            src="https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/logo-blanco.png"
             alt="ATACA PERU"
             className="logo-img"
           />
