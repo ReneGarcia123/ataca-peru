@@ -1,0 +1,544 @@
+/* =====================================================
+   SECCIÓN
+===================================================== */
+
+.champions-section {
+
+    width: 100%;
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding: 70px 20px;
+
+    box-sizing: border-box;
+
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.champions-header {
+
+    text-align: center;
+
+    margin-bottom: 40px;
+
+}
+
+
+.champions-header span {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 0.9rem;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    color: #e63946;
+
+}
+
+
+.champions-header h2 {
+
+    margin: 0;
+
+    font-size: 32px;
+
+    font-weight: 700;
+
+    color: #555;
+
+}
+
+
+/* =====================================================
+   CARRUSEL
+===================================================== */
+
+.champions-carousel {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    width: 100%;
+
+}
+
+
+/* =====================================================
+   TRACK
+===================================================== */
+
+.champions-track {
+
+    width: 100%;
+
+    overflow: hidden;
+
+}
+
+
+/* =====================================================
+   SLIDE
+===================================================== */
+
+.champions-slide {
+
+    display: none;
+
+    width: 100%;
+
+}
+
+
+.champions-slide-active {
+
+    display: block;
+
+}
+
+
+/* =====================================================
+   CARD
+===================================================== */
+
+.champion-card {
+
+    width: min(100%, 420px);
+
+    margin: 0 auto;
+
+    overflow: hidden;
+
+    background: #fff;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.10);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+}
+
+
+.champion-card:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 14px 30px rgba(0, 0, 0, 0.15);
+
+}
+
+
+/* =====================================================
+   IMAGEN
+===================================================== */
+
+.champion-image {
+
+    width: 100%;
+
+    height: 250px;
+
+    overflow: hidden;
+
+}
+
+
+.champion-image img {
+
+    display: block;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+}
+
+
+/* =====================================================
+   CONTENIDO
+===================================================== */
+
+.champion-content {
+
+    padding: 25px;
+
+    text-align: center;
+
+}
+
+
+.champion-content h3 {
+
+    margin: 0 0 22px;
+
+    font-size: 1.35rem;
+
+    font-weight: 700;
+
+    color: #111;
+
+}
+
+
+/* =====================================================
+   GANADORES
+===================================================== */
+
+.champion-winner {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 5px;
+
+    padding: 13px 15px;
+
+    margin-bottom: 10px;
+
+    border-radius: 10px;
+
+    background: #f7f7f7;
+
+}
+
+
+.champion-winner span {
+
+    font-size: 0.85rem;
+
+    font-weight: 600;
+
+    color: #666;
+
+}
+
+
+.champion-winner strong {
+
+    font-size: 1rem;
+
+    color: #111;
+
+}
+
+
+/* =====================================================
+   PRIMER PUESTO
+===================================================== */
+
+.champion-gold {
+
+    border-left: 4px solid #d4af37;
+
+}
+
+
+/* =====================================================
+   SEGUNDO PUESTO
+===================================================== */
+
+.champion-silver {
+
+    border-left: 4px solid #aaa;
+
+}
+
+
+/* =====================================================
+   TERCER PUESTO
+===================================================== */
+
+.champion-bronze {
+
+    border-left: 4px solid #cd7f32;
+
+}
+
+
+/* =====================================================
+   FLECHAS
+===================================================== */
+
+.champions-arrow {
+
+    position: absolute;
+
+    z-index: 5;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 45px;
+
+    height: 45px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #fff;
+
+    color: #555;
+
+    font-size: 32px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.15);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
+}
+
+
+.champions-arrow:hover {
+
+    transform:
+        translateY(-50%)
+        scale(1.08);
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.20);
+
+}
+
+
+.champions-arrow-prev {
+
+    left: -20px;
+
+}
+
+
+.champions-arrow-next {
+
+    right: -20px;
+
+}
+
+
+/* =====================================================
+   DOTS
+===================================================== */
+
+.champions-dots {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 25px;
+
+}
+
+
+.champions-dot {
+
+    width: 9px;
+
+    height: 9px;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #ccc;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+
+}
+
+
+.champions-dot.active {
+
+    transform: scale(1.35);
+
+    background: #e63946;
+
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .champions-section {
+
+        padding: 55px 20px;
+
+    }
+
+
+    .champions-header {
+
+        margin-bottom: 30px;
+
+    }
+
+
+    .champions-header h2 {
+
+        font-size: 28px;
+
+    }
+
+
+    .champion-card {
+
+        width: min(100%, 380px);
+
+    }
+
+
+    .champion-image {
+
+        height: 220px;
+
+    }
+
+
+    .champions-arrow-prev {
+
+        left: -10px;
+
+    }
+
+
+    .champions-arrow-next {
+
+        right: -10px;
+
+    }
+
+}
+
+
+/* =====================================================
+   MÓVIL
+===================================================== */
+
+@media (max-width: 500px) {
+
+    .champions-section {
+
+        padding: 45px 15px;
+
+    }
+
+
+    .champions-header span {
+
+        font-size: 0.8rem;
+
+    }
+
+
+    .champions-header h2 {
+
+        font-size: 25px;
+
+    }
+
+
+    .champion-card {
+
+        width: 100%;
+
+        border-radius: 15px;
+
+    }
+
+
+    .champion-image {
+
+        height: 200px;
+
+    }
+
+
+    .champion-content {
+
+        padding: 20px 15px;
+
+    }
+
+
+    .champion-content h3 {
+
+        font-size: 1.2rem;
+
+    }
+
+
+    .champions-arrow {
+
+        width: 38px;
+
+        height: 38px;
+
+        font-size: 27px;
+
+    }
+
+
+    .champions-arrow-prev {
+
+        left: -5px;
+
+    }
+
+
+    .champions-arrow-next {
+
+        right: -5px;
+
+    }
+
+}

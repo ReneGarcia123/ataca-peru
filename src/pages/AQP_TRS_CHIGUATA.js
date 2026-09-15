@@ -12,6 +12,8 @@ import Resultados from '../components/RESULTADO_MODAL/ResultadoModal.jsx';
 import resultados from '../components/RESULTADO_MODAL/resultados.js';
 import Documentos from "../components/DOCUMENTOS/Documentos.jsx";
 import documentos from "../components/DOCUMENTOS/documentos.js";
+import Champions from "../components/Champions/Champions.jsx";
+import championsData from "../components/Champions/champions.js";
 
 export default function AQP_TRS_CHIGUATA() {
 
@@ -54,18 +56,6 @@ export default function AQP_TRS_CHIGUATA() {
       { icon: <FaMedal />, label: "Premios", value: "Reconocimientos a ganadores" },
   ];
 
-  const categorias = [
-      "21K Damas: Open de 18 años a más",
-      "21K Varones: Open de 18 años a 34 años",
-      "21K Varones Máster: de 35 años a más",
-      "10K Damas y Varones: Elite de 18 años 34 años",
-      "10K Damas Súper Máster: de 50 años a más",
-      "10K Varones Súper Máster: de 50 a 59 años",
-      "10K Varones Ultra Máster: de 60 años a más",
-      "5K Damas y Varones: Open de 15 años a 34 años",
-      "5K Damas y Varones Súper Máster: de 35 años a más",
-  ];
-
   
   const items = [
     { icon: <FaMedal />, title: "Medalla Finisher", text: "Para todos los que culminen el recorrido (solo inscritos)" },
@@ -86,15 +76,7 @@ export default function AQP_TRS_CHIGUATA() {
       <br />
       <Resultados data={resultados.chiguata_trail} />
       <Documentos data={documentos.chiguata_trail} />
- 
-
-      <Categories
-        titulo="Más allá de tus límites: Los Andenes de Chiguata"
-        descripcion="¡Vive la segunda serie de la AQP TRAIL RUNNING SERIES INTERNATIONAL 2026 y supera tus propios límites!🌄🏃‍♂️🔥"
-        imagen="https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/res2.jpg"
-        categorias={categorias}
-        items={items}
-      />
+      <Champions data={championsData.chiguata} />
       <ButtonBases url={"https://drive.google.com/file/d/1RpGuz0Xckrxl2FnK7FAJacrAVcjNHO3G/view?usp=sharing"}/>
       <br />
       <br />
