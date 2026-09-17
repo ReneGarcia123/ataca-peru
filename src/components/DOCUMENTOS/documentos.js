@@ -47,14 +47,54 @@ const documentos = {
                 titulo: "Resultados cuarta fecha ",
 
                 descripcion:
-                    "Resultados oficiale de la carrera, incluyendo tiempos y posiciones de los participantes.",
+                    "Resultados oficiales de la carrera, incluyendo tiempos y posiciones de los participantes.",
 
                 imagen:"https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/tiempos%204ta%20fecha.jpg",
 
                 boton: "Ver resultados",
 
                 link: "https://drive.google.com/file/d/1qup0pAU8ZKNWt3b3NKboRDpP1hAIWUKX/view?usp=sharing"
-            }
+            },
+
+            {
+                titulo: "Resultados acumulativos por categoría",
+
+                descripcion:
+                    "Resultados oficiales de la competencia, acumulativos por categoría de las 3 fechas",
+
+                imagen:"https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/AQP_TRS_CHIGUATA_2026/RESULTADOS_1.jpg",
+
+                boton: "Ver resultados",
+
+                link: "https://drive.google.com/file/d/18ccyQ1G-pXiMHykwATG2epSwPXiqIjBL/view?usp=sharing"
+            },
+
+            {
+                titulo: "Resultados acumulativos generales",
+
+                descripcion:
+                    "Resultados oficiales de la competencia, acumulativos por tiempos",
+
+                imagen:"https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/AQP_TRS_CHIGUATA_2026/RESULTADOS_2.jpg",
+
+                boton: "Ver resultados",
+
+                link: "https://drive.google.com/file/d/1g1Nh-siRmO3KcJTyM9AP6Bp2MhspmhGM/view?usp=sharing"
+            },
+            
+            {
+                titulo: "Resultados acumulativos grupales",
+
+                descripcion:
+                    "Resultados oficiales de la competencia, acumulativos por equipos",
+
+                imagen:"https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/AQP_TRS_CHIGUATA_2026/RESULTADOS_3.jpg",
+
+                boton: "Ver resultados",
+
+                link: "https://drive.google.com/file/d/1Sha7lTE2L-48WAV0-cWowURb-5ZjG9Fl/view?usp=sharing"
+            },
+
         ]
 
     }
