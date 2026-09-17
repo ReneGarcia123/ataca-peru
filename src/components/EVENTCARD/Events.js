@@ -10,17 +10,17 @@ const eventos = [
     lugar: "La Joya, Arequipa, Perú",
     descripcion: "¡Pedalea al máximo! MTB en el Señor de La Joya – Arequipa, donde la resistencia y la velocidad se ponen a prueba.",
     enlace: "/lsl_mtb_joya",
-    imagen: "https://res.cloudinary.com/r0ldqpr5/image/upload/v1786920339/SENOR_JOYA.jpg",
+    imagen: "https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/SENOR%20JOYA.jpg",
     disponible:true
   },
   {
     id: 2,
     titulo: "AQP TRAIL RUNNING 2026 - CUARTA SERIE: EL VALLE DE CHILINA",
-    fecha: "27 de septiembre 2026",
-    lugar: "La Joya, Arequipa, Perú",
+    fecha: "25 de octubre 2026",
+    lugar: "Valle de Chilina, Arequipa, Perú",
     descripcion: "¡Más allá de tus límites! Carrera de Trail Running en el Valle de Chilina - Arequipa",
     enlace: "/aqp_trs_chilina",
-    imagen: "https://res.cloudinary.com/r0ldqpr5/image/upload/v1786980824/IMG_6805.png",
+    imagen: "https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/IMG_6805.PNG",
     disponible:true
   },  
   {
@@ -30,7 +30,7 @@ const eventos = [
     lugar: "Colca, Arequipa, Perú",
     descripcion: "¡Desafía el cañón más profundo del mundo! Carrera de Ultra Trail Running en el majestuoso Cañón del Colca - Arequipa",
     enlace: "/utcc",
-    imagen: "https://res.cloudinary.com/r0ldqpr5/image/upload/v1786921057/UTCC2026.jpg",
+    imagen: "https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/UTCC2026.jpg?updatedAt=1789644060168",
     disponible:false
   },
 ];
