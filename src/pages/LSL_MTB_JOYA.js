@@ -315,7 +315,7 @@ const resetFormulario = () => {
   const items_inscripcion = [
     
     {
-        img: "https://res.cloudinary.com/r0ldqpr5/image/upload/v1786927970/2.jpg",
+        img: "https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/LSL%20MTB%20JOYA%202026/1.jpg",
         title: "CICLISMO PRO",
         desc: "El Señor de la Joya te desafía. Domina el terreno Pro y corona tu esfuerzo",
         btnText: "Inscribirme",
@@ -323,7 +323,7 @@ const resetFormulario = () => {
     },
 
     {
-        img: "https://res.cloudinary.com/r0ldqpr5/image/upload/v1786927967/3.jpg",
+        img: "https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/LSL%20MTB%20JOYA%202026/3.jpg",
         title: "CICLISMO TURISMO",
         desc: "El Señor de la Joya te espera. ¡Inscríbete en Turismo y vive la aventura!",
         btnText: "Inscribirme",
@@ -342,7 +342,7 @@ const resetFormulario = () => {
 
   const items_responsib = [
   {
-      img: "https://res.cloudinary.com/r0ldqpr5/image/upload/v1786927992/11.jpg",
+      img: "https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/LSL%20MTB%20JOYA%202026/11.jpg?updatedAt=1789666677896",
       title: "Deslinde de Responsabilidad",
       desc: "Aceptación de riesgos y condiciones del evento.",
       link: "https://drive.google.com/file/d/1g9gYByNB1TJAdIg4Yqpk9s0DohzUCSOf/view?usp=drive_link",
@@ -350,7 +350,7 @@ const resetFormulario = () => {
     },
 
     {
-      img: "https://res.cloudinary.com/r0ldqpr5/image/upload/v1786927994/22.jpg",
+      img: "https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/LSL%20MTB%20JOYA%202026/22.jpg",
       title: "Dispositivo Sensor",
       desc: "Uso correcto y responsabilidad del equipo.",
       link: "https://drive.google.com/file/d/1kZoeR5b5JmLt1QXQ_x0Ifph7Yss4Z1xQ/view?usp=drive_link",
@@ -358,7 +358,7 @@ const resetFormulario = () => {
     },
 
     {
-      img: "https://res.cloudinary.com/r0ldqpr5/image/upload/v1786927990/333.jpg",
+      img: "https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/LSL%20MTB%20JOYA%202026/333.jpg",
       title: "Autorización de Menor",
       desc: "Permiso para participación de menores.",
       link: "https://drive.google.com/file/d/1kZoeR5b5JmLt1QXQ_x0Ifph7Yss4Z1xQ/view?usp=drive_link",
@@ -368,8 +368,9 @@ const resetFormulario = () => {
 
   /*Carrusel 2 imagenes*/
   const images_carrousel2=[
-      "https://res.cloudinary.com/r0ldqpr5/image/upload/v1786932119/medalla.jpg",
-      "https://res.cloudinary.com/r0ldqpr5/image/upload/v1786928272/regalo1.jpg",
+      "https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/LSL%20MTB%20JOYA%202026/regalo1.jpg",
+      "https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/LSL%20MTB%20JOYA%202026/646365881_905078655821131_5670434078030326945_n.jpg",,
+      "https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/LSL%20MTB%20JOYA%202026/medalla.jpg",
   ]
 
   /*Detalles del hero section*/
@@ -430,8 +431,8 @@ const resetFormulario = () => {
                      curva tu técnica y cada kilómetro tu pasión por el ciclismo. Vive la
                      adrenalina de la SUPER LIGA MOUNTAIN BIKE, una experiencia única que
                      te llevará a la gloria sobre dos ruedas."
-        video="https://res.cloudinary.com/r0ldqpr5/video/upload/v1786928265/Se%C3%B1or_de_la_joya_CICLISMO.mp4"
-        imagen="https://res.cloudinary.com/r0ldqpr5/image/upload/v1786922204/logo-blanco.png"   
+        video="https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/LSL%20MTB%20JOYA%202026/Se%C3%B1or%20de%20la%20joya%20CICLISMO.mp4"
+        imagen="https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/logo-blanco.png?updatedAt=1789420774705"   
         detalles={detalles_hero}
       />     
 
@@ -1027,7 +1028,7 @@ const resetFormulario = () => {
         descripcion="¡Vive la emoción de la LSL MTB – EL SEÑOR DE LA JOYA 🚵‍♂️🌵🔥
                       Desafía la arena, las dunas y tu propia resistencia en el 
                       desierto de La Joya. Cada pedalada un paso hacia la gloria!🌵🏃‍♂️🔥"
-        imagen="https://res.cloudinary.com/r0ldqpr5/image/upload/v1786927970/2.jpg"
+        imagen="https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/LSL%20MTB%20JOYA%202026/2.jpg"
         categorias={categorias}
         items={items}
       />

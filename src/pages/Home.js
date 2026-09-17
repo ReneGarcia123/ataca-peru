@@ -12,9 +12,9 @@ export default function Home() {
     <div>
       <Carrousel />
       <Countdown 
-        targetDate="2026-09-06T09:00:00" 
-        titulo="CORRE CON LOS BOMBEROS 5K 2026 - CUARTA EDICIÓN" 
-        descripcion="Carrera de Fuego 5K 2026 - Cuarta Edición: Corre con los Bomberos, en esta carrera de apoyo a nuestros héroes de la vida real. ¡Únete a nosotros y corre por una causa noble!"
+        targetDate="2026-09-27T09:00:00" 
+        titulo="LSL-MTB INTERNATIONAL 2026 - SEGUNDA SERIE: EL SEÑOR DE LA JOYA" 
+        descripcion="¡Pedalea al máximo! MTB en el Señor de La Joya – Arequipa, donde la resistencia y la velocidad se ponen a prueba."
        />
       <Events />
       <br/>
