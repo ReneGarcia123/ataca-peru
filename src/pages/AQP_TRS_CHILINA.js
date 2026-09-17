@@ -156,15 +156,15 @@ const resetFormulario = () => {
   const datosPago = {
   "5K PRIMERA PRE VENTA": {
     precio: 80,
-    link: "https://express.culqi.com/pago/A366841BE0"
+    link: "https://express.culqi.com/pago/123A3E7DBC"
   },
   "10K PRIMERA PRE VENTA": {
     precio: 100,
-    link: "https://express.culqi.com/pago/86349B7619"
+    link: "https://express.culqi.com/pago/E38E8ABDC4"
   },
   "21K PRIMERA PRE VENTA": {
     precio: 120,
-    link: "https://express.culqi.com/pago/C54F099DE4"
+    link: "https://express.culqi.com/pago/FE4077E3F6"
   }
 };
 
