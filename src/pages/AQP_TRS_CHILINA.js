@@ -213,15 +213,15 @@ const linkFinal =
   /*Configuración de precios por modalidad*/
   const configuracionPago={
     "5K PRIMERA PRE VENTA":{
-      title:"LOS ANDENES DE CHIGUATA 5K - PRIMERA PRE VENTA",
+      title:"EL VALLE DE CHILINA 5K - PRIMERA PRE VENTA",
       amount:8000
     },
     "10K PRIMERA PRE VENTA":{
-      title:"LOS ANDENES DE CHIGUATA 10K - PRIMERA PRE VENTA",
+      title:"EL VALLE DE CHILINA 10K - PRIMERA PRE VENTA",
       amount:10000
     },
     "21K PRIMERA PRE VENTA":{
-      title:"LOS ANDENES DE CHIGUATA 21K - PRIMERA PRE VENTA",
+      title:"EL VALLE DE CHILINA 21K - PRIMERA PRE VENTA",
       amount:12000
     }
   };
@@ -261,7 +261,7 @@ const linkFinal =
       templateParams,
       "GDdbX_f3H6bGkF8B8"
     );
-    alert(nombre+" ,tu inscripción se ha completado exitosamente. ¡Los Andenes de Chiguata te esperan!\nSe enviará un correo de confirmación a "+correo+" con los detalles de tu inscripción.\nEn el mismo correo está el link para que te puedas unir al grupo de WhatsApp de la carrera. ¡Nos vemos en la carrera!");
+    alert(nombre+" ,tu inscripción se ha completado exitosamente. ¡El Valle de Chilina te espera!\nSe enviará un correo de confirmación a "+correo+" con los detalles de tu inscripción.\nEn el mismo correo está el link para que te puedas unir al grupo de WhatsApp de la carrera. ¡Nos vemos en la carrera!");
     setModalOpen(false);
     resetFormulario();
   } catch (error) {
@@ -382,7 +382,7 @@ const linkFinal =
   const items_inscripcion = [
     
     {
-        img: "https://res.cloudinary.com/r0ldqpr5/image/upload/v1787793712/CHIL5K.jpg",
+        img: "https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/AQP_TRS_CHILINA_2026/CHIL5K.jpg",
         title: "INSCRIPCIÓN 5K",
         desc: "5K: Corre en el valle y descubre la magia de Chilina en cada kilómetro",
         btnText: "Inscribirme",
@@ -390,7 +390,7 @@ const linkFinal =
     },
 
     {
-        img: "https://res.cloudinary.com/r0ldqpr5/image/upload/v1787793713/CHIL10K.jpg",
+        img: "https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/AQP_TRS_CHILINA_2026/CHIL10K.jpg",
         title: "INSCRIPCIÓN 10K",
         desc: "10K: Desafía tu resistencia con 10K de valle, sol y pura adrenalina",
         btnText: "Inscribirme",
@@ -398,7 +398,7 @@ const linkFinal =
     },
 
     {
-        img: "https://res.cloudinary.com/r0ldqpr5/image/upload/v1787793712/CHIL21K.jpg",
+        img: "https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/AQP_TRS_CHILINA_2026/CHIL21K.jpg",
         title: "INSCRIPCIÓN 21K",
         desc: "21K: Conquista el valle en 21K y demuestra que tu espíritu no tiene límites",
         btnText: "Inscribirme",
@@ -419,7 +419,7 @@ const linkFinal =
 
   const items_responsib = [
   {
-      img: "https://res.cloudinary.com/r0ldqpr5/image/upload/v1787794288/responsib.jpg",
+      img: "https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/AQP_TRS_CHILINA_2026/responsib.jpg",
       title: "Deslinde de Responsabilidad",
       desc: "Aceptación de riesgos y condiciones del evento.",
       link: "https://atacaperu.com/wp-content/uploads/2026/05/DESLINDE-LA-JOYA.pdf",
@@ -427,7 +427,7 @@ const linkFinal =
     },
 
     {
-      img: "https://res.cloudinary.com/r0ldqpr5/image/upload/v1787794288/responsib2.jpg",
+      img: "https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/AQP_TRS_CHILINA_2026/responsib2.jpg",
       title: "Dispositivo Sensor",
       desc: "Uso correcto y responsabilidad del equipo.",
       link: "https://atacaperu.com/wp-content/uploads/2025/02/RESPONSABILIDAD-SENSOR.pdf",
@@ -435,7 +435,7 @@ const linkFinal =
     },
 
     {
-      img: "https://res.cloudinary.com/r0ldqpr5/image/upload/v1787794366/responsib4.jpg",
+      img: "https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/AQP_TRS_CHILINA_2026/responsib4.jpg",
       title: "Autorización de Menor",
       desc: "Permiso para participación de menores.",
       link: "https://atacaperu.com/wp-content/uploads/2026/05/AUTORIZACION-JOYA.pdf",
@@ -497,8 +497,8 @@ const linkFinal =
      <>
       <HeroVideo
         descripcion="Prepárate para desafiar la altura, los senderos ancestrales y tus propios límites en “El Valle de Chilina”. Cada kilómetro pondrá a prueba tu resistencia y determinación. Vive la adrenalina de una experiencia única rumbo a la gloria de la AQP TRAIL RUNNING SERIES INTERNATIONAL 2026."
-        video="https://res.cloudinary.com/r0ldqpr5/video/upload/v1787671812/El_Valle_de_Chilina_Trail.mp4"
-        imagen="https://res.cloudinary.com/r0ldqpr5/image/upload/v1786922204/logo-blanco.png"   
+        video="https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/AQP_TRS_CHILINA_2026/El%20Valle%20de%20Chilina%20Trail.mp4"
+        imagen="https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/logo-blanco.png?updatedAt=1789420774705"   
         detalles={detalles_hero}
       />     
 
@@ -1102,7 +1102,7 @@ const linkFinal =
       <Categories
         titulo="Más allá de tus límites: El Valle de Chilina"
         descripcion="¡Vive la cuarta serie: FINAL AQP TRAIL RUNNING SERIES INTERNATIONAL 2026 y supera tus propios límites!🌄🏃‍♂️🔥"
-        imagen="https://res.cloudinary.com/r0ldqpr5/image/upload/v1787794288/chilcat.jpg"
+        imagen="https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/AQP_TRS_CHILINA_2026/CATEGORIES.jpg"
         categorias={categorias}
         items={items}
       />
