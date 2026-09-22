@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import EventBanner from '../components/EVENTBANNER/EventBanner';
 import Countdown from "../components/COUNTDOWN/Countdown";
-import HeroVideo from "../components/HEROVIDEO/HeroVideo";
 import Categories from '../components/CATEGORIES/Categories';
 import { PiCertificateBold } from "react-icons/pi";
 import { FaRoadCircleCheck } from "react-icons/fa6";
@@ -114,12 +113,6 @@ export default function ALDEAS_INFANTILES() {
 
   return (
      <>
-      <HeroVideo
-        descripcion="“Arequipa Corre por una Infancia Feliz” es más que una carrera: es una oportunidad para unir deporte, solidaridad y esperanza en favor de los niños, niñas y adolescentes de Aldeas Infantiles SOS"
-        video="https://atacaperu.com/wp-content/uploads/2026/05/VIDEO-CORTADO-ALDEAS-2026.mp4"
-        imagen="https://atacaperu.com/wp-content/uploads/2026/05/ATACA-ALDEAS.avif"   
-        detalles={detalles_hero}
-      />     
 
       <br />
 

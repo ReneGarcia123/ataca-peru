@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import EventBanner from '../components/EVENTBANNER/EventBanner';
 import Countdown from "../components/COUNTDOWN/Countdown";
-import HeroVideo from "../components/HEROVIDEO/HeroVideo";
 import Categories from '../components/CATEGORIES/Categories';
 import { FaMedal, FaRegMoneyBillAlt} from "react-icons/fa";
 import { RiTeamFill } from "react-icons/ri";
@@ -15,6 +14,8 @@ import Responsib from '../components/RESPONSIBILITIES/Responsib';
 import Modal from '../components/MODAL/Modal';
 import emailjs from '@emailjs/browser';
 import CulqiButton from '../components/CulqiCheckoutButton/CulqiButton';
+import EventHero from "../components/EventHero/EventHero.jsx";
+import eventHero from "../components/EventHero/eventHero.js";
 
 export default function AQP_TRS_CHILINA() {
 
@@ -154,17 +155,17 @@ const resetFormulario = () => {
 
   /*ENVIAR CAPTURA DE PAGO*/
   const datosPago = {
-  "5K PRIMERA PRE VENTA": {
-    precio: 80,
-    link: "https://express.culqi.com/pago/123A3E7DBC"
+  "5K SEGUNDA PRE VENTA": {
+    precio: 90,
+    link: "https://express.culqi.com/pago/BF0DBEEAB8"
   },
-  "10K PRIMERA PRE VENTA": {
-    precio: 100,
-    link: "https://express.culqi.com/pago/E38E8ABDC4"
+  "10K SEGUNDA PRE VENTA": {
+    precio: 110,
+    link: "https://express.culqi.com/pago/D447D3CAD0"
   },
-  "21K PRIMERA PRE VENTA": {
-    precio: 120,
-    link: "https://express.culqi.com/pago/FE4077E3F6"
+  "21K SEGUNDA PRE VENTA": {
+    precio: 130,
+    link: "https://express.culqi.com/pago/3FF1148B51"
   }
 };
 
@@ -212,17 +213,17 @@ const linkFinal =
 
   /*Configuración de precios por modalidad*/
   const configuracionPago={
-    "5K PRIMERA PRE VENTA":{
-      title:"EL VALLE DE CHILINA 5K - PRIMERA PRE VENTA",
-      amount:8000
+    "5K SEGUNDA PRE VENTA":{
+      title:"EL VALLE DE CHILINA 5K - SEGUNDA PRE VENTA",
+      amount:9000
     },
-    "10K PRIMERA PRE VENTA":{
-      title:"EL VALLE DE CHILINA 10K - PRIMERA PRE VENTA",
-      amount:10000
+    "10K SEGUNDA PRE VENTA":{
+      title:"EL VALLE DE CHILINA 10K - SEGUNDA PRE VENTA",
+      amount:11000
     },
-    "21K PRIMERA PRE VENTA":{
-      title:"EL VALLE DE CHILINA 21K - PRIMERA PRE VENTA",
-      amount:12000
+    "21K SEGUNDA PRE VENTA":{
+      title:"EL VALLE DE CHILINA 21K - SEGUNDA PRE VENTA",
+      amount:13000
     }
   };
 
@@ -386,7 +387,7 @@ const linkFinal =
         title: "INSCRIPCIÓN 5K",
         desc: "5K: Corre en el valle y descubre la magia de Chilina en cada kilómetro",
         btnText: "Inscribirme",
-        modalidad: "5K PRIMERA PRE VENTA",
+        modalidad: "5K SEGUNDA PRE VENTA",
     },
 
     {
@@ -394,7 +395,7 @@ const linkFinal =
         title: "INSCRIPCIÓN 10K",
         desc: "10K: Desafía tu resistencia con 10K de valle, sol y pura adrenalina",
         btnText: "Inscribirme",
-        modalidad: "10K PRIMERA PRE VENTA",
+        modalidad: "10K SEGUNDA PRE VENTA",
     },
 
     {
@@ -402,7 +403,7 @@ const linkFinal =
         title: "INSCRIPCIÓN 21K",
         desc: "21K: Conquista el valle en 21K y demuestra que tu espíritu no tiene límites",
         btnText: "Inscribirme",
-        modalidad: "21K PRIMERA PRE VENTA",
+        modalidad: "21K SEGUNDA PRE VENTA",
     },
     
     
@@ -495,12 +496,7 @@ const linkFinal =
 
   return (
      <>
-      <HeroVideo
-        descripcion="Prepárate para desafiar la altura, los senderos ancestrales y tus propios límites en “El Valle de Chilina”. Cada kilómetro pondrá a prueba tu resistencia y determinación. Vive la adrenalina de una experiencia única rumbo a la gloria de la AQP TRAIL RUNNING SERIES INTERNATIONAL 2026."
-        video="https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/AQP_TRS_CHILINA_2026/El%20Valle%20de%20Chilina%20Trail.mp4"
-        imagen="https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/logo-blanco.png?updatedAt=1789420774705"   
-        detalles={detalles_hero}
-      />     
+      <EventHero data={eventHero.aqp_trail_chilina} />
 
       <br />
 

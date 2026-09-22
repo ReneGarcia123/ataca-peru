@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import EventBanner from '../components/EVENTBANNER/EventBanner';
 import Countdown from "../components/COUNTDOWN/Countdown";
-import HeroVideo from "../components/HEROVIDEO/HeroVideo";
 import Categories from '../components/CATEGORIES/Categories';
 import { FaMedal, FaRegMoneyBillAlt} from "react-icons/fa";
 import { RiTeamFill } from "react-icons/ri";
@@ -15,6 +14,8 @@ import Responsib from '../components/RESPONSIBILITIES/Responsib';
 import Modal from '../components/MODAL/Modal';
 import emailjs from '@emailjs/browser';
 import CulqiButton from '../components/CulqiCheckoutButton/CulqiButton';
+import EventHero from "../components/EventHero/EventHero.jsx";
+import eventHero from "../components/EventHero/eventHero.js";
 
 export default function LSL_MTB_JOYA() {
 
@@ -425,16 +426,7 @@ const resetFormulario = () => {
 
   return (
      <>
-      <HeroVideo
-        descripcion="Prepárate para desafiar la montaña, la arena y tus propios límites 
-                     en El Señor de La Joya. Cada sendero pondrá a prueba tu fuerza, cada
-                     curva tu técnica y cada kilómetro tu pasión por el ciclismo. Vive la
-                     adrenalina de la SUPER LIGA MOUNTAIN BIKE, una experiencia única que
-                     te llevará a la gloria sobre dos ruedas."
-        video="https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/LSL%20MTB%20JOYA%202026/Se%C3%B1or%20de%20la%20joya%20CICLISMO.mp4"
-        imagen="https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/logo-blanco.png?updatedAt=1789420774705"   
-        detalles={detalles_hero}
-      />     
+      <EventHero data={eventHero.lsl_joya} />
 
       <br />
 

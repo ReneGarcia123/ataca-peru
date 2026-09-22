@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import HeroVideo from "../components/HEROVIDEO/HeroVideo";
 import Categories from '../components/CATEGORIES/Categories';
 import { FaMedal, FaRegMoneyBillAlt} from "react-icons/fa";
 import { MdTimer } from "react-icons/md";
@@ -66,12 +65,7 @@ export default function AQP_TRS_CHIGUATA() {
 
   return (
      <>
-      <HeroVideo
-        descripcion="Prepárate para desafiar la altura, los senderos ancestrales y tus propios límites en “Los Andenes de Chiguata”. Cada kilómetro pondrá a prueba tu resistencia y determinación. Vive la adrenalina de una experiencia única rumbo a la gloria de la AQP TRAIL RUNNING SERIES INTERNATIONAL 2026."
-        video="https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/Los%20andenes%20de%20Chiguata%20trail.mp4"
-        imagen="https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/logo-largo-blanco.png"   
-        detalles={detalles_hero}
-      />     
+  
 
       <br />
       <Resultados data={resultados.chiguata_trail} />

@@ -1,7 +1,6 @@
 import React from 'react';
 import EventBanner from '../components/EVENTBANNER/EventBanner';
 import Countdown from "../components/COUNTDOWN/Countdown";
-import HeroVideo from "../components/HEROVIDEO/HeroVideo";
 import Categories from '../components/CATEGORIES/Categories';
 import { FaMedal} from "react-icons/fa";
 import { RiTeamFill } from "react-icons/ri";
@@ -103,12 +102,6 @@ export default function Triatlon() {
   return (
 
      <>
-      <HeroVideo
-        descripcion="En Los Órganos, la fuerza del mar, el sol de Piura y tu espíritu indomable se unen: ¡Triatlón 2026, donde los límites se rompen y los sueños se conquistan!"
-        video="https://atacaperu.com/wp-content/uploads/2026/02/trail.mp4"
-        imagen="/images/AQP TRAIL RUTA SILLAR.png"   // 🔑 nueva prop para mostrar al costado del título
-        detalles={detalles_hero}
-      />
 
       
 

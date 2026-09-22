@@ -16,6 +16,7 @@ import CENTAURO_TACNA from './pages/CENTAURO_TACNA';
 import BOMBEROS_2026 from './pages/BOMBEROS_2026';
 import PEDALEANDO_YURA from './pages/PEDALEANDO_YURA';
 import AQP_TRS_CHILINA from './pages/AQP_TRS_CHILINA';
+import CORRO_NINOS_2026 from './pages/CORRO_NINOS_2026.jsx';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
           <Route path="aqp_trs_chilina" element={<AQP_TRS_CHILINA/>}/>
           <Route path="centauro_2026" element={<CENTAURO_TACNA/>}/>
           <Route path="pedaleando_yura" element={<PEDALEANDO_YURA/>}/>
+          <Route path="corro_ninos_2026" element={<CORRO_NINOS_2026/>}/>
           {/* Rutas de prueba (Eliminables)*/}
           <Route path="registration" element={<RegistrationPage />} />
           <Route path="success" element={<SuccessPage />} />

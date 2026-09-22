@@ -1,0 +1,515 @@
+/* =====================================================
+   HERO
+===================================================== */
+
+.event-hero {
+
+    position: relative;
+
+    width: 100%;
+
+    min-height: 650px;
+
+    overflow: hidden;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #111;
+
+}
+
+
+/* =====================================================
+   VIDEO
+===================================================== */
+
+.event-hero-video {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    z-index: 0;
+
+}
+
+
+/* =====================================================
+   OVERLAY
+===================================================== */
+
+.event-hero-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.30) 0%,
+            rgba(0, 0, 0, 0.48) 45%,
+            rgba(0, 0, 0, 0.82) 100%
+        );
+
+}
+
+
+/* =====================================================
+   CONTENIDO
+===================================================== */
+
+.event-hero-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+
+    max-width: 1200px;
+
+    padding: 100px 25px 60px;
+
+    box-sizing: border-box;
+
+    text-align: center;
+
+    color: #fff;
+
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.event-hero-header {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 20px;
+
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.event-hero-image {
+
+    display: block;
+
+    width: auto;
+
+    max-width: 380px;
+
+    max-height: 150px;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(0 5px 15px rgba(0, 0, 0, 0.45));
+
+}
+
+
+/* =====================================================
+   TÍTULO
+===================================================== */
+
+.event-hero-title {
+
+    margin: 0;
+
+    max-width: 950px;
+
+    font-size: clamp(2rem, 5vw, 4rem);
+
+    line-height: 1.05;
+
+    font-weight: 800;
+
+    letter-spacing: -1px;
+
+    text-transform: uppercase;
+
+    text-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.55);
+
+}
+
+
+/* =====================================================
+   DESCRIPCIÓN
+===================================================== */
+
+.event-hero-description {
+
+    width: min(850px, 100%);
+
+    margin: 25px auto 45px;
+
+    font-size: 1.05rem;
+
+    line-height: 1.7;
+
+    font-weight: 400;
+
+    color: rgba(255, 255, 255, 0.92);
+
+    text-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.5);
+
+}
+
+
+/* =====================================================
+   DETALLES
+===================================================== */
+
+.event-hero-details {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 18px;
+
+    width: min(900px, 100%);
+
+    margin: 0 auto;
+
+}
+
+
+/* =====================================================
+   CARD DETALLE
+===================================================== */
+
+.event-detail-card {
+
+    padding: 22px 18px;
+
+    border-radius: 16px;
+
+    background:
+        rgba(255, 255, 255, 0.10);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.18);
+
+    backdrop-filter: blur(8px);
+
+    -webkit-backdrop-filter: blur(8px);
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.20);
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease;
+
+}
+
+
+.event-detail-card:hover {
+
+    transform: translateY(-6px);
+
+    background:
+        rgba(255, 255, 255, 0.15);
+
+    border-color:
+        rgba(255, 255, 255, 0.30);
+
+}
+
+
+/* =====================================================
+   ICONO
+===================================================== */
+
+.event-detail-icon {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 52px;
+
+    height: 52px;
+
+    margin: 0 auto 12px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.14);
+
+    color: #fff;
+
+    font-size: 25px;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.20);
+
+}
+
+
+/* =====================================================
+   LABEL
+===================================================== */
+
+.event-detail-label {
+
+    margin: 0 0 5px;
+
+    font-size: 0.82rem;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+
+    color:
+        rgba(255, 255, 255, 0.70);
+
+}
+
+
+/* =====================================================
+   VALOR
+===================================================== */
+
+.event-detail-value {
+
+    margin: 0;
+
+    font-size: 1rem;
+
+    font-weight: 600;
+
+    color: #fff;
+
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .event-hero {
+
+        min-height: 620px;
+
+    }
+
+
+    .event-hero-content {
+
+        padding:
+            90px 20px 50px;
+
+    }
+
+
+    .event-hero-image {
+
+        max-width: 320px;
+
+        max-height: 125px;
+
+    }
+
+
+    .event-hero-description {
+
+        font-size: 1rem;
+
+        margin-bottom: 35px;
+
+    }
+
+}
+
+
+/* =====================================================
+   MÓVIL
+===================================================== */
+
+@media (max-width: 650px) {
+
+    .event-hero {
+
+        min-height: auto;
+
+    }
+
+
+    .event-hero-content {
+
+        padding:
+            80px 16px 40px;
+
+    }
+
+
+    .event-hero-header {
+
+        gap: 15px;
+
+    }
+
+
+    .event-hero-image {
+
+        max-width: 260px;
+
+        max-height: 105px;
+
+    }
+
+
+    .event-hero-title {
+
+        font-size: 2rem;
+
+        line-height: 1.1;
+
+    }
+
+
+    .event-hero-description {
+
+        margin:
+            20px auto 30px;
+
+        font-size: 0.92rem;
+
+        line-height: 1.6;
+
+    }
+
+
+    .event-hero-details {
+
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+
+        max-width: 400px;
+
+    }
+
+
+    .event-detail-card {
+
+        display: grid;
+
+        grid-template-columns: 50px 1fr;
+
+        grid-template-rows: auto auto;
+
+        column-gap: 14px;
+
+        text-align: left;
+
+        align-items: center;
+
+        padding: 15px;
+
+    }
+
+
+    .event-detail-icon {
+
+        grid-row:
+            1 / 3;
+
+        width: 46px;
+
+        height: 46px;
+
+        margin: 0;
+
+    }
+
+
+    .event-detail-label {
+
+        margin: 0;
+
+    }
+
+
+    .event-detail-value {
+
+        margin-top: 2px;
+
+    }
+
+}
+
+
+/* =====================================================
+   MÓVILES PEQUEÑOS
+===================================================== */
+
+@media (max-width: 400px) {
+
+    .event-hero-content {
+
+        padding:
+            70px 12px 35px;
+
+    }
+
+
+    .event-hero-title {
+
+        font-size: 1.7rem;
+
+    }
+
+
+    .event-hero-image {
+
+        max-width: 220px;
+
+    }
+
+
+    .event-hero-description {
+
+        font-size: 0.88rem;
+
+    }
+
+}
