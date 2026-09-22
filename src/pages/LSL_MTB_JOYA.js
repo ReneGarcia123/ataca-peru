@@ -1032,7 +1032,7 @@ const resetFormulario = () => {
         categorias={categorias}
         items={items}
       />
-      <ButtonBases url={"https://drive.google.com/file/d/1-Iac00czDNWGKF_xAMOOm1Y-OEKvh3eY/view?usp=drive_link"}/>
+      <ButtonBases url={"https://drive.google.com/file/d/1Hwu7QtuINUaxwJTUo2Iq-Dwr68e9yOs9/view?usp=sharing"}/>
       <br />
       <br />
       <br />
