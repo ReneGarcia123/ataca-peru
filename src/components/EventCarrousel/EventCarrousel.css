@@ -1,0 +1,268 @@
+/* =========================================================
+   EVENT CARROUSEL
+   ========================================================= */
+
+.event-carrousel-section {
+  width: 100%;
+  padding: 80px 20px;
+  box-sizing: border-box;
+  background: #ffffff;
+}
+
+.event-carrousel-container {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   TÍTULO
+   ========================================================= */
+
+.event-carrousel-title {
+  margin: 0 0 40px;
+
+  text-align: center;
+
+  font-size: clamp(30px, 4vw, 48px);
+  font-weight: 800;
+  line-height: 1.1;
+
+  color: #111111;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   SWIPER
+   ========================================================= */
+
+.event-carrousel {
+  width: 100%;
+  padding: 20px 0 60px;
+}
+
+.event-carrousel .swiper-slide {
+  display: flex;
+  justify-content: center;
+
+  height: auto;
+}
+
+
+/* =========================================================
+   CARD DE IMAGEN
+   ========================================================= */
+
+.event-carrousel-slide-card {
+  width: 100%;
+  max-width: 420px;
+
+  overflow: hidden;
+
+  border-radius: 22px;
+
+  background: #ffffff;
+
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.event-carrousel-slide-card img {
+  display: block;
+
+  width: 100%;
+  height: 500px;
+
+  object-fit: cover;
+}
+
+
+/* =========================================================
+   PRÓXIMAMENTE
+   ========================================================= */
+
+.event-carrousel-coming-soon {
+  width: 100%;
+  min-height: 500px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  border-radius: 24px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #222222,
+      #444444
+    );
+
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.event-carrousel-coming-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+}
+
+.event-carrousel-coming-label {
+  padding: 18px 35px;
+
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+
+  background: rgba(0, 0, 0, 0.45);
+
+  color: #ffffff;
+
+  font-size: clamp(24px, 4vw, 42px);
+  font-weight: 900;
+
+  letter-spacing: 3px;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   NAVEGACIÓN
+   ========================================================= */
+
+.event-carrousel .swiper-button-prev,
+.event-carrousel .swiper-button-next {
+  color: #ffffff;
+
+  width: 45px;
+  height: 45px;
+
+  border-radius: 50%;
+
+  background: rgba(0, 0, 0, 0.55);
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.event-carrousel .swiper-button-prev:hover,
+.event-carrousel .swiper-button-next:hover {
+  background: rgba(0, 0, 0, 0.8);
+
+  transform: scale(1.05);
+}
+
+.event-carrousel .swiper-button-prev::after,
+.event-carrousel .swiper-button-next::after {
+  font-size: 18px;
+  font-weight: 900;
+}
+
+
+/* =========================================================
+   PAGINACIÓN
+   ========================================================= */
+
+.event-carrousel .swiper-pagination {
+  bottom: 15px;
+}
+
+.event-carrousel .swiper-pagination-bullet {
+  width: 9px;
+  height: 9px;
+
+  opacity: 0.5;
+}
+
+.event-carrousel .swiper-pagination-bullet-active {
+  opacity: 1;
+
+  transform: scale(1.2);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .event-carrousel-section {
+    padding: 65px 20px;
+  }
+
+  .event-carrousel-slide-card img {
+    height: 430px;
+  }
+
+  .event-carrousel-coming-soon {
+    min-height: 430px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .event-carrousel-section {
+    padding: 50px 15px;
+  }
+
+  .event-carrousel-title {
+    margin-bottom: 25px;
+
+    font-size: 30px;
+  }
+
+  .event-carrousel {
+    padding-top: 10px;
+    padding-bottom: 50px;
+  }
+
+  .event-carrousel-slide-card {
+    max-width: 350px;
+
+    border-radius: 18px;
+  }
+
+  .event-carrousel-slide-card img {
+    height: 400px;
+  }
+
+  .event-carrousel-coming-soon {
+    min-height: 350px;
+
+    border-radius: 18px;
+  }
+
+  .event-carrousel-coming-label {
+    padding: 15px 22px;
+
+    font-size: 25px;
+    letter-spacing: 1px;
+  }
+
+  .event-carrousel .swiper-button-prev,
+  .event-carrousel .swiper-button-next {
+    width: 38px;
+    height: 38px;
+  }
+
+  .event-carrousel .swiper-button-prev::after,
+  .event-carrousel .swiper-button-next::after {
+    font-size: 15px;
+  }
+
+}

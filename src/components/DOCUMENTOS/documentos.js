@@ -97,7 +97,43 @@ const documentos = {
 
         ]
 
-    }
+    },
+
+    corro_ninos_2026: {
+
+        tituloSeccion: "Documentos importanes",
+
+        items: [
+
+            {
+                titulo: "Deslinde de responsabilidad",
+
+                descripcion:
+                    "Documento que exime de responsabilidad a la organización del evento, firmado por los participantes o sus representantes legales.",
+
+                imagen:"https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/CORRO%20POR%20LOS%20NINOS%202026/3.jpg",
+
+                boton: "Ver documento",
+
+                link: "https://drive.google.com/file/d/14rFRcXXlZcJibQvfSXZd3r66jVBpWZru/view?usp=sharing"
+            },
+
+            {
+                titulo: "Autorización de menores de edad",
+
+                descripcion:
+                    "Documento que permite a los menores de edad participar en el evento, firmado por sus padres o tutores legales.",
+
+                imagen:"https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/CORRO%20POR%20LOS%20NINOS%202026/2.jpg",
+
+                boton: "Ver documento",
+
+                link: "https://drive.google.com/file/d/1xulkF-_FWJUkwvKxd9xVWlI2Rb8fgCAL/view?usp=sharing"
+            }
+
+        ]
+
+    },
 
 };
 

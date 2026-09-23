@@ -1,0 +1,376 @@
+/* =========================================================
+   EVENT CATEGORIES
+   ========================================================= */
+
+.event-categories-section {
+  width: 100%;
+  padding: 80px 20px;
+  box-sizing: border-box;
+  background: #ffffff;
+}
+
+.event-categories-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 60px;
+
+  align-items: center;
+}
+
+
+/* =========================================================
+   IMAGEN
+   ========================================================= */
+
+.event-categories-left {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.event-categories-left img {
+  display: block;
+
+  width: 100%;
+  max-width: 500px;
+  height: 560px;
+
+  object-fit: cover;
+
+  border-radius: 24px;
+
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================================================
+   CONTENIDO
+   ========================================================= */
+
+.event-categories-right {
+  width: 100%;
+}
+
+
+/* =========================================================
+   TITULO
+   ========================================================= */
+
+.event-categories-title {
+  margin: 0 0 15px;
+
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 800;
+
+  line-height: 1.05;
+
+  color: #111111;
+
+  text-transform: uppercase;
+}
+
+.event-categories-description {
+  margin: 0 0 30px;
+
+  max-width: 650px;
+
+  font-size: 17px;
+  line-height: 1.7;
+
+  color: #666666;
+}
+
+
+/* =========================================================
+   CARD DE CATEGORÍAS
+   ========================================================= */
+
+.event-categories-card {
+  width: 100%;
+  margin-bottom: 30px;
+
+  padding: 25px 30px;
+
+  box-sizing: border-box;
+
+  background: #f8f8f8;
+
+  border-radius: 18px;
+
+  border: 1px solid #eeeeee;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.event-categories-card-content {
+  display: flex;
+  align-items: stretch;
+
+  gap: 20px;
+}
+
+
+/* =========================================================
+   LINEA VERTICAL
+   ========================================================= */
+
+.event-categories-line {
+  width: 5px;
+  min-width: 5px;
+
+  border-radius: 10px;
+
+  background: linear-gradient(
+    180deg,
+    #e63946,
+    #ff7b7b
+  );
+}
+
+
+/* =========================================================
+   INFORMACIÓN
+   ========================================================= */
+
+.event-categories-info {
+  flex: 1;
+}
+
+.event-categories-card-title {
+  margin: 0 0 15px;
+
+  font-size: 22px;
+  font-weight: 700;
+
+  color: #111111;
+}
+
+
+/* =========================================================
+   LISTA
+   ========================================================= */
+
+.event-categories-list {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 10px 25px;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.event-categories-list li {
+  position: relative;
+
+  padding-left: 20px;
+
+  font-size: 15px;
+  line-height: 1.5;
+
+  color: #555555;
+}
+
+.event-categories-list li::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 9px;
+
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #e63946;
+}
+
+
+/* =========================================================
+   ITEMS
+   ========================================================= */
+
+.event-categories-items {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 15px;
+}
+
+
+/* =========================================================
+   ITEM CARD
+   ========================================================= */
+
+.event-category-item {
+  padding: 22px 18px;
+
+  background: #ffffff;
+
+  border: 1px solid #eeeeee;
+
+  border-radius: 18px;
+
+  text-align: center;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.event-category-item:hover {
+  transform: translateY(-5px);
+
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.10);
+}
+
+
+/* =========================================================
+   ICONO
+   ========================================================= */
+
+.event-category-icon {
+  width: 55px;
+  height: 55px;
+
+  margin: 0 auto 15px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #f5f5f5;
+
+  color: #e63946;
+
+  font-size: 24px;
+}
+
+
+/* =========================================================
+   TITULO ITEM
+   ========================================================= */
+
+.event-category-item-title {
+  margin: 0 0 10px;
+
+  font-size: 17px;
+  font-weight: 700;
+
+  color: #111111;
+}
+
+
+/* =========================================================
+   TEXTO ITEM
+   ========================================================= */
+
+.event-category-item-text {
+  margin: 0;
+
+  font-size: 14px;
+  line-height: 1.6;
+
+  color: #777777;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .event-categories-container {
+    grid-template-columns: 1fr;
+
+    gap: 40px;
+  }
+
+  .event-categories-left img {
+    height: 450px;
+    max-width: 600px;
+  }
+
+  .event-categories-right {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .event-categories-section {
+    padding: 55px 16px;
+  }
+
+  .event-categories-container {
+    gap: 30px;
+  }
+
+  .event-categories-left img {
+    height: 330px;
+
+    border-radius: 18px;
+  }
+
+  .event-categories-title {
+    font-size: 34px;
+  }
+
+  .event-categories-description {
+    font-size: 15px;
+
+    line-height: 1.6;
+  }
+
+  .event-categories-card {
+    padding: 20px;
+  }
+
+  .event-categories-card-content {
+    gap: 15px;
+  }
+
+  .event-categories-card-title {
+    font-size: 19px;
+  }
+
+  .event-categories-list {
+    grid-template-columns: 1fr;
+
+    gap: 8px;
+  }
+
+  .event-categories-items {
+    grid-template-columns: 1fr;
+
+    gap: 12px;
+  }
+
+  .event-category-item {
+    padding: 20px;
+  }
+
+}

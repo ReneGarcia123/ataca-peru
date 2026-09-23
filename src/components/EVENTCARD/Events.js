@@ -33,6 +33,16 @@ const eventos = [
     imagen: "https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/UTCC2026.jpg?updatedAt=1789644060168",
     disponible:false
   },
+  {
+    id: 4,
+    titulo: "YO CORRO POR LOS NIÑOS 2026",
+    fecha: "13 de diciembre 2026",
+    lugar: "Characato, Arequipa, Perú",
+    descripcion: "Corre por una sonrisa, en esta carrera solidaria que apoya a los niños en situación de vulnerabilidad.",
+    enlace: "/corro_ninos_2026",
+    imagen: "https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/CORRO%20POR%20LOS%20NINOS%202026/IMG_2490.PNG",
+    disponible:true
+  },
 ];
 
 const Events = () => {
