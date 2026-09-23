@@ -1,0 +1,213 @@
+/* =========================================================
+   EVENT SPONSORS
+   ========================================================= */
+
+.event-sponsors-section {
+  width: 100%;
+  padding: 60px 0;
+
+  background: #ffffff;
+
+  overflow: hidden;
+}
+
+.event-sponsors-container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   TÍTULO
+   ========================================================= */
+
+.event-sponsors-title {
+  margin: 0 20px 35px;
+
+  text-align: center;
+
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 800;
+
+  line-height: 1.1;
+
+  color: #111111;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   CONTENEDOR DEL SLIDER
+   ========================================================= */
+
+.event-sponsors-slider {
+  width: 100%;
+
+  overflow: hidden;
+
+  position: relative;
+}
+
+
+/* =========================================================
+   TRACK
+   ========================================================= */
+
+.event-sponsors-track {
+  display: flex;
+  align-items: center;
+
+  width: max-content;
+
+  animation: eventSponsorsMove 25s linear infinite;
+}
+
+
+/* =========================================================
+   AUSPICIADOR
+   ========================================================= */
+
+.event-sponsor {
+  width: 150px;
+  height: 80px;
+
+  margin: 0 20px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+
+  transition: transform 0.3s ease;
+}
+
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+.event-sponsor img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  /*
+   * Blanco y negro por defecto
+   */
+  filter: grayscale(100%);
+
+  opacity: 0.65;
+
+  transition:
+    filter 0.3s ease,
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+
+/* =========================================================
+   HOVER
+   ========================================================= */
+
+.event-sponsor:hover img {
+  filter: grayscale(0%);
+
+  opacity: 1;
+
+  transform: scale(1.08);
+}
+
+
+/* =========================================================
+   CUANDO SE HACE CLIC
+   ========================================================= */
+
+.event-sponsor:active img {
+  filter: grayscale(0%);
+
+  opacity: 1;
+
+  transform: scale(1.05);
+}
+
+
+/* =========================================================
+   ANIMACIÓN INFINITA
+   ========================================================= */
+
+@keyframes eventSponsorsMove {
+
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .event-sponsors-section {
+    padding: 50px 0;
+  }
+
+  .event-sponsors-title {
+    margin-bottom: 30px;
+  }
+
+  .event-sponsor {
+    width: 125px;
+    height: 70px;
+
+    margin: 0 16px;
+  }
+
+  .event-sponsors-track {
+    animation-duration: 22s;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .event-sponsors-section {
+    padding: 45px 0;
+  }
+
+  .event-sponsors-title {
+    margin-bottom: 25px;
+
+    font-size: 28px;
+  }
+
+  .event-sponsor {
+    width: 105px;
+    height: 60px;
+
+    margin: 0 12px;
+  }
+
+  .event-sponsors-track {
+    animation-duration: 18s;
+  }
+
+}

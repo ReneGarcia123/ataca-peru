@@ -9,6 +9,8 @@ import Documentos from "../components/DOCUMENTOS/Documentos.jsx";
 import documentos from "../components/DOCUMENTOS/documentos.js";
 import EventCarrousel from "../components/EventCarrousel/EventCarrousel.jsx";
 import eventCarrousel from "../components/EventCarrousel/eventCarrousel.js";  
+import EventSponsor from "../components/EventSponsors/EventSponsor.jsx"
+import eventSponsor from "../components/EventSponsors/eventSponsor.js"
 
 const CORRO_NINOS_2026 = () => {
 
@@ -21,6 +23,7 @@ const CORRO_NINOS_2026 = () => {
       <EventMapping data={eventMapping.corro_ninos_2026} />
       <EventMapping data={eventMapping.corro_ninos_mascotas_2026} />
       <Documentos data={documentos.corro_ninos_2026} />
+      <EventSponsor data={eventSponsor.corro_ninos_2026} />
     </>
   )
 }

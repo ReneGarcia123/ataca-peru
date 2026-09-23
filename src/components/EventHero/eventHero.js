@@ -87,7 +87,7 @@ const eventHero = {
         titulo: "YO CORRO POR LOS NIÑOS 6K 2026",
 
         descripcion:
-            "Prepárate para desafiar la altura, los senderos ancestrales y tus propios límites en “El Valle de Chilina”. Cada kilómetro pondrá a prueba tu resistencia y determinación. Vive la adrenalina de una experiencia única rumbo a la gloria de la AQP TRAIL RUNNING SERIES INTERNATIONAL 2026.",
+            "Corre por una causa noble y sé parte de la transformación. Únete a nosotros en la carrera 'Yo Corro por los Niños 6K', donde cada paso que das contribuye a mejorar la vida de los niños necesitados. Juntos, podemos marcar la diferencia y brindarles un futuro más brillante.",
 
         video:
             "https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/AQP_TRS_CHILINA_2026/El%20Valle%20de%20Chilina%20Trail.mp4",
@@ -101,7 +101,7 @@ const eventHero = {
                 id: 1,
                 icon: <FaMapMarkerAlt />,
                 label: "Lugar",
-                value: "Chilina, Arequipa, Perú"
+                value: "Characato, Arequipa, Perú"
             },
 
             {

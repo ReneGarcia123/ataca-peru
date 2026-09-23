@@ -101,7 +101,7 @@ const documentos = {
 
     corro_ninos_2026: {
 
-        tituloSeccion: "Documentos importanes",
+        tituloSeccion: "DOCUMENTOS IMPORTANTES",
 
         items: [
 
