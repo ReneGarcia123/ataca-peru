@@ -11,13 +11,21 @@ import EventCarrousel from "../components/EventCarrousel/EventCarrousel.jsx";
 import eventCarrousel from "../components/EventCarrousel/eventCarrousel.js";  
 import EventSponsor from "../components/EventSponsors/EventSponsor.jsx"
 import eventSponsor from "../components/EventSponsors/eventSponsor.js"
+import EventRegisterButton from "../components/EventRegisterButton/EventRegisterButton.jsx";
+import eventRegisterButton from "../components/EventRegisterButton/eventRegisterButton.js";
 
 const CORRO_NINOS_2026 = () => {
 
-
+  
   return (
     <>
       <EventHero data={eventHero.corro_ninos_2026} />
+      <br/>
+      <br/>
+      <EventRegisterButton
+        data={eventRegisterButton.corro_ninos_2026}
+      />
+
       <EventCategories data={eventCategories.corro_ninos}/>
       <Documentos data={documentos.corro_ninos_2026_bases} />
       <EventCarrousel data={eventCarrousel.corro_ninos_2026} />

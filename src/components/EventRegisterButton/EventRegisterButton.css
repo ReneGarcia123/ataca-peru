@@ -1,0 +1,223 @@
+/* =========================================================
+   CARD DE INSCRIPCIÓN
+   ========================================================= */
+
+.event-register-card {
+  width: 100%;
+  max-width: 460px;
+
+  margin: 0 auto;
+
+  overflow: hidden;
+
+  background: #ffffff;
+
+  border-radius: 20px;
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.10);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.event-register-card:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.14);
+}
+
+
+/* =========================================================
+   IMAGEN
+   ========================================================= */
+
+.event-register-image {
+  width: 100%;
+
+  overflow: hidden;
+}
+
+.event-register-image img {
+  display: block;
+
+  width: 100%;
+  height: 250px;
+
+  object-fit: cover;
+
+  transition: transform 0.4s ease;
+}
+
+.event-register-card:hover
+.event-register-image img {
+  transform: scale(1.03);
+}
+
+
+/* =========================================================
+   CONTENIDO
+   ========================================================= */
+
+.event-register-content {
+  padding: 28px 25px 27px;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   TÍTULO
+   ========================================================= */
+
+.event-register-title {
+  margin: 0 0 12px;
+
+  font-size: 27px;
+
+  font-weight: 800;
+
+  line-height: 1.2;
+
+  color: #111111;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   DESCRIPCIÓN
+   ========================================================= */
+
+.event-register-description {
+  margin: 0 auto 22px;
+
+  max-width: 390px;
+
+  font-size: 17px;
+
+  line-height: 1.5;
+
+  color: #555555;
+}
+
+
+/* =========================================================
+   BOTÓN
+   ========================================================= */
+
+.event-register-button {
+  display: inline-block;
+
+  min-width: 130px;
+
+  padding: 14px 24px;
+
+  border: 1px solid #cfcfcf;
+
+  border-radius: 9px;
+
+  background: linear-gradient(
+    135deg,
+    #ef5350,
+    #f04b55
+  );
+
+  color: #ffffff;
+
+  font-family: inherit;
+
+  font-size: 16px;
+
+  font-weight: 700;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 7px 18px rgba(239, 83, 80, 0.35);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.event-register-button:hover {
+  background: linear-gradient(
+    135deg,
+    #e94343,
+    #f04a52
+  );
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 22px rgba(239, 83, 80, 0.45);
+}
+
+.event-register-button:active {
+  transform: translateY(1px);
+
+  box-shadow:
+    0 4px 10px rgba(239, 83, 80, 0.30);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .event-register-card {
+    max-width: 430px;
+  }
+
+  .event-register-image img {
+    height: 240px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .event-register-card {
+    max-width: 100%;
+
+    border-radius: 18px;
+  }
+
+  .event-register-image img {
+    height: 220px;
+  }
+
+  .event-register-content {
+    padding: 24px 20px 25px;
+  }
+
+  .event-register-title {
+    font-size: 24px;
+  }
+
+  .event-register-description {
+    font-size: 15px;
+  }
+
+  .event-register-button {
+    min-width: 125px;
+
+    padding: 13px 22px;
+
+    font-size: 15px;
+  }
+
+}
