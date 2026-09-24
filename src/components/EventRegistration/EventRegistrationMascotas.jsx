@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./EventRegistration.css";
 import emailjs from "@emailjs/browser";
 
-export default function EventRegistration({
+export default function EventRegistrationMascotas({
   isOpen,
   onClose,
   data
@@ -41,7 +41,7 @@ export default function EventRegistration({
     dni: "",
     nombres: "",
     apellidos: "",
-    fechaNacimiento: "",
+    nombreMascota: "",
     genero: "",
     equipo: "",
     telefono: "",
@@ -69,6 +69,7 @@ export default function EventRegistration({
     datos: false
   });
 
+
   /*
    * ============================================
    * RESET
@@ -82,19 +83,20 @@ export default function EventRegistration({
       setExito("");
       setVerificandoDni(false);
       setEnviando(false);
+      
 
-      setForm({
-        dni: "",
-        nombres: "",
-        apellidos: "",
-        fechaNacimiento: "",
-        genero: "",
-        equipo: "",
-        telefono: "",
-        correo: "",
-        fotoBienvenida: null,
-        capturaPago: null
-      });
+    setForm({
+      dni: "",
+      nombres: "",
+      apellidos: "",
+      nombreMascota: "",
+      genero: "",
+      equipo: "",
+      telefono: "",
+      correo: "",
+      fotoBienvenida: null,
+      capturaPago: null
+    });
 
       setArchivos({
         fotoBienvenida: null,
@@ -111,6 +113,7 @@ export default function EventRegistration({
     }
   }, [isOpen]);
 
+
   /*
    * ============================================
    * SI EL MODAL ESTÁ CERRADO
@@ -120,6 +123,7 @@ export default function EventRegistration({
   if (!isOpen || !data) {
     return null;
   }
+
 
   /*
    * ============================================
@@ -138,6 +142,7 @@ export default function EventRegistration({
     setError("");
   };
 
+
   /*
    * ============================================
    * NORMALIZAR DNI / CE
@@ -151,6 +156,7 @@ export default function EventRegistration({
       .replace(/\s+/g, "");
   };
 
+
   /*
    * ============================================
    * VALIDAR DNI / CE
@@ -158,6 +164,7 @@ export default function EventRegistration({
    */
 
   const documentoValido = (documento) => {
+
     if (!documento) {
       return false;
     }
@@ -173,6 +180,7 @@ export default function EventRegistration({
     return /^[A-Z0-9-]+$/.test(documento);
   };
 
+
   /*
    * ============================================
    * PASO 1
@@ -181,10 +189,15 @@ export default function EventRegistration({
    */
 
   const verificarDni = async () => {
+
     const dni = normalizarDocumento(form.dni);
 
     if (!documentoValido(dni)) {
-      setError("Ingresa un DNI o CE válido.");
+
+      setError(
+        "Ingresa un DNI o CE válido."
+      );
+
       return;
     }
 
@@ -192,37 +205,51 @@ export default function EventRegistration({
     setError("");
 
     try {
+
       const response = await fetch(
-        `${data.supabaseUrl}/rest/v1/rpc/verificar_dni_ce`,
+        `${data.supabaseUrl}/rest/v1/rpc/verificar_dni_ce_mascota`,
         {
           method: "POST",
+
           headers: {
-            apikey: data.supabasePublishableKey,
-            "Content-Type": "application/json"
+            apikey:
+              data.supabasePublishableKey,
+
+            "Content-Type":
+              "application/json"
           },
+
           body: JSON.stringify({
             documento: dni
           })
         }
       );
 
+
       if (!response.ok) {
-        const texto = await response.text();
+
+        const texto =
+          await response.text();
 
         throw new Error(
           `No se pudo verificar el DNI o CE. ${texto}`
         );
       }
 
-      const existe = await response.json();
+
+      const existe =
+        await response.json();
+
 
       if (existe === true) {
+
         setError(
           "Este DNI o CE ya se encuentra inscrito. No es posible realizar una nueva inscripción."
         );
 
         return;
       }
+
 
       setForm((prev) => ({
         ...prev,
@@ -232,6 +259,7 @@ export default function EventRegistration({
       setStep(2);
 
     } catch (err) {
+
       console.error(
         "ERROR VERIFICANDO DNI:",
         err
@@ -243,9 +271,12 @@ export default function EventRegistration({
       );
 
     } finally {
+
       setVerificandoDni(false);
+
     }
   };
+
 
   /*
    * ============================================
@@ -254,69 +285,100 @@ export default function EventRegistration({
    */
 
   const continuarPaso2 = () => {
+
     if (!form.nombres.trim()) {
-      setError("Ingresa tus nombres.");
+
+      setError(
+        "Ingresa tus nombres."
+      );
+
       return;
     }
+
 
     if (!form.apellidos.trim()) {
-      setError("Ingresa tus apellidos.");
-      return;
-    }
 
-    if (!form.fechaNacimiento) {
       setError(
-        "Selecciona tu fecha de nacimiento."
+        "Ingresa tus apellidos."
       );
+
       return;
     }
+  if (!form.nombreMascota.trim()) {
+
+  setError(
+    "Ingresa el nombre de tu mascota."
+  );
+
+  return;
+}
+
+
+
 
     if (!form.genero) {
-      setError("Selecciona tu género.");
+
+      setError(
+        "Selecciona tu género."
+      );
+
       return;
     }
+
 
     if (!form.equipo.trim()) {
-      setError("Selecciona tu equipo.");
+
+      setError(
+        "Selecciona tu equipo"
+      );
+
       return;
     }
 
-    if (
-      form.equipo === "OTRO" &&
-      !otroEquipo.trim()
-    ) {
-      setError(
-        "Debes ingresar el nombre de tu equipo."
-      );
+    if (form.equipo === "OTRO" && !otroEquipo.trim()) {
+      setError("Debes ingresar el nombre de tu equipo.");
       return;
     }
+
 
     if (!form.telefono.trim()) {
-      setError("Ingresa tu teléfono.");
+
+      setError(
+        "Ingresa tu teléfono."
+      );
+
       return;
     }
 
+
     if (!form.correo.trim()) {
+
       setError(
         "Ingresa tu correo electrónico."
       );
+
       return;
     }
+
 
     if (
       !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
         form.correo
       )
     ) {
+
       setError(
         "Ingresa un correo electrónico válido."
       );
+
       return;
     }
+
 
     setError("");
     setStep(3);
   };
+
 
   /*
    * ============================================
@@ -329,30 +391,59 @@ export default function EventRegistration({
     maxWidth = 1600,
     quality = 0.8
   ) => {
+
     return new Promise((resolve, reject) => {
-      const reader = new FileReader();
+
+      const reader =
+        new FileReader();
+
 
       reader.onload = () => {
-        const img = new Image();
+
+        const img =
+          new Image();
+
 
         img.onload = () => {
-          let width = img.width;
-          let height = img.height;
+
+          let width =
+            img.width;
+
+          let height =
+            img.height;
+
 
           if (width > maxWidth) {
-            const ratio = maxWidth / width;
 
-            width = maxWidth;
-            height = height * ratio;
+            const ratio =
+              maxWidth / width;
+
+            width =
+              maxWidth;
+
+            height =
+              height * ratio;
           }
 
+
           const canvas =
-            document.createElement("canvas");
+            document.createElement(
+              "canvas"
+            );
 
-          canvas.width = width;
-          canvas.height = height;
 
-          const ctx = canvas.getContext("2d");
+          canvas.width =
+            width;
+
+          canvas.height =
+            height;
+
+
+          const ctx =
+            canvas.getContext(
+              "2d"
+            );
+
 
           ctx.drawImage(
             img,
@@ -362,6 +453,7 @@ export default function EventRegistration({
             height
           );
 
+
           resolve(
             canvas.toDataURL(
               "image/jpeg",
@@ -370,28 +462,39 @@ export default function EventRegistration({
           );
         };
 
+
         img.onerror = () => {
+
           reject(
             new Error(
               "No se pudo procesar la imagen."
             )
           );
+
         };
 
-        img.src = reader.result;
+
+        img.src =
+          reader.result;
       };
 
+
       reader.onerror = () => {
+
         reject(
           new Error(
             "No se pudo leer la imagen."
           )
         );
+
       };
 
+
       reader.readAsDataURL(file);
+
     });
   };
+
 
   /*
    * ============================================
@@ -403,54 +506,77 @@ export default function EventRegistration({
     e,
     tipo
   ) => {
-    const file = e.target.files?.[0];
+
+    const file =
+      e.target.files?.[0];
+
 
     if (!file) {
       return;
     }
 
+
     if (!file.type.startsWith("image/")) {
+
       setError(
         "Solo puedes subir imágenes."
       );
+
       return;
     }
 
+
     if (file.size > 15 * 1024 * 1024) {
+
       setError(
         "La imagen no debe superar los 15 MB."
       );
+
       return;
     }
 
+
     try {
+
       setError("");
+
 
       const base64 =
         await convertirImagen(file);
 
+
       setArchivos((prev) => ({
         ...prev,
+
         [tipo]: {
           base64,
-          nombre: file.name
+          nombre:
+            file.name
         }
       }));
 
+
       setForm((prev) => ({
         ...prev,
-        [tipo]: file.name
+
+        [tipo]:
+          file.name
       }));
 
     } catch (err) {
-      console.error(err);
+
+      console.error(
+        err
+      );
 
       setError(
         err?.message ||
         "No se pudo procesar la imagen."
       );
+
     }
   };
+
 
   /*
    * ============================================
@@ -459,16 +585,21 @@ export default function EventRegistration({
    */
 
   const continuarPaso3 = () => {
+
     if (!archivos.capturaPago) {
+
       setError(
         "Debes subir la captura de pago."
       );
+
       return;
     }
+
 
     setError("");
     setStep(4);
   };
+
 
   /*
    * ============================================
@@ -477,39 +608,54 @@ export default function EventRegistration({
    */
 
   const handleAceptacion = (campo) => {
+
     setAceptaciones((prev) => ({
       ...prev,
-      [campo]: !prev[campo]
+
+      [campo]:
+        !prev[campo]
     }));
 
     setError("");
   };
 
+
   const continuarPaso4 = () => {
+
     if (!aceptaciones.bases) {
+
       setError(
         "Debes aceptar las bases generales."
       );
+
       return;
     }
 
+
     if (!aceptaciones.deslinde) {
+
       setError(
         "Debes aceptar el Deslinde de Responsabilidad."
       );
+
       return;
     }
 
+
     if (!aceptaciones.datos) {
+
       setError(
         "Debes confirmar que los datos proporcionados son correctos."
       );
+
       return;
     }
+
 
     setError("");
     setStep(5);
   };
+
 
   /*
    * ============================================
@@ -518,12 +664,15 @@ export default function EventRegistration({
    */
 
   const volver = () => {
+
     setError("");
 
     if (step > 1) {
       setStep(step - 1);
     }
+
   };
+
 
   /*
    * ============================================
@@ -532,31 +681,46 @@ export default function EventRegistration({
    */
 
   const enviarInscripcion = async () => {
+
     setEnviando(true);
     setError("");
 
     try {
+
       const payload = {
-        dni: form.dni,
-        nombres: form.nombres.trim(),
-        apellidos: form.apellidos.trim(),
-        telefono: form.telefono.trim(),
-        correo: form.correo.trim(),
-        genero: form.genero,
+
+        dni:
+          form.dni,
+
+        nombres:
+          form.nombres.trim(),
+
+        apellidos:
+          form.apellidos.trim(),
+
+        telefono:
+          form.telefono.trim(),
+
+        correo:
+          form.correo.trim(),
+
+        genero:
+          form.genero,
 
         equipo:
           form.equipo === "OTRO"
             ? otroEquipo.trim()
             : form.equipo,
 
-        fechaNacimiento:
-          form.fechaNacimiento,
+        nombreMascota:
+          form.nombreMascota.trim(),
 
         capturaPagoBase64:
           archivos.capturaPago.base64,
 
         capturaPagoNombre:
           archivos.capturaPago.nombre,
+
 
         fotoBienvenidaBase64:
           archivos.fotoBienvenida
@@ -567,96 +731,71 @@ export default function EventRegistration({
           archivos.fotoBienvenida
             ? archivos.fotoBienvenida.nombre
             : null
+
       };
 
-      /*
-       * ==========================================
-       * GOOGLE APPS SCRIPT
-       * ==========================================
-       */
 
-      try {
-        await fetch(
-          data.googleAppsScriptUrl,
-          {
-            method: "POST",
-            body: JSON.stringify(payload),
-            redirect: "follow"
-          }
-        );
-      } catch (error) {
-        console.warn(
-          "El navegador no pudo leer la respuesta de Apps Script:",
-          error
-        );
-      }
+    /*
+    * ==========================================
+    * GOOGLE APPS SCRIPT
+    * ==========================================
+    */
+    try {
+      await fetch(data.googleAppsScriptUrl, {
+        method: "POST",
+        body: JSON.stringify(payload),
+        redirect: "follow"
+      });
+    } catch (error) {
+      console.warn(
+        "El navegador no pudo leer la respuesta de Apps Script:",
+        error
+      );
+    }
 
-      /*
-       * ==========================================
-       * ENVÍO DE CORREO
-       * ==========================================
-       */
+    // ================================
+    // ENVÍO DE CORREO DE CONFIRMACIÓN
+    // ================================
 
-      try {
-        const emailParams = {
-          nombres:
-            form.nombres.trim(),
+    try {
+      const emailParams = {
+        nombres: form.nombres.trim(),
+        apellidos: form.apellidos.trim(),
+        dni: form.dni,
+        telefono: form.telefono.trim(),
+        nombreMascota: form.nombreMascota.trim(),
+        correo: form.correo.trim(),
+        genero: form.genero,
+        equipo:
+          form.equipo === "OTRO"
+            ? otroEquipo.trim()
+            : form.equipo
+      };
 
-          apellidos:
-            form.apellidos.trim(),
-
-          dni:
-            form.dni,
-
-          telefono:
-            form.telefono.trim(),
-
-          fechaNacimiento:
-            form.fechaNacimiento,
-
-          correo:
-            form.correo.trim(),
-
-          genero:
-            form.genero,
-
-          equipo:
-            form.equipo === "OTRO"
-              ? otroEquipo.trim()
-              : form.equipo
-        };
-
-        await emailjs.send(
-          data.emailServiceId,
-          data.emailTemplateId,
-          emailParams,
-          data.emailPublicKey
-        );
-
-        console.log(
-          "Correo de confirmación enviado correctamente."
-        );
-
-      } catch (error) {
-        console.error(
-          "Error enviando correo de confirmación:",
-          error
-        );
-      }
-
-      /*
-       * ==========================================
-       * MOSTRAR ÉXITO
-       * ==========================================
-       */
-
-      setExito(
-        `¡Gracias por tu inscripción! Tu inscripción fue registrada correctamente. Se enviará un correo de confirmación a ${form.correo}.`
+      await emailjs.send(
+        data.emailServiceId,
+        data.emailTemplateId,
+        emailParams,
+        data.emailPublicKey
       );
 
-      setStep(6);
+      console.log("Correo de confirmación enviado correctamente.");
+    } catch (error) {
+      console.error("Error enviando correo de confirmación:", error);
+    }
+
+    // ================================
+    // MOSTRAR ÉXITO
+    // ================================
+
+    setExito(
+      `¡Gracias por tu inscripción! Tu inscripción fue registrada correctamente. Se enviará un correo de confirmación a ${form.correo}.`
+    );
+
+    setStep(6);
 
     } catch (err) {
+
       console.error(
         "ERROR INSCRIPCIÓN:",
         err
@@ -668,9 +807,12 @@ export default function EventRegistration({
       );
 
     } finally {
+
       setEnviando(false);
+
     }
   };
+
 
   /*
    * ============================================
@@ -679,12 +821,15 @@ export default function EventRegistration({
    */
 
   const cerrarModal = () => {
+
     if (enviando) {
       return;
     }
 
     onClose();
+
   };
+
 
   /*
    * ============================================
@@ -693,19 +838,26 @@ export default function EventRegistration({
    */
 
   return (
+
     <div
       className="registration-overlay"
+
       onMouseDown={(e) => {
+
         if (
           e.target === e.currentTarget &&
           !enviando
         ) {
+
           cerrarModal();
+
         }
+
       }}
     >
 
       <div className="registration-modal">
+
 
         {/* =====================================
             HEADER
@@ -723,33 +875,42 @@ export default function EventRegistration({
 
             </span>
 
+
             <h2>
               {data.titulo}
             </h2>
 
           </div>
 
+
           {!enviando && (
+
             <button
               type="button"
+
               className="registration-close"
+
               onClick={cerrarModal}
             >
               ×
             </button>
+
           )}
 
         </div>
+
 
         {/* =====================================
             BARRA DE PROGRESO
         ====================================== */}
 
         {step <= 5 && (
+
           <div className="registration-progress">
 
             <div
               className="registration-progress-bar"
+
               style={{
                 width:
                   `${(step / 5) * 100}%`
@@ -757,272 +918,310 @@ export default function EventRegistration({
             />
 
           </div>
+
         )}
+
 
         {/* =====================================
             ERROR
         ====================================== */}
 
         {error && (
+
           <div className="registration-error">
+
             {error}
+
           </div>
+
         )}
+
 
         {/* =====================================
             PASO 1
         ====================================== */}
 
         {step === 1 && (
+
           <div className="registration-step">
 
             <div className="registration-step-icon">
               1
             </div>
 
+
             <h3>
               Verifica tu documento
             </h3>
+
 
             <p>
               Ingresa tu DNI o CE para comprobar
               que no tengas una inscripción previa.
             </p>
 
+
             <label>
               DNI / CE
             </label>
 
+
             <input
               type="text"
+
               name="dni"
+
               value={form.dni}
+
               onChange={handleChange}
+
               placeholder="DNI o CE"
+
               autoComplete="off"
+
               maxLength={20}
+
               disabled={verificandoDni}
             />
 
+
             <button
               type="button"
+
               className="registration-primary-button"
+
               onClick={verificarDni}
+
               disabled={verificandoDni}
             >
+
               {verificandoDni
                 ? "VERIFICANDO..."
                 : "CONTINUAR"}
+
             </button>
 
           </div>
+
         )}
+
 
         {/* =====================================
             PASO 2
         ====================================== */}
 
         {step === 2 && (
+
           <div className="registration-step">
 
             <h3>
               Datos del participante
             </h3>
 
+
             <p className="registration-info">
-              La categoría se asignará según la
-              edad del participante y las bases
-              generales del evento.
+              Completa los datos de la persona responsable
+              y de su mascota.
             </p>
 
-            <div className="registration-grid">
 
-              <div className="registration-field">
+          <div className="registration-grid">
 
-                <label>
-                  Nombres
-                </label>
+            <div className="registration-field">
 
+              <label>
+                Nombres
+              </label>
+
+              <input
+                type="text"
+                name="nombres"
+                value={form.nombres}
+                onChange={handleChange}
+                placeholder="Nombres"
+              />
+
+            </div>
+
+
+            <div className="registration-field">
+
+              <label>
+                Apellidos
+              </label>
+
+              <input
+                type="text"
+                name="apellidos"
+                value={form.apellidos}
+                onChange={handleChange}
+                placeholder="Apellidos"
+              />
+
+            </div>
+
+
+            <div className="registration-field">
+
+              <label>
+                Nombre de la mascota
+              </label>
+
+              <input
+                type="text"
+                name="nombreMascota"
+                value={form.nombreMascota}
+                onChange={handleChange}
+                placeholder="Nombre de la mascota"
+              />
+
+            </div>
+
+
+            <div className="registration-field">
+
+              <label>
+                Género
+              </label>
+
+              <select
+                name="genero"
+                value={form.genero}
+                onChange={handleChange}
+              >
+
+                <option value="">
+                  Selecciona
+                </option>
+
+                <option value="Damas">
+                  Damas
+                </option>
+
+                <option value="Varones">
+                  Varones
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div className="registration-field">
+
+              <label htmlFor="equipo">
+                Equipo
+              </label>
+
+              <select
+                id="equipo"
+                value={form.equipo}
+                onChange={(e) => {
+                  const valor = e.target.value;
+
+                  setForm((prev) => ({
+                    ...prev,
+                    equipo: valor
+                  }));
+
+                  if (valor !== "OTRO") {
+                    setOtroEquipo("");
+                  }
+
+                  setError("");
+                }}
+                required
+              >
+
+                <option value="">
+                  Selecciona tu equipo
+                </option>
+
+                {equipos.map((equipo) => (
+                  <option
+                    key={equipo}
+                    value={equipo}
+                  >
+                    {equipo}
+                  </option>
+                ))}
+
+                <option value="OTRO">
+                  Otro equipo
+                </option>
+
+              </select>
+
+              {form.equipo === "OTRO" && (
                 <input
                   type="text"
-                  name="nombres"
-                  value={form.nombres}
-                  onChange={handleChange}
-                  placeholder="Nombres"
-                />
-
-              </div>
-
-              <div className="registration-field">
-
-                <label>
-                  Apellidos
-                </label>
-
-                <input
-                  type="text"
-                  name="apellidos"
-                  value={form.apellidos}
-                  onChange={handleChange}
-                  placeholder="Apellidos"
-                />
-
-              </div>
-
-              <div className="registration-field">
-
-                <label>
-                  Fecha de nacimiento
-                </label>
-
-                <input
-                  type="date"
-                  name="fechaNacimiento"
-                  value={form.fechaNacimiento}
-                  onChange={handleChange}
-                />
-
-              </div>
-
-              <div className="registration-field">
-
-                <label>
-                  Género
-                </label>
-
-                <select
-                  name="genero"
-                  value={form.genero}
-                  onChange={handleChange}
-                >
-
-                  <option value="">
-                    Selecciona
-                  </option>
-
-                  <option value="Damas">
-                    Damas
-                  </option>
-
-                  <option value="Varones">
-                    Varones
-                  </option>
-
-                </select>
-
-              </div>
-
-              <div className="registration-field">
-
-                <label htmlFor="equipo">
-                  Equipo
-                </label>
-
-                <select
-                  id="equipo"
-                  value={form.equipo}
+                  placeholder="Escribe el nombre de tu equipo"
+                  value={otroEquipo}
                   onChange={(e) => {
-                    const valor =
-                      e.target.value;
-
-                    setForm((prev) => ({
-                      ...prev,
-                      equipo: valor
-                    }));
-
-                    if (valor !== "OTRO") {
-                      setOtroEquipo("");
-                    }
-
+                    setOtroEquipo(e.target.value);
                     setError("");
                   }}
                   required
-                >
-
-                  <option value="">
-                    Selecciona tu equipo
-                  </option>
-
-                  {equipos.map((equipo) => (
-                    <option
-                      key={equipo}
-                      value={equipo}
-                    >
-                      {equipo}
-                    </option>
-                  ))}
-
-                  <option value="OTRO">
-                    Otro equipo
-                  </option>
-
-                </select>
-
-                {form.equipo === "OTRO" && (
-                  <input
-                    type="text"
-                    placeholder="Escribe el nombre de tu equipo"
-                    value={otroEquipo}
-                    onChange={(e) => {
-                      setOtroEquipo(
-                        e.target.value
-                      );
-
-                      setError("");
-                    }}
-                    required
-                  />
-                )}
-
-              </div>
-
-              <div className="registration-field">
-
-                <label>
-                  Teléfono
-                </label>
-
-                <input
-                  type="tel"
-                  name="telefono"
-                  value={form.telefono}
-                  onChange={handleChange}
-                  placeholder="Teléfono"
                 />
-
-              </div>
-
-              <div className="registration-field registration-field-full">
-
-                <label>
-                  Correo electrónico
-                </label>
-
-                <input
-                  type="email"
-                  name="correo"
-                  value={form.correo}
-                  onChange={handleChange}
-                  placeholder="correo@ejemplo.com"
-                />
-
-              </div>
+              )}
 
             </div>
+
+
+            <div className="registration-field">
+
+              <label>
+                Teléfono
+              </label>
+
+              <input
+                type="tel"
+                name="telefono"
+                value={form.telefono}
+                onChange={handleChange}
+                placeholder="Teléfono"
+              />
+
+            </div>
+
+
+            <div className="registration-field registration-field-full">
+
+              <label>
+                Correo electrónico
+              </label>
+
+              <input
+                type="email"
+                name="correo"
+                value={form.correo}
+                onChange={handleChange}
+                placeholder="correo@ejemplo.com"
+              />
+
+            </div>
+
+          </div>
+
 
             <div className="registration-actions">
 
               <button
                 type="button"
+
                 className="registration-secondary-button"
+
                 onClick={volver}
               >
                 ATRÁS
               </button>
 
+
               <button
                 type="button"
+
                 className="registration-primary-button"
+
                 onClick={continuarPaso2}
               >
                 CONTINUAR
@@ -1031,29 +1230,34 @@ export default function EventRegistration({
             </div>
 
           </div>
+
         )}
+
 
         {/* =====================================
             PASO 3
         ====================================== */}
 
         {step === 3 && (
+
           <div className="registration-step">
 
             <h3>
               Pago y fotografía
             </h3>
 
+
             <div className="registration-payment">
 
               <span>
-                REALIZA TU PAGO VÍA YAPE,
-                COSTO DE INSCRIPCIÓN: S/40.00
+                REALIZA TU PAGO VÍA YAPE
               </span>
+
 
               <strong>
                 {data.numeroYape}
               </strong>
+
 
               <small>
                 {data.nombreYape}
@@ -1061,15 +1265,19 @@ export default function EventRegistration({
 
             </div>
 
+
             <div className="registration-upload">
 
               <label>
                 Captura de pago *
               </label>
 
+
               <input
                 type="file"
+
                 accept="image/*"
+
                 onChange={(e) =>
                   handleFileChange(
                     e,
@@ -1078,26 +1286,38 @@ export default function EventRegistration({
                 }
               />
 
+
               {archivos.capturaPago && (
+
                 <span className="file-success">
+
                   ✓ {archivos.capturaPago.nombre}
+
                 </span>
+
               )}
 
             </div>
 
+
             <div className="registration-upload">
 
               <label>
+
                 Foto para bienvenida
+
                 <span>
                   (Opcional)
                 </span>
+
               </label>
+
 
               <input
                 type="file"
+
                 accept="image/*"
+
                 onChange={(e) =>
                   handleFileChange(
                     e,
@@ -1106,27 +1326,38 @@ export default function EventRegistration({
                 }
               />
 
+
               {archivos.fotoBienvenida && (
+
                 <span className="file-success">
+
                   ✓ {archivos.fotoBienvenida.nombre}
+
                 </span>
+
               )}
 
             </div>
+
 
             <div className="registration-actions">
 
               <button
                 type="button"
+
                 className="registration-secondary-button"
+
                 onClick={volver}
               >
                 ATRÁS
               </button>
 
+
               <button
                 type="button"
+
                 className="registration-primary-button"
+
                 onClick={continuarPaso3}
               >
                 CONTINUAR
@@ -1135,91 +1366,134 @@ export default function EventRegistration({
             </div>
 
           </div>
+
         )}
+
 
         {/* =====================================
             PASO 4
         ====================================== */}
 
         {step === 4 && (
+
           <div className="registration-step">
 
             <h3>
               Aceptaciones
             </h3>
 
+
             <p>
               Para continuar debes aceptar
               todos los puntos.
             </p>
 
+
             <div className="registration-check">
 
               <input
                 type="checkbox"
+
                 id="bases"
-                checked={aceptaciones.bases}
+
+                checked={
+                  aceptaciones.bases
+                }
+
                 onChange={() =>
-                  handleAceptacion("bases")
+                  handleAceptacion(
+                    "bases"
+                  )
                 }
               />
+
 
               <label htmlFor="bases">
+
                 He leído y acepto las bases
                 generales del evento.
+
               </label>
 
             </div>
+
 
             <div className="registration-check">
 
               <input
                 type="checkbox"
+
                 id="deslinde"
-                checked={aceptaciones.deslinde}
+
+                checked={
+                  aceptaciones.deslinde
+                }
+
                 onChange={() =>
-                  handleAceptacion("deslinde")
+                  handleAceptacion(
+                    "deslinde"
+                  )
                 }
               />
+
 
               <label htmlFor="deslinde">
+
                 He leído y acepto el Deslinde
                 de Responsabilidad.
+
               </label>
 
             </div>
+
 
             <div className="registration-check">
 
               <input
                 type="checkbox"
+
                 id="datos"
-                checked={aceptaciones.datos}
+
+                checked={
+                  aceptaciones.datos
+                }
+
                 onChange={() =>
-                  handleAceptacion("datos")
+                  handleAceptacion(
+                    "datos"
+                  )
                 }
               />
 
+
               <label htmlFor="datos">
+
                 Acepto que los datos
                 proporcionados son correctos.
+
               </label>
 
             </div>
+
 
             <div className="registration-actions">
 
               <button
                 type="button"
+
                 className="registration-secondary-button"
+
                 onClick={volver}
               >
                 ATRÁS
               </button>
 
+
               <button
                 type="button"
+
                 className="registration-primary-button"
+
                 onClick={continuarPaso4}
               >
                 CONTINUAR
@@ -1228,27 +1502,34 @@ export default function EventRegistration({
             </div>
 
           </div>
+
         )}
+
 
         {/* =====================================
             PASO 5
         ====================================== */}
 
         {step === 5 && (
+
           <div className="registration-step">
 
             <h3>
               Resumen de inscripción
             </h3>
 
+
             <p>
               Revisa cuidadosamente tus datos
               antes de confirmar.
             </p>
 
+
             <div className="registration-summary">
 
+
               <div>
+
                 <span>
                   DNI / CE
                 </span>
@@ -1256,9 +1537,12 @@ export default function EventRegistration({
                 <strong>
                   {form.dni}
                 </strong>
+
               </div>
 
+
               <div>
+
                 <span>
                   Nombres
                 </span>
@@ -1266,9 +1550,12 @@ export default function EventRegistration({
                 <strong>
                   {form.nombres}
                 </strong>
+
               </div>
 
+
               <div>
+
                 <span>
                   Apellidos
                 </span>
@@ -1276,19 +1563,25 @@ export default function EventRegistration({
                 <strong>
                   {form.apellidos}
                 </strong>
+
               </div>
 
+
               <div>
+
                 <span>
-                  Fecha de nacimiento
+                  Nombre de la mascota
                 </span>
 
                 <strong>
-                  {form.fechaNacimiento}
+                  {form.nombreMascota}
                 </strong>
+
               </div>
 
+
               <div>
+
                 <span>
                   Género
                 </span>
@@ -1296,9 +1589,12 @@ export default function EventRegistration({
                 <strong>
                   {form.genero}
                 </strong>
+
               </div>
 
+
               <div>
+
                 <span>
                   Equipo
                 </span>
@@ -1308,9 +1604,12 @@ export default function EventRegistration({
                     ? otroEquipo
                     : form.equipo}
                 </strong>
+
               </div>
 
+
               <div>
+
                 <span>
                   Teléfono
                 </span>
@@ -1318,9 +1617,12 @@ export default function EventRegistration({
                 <strong>
                   {form.telefono}
                 </strong>
+
               </div>
 
+
               <div>
+
                 <span>
                   Correo
                 </span>
@@ -1328,9 +1630,12 @@ export default function EventRegistration({
                 <strong>
                   {form.correo}
                 </strong>
+
               </div>
 
+
               <div>
+
                 <span>
                   Captura de pago
                 </span>
@@ -1338,71 +1643,85 @@ export default function EventRegistration({
                 <strong className="summary-ok">
                   ✓ Adjuntada
                 </strong>
+
               </div>
 
+
               <div>
+
                 <span>
                   Foto bienvenida
                 </span>
 
                 <strong>
+
                   {archivos.fotoBienvenida
                     ? "✓ Adjuntada"
                     : "No adjuntada"}
+
                 </strong>
+
               </div>
 
             </div>
+
 
             <div className="registration-actions">
 
               <button
                 type="button"
+
                 className="registration-secondary-button"
+
                 onClick={volver}
               >
                 MODIFICAR
               </button>
 
+
               <button
                 type="button"
+
                 className="registration-primary-button"
+
                 onClick={enviarInscripcion}
+
                 disabled={enviando}
               >
+
                 {enviando
                   ? "PROCESANDO..."
                   : "INSCRIBIRME"}
+
               </button>
 
             </div>
 
           </div>
+
         )}
+
 
         {/* =====================================
             PASO 6 - ÉXITO
         ====================================== */}
 
         {step === 6 && (
+
           <div className="registration-success">
 
             <div className="success-icon">
               ✓
             </div>
 
+
             <h3>
               ¡Gracias por tu inscripción!
             </h3>
 
-            <p>
-              Tu inscripción fue registrada
-              correctamente.
-            </p>
 
             <p>
-              Se enviará un correo de confirmación
-              a:
+              Se enviará un correo de confirmación a:
             </p>
 
             <strong>
@@ -1410,20 +1729,23 @@ export default function EventRegistration({
             </strong>
 
             <p>
-              En el correo encontrarás también
-              el enlace para unirte al grupo
-              oficial de WhatsApp.
+              En el correo encontrarás también el enlace
+              para unirte al grupo oficial de WhatsApp.
             </p>
+
 
             <button
               type="button"
+
               className="registration-primary-button"
+
               onClick={onClose}
             >
               CERRAR
             </button>
 
           </div>
+
         )}
 
       </div>

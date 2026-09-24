@@ -25,6 +25,11 @@ const CORRO_NINOS_2026 = () => {
       <EventRegisterButton
         data={eventRegisterButton.corro_ninos_2026}
       />
+      <br/>
+      <br/>
+      <EventRegisterButton
+        data={eventRegisterButton.corro_ninos_2026_mascotas}
+      />
 
       <EventCategories data={eventCategories.corro_ninos}/>
       <Documentos data={documentos.corro_ninos_2026_bases} />

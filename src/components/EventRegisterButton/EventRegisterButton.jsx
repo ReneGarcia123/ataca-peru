@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 
 import EventRegistration from "../EventRegistration/EventRegistration.jsx";
+import EventRegistrationMascotas from "../EventRegistration/EventRegistrationMascotas.jsx";
+
 import eventRegistration from "../EventRegistration/eventRegistration.js";
 
 import "./EventRegisterButton.css";
@@ -9,6 +11,11 @@ export default function EventRegisterButton({ data }) {
   const [mostrarRegistro, setMostrarRegistro] = useState(false);
 
   if (!data) return null;
+
+  const registroData = eventRegistration[data.evento];
+
+  const esMascotas =
+    data.evento === "corro_ninos_2026_mascotas";
 
   return (
     <>
@@ -52,11 +59,19 @@ export default function EventRegisterButton({ data }) {
       </div>
 
       {/* MODAL */}
-      <EventRegistration
-        isOpen={mostrarRegistro}
-        onClose={() => setMostrarRegistro(false)}
-        data={eventRegistration[data.evento]}
-      />
+      {esMascotas ? (
+        <EventRegistrationMascotas
+          isOpen={mostrarRegistro}
+          onClose={() => setMostrarRegistro(false)}
+          data={registroData}
+        />
+      ) : (
+        <EventRegistration
+          isOpen={mostrarRegistro}
+          onClose={() => setMostrarRegistro(false)}
+          data={registroData}
+        />
+      )}
     </>
   );
 }
