@@ -24,13 +24,13 @@ const eventRegistration = {
       "12T0cnJmXB_zBsFoJIxGzRIZkZaZi7VTX",
 
     emailServiceId:
-      "TU_EMAILJS_SERVICE_ID",
+      "service_2govrnu",
 
     emailTemplateId:
-      "TU_EMAILJS_TEMPLATE_ID",
+      "template_lurswng",
 
     emailPublicKey:
-      "TU_EMAILJS_PUBLIC_KEY"
+      "PN9-V6us45efj9uL6"
   }
 };
 

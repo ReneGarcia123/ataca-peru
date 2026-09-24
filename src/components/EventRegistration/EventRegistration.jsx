@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./EventRegistration.css";
+import emailjs from "@emailjs/browser";
 
 export default function EventRegistration({
   isOpen,
@@ -740,7 +741,6 @@ export default function EventRegistration({
     * GOOGLE APPS SCRIPT
     * ==========================================
     */
-
     try {
       await fetch(data.googleAppsScriptUrl, {
         method: "POST",
@@ -748,23 +748,47 @@ export default function EventRegistration({
         redirect: "follow"
       });
     } catch (error) {
-      /*
-      * Google Apps Script puede procesar correctamente
-      * el POST aunque el navegador no pueda leer
-      * la respuesta final por la redirección/CORS.
-      *
-      * Por eso aquí no mostramos error automáticamente.
-      */
       console.warn(
         "El navegador no pudo leer la respuesta de Apps Script:",
         error
       );
     }
 
-    /*
-    * La validación final y la inserción se realizan
-    * en el backend.
-    */
+    // ================================
+    // ENVÍO DE CORREO DE CONFIRMACIÓN
+    // ================================
+
+    try {
+      const emailParams = {
+        nombres: form.nombres.trim(),
+        apellidos: form.apellidos.trim(),
+        dni: form.dni,
+        telefono: form.telefono.trim(),
+        fechaNacimiento: form.fechaNacimiento,
+        correo: form.correo.trim(),
+        genero: form.genero,
+        equipo:
+          form.equipo === "OTRO"
+            ? otroEquipo.trim()
+            : form.equipo
+      };
+
+      await emailjs.send(
+        data.emailServiceId,
+        data.emailTemplateId,
+        emailParams,
+        data.emailPublicKey
+      );
+
+      console.log("Correo de confirmación enviado correctamente.");
+    } catch (error) {
+      console.error("Error enviando correo de confirmación:", error);
+    }
+
+    // ================================
+    // MOSTRAR ÉXITO
+    // ================================
+
     setExito(
       `¡Gracias por tu inscripción! Tu inscripción fue registrada correctamente. Se enviará un correo de confirmación a ${form.correo}.`
     );
