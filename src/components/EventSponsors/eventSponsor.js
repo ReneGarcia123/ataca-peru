@@ -18,7 +18,13 @@ const eventSponsors = {
         imagen: "https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/CORRO%20POR%20LOS%20NINOS%202026/Claro.svg.webp",
         link: "https://www.claro.com.pe/personas/",
         alt: "Claro"
-      }
+      },
+      {
+        id: 3,
+        imagen: "https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/CORRO%20POR%20LOS%20NINOS%202026/AYUDANOS.jpg",
+        link: "https://web.facebook.com/ayudanosayudaraqp",
+        alt: "Ayudanos a ayudar"
+      },
     ]
 
   }
