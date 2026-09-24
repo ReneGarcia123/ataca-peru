@@ -1,4 +1,6 @@
 import { FaMapMarkerAlt, FaClock, FaMedal } from "react-icons/fa";
+import { FaShieldDog } from "react-icons/fa6";
+
 
 const eventHero = {
 
@@ -87,10 +89,10 @@ const eventHero = {
         titulo: "YO CORRO POR LOS NIÑOS 6K 2026",
 
         descripcion:
-            "Corre por una causa noble y sé parte de la transformación. Únete a nosotros en la carrera 'Yo Corro por los Niños 6K', donde cada paso que das contribuye a mejorar la vida de los niños necesitados. Juntos, podemos marcar la diferencia y brindarles un futuro más brillante.",
+            "Corre por una causa noble y sé parte del cambio. Únete a nosotros en la carrera Yo Corro por los Niños 6K, un evento a beneficio del albergue de perritos Ayúdanos a Ayudar. Cada paso que das se convierte en alimento, refugio y cuidado para los peluditos que más lo necesitan. ¡Juntos podemos marcar la diferencia y dejar una huella imborrable en sus vidas!",
 
         video:
-            "https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/AQP_TRS_CHILINA_2026/El%20Valle%20de%20Chilina%20Trail.mp4",
+            "https://res.cloudinary.com/zmudqget/video/upload/v1790271090/ASD.mp4",
 
         logo:
             "https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/logo-largo-blanco.png?updatedAt=1789420473135",
@@ -113,9 +115,9 @@ const eventHero = {
 
             {
                 id: 3,
-                icon: <FaMedal />,
-                label: "Premios",
-                value: "Reconocimientos a ganadores"
+                icon: <FaShieldDog />,
+                label: "BENÉFICO",
+                value: "Apoya a mascotas necesitadas"
             }
 
         ]

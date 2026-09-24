@@ -19,6 +19,7 @@ const CORRO_NINOS_2026 = () => {
     <>
       <EventHero data={eventHero.corro_ninos_2026} />
       <EventCategories data={eventCategories.corro_ninos}/>
+      <Documentos data={documentos.corro_ninos_2026_bases} />
       <EventCarrousel data={eventCarrousel.corro_ninos_2026} />
       <EventMapping data={eventMapping.corro_ninos_2026} />
       <EventMapping data={eventMapping.corro_ninos_mascotas_2026} />

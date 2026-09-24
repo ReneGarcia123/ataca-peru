@@ -1,6 +1,6 @@
 import {
   FaRunning,
-  FaUsers,
+  FaDog,
   FaMedal
 } from "react-icons/fa";
 
@@ -13,7 +13,7 @@ const eventCategories = {
     descripcion:
       "¡Únete a la carrera benéfica más emocionante del año!",
 
-    imagen: "https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/CORRO%20POR%20LOS%20NINOS%202026/1.jpg",
+    imagen: "https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/CORRO%20POR%20LOS%20NINOS%202026/perro1.jpg",
 
     titulo_categorias: "Categorías:",
 
@@ -24,21 +24,21 @@ const eventCategories = {
       "Varones máster 35 a 49 años",
       "Damas súper máster 50 años a más",
       "Varones súper máster 50 años a más",
-      "Mascotas 2km"
+      "Mascotas 2km, damas y varones"
     ],
 
     items: [
       {
         id: 1,
         icon: <FaRunning />,
-        title: "Pedestre",
-        text: "Carrera pedestre de pista"
+        title: "6K Pedestre",
+        text: "Carrera para competidores solos"
       },
       {
         id: 2,
-        icon: <FaUsers />,
-        title: "6K y 2K",
-        text: "Dos distancias, para competidores como para mascotas"
+        icon: <FaDog />,
+        title: "2K Mascotas",
+        text: "Carrera para competidores con sus mascotas"
       },
       {
         id: 3,

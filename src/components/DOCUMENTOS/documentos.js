@@ -111,7 +111,7 @@ const documentos = {
                 descripcion:
                     "Documento que exime de responsabilidad a la organización del evento, firmado por los participantes o sus representantes legales.",
 
-                imagen:"https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/CORRO%20POR%20LOS%20NINOS%202026/3.jpg",
+                imagen:"https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/CORRO%20POR%20LOS%20NINOS%202026/doc1.jpg",
 
                 boton: "Ver documento",
 
@@ -124,13 +124,35 @@ const documentos = {
                 descripcion:
                     "Documento que permite a los menores de edad participar en el evento, firmado por sus padres o tutores legales.",
 
-                imagen:"https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/CORRO%20POR%20LOS%20NINOS%202026/2.jpg",
+                imagen:"https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/CORRO%20POR%20LOS%20NINOS%202026/doc2.jpg",
 
                 boton: "Ver documento",
 
                 link: "https://drive.google.com/file/d/1xulkF-_FWJUkwvKxd9xVWlI2Rb8fgCAL/view?usp=sharing"
             }
 
+        ]
+
+    },
+
+    corro_ninos_2026_bases: {
+
+        tituloSeccion: "SOBRE LA CARRERA",
+
+        items: [
+
+            {
+                titulo: "Bases generales",
+
+                descripcion:
+                    "Documento que establece las reglas y regulaciones de la carrera, incluyendo categorías, distancias y criterios de participación.",
+
+                imagen:"https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/CORRO%20POR%20LOS%20NINOS%202026/3.jpg?updatedAt=1790180980631",
+
+                boton: "Consultar bases",
+
+                link: "https://drive.google.com/file/d/13CjvVMC8zI0KBuTMe8JC04DqcvdBpi89/view?usp=sharing"
+            }
         ]
 
     },

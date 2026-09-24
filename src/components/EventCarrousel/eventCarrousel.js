@@ -2,11 +2,17 @@ const eventCarrousel = {
 
   corro_ninos_2026: {
 
-    titulo: "¿QUÉ INCLUYE MI INSCRIPCIÓN?",
+    titulo: "¿A QUIÉN BENEFICIA MI INSCRIPCIÓN?",
 
-    images: [],
+    images: [
+      "https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/CORRO%20POR%20LOS%20NINOS%202026/PEERO2.jpg",
+      "https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/CORRO%20POR%20LOS%20NINOS%202026/perro6.jpg",
+      "https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/CORRO%20POR%20LOS%20NINOS%202026/perro4.jpg",
+      "https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/CORRO%20POR%20LOS%20NINOS%202026/perro5.jpg",
+      "https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/CORRO%20POR%20LOS%20NINOS%202026/perro3.jpg"
+    ],
 
-    proximamente: true
+    proximamente: false
 
   },
 
