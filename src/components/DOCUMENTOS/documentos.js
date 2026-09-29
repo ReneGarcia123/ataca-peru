@@ -157,6 +157,28 @@ const documentos = {
 
     },
 
+    lsl_mtb_joya_2026: {
+
+        tituloSeccion: "RESULTADOS",
+
+        items: [
+
+            {
+                titulo: "Resultados Segunda Fecha",
+
+                descripcion:
+                    "Conoce los tiempos y posiciones de la segunda serie de LSL MTB 2026: EL SEÑOR DE LA JOYA",
+
+                imagen:"https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/LSL%20MTB%20JOYA%202026/champion3.jpg",
+
+                boton: "Ver Resultados",
+
+                link: "https://drive.google.com/file/d/1Ufbfw-8tZR56WtbiJwngrb8U3ma_cWBC/view?usp=sharing"
+            }
+        ]
+
+    },
+
 };
 
 export default documentos;

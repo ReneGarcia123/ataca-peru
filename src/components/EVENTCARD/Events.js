@@ -5,16 +5,6 @@ const eventos = [
 
   {
     id: 1,
-    titulo: "LSL MTB INTERNATIONAL 2026 - SEGUNDA SERIE: EL SEÑOR DE LA JOYA",
-    fecha: "27 de septiembre 2026",
-    lugar: "La Joya, Arequipa, Perú",
-    descripcion: "¡Pedalea al máximo! MTB en el Señor de La Joya – Arequipa, donde la resistencia y la velocidad se ponen a prueba.",
-    enlace: "/lsl_mtb_joya",
-    imagen: "https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/SENOR%20JOYA.jpg",
-    disponible:true
-  },
-  {
-    id: 2,
     titulo: "AQP TRAIL RUNNING 2026 - CUARTA SERIE: EL VALLE DE CHILINA",
     fecha: "25 de octubre 2026",
     lugar: "Valle de Chilina, Arequipa, Perú",
@@ -24,7 +14,7 @@ const eventos = [
     disponible:true
   },  
   {
-    id: 3,
+    id: 2,
     titulo: "ULTRA COLCA CANYON 2026",
     fecha: "07 y 08 de noviembre 2026",
     lugar: "Colca, Arequipa, Perú",
@@ -34,7 +24,7 @@ const eventos = [
     disponible:false
   },
   {
-    id: 4,
+    id: 3,
     titulo: "YO CORRO POR LOS NIÑOS 2026",
     fecha: "13 de diciembre 2026",
     lugar: "Characato, Arequipa, Perú",

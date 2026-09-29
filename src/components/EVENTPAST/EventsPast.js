@@ -2,8 +2,19 @@ import React from 'react'
 import './EventsPast.css';
 
 const eventos = [
+
   {
     id: 1,
+    titulo: "LSL MTB INTERNATIONAL 2026 - SEGUNDA SERIE: EL SEÑOR DE LA JOYA",
+    fecha: "27 de septiembre 2026",
+    lugar: "La Joya, Arequipa, Perú",
+    descripcion: "¡Pedalea al máximo! MTB en el Señor de La Joya – Arequipa, donde la resistencia y la velocidad se ponen a prueba.",
+    enlace: "/lsl_mtb_joya",
+    imagen: "https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/SENOR%20JOYA.jpg",
+    disponible:true
+  },
+  {
+    id: 2,
     titulo: "AQP TRAIL RUNNING 2026 - TERCERA SERIE: LOS ANDENES DE CHIGUATA ",
     fecha: "13 de septiembre 2026",
     lugar: "Chiguata, Arequipa, Perú",
@@ -13,7 +24,7 @@ const eventos = [
     disponible:true
   },
   {
-    id: 2,
+    id: 3,
     titulo: "CARRERA DE FUEGO 5K: CORRE CON LOS BOMBEROS 2026 - IV EDICIÓN",
     fecha: "06 de septiembre 2026",
     lugar: "Arequipa, Arequipa, Perú",
@@ -24,7 +35,7 @@ const eventos = [
   },
 
   {
-    id: 3,
+    id: 4,
     titulo: "AQP TRAIL RUNNING 2026 - SEGUNDA SERIE: EL DESIERTO DE LA JOYA",
     fecha: "05 de julio 2026",
     lugar: "La Joya, Arequipa, Perú",
@@ -36,7 +47,7 @@ const eventos = [
 
   
   {
-    id: 4,
+    id: 5,
     titulo: "CARRERA SOLIDARIA 6K: ALDEAS INFANTILES 2026 - TERCERA EDICIÓN",
     fecha: "12 de julio 2026",
     lugar: "Cerro Colorado, Arequipa, Perú",
@@ -46,7 +57,7 @@ const eventos = [
     disponible:true
   },
   {
-    id: 5,
+    id: 6,
     titulo: "CENTAURO DEL DESIERTO MTB 45K - 2026",
     fecha: "20 de junio 2026",
     lugar: "Valle 2000, Tacna, Perú",

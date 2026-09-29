@@ -18,6 +18,8 @@ import EventHero from "../components/EventHero/EventHero.jsx";
 import eventHero from "../components/EventHero/eventHero.js";
 import ResultadoModalCycling from '../components/RESULTADO_MODAL/ResultadoModalCycling.jsx';
 import resultados from '../components/RESULTADO_MODAL/resultados.js';
+import Documentos from "../components/DOCUMENTOS/Documentos.jsx"
+import documentos from "../components/DOCUMENTOS/documentos.js"
 
 export default function LSL_MTB_JOYA() {
 
@@ -96,7 +98,7 @@ export default function LSL_MTB_JOYA() {
 
       <br />
       <ResultadoModalCycling data={resultados.joya_ciclismo}/>
-
+      <Documentos data={documentos.lsl_mtb_joya_2026}/>
 
       <Categories
         titulo="¡El Señor de La Joya! La batalla definitiva de la LSL - MTB INTERNATIONAL"
