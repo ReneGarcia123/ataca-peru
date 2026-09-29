@@ -14,6 +14,13 @@ const resultados = {
         descripcion: "Consultar resultados y ver mi diploma",
         imagen:"https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/DIPLOMA_BUSQUEDA.jpg",
     },
+    joya_ciclismo:{
+        titulo_seccion:"Diplomas y Resultados",
+        tabla: "JOYA_CICLISMO_2026",
+        titulo: "LSL MTB: El Señor de la Joya 2026",
+        descripcion: "Consultar resultados y ver mi diploma",
+        imagen:"https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/LSL%20MTB%20JOYA%202026/CHAMPION2.jpg",
+    },
 
 };
 
