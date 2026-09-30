@@ -187,6 +187,19 @@ const documentos = {
                 boton: "Ver Resultados",
 
                 link: "https://drive.google.com/file/d/1Ufbfw-8tZR56WtbiJwngrb8U3ma_cWBC/view?usp=sharing"
+            },
+
+            {
+                titulo: "Resultados Acumulativos Grupales",
+
+                descripcion:
+                    "Conoce las posiciones de cada equipo en las dos fechas del LSL MTB 2026",
+
+                imagen:"https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/LSL%20MTB%20JOYA%202026/CHAMPIONS4.jpg",
+
+                boton: "Ver Resultados",
+
+                link: "https://drive.google.com/file/d/13yFn6O_rHCnVv9BOK6v6baYpJOBM7TzZ/view?usp=sharing"
             }
         ]
 
