@@ -66,7 +66,8 @@ export default function EventRegistration({
   const [aceptaciones, setAceptaciones] = useState({
     bases: false,
     deslinde: false,
-    datos: false
+    datos: false,
+    sensor: false
   });
 
   /*
@@ -104,7 +105,8 @@ export default function EventRegistration({
       setAceptaciones({
         bases: false,
         deslinde: false,
-        datos: false
+        datos: false,
+        sensor: false
       });
 
       setOtroEquipo("");
@@ -503,6 +505,13 @@ export default function EventRegistration({
     if (!aceptaciones.datos) {
       setError(
         "Debes confirmar que los datos proporcionados son correctos."
+      );
+      return;
+    }
+
+    if (!aceptaciones.sensor) {
+      setError(
+        "Debes aceptar los términos y condiciones de uso del sensor de cronometraje."
       );
       return;
     }
@@ -1048,7 +1057,7 @@ export default function EventRegistration({
 
               <span>
                 REALIZA TU PAGO VÍA YAPE,
-                COSTO DE INSCRIPCIÓN: S/40.00
+                COSTO DE INSCRIPCIÓN: S/45.00
               </span>
 
               <strong>
@@ -1203,6 +1212,23 @@ export default function EventRegistration({
               <label htmlFor="datos">
                 Acepto que los datos
                 proporcionados son correctos.
+              </label>
+
+            </div>
+            
+            <div className="registration-check">
+              <input
+                type="checkbox"
+                id="sensor"
+                checked={aceptaciones.sensor}
+                onChange={() =>
+                  handleAceptacion("sensor")
+                }
+              />
+
+              <label htmlFor="sensor">
+                He leído y acepto los términos y condiciones
+                de uso del sensor de cronometraje.
               </label>
 
             </div>

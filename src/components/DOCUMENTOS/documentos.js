@@ -129,6 +129,19 @@ const documentos = {
                 boton: "Ver documento",
 
                 link: "https://drive.google.com/file/d/1xulkF-_FWJUkwvKxd9xVWlI2Rb8fgCAL/view?usp=sharing"
+            },
+
+            {
+                titulo: "Responsabilidad del sensor",
+
+                descripcion:
+                    "Documento que compromete al uso correcto del sensor de cronometraje, como también su devolución",
+
+                imagen:"https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/CORRO%20POR%20LOS%20NINOS%202026/PERRO%207.jpg",
+
+                boton: "Ver documento",
+
+                link: "https://drive.google.com/file/d/1gLCZVGDiI9BWZXzoVbbGj-7Aizebm5uQ/view?usp=sharing"
             }
 
         ]
@@ -151,7 +164,7 @@ const documentos = {
 
                 boton: "Consultar bases",
 
-                link: "https://drive.google.com/file/d/13CjvVMC8zI0KBuTMe8JC04DqcvdBpi89/view?usp=sharing"
+                link: "https://drive.google.com/file/d/15R3DUtQ9wDtn3_wNI7f6KxXm-KlMgp58/view?usp=sharing"
             }
         ]
 
