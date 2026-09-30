@@ -199,7 +199,7 @@ const documentos = {
 
                 boton: "Ver Resultados",
 
-                link: "https://drive.google.com/file/d/13yFn6O_rHCnVv9BOK6v6baYpJOBM7TzZ/view?usp=sharing"
+                link: "https://drive.google.com/file/d/10Ft_BdxEuqq9rmifCZei0CkJGfdZPSTI/view?usp=sharing"
             }
         ]
 
