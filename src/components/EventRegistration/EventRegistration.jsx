@@ -1057,7 +1057,7 @@ export default function EventRegistration({
 
               <span>
                 REALIZA TU PAGO VÍA YAPE,
-                COSTO DE INSCRIPCIÓN: S/45.00
+                COSTO DE INSCRIPCIÓN: S/40.00
               </span>
 
               <strong>

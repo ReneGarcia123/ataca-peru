@@ -1261,7 +1261,7 @@ export default function EventRegistrationMascotas({
             <div className="registration-payment">
 
               <span>
-                REALIZA TU PAGO VÍA YAPE COSTO DE INSCRIPCIÓN: S/45.00
+                REALIZA TU PAGO VÍA YAPE COSTO DE INSCRIPCIÓN: S/40.00
               </span>
 
 
