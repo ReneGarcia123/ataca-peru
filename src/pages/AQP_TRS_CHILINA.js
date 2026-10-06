@@ -157,15 +157,15 @@ const resetFormulario = () => {
   const datosPago = {
   "5K VENTA FINAL": {
     precio: 100,
-    link: "https://express.culqi.com/pago/BF0DBEEAB8"
+    link: "https://express.culqi.com/pago/2B19F8DCF7"
   },
   "10K VENTA FINAL": {
     precio: 120,
-    link: "https://express.culqi.com/pago/D447D3CAD0"
+    link: "https://express.culqi.com/pago/6F6C175EFE"
   },
   "21K VENTA FINAL": {
     precio: 140,
-    link: "https://express.culqi.com/pago/3FF1148B51"
+    link: "https://express.culqi.com/pago/85865282DF"
   }
 };
 
