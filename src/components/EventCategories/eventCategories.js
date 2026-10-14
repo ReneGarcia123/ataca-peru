@@ -1,6 +1,7 @@
 import {
   FaRunning,
   FaDog,
+  FaStopwatch,
   FaMedal
 } from "react-icons/fa";
 
@@ -23,8 +24,7 @@ const eventCategories = {
       "Damas máster 35 a 49 años",
       "Varones máster 35 a 49 años",
       "Damas súper máster 50 años a más",
-      "Varones súper máster 50 años a más",
-      "Mascotas 2km, damas y varones"
+      "Varones súper máster 50 años a más"
     ],
 
     items: [
@@ -36,9 +36,9 @@ const eventCategories = {
       },
       {
         id: 2,
-        icon: <FaDog />,
-        title: "2K Mascotas",
-        text: "Carrera para competidores con sus mascotas"
+        icon: <FaStopwatch />,
+        title: "Evento Cronometrado",
+        text: "Se registrará el tiempo de cada participante"
       },
       {
         id: 3,

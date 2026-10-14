@@ -15,22 +15,12 @@ const eventos = [
   },  
   {
     id: 2,
-    titulo: "ULTRA COLCA CANYON 2026",
-    fecha: "07 y 08 de noviembre 2026",
-    lugar: "Colca, Arequipa, Perú",
-    descripcion: "¡Desafía el cañón más profundo del mundo! Carrera de Ultra Trail Running en el majestuoso Cañón del Colca - Arequipa",
-    enlace: "/utcc",
-    imagen: "https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/UTCC2026.jpg?updatedAt=1789644060168",
-    disponible:false
-  },
-  {
-    id: 3,
     titulo: "YO CORRO POR LOS NIÑOS 2026",
     fecha: "13 de diciembre 2026",
     lugar: "Characato, Arequipa, Perú",
     descripcion: "Corre por una sonrisa, en esta carrera solidaria que apoya a los niños en situación de vulnerabilidad.",
     enlace: "/corro_ninos_2026",
-    imagen: "https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/CORRO%20POR%20LOS%20NINOS%202026/IMG_2490.PNG",
+    imagen: "https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/CORRO%20POR%20LOS%20NINOS%202026/NUEVO%20FLAYER.jpg",
     disponible:true
   },
 ];

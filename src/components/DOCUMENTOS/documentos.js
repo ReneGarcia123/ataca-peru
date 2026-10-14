@@ -164,7 +164,7 @@ const documentos = {
 
                 boton: "Consultar bases",
 
-                link: "https://drive.google.com/file/d/16uOIuEqVbKRHzf5UlC-XT2VCbT5prWYj/view?usp=sharing"
+                link: "https://drive.google.com/file/d/18weg8xZO82ApHP_rbZKdGl69_u3wqYHZ/view?usp=sharing"
             }
         ]
 
