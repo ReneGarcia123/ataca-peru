@@ -22,6 +22,14 @@ const resultados = {
         imagen:"https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/LSL%20MTB%20JOYA%202026/CHAMPION2.jpg",
     },
 
+    chilina_trail:{
+        titulo_seccion:"Diplomas y Resultados",
+        tabla: "AQP_TRAIL_CHILINA_2026",
+        titulo: "El Valle de Chilina 2026",
+        descripcion: "Consultar resultados y ver mi diploma",
+        imagen:"https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/AQP_TRS_CHILINA_2026/DIPLOMAS.jpg",
+    },
+
 };
 
 export default resultados;

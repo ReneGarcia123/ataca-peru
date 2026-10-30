@@ -235,12 +235,250 @@ const champions = {
 
             },
 
-
-
-
+            
         ]
 
-    }
+    },
+
+    chilina: {
+
+        subtitulo: "CONOCE A NUESTROS",
+
+        titulo: "CAMPEONES EL VALLE DE CHILINA 2026",
+
+        categories: [
+
+            {
+                id: 1,
+
+                categoria: "21K Damas Open",
+
+                imagen:
+                    "https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/AQP_TRS_CHILINA_2026/21k%20damas%20open.jpg",
+
+                ganadores: [
+                    "Luz Marina  Charcahuana Sivincha",
+                    "Carina Mamani",
+                    "Irene Alfaro Vizcarra"
+                ]
+
+            },
+
+
+            {
+                id: 2,
+
+                categoria: "21K Varones Elite",
+
+                imagen:
+                    "https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/AQP_TRS_CHILINA_2026/21k%20varones%20elite.jpg",
+
+                ganadores: [
+                    "Dennis Quispe Condori",
+                    "Humberto Antonio La Torre Montes",
+                    "Mayrol Yamil Batallanos Flores"
+                ]
+
+            },
+
+
+            {
+                id: 3,
+
+                categoria: "21K Varones Máster",
+
+                imagen:
+                    "https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/AQP_TRS_CHILINA_2026/21k%20master.jpg",
+
+                ganadores: [
+                    "Lucio Flores Merma",
+                    "Octavio Chiri Chamana",
+                    "Bruno Maldonado"
+                ]
+
+            },
+
+
+            {
+                id: 4,
+
+                categoria: "10K Damas Elite",
+
+                imagen:
+                    "https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/AQP_TRS_CHILINA_2026/10k%20damas%20elite.jpg",
+
+                ganadores: [
+                    "Marie Cazaumayou",
+                    "Steffani Anggie Barriga Cano",
+                    "Sharon Jarumi Quispe Ibarra"
+                ]
+
+            },
+
+            {
+                id: 5,
+
+                categoria: "10K Damas Máster",
+
+                imagen:
+                    "https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/AQP_TRS_CHILINA_2026/10k%20damas%20master.jpg",
+
+                ganadores: [
+                    "Lucia  Quispe Flores",
+                    "Andrea Verónica Llacho Martínez",
+                    "Juana Zavala Flores"
+                ]
+
+            },
+            
+            {
+                id: 6,
+
+                categoria: "10K Damas Súper Máster",
+
+                imagen:
+                    "https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/AQP_TRS_CHILINA_2026/10k%20damas%20s%20master.jpg",
+
+                ganadores: [
+                    "Rosario Yanqui Mamani",
+                    "Valeriana Condori Ccoyorpuma",
+                    "Zulema Mirtha Luque Huallpa"
+                ]
+
+            },
+
+            {
+                id: 7,
+
+                categoria: "10K Varones Elite",
+
+                imagen:
+                    "https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/AQP_TRS_CHILINA_2026/10k%20elite.jpg",
+
+                ganadores: [
+                    "Jhonatan Santos Huaycho Chiri",
+                    "José Luis Zavala Flores",
+                    "Maxime Musquar"
+                ]
+
+            },
+
+            {
+                id: 8,
+
+                categoria: "10K Varones Máster",
+
+                imagen:
+                    "https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/AQP_TRS_CHILINA_2026/10k%20master.jpg",
+
+                ganadores: [
+                    "Jorge Vera",
+                    "Celestino Puma Sacsi",
+                    "Víctor Tinco Calderón"
+                ]
+
+            },
+
+            {
+                id: 9,
+
+                categoria: "10K Varones Súper Máster",
+
+                imagen:
+                    "https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/AQP_TRS_CHILINA_2026/10k%20varones%20s%20master.jpg",
+
+                ganadores: [
+                    "Oswaldo Antezana Loayza",
+                    "Luis Alberto Yana Quispe",
+                    "Arturo Ramiro Salinas Paz"
+                ]
+
+            },
+
+            {
+                id: 10,
+
+                categoria: "10K Varones Ultra Máster",
+
+                imagen:
+                    "https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/AQP_TRS_CHILINA_2026/10k%20varones%20u%20master.jpg",
+
+                ganadores: [
+                    "Alfonso Alberto Rojas Pérez",
+                    "Fausto Maldonado Choquehuanca",
+                    "Valerio Rodolfo Quispe Rivas"
+                ]
+
+            },
+
+            {
+                id: 11,
+
+                categoria: "5K Damas Máster",
+
+                imagen:
+                    "https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/AQP_TRS_CHILINA_2026/5k%20damas%20master.jpg",
+
+                ganadores: [
+                    "Eva Huarcaya De La Cruz",
+                    "Sonia Jovita Huaracallo Cruz",
+                    "Sussan Ermith Medina Olivares"
+                ]
+
+            },
+
+            {
+                id: 12,
+
+                categoria: "5K Damas Open",
+
+                imagen:
+                    "https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/AQP_TRS_CHILINA_2026/5k%20damas%20open.jpg",
+
+                ganadores: [
+                    "Priscila Elizabeth Mamani Llanos",
+                    "Ana Gabriela Huarac Sandoval",
+                    "Maria Paz Velasquez Pinto"
+                ]
+
+            },
+
+            {
+                id: 13,
+
+                categoria: "5K Varones Máster",
+
+                imagen:
+                    "https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/AQP_TRS_CHILINA_2026/5k%20varones%20master.jpg",
+
+                ganadores: [
+                    "Glinio Medina Barrientos",
+                    "Anibal Rene Quispe Flores",
+                    "Gonzalo Juan Cayllahua Castro"
+                ]
+
+            },
+
+            {
+                id: 14,
+
+                categoria: "5K Varones Open",
+
+                imagen:
+                    "https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/AQP_TRS_CHILINA_2026/5k%20varones%20open.jpg",
+
+                ganadores: [
+                    "Christian Aldahir López Chicata",
+                    "Anderson Jeanpier Chacón Almirón",
+                    "Yefry Leyner Layme Meléndez"
+                ]
+
+            },
+
+            
+        ]
+
+    },    
 
 };
 

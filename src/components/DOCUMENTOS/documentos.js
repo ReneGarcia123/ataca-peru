@@ -205,6 +205,68 @@ const documentos = {
 
     },
 
+    chilina_trail: {
+
+        tituloSeccion: "Resultados generales",
+
+        items: [
+
+            {
+                titulo: "Resultados cuarta fecha ",
+
+                descripcion:
+                    "Resultados oficiales de la carrera, incluyendo tiempos y posiciones de los participantes.",
+
+                imagen:"https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/AQP_TRS_CHILINA_2026/grupal.jpg",
+
+                boton: "Ver resultados",
+
+                link: "https://drive.google.com/file/d/1cXHgxin_XYgDuUGpTe3onRdSC4BVGsFd/view?usp=sharing"
+            },
+
+            {
+                titulo: "Resultados acumulativos por categoría",
+
+                descripcion:
+                    "Resultados oficiales, primeros puestos de cada categoría de las 4 fechas",
+
+                imagen:"https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/AQP_TRS_CHILINA_2026/categoria.jpg",
+
+                boton: "Ver resultados",
+
+                link: "https://drive.google.com/file/d/1iNT2LdckHTcSbfNs-3dAs32CSiXNyV_o/view?usp=sharing"
+            },
+
+            {
+                titulo: "Resultados acumulativos generales",
+
+                descripcion:
+                    "Resultados oficiales, primeros puesto acreedores del premio en efectivo",
+
+                imagen:"https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/AQP_TRS_CHILINA_2026/individual.jpg",
+
+                boton: "Ver resultados",
+
+                link: "https://drive.google.com/file/d/1t_zhP40gV_3lQxap2fcDcMlShW7Ec5yv/view?usp=sharing"
+            },
+            
+            {
+                titulo: "Resultados acumulativos grupales",
+
+                descripcion:
+                    "Resultados oficiales de la competencia, acumulativos por equipos",
+
+                imagen:"https://ik.imagekit.io/twn1y7ldf/Nuevo_ATACA/AQP_TRS_CHILINA_2026/grupal2.jpg",
+
+                boton: "Ver resultados",
+
+                link: "https://drive.google.com/file/d/1yZm2x_rQFilZfOZuyUCGXFVPG5VOkKTz/view?usp=sharing"
+            },
+
+        ]
+
+    },
+
 };
 
 export default documentos;
