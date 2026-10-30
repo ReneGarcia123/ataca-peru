@@ -6,7 +6,7 @@ const eventMapping = {
     descripcion:
       "Conoce el recorrido de Yo Corro por los Niños 2026.",
 
-    wikilocUrl: "https://es.wikiloc.com/wikiloc/embedv2.do?id=287448958&elevation=off&images=on&maptype=H",
+    wikilocUrl: "https://es.wikiloc.com/wikiloc/embedv2.do?id=293825662&elevation=off&images=on&maptype=H",
 
     proximamente: false
   },
