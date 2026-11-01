@@ -19,8 +19,8 @@ const eventCategories = {
     titulo_categorias: "Categorías:",
 
     categorias: [
-      "Damas élite 18 a 34 años",
-      "Varones élite 18 a 34 años",
+      "Damas élite 15 a 34 años",
+      "Varones élite 15 a 34 años",
       "Damas máster 35 a 49 años",
       "Varones máster 35 a 49 años",
       "Damas súper máster 50 años a más",
